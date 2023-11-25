@@ -1,0 +1,54 @@
+/* Reset some default browser styles */
+body,
+h1,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define a common style for form labels */
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Container style */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Input field styles */
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the submit button */
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

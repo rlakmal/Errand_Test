@@ -1,0 +1,14 @@
+* {
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.select-container {
+  margin-top: -12px;
+}

@@ -1,0 +1,13 @@
+.profile-container {
+  margin-left: 30%;
+  min-width: 900px;
+  max-width: 500px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.profile-container2 {
+  margin-left: 30%;
+  min-width: 900px;
+  max-width: 500px;
+  color: rgb(141, 183, 200);
+}
