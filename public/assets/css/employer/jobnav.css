@@ -1,0 +1,73 @@
+/* Reset default styles */
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the navbar */
+.navbar {
+  margin-top: 80px;
+  background-color: #2a3441; /* Background color */
+  width: 300px; /* Set a fixed width for the vertical navbar */
+  height: 100%; /* Fill the entire height of the container */
+  position: fixed; /* Fixed position on the screen */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  padding: 20px;
+}
+
+/* Style the navigation buttons */
+.nav-button {
+  width: 100%; /* Fill the entire width of the navbar */
+  padding: 15px 20px; /* Add some spacing around the text */
+  text-align: left; /* Align text to the left */
+  border: none; /* Remove button borders */
+  background: none; /* Remove background color */
+  color: rgb(0, 0, 0); /* Text color */
+  font-size: 20px; /* Font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color transition on hover */
+  background-color: rgb(173, 165, 219);
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 18px;
+  text-align: center;
+  border: black solid 1px;
+}
+
+.nav-button:hover {
+  background-color: #ffeaea; /* Darker background on hover */
+}
+
+/* Make the navbar responsive */
+@media screen and (max-width: 600px) {
+  .navbar {
+    width: 100%; /* Use full width on small screens */
+  }
+  .nav-button {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+.buttons {
+  padding-top: 70px;
+}
+.title {
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  height: 35px;
+}
+.nav-button.active {
+  background-color: #e1c4b2; /* Change the background color for the active button */
+  color: #000; /* Change the text color for the active button */
+}
+
+.nav-button.active:hover {
+  background-color: #fac198; /* Preserve the background color on hover */
+}

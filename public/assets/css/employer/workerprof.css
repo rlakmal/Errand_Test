@@ -1,0 +1,129 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+}
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.profile-container2 {
+  background-color: #ffffff;
+  width: auto;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  height: auto;
+  position: absolute;
+  border-radius: 20px;
+}
+.picture .image {
+  width: 165px;
+  margin-left: 90px;
+  border-radius: 50%;
+  height: 160px;
+}
+.picture .rates {
+  max-width: 400px;
+}
+
+.edit-gen {
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+.profile-type {
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+
+.job-count {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+}
+.location {
+  font-size: 20px; /* Adjust the font size to make it readable */
+  color: black;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+}
+.view-profile-button {
+  float: right;
+  background-color: #ff7f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-top: -40px;
+}
+.index {
+  margin-top: -400px;
+  margin-left: 500px;
+}
+.index_edit {
+  margin-top: -400px;
+  margin-left: 500px;
+}
+.main-container3 {
+  margin-left: 400px;
+  min-width: 900px;
+  max-width: 500px;
+  margin-top: 120px;
+  margin-bottom: 10px;
+}
+.index input {
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  min-width: 400px;
+  outline: none;
+}
+
+.index_edit input {
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  border: 01px solid gray;
+  min-width: 400px;
+}
+
+/* input:focus {
+ outline: none !important;
+
+} */
+
+.edit-gen-skill {
+  height: 150px;
+}
+
+.select-container {
+  position: fixed;
+  top: 92px;
+  left: 0;
+  z-index: 10;
+}
+.gsc {
+  margin-left: 20px;
+}
+.close-button {
+  float: right;
+  top: 10px;
+  right: 10px;
+  border-radius: 20px;
+  background-color: #ff7f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

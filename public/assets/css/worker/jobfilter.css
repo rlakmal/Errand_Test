@@ -1,0 +1,61 @@
+/* Style for the container */
+.select-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 320px;
+  background-color: #2a3441;
+  font-size: 19px;
+  height: 100%;
+  position: fixed;
+}
+
+/* Style for the search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #ff904b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f7b893;
+}
+
+/* Style for labels and select elements */
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+select {
+  width: 275px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for option elements in the select */
+select option {
+  padding: 10px;
+}
+label {
+  color: white;
+  padding-bottom: 30px;
+}

@@ -1,0 +1,457 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.maincontainer {
+  margin-top: 70px;
+}
+.two-content-div {
+  display: flex;
+  column-gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 60vh;
+  padding: 1.5%;
+}
+.content-div-img {
+  display: flex;
+  align-items: center;
+  width: 30vw;
+}
+
+.single-content-div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 60vh;
+  /* padding: 1.5%; */
+}
+
+.single-content-div.center {
+  justify-content: center;
+}
+
+.single-content-div.title {
+  min-height: fit-content;
+}
+
+.colomn-content-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-height: 60vh;
+  padding: 1.5%;
+  gap: 30px;
+}
+
+.colomn-content-div.options {
+  align-items: flex-start;
+}
+
+.home-first-content {
+  line-height: 79px;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  width: auto;
+  height: 80vh;
+  background: url("../../images/signin-up/painter.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.home-first-content .title {
+  font-size: 90px;
+}
+.home-first-content .first_letter {
+  font-size: 153px;
+  color: #f16a2d;
+  font-weight: bold;
+}
+
+.home-first-content span {
+  font-size: 60px;
+  font-weight: 300;
+  /* background: linear-gradient(90deg, #ffffff, #ffffff00); */
+  font-weight: bolder;
+}
+
+.home-first-content .button-reg {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  width: 300px;
+  height: 70px;
+  font-weight: 200;
+}
+
+.home-buttons {
+  width: 462px;
+  height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #000000; */
+}
+
+.home-first-content .button-hire {
+  margin-left: 17px;
+  background-color: #f16a2d;
+  color: #fff;
+  font-size: 20px;
+  width: 300px;
+  height: 70px;
+  font-weight: 200;
+}
+
+.button-reg {
+  background-color: white;
+  color: black; /* Assuming black text on white background */
+  transition: background-color 0.3s, color 0.3s; /* Adding transition for smooth color change */
+}
+
+.button-hire {
+  background-color: #f16a2d;
+  color: #fff; /* Assuming white text on orange background */
+  transition: background-color 0.3s, color 0.3s; /* Adding transition for smooth color change */
+}
+
+.home-buttons:hover .button-reg {
+  background-color: #f16a2d;
+  color: #fff; /* Change text to white when home-buttons is hovered */
+}
+
+.home-buttons:hover .button-hire {
+  background-color: #fff;
+  color: black; /* Change text to black when home-buttons is hovered */
+}
+
+.home-first-content .button-hire:hover {
+  background-color: #ffffff;
+  color: #2a3441;
+  text-decoration: underline;
+  transform: scale(1.05);
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.793);
+}
+
+.home-first-content .button-reg:hover {
+  background-color: #f16a2d;
+  color: #fff;
+  text-decoration: underline;
+  transform: scale(1.05);
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.793);
+}
+
+.home-first-content .button-hire:hover + .home-first-content .button-reg {
+  background-color: #f16a2d;
+  color: #fff;
+}
+
+span {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+span.title {
+  font-weight: bold;
+  font-size: 60px;
+}
+span.title::first-letter {
+  color: #f06a66;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+span.subtitle {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.two-content-div-form {
+  border: 1px solid #f16a2d;
+  padding: 2% 2%;
+  width: 30%;
+  background-color: #f16a2d;
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
+  border-radius: 25px;
+  color: #fff;
+}
+
+.info {
+  border-color: #fff;
+  border-radius: 2px;
+  padding: 16px;
+  height: 40px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.contact-button {
+  background-color: #2a3441;
+  color: #fff;
+  border-radius: 25px;
+
+  height: 27px;
+  width: 60px;
+  cursor: pointer;
+}
+/* 
+.contact-button :hover{
+background-color: #ee8452;
+} */
+
+.contact-button :hover {
+  text-decoration: underline;
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
+  background-color: #fff;
+  transform: scale(1.2);
+  color: #2a3441;
+}
+
+.single-content-div-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 2% 2%;
+  width: 80%;
+}
+
+form {
+  line-height: 50px;
+}
+
+button {
+  background-color: #f4af92;
+  color: #000000;
+  border: 0px;
+  height: 20px;
+  max-width: 220px;
+  width: fit-content;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.button:hover {
+  font-weight: bold;
+  background-color: #ece1e1;
+  color: #000000;
+  border: 0px;
+  height: 30px;
+  width: fit-content;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.single-content-div-form form input,
+.single-content-div-form form select,
+.two-content-div-form form input,
+.two-content-div-form form select {
+  width: 100%;
+}
+
+.two-content-div-form form input.input-with-button {
+  width: 80%;
+  margin-right: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.button-with-input {
+  background-color: #f06a66;
+  color: #000000;
+  border: 0px;
+  height: 30px;
+  min-width: 30px;
+  width: fit-content;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form input,
+form select {
+  height: 30px;
+}
+
+form input[type="submit"] {
+  width: fit-content;
+}
+
+.drop-down-list {
+  height: 30px;
+  width: 100%;
+}
+
+.form-display-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1.5%;
+}
+
+.form-display-table table th {
+  border: 1px solid black;
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.form-display-table table td {
+  padding: 1% 1%;
+  height: 20px;
+  width: 250px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(5px); */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  /* padding: 2%; */
+}
+
+.report-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 1.5%;
+}
+
+.report-table td {
+  /* border:1px solid black; */
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.report-table table {
+  line-height: 40px;
+  width: 100%;
+}
+
+.receipt-table {
+  gap: 30px;
+  width: auto;
+  height: fit-content;
+}
+
+.receipt-table th {
+  border: 1px solid black;
+  height: 30px;
+  width: 150px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.receipt-table .total {
+  border-bottom-style: double;
+  border-top-style: double;
+  text-align: right;
+}
+
+.receipt-table .price {
+  text-align: right;
+}
+
+.error-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 5%;
+  min-height: 60vh;
+  padding: 1.5%;
+  gap: 30px;
+}
+.error-div button {
+  font-size: 26px;
+  width: 200px;
+  height: 60px;
+  font-weight: 200;
+}
+
+.error-div button:hover {
+  font-size: 26px;
+  width: 200px;
+  height: 60px;
+  font-weight: bold;
+}
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+/* ... Your existing styles ... */
+
+@media screen and (max-width: 530px) {
+  .maincontainer {
+    margin-top: 30px;
+    height: auto;
+    max-width: 550px;
+    overflow: hidden;
+  }
+
+  .two-content-div,
+  .single-content-div,
+  .colomn-content-div {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .two-content-div-form {
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+  .two-content-div-form .subtitle {
+    font-size: 35px;
+  }
+
+  .home-first-content {
+    max-width: 100%;
+  }
+
+  .home-first-content .title {
+    font-size: 80px;
+  }
+
+  .home-first-content .first_letter {
+    font-size: 90px;
+  }
+
+  .home-first-content span {
+    font-size: 25px;
+  }
+
+  .home-first-content .button-reg,
+  .home-first-content .button-hire {
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+  }
+  .two-content-div .title {
+    font-size: 30px;
+  }
+}
