@@ -7,12 +7,12 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     // define('DBHOST', 'localhost');
 
     define('DBHOST', 'localhost:3306');
-    define('DBNAME', 'errand');
+    define('DBNAME', 'errandxn');
     define('DBUSER', 'root');
     define('DBPASS', '');
     define('DBDRIVER', '');
 
-    define('ROOT', 'http://localhost/Group-project/public');
+    define('ROOT', 'http://localhost/Errand_Test/public');
     define('PUBROOT', dirname(dirname(dirname(__FILE__))) . '/public');
 } else {
 
