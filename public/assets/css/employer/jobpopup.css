@@ -146,7 +146,8 @@ table tbody tr.active-row {
 }
 
 .popup-view,
-.popup-report ,.popup-edit{
+.popup-report,
+.popup-edit {
   position: absolute;
   height: fit-content;
   width: 44%;
@@ -165,14 +166,16 @@ table tbody tr.active-row {
 }
 
 .open-popup-view,
-.open-popup-report, .popup-edit .open-popup-edit {
+.open-popup-report,
+.popup-edit .open-popup-edit {
   position: fixed;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
   z-index: 101;
 }
 
-.popup-report  h2 ,.popup-view h2 {
+.popup-report h2,
+.popup-view h2 {
   text-align: center;
   padding-top: 2%;
   padding-bottom: 4%;
@@ -180,13 +183,15 @@ table tbody tr.active-row {
   font-weight: bold;
 }
 
-.popup-report h4  ,.popup-view h4{
+.popup-report h4,
+.popup-view h4 {
   text-align: left;
   padding-left: 10%;
   padding-bottom: 2%;
 }
 
-.popup-report input ,.popup-view input{
+.popup-report input,
+.popup-view input {
   position: relative;
   left: 9%;
   min-width: 500px;
@@ -202,7 +207,8 @@ table tbody tr.active-row {
   font-size: 17px;
 }
 
-.popup-report .btns ,.popup-view .btns{
+.popup-report .btns,
+.popup-view .btns {
   position: relative;
   left: 40%;
   width: 50%;
@@ -212,7 +218,8 @@ table tbody tr.active-row {
   align-items: center;
 }
 
-.popup-report .close-btn, .popup-view .close-btn,
+.popup-report .close-btn,
+.popup-view .close-btn,
 .cancelR-btn {
   position: absolute;
   right: 1%;
@@ -226,7 +233,8 @@ table tbody tr.active-row {
   background: var(--red);
 }
 
-.popup-report .cancelR-btn , .cancelR-btn {
+.popup-report .cancelR-btn,
+.cancelR-btn {
   right: 28%;
   background: var(--blue);
 }
