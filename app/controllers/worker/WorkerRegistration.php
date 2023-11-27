@@ -9,7 +9,6 @@ class WorkerRegistration extends Controller
 
         // // sign up validation
         if (isset($_POST['worker_register'])) {
-            show($_POST);
 
             //     if ($user->validate($_POST)) {
             $temp_category = $_POST['category'];
@@ -46,12 +45,7 @@ class WorkerRegistration extends Controller
             unset($_POST['email']);
             unset($_POST['password']);
             unset($_POST['status']);
-
-            //$_POST['worker_id'] = $user->getLastInsertId();
-
-
-            //show($_POST);
-            $worker->insert($_POST);
+            //$worker->insert($_POST);
 
             redirect('home');
         }

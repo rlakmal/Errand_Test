@@ -4,12 +4,12 @@
 <head>
   <title>Painter Profile</title>
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/workerprof.css">
+  <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
 </head>
 
 <body>
   <?php include 'employernav.php' ?>
   <?php include 'empfilter.php' ?>
-  <?php include 'requestpopup.php' ?>
 
 
   <?php
@@ -20,7 +20,7 @@
       <div class="main-container3">
         <div class="profile-container2">
           <a href="<?= ROOT ?>/employer/services"><button class="close-button">Close</button></a>
-          <button onclick="openReport()" class="close-button">Request</button>
+          <button onclick="openRequest()" class="close-button">Request</button>
           <div class="picture">
             <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
           </div>
@@ -77,6 +77,26 @@
     }
   }
   ?>
-
+  <div class="popup-view">
+    <form method="POST">
+      <h2>Send Job Request</h2>
+      <h4>Job Title : </h4>
+      <input name="title" type="text" placeholder="Enter Tiltle of the Job">
+      <h4>Budget : </h4>
+      <input name="budget" type="text" placeholder="Enter your Budget">
+      <h4>Location : </h4>
+      <input name="city" type="text" placeholder="Select Location">
+      <h4>Description : </h4>
+      <input name="description" type="text" placeholder="Enter your problem">
+      <div class="btns">
+        <button type="button" class="cancelR-btn" onclick="closeRequest()">Cancel</button>
+        <button name="reqWorker" type="submit" value="POST" class="close-btn" onclick="closeRequest()">Submit </button>
+      </div>
+    </form>
+  </div>
+  <div id="overlay2" class="overlay"></div>
 
 </body>
+<script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
+
+</html>
