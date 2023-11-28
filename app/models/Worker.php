@@ -14,5 +14,6 @@ class Worker
 		'created',
 		'name',
 		'city',
+		'email',
 	];
 }

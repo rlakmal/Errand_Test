@@ -32,8 +32,6 @@ class WorkerRegistration extends Controller
             $hash = password_hash($password, PASSWORD_BCRYPT);
             $_POST['password'] = $hash;
 
-            //show($_POST);
-
             $user->insert($_POST);
             $_POST['category'] = $temp_category;
             $_POST['gender'] = $temp_gender;
@@ -42,10 +40,8 @@ class WorkerRegistration extends Controller
             unset($_POST['address']);
             // unset($_POST['city']);
             unset($_POST['dob']);
-            unset($_POST['email']);
             unset($_POST['password']);
-            unset($_POST['status']);
-            //$worker->insert($_POST);
+            $worker->insert($_POST);
 
             redirect('home');
         }
