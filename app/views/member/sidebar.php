@@ -12,14 +12,14 @@
                 <span class="tooltip">DashBoard</span>
             </li>
             <li>
-                <a href="<?= ROOT ?>/admin/workers">
+                <a href="<?= ROOT ?>/member/workers">
                     <i class="bx bxs-hard-hat"></i>
                     <span class="link_name">Workers</span>
                 </a>
                 <span class="tooltip">Workers</span>
             </li>
             <li>
-                <a href="<?= ROOT ?>/admin/employers">
+                <a href="<?= ROOT ?>/member/employers">
                     <i class="bx bxs-user-detail"></i>
                     <span class="link_name">Users</span>
                 </a>
