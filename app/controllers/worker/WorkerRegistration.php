@@ -9,7 +9,6 @@ class WorkerRegistration extends Controller
 
         // // sign up validation
         if (isset($_POST['worker_register'])) {
-            show($_POST);
 
             //     if ($user->validate($_POST)) {
             $temp_category = $_POST['category'];
@@ -33,8 +32,6 @@ class WorkerRegistration extends Controller
             $hash = password_hash($password, PASSWORD_BCRYPT);
             $_POST['password'] = $hash;
 
-            //show($_POST);
-
             $user->insert($_POST);
             $_POST['category'] = $temp_category;
             $_POST['gender'] = $temp_gender;
@@ -43,14 +40,7 @@ class WorkerRegistration extends Controller
             unset($_POST['address']);
             // unset($_POST['city']);
             unset($_POST['dob']);
-            unset($_POST['email']);
             unset($_POST['password']);
-            unset($_POST['status']);
-
-            //$_POST['worker_id'] = $user->getLastInsertId();
-
-
-            //show($_POST);
             $worker->insert($_POST);
 
             redirect('home');

@@ -1,10 +1,8 @@
 <?php
 
-namespace models;
-
 class Workerrequest
 {
-    use \Model;
+    use Model;
     protected $table = "request";
 
     public $errors1 = [];

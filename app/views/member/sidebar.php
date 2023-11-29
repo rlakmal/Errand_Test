@@ -5,7 +5,7 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="<?= ROOT ?>/member/home">
+                <a href="<?= ROOT ?>/admin/home">
                     <i class="bx bxs-grid-alt"></i>
                     <span class="link_name">DashBoard</span>
                 </a>
@@ -58,7 +58,7 @@
                 <div class="profile_details">
                     <img src="<?= ROOT ?>/assets/images/manager/elon_musk.jpg" alt="profile image">
                     <div class="profile_content">
-                        <div class="name">member 1</div>
+                        <div class="name">Admin 1</div>
                     </div>
                 </div>
                 <a href="<?= ROOT ?>/home">
