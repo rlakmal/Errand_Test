@@ -13,6 +13,20 @@ CREATE VIEW emp_post AS
     ORDER BY job.created;
 
 
+
+CREATE VIEW workers_from_emp AS
+    SELECT
+    employer.id as emp_id,
+    employer.name as name,
+    worker.category as category,
+    worker.city as city,
+    worker.id as worker_id,
+    worker.created as created
+    FROM worker INNER JOIN employer
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
+
+
 CREATE VIEW Ticket_Note AS
     SELECT
     ticket.title as title,
