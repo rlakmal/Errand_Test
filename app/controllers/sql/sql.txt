@@ -15,7 +15,7 @@ CREATE VIEW emp_post AS
 
 
 CREATE VIEW workers_from_emp AS
-    SELECT 
+    SELECT
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -26,3 +26,15 @@ CREATE VIEW workers_from_emp AS
     ON worker.email = employer.email
     WHERE employer.status = worker.status
 
+
+CREATE VIEW Ticket_Note AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    note.body as note_body,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    note.id as note_id
+    FROM ticket INNER JOIN note
+    ON note.ticket = ticket.id
