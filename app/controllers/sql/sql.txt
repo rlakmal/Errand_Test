@@ -11,3 +11,16 @@ CREATE VIEW emp_post AS
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
+
+
+CREATE VIEW Ticket_Note AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    note.body as note_body,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    note.id as note_id
+    FROM ticket INNER JOIN note
+    ON note.ticket = ticket.id

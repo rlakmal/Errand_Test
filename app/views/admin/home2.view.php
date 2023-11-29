@@ -21,28 +21,45 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>Data</h2>
-    <form>
-        <div class="form">
-            <input class="form-group" type="text" placeholder="Search...">
-            <i class='bx bx-search icon'></i>
-            <input class="new-btn" type="button" onclick="openNew()" value="+ New ">
-            <input class="btn" type="button" onclick="openReport()" value="Report Problem">
-        </div>
-    </form>
+    <div class="scrollable-content">
+        <h2>Data</h2>
+        <form>
+            <div class="form">
+                <input class="form-group" type="text" placeholder="Search...">
+                <i class='bx bx-search icon'></i>
+                <input class="new-btn" type="button" onclick="openNew()" value="+ New ">
+                <input class="btn" type="button" onclick="openReport()" value="Report Problem">
+            </div>
+        </form>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th class="ordId">Total Workers</th>
-            <th class="desc">Categories</th>
-            <th class="stth">Current Week</th>
-            <th class="cost">Profit</th>
-            <th></th>
-        </tr>
-        </thead>
-    </table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th class="ordId">Total Workers</th>
+                <th class="desc">Categories</th>
+                <th class="stth">Current Week</th>
+                <th class="cost">Profit</th>
+                <th></th>
+            </tr>
+            </thead>
+        </table>
+        <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+            <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+            <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+            <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+            <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
+    </div>
 </section>
 
 <!-- POPUP -->
@@ -68,7 +85,8 @@
     <div class="status">
         <ul>
             <li>
-                <iconify-icon icon="streamline:interface-time-stop-watch-alternate-timer-countdown-clock"></iconify-icon>
+                <iconify-icon
+                        icon="streamline:interface-time-stop-watch-alternate-timer-countdown-clock"></iconify-icon>
                 <div class="progress one">
                     <i class="uil uil-check"></i>
                 </div>
@@ -91,23 +109,12 @@
 </div>
 <div id="overlay" class="overlay"></div>
 
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
 <style>
+    .scrollable-content {
+        max-height: calc(100vh - 120px); /* Adjust based on your layout */
+        overflow-y: auto;
+    }
+
     .chart-container {
         width: 45%;
         height: 400px;
@@ -136,8 +143,12 @@
             datasets: [{
                 label: 'Job Distribution',
                 data: [30, 20, 15, 35],
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
-                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
                 borderWidth: 1
             }]
         };

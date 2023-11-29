@@ -140,7 +140,6 @@
 </head>
 
 <body>
-<script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
 
 <!-- Sidebar -->
 <?php include 'sidebar.php' ?>
@@ -148,6 +147,53 @@
 <?php include 'navigationbar.php' ?>
 <!-- Scripts -->
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script>
+    console.log("customer-orders.js is loaded");
+    // rest of your code...
+
+    let overlay = document.getElementById("overlay");
+    let popupReport = document.querySelector(".popup-report");
+    let popupView = document.querySelector(".popup-view");
+
+    function openView(button) {
+        const itemData = button.getAttribute("data-order");
+        console.log(itemData);
+        const data = JSON.parse(itemData);
+
+        dataBindtoForm(data);
+
+        popupView.classList.add("open-popup-view");
+        overlay.classList.add("overlay-active");
+    }
+
+    function closeView() {
+        popupView.classList.remove("open-popup-view");
+        overlay.classList.remove("overlay-active");
+    }
+
+    function openReport() {
+        popupReport.classList.add("open-popup-report");
+        overlay.classList.add("overlay-active");
+    }
+
+    function closeReport() {
+        popupReport.classList.remove("open-popup-report");
+        overlay.classList.remove("overlay-active");
+    }
+
+    // edit form for bind that data
+    function dataBindtoForm(data) {
+        // Update the following lines based on your actual form structure
+        document.querySelector('.popup-view input[name="id"]').value = data.id;
+        document.querySelector('.popup-view input[name="title"]').value = data.title;
+        document.querySelector('.popup-view input[name="body"]').value = data.body;
+        document.querySelector('.popup-view input[name="employer"]').checked = data.employer;
+        document.querySelector('.popup-view input[name="worker"]').checked = data.worker;
+    }
+
+</script>
 
 <!-- content  -->
 <section id="main" class="main">
@@ -180,7 +226,6 @@
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
-                show($item);
                 ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
@@ -225,7 +270,7 @@
         <input name="worker" type="checkbox">
         <div class="btns">
             <button type="button" class="cancelR-btn" onclick="closeReport()">Cancel</button>
-            <button type="submit" name="announcement" value="Submit" class="close-btn">Submit</button>
+            <button type="submit" name="announcement" value="Submit" class="close-btn" onclick="closeReport()">Submit</button>
         </div>
     </form>
 </div>
@@ -244,36 +289,16 @@
         <input name="worker" type="checkbox">
         <div class="btns">
             <button type="button" class="cancelR-btn" onclick="closeView()">Cancel</button>
-            <button type="submit" name="announcement" value="Submit" class="close-btn">Submit</button>
+            <button type="submit" name="announcement" value="Submit" class="close-btn" onclick="closeView()">Submit</button>
         </div>
     </form>
 </div>
 
 <div id="overlay" class="overlay"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script>
-    // function openReport() {
-    //     document.querySelector('.popup-report').style.display = 'flex';
-    //     document.querySelector('.overlay').style.display = 'block';
-    // }
-    //
-    // function closeReport() {
-    //     document.querySelector('.popup-report').style.display = 'none';
-    //     document.querySelector('.overlay').style.display = 'none';
-    // }
-    //
-    // function openView(element) {
-    //     document.querySelector('.popup-view').style.display = 'flex';
-    //     document.querySelector('.overlay').style.display = 'block';
-    // }
-    //
-    // function closeView() {
-    //     document.querySelector('.popup-view').style.display = 'none';
-    //     document.querySelector('.overlay').style.display = 'none';
-    // }
-</script>
+
+<!--<script src="--><?php //= ROOT ?><!--/assets/js/customer/customer-orders.js"></script>-->
+
 </body>
 
 </html>
