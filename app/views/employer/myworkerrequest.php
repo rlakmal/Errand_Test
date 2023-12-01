@@ -100,24 +100,7 @@
 </head>
 
 <body>
-    <div class="post-container">
-        <div class="profile-container2">
-            <div class="picture">
-                <img class="image" src="<?=ROOT?>/assets/images/employer/profile.jpg" alt="">
-            </div>
-            <div class="index">
-                <div class="profile-name">Your Post -ජලනල කාර්මිකයෙකු අවශ්‍යයි</div>
-                <div class="profile-ratings">2 hrs ago</div>
-                <div class="profile-type">Request To - Amila Perera</div>            
-                <div class="budget">Budget-RS 3500/= per day</div>
-                <div class="location">Kadawatha</div>
-                
-            </div>
-            <a></a><button class="view-profile-button">Pending</button></a>
-            <a href="<?= ROOT ?>/employer/workerprof"><button class="worker-profile-button">Worker Profile</button></a>
-            
-        </div>
-    </div>
+    
 </body>
 
 </html>
