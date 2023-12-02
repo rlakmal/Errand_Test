@@ -1,0 +1,53 @@
+CREATE VIEW emp_post AS
+    SELECT
+    job.jobTitle as title,
+    job.city as city,
+    job.budget as budget,
+    job.created as job_created,
+    employer.name as name,
+    employer.id as emp_id,
+    employer.profile_image as profile_image,
+    job.id as job_id
+    FROM job INNER JOIN employer
+    ON job.emp_id = employer.id
+    ORDER BY job.created;
+
+
+
+CREATE VIEW workers_from_emp AS
+    SELECT
+    employer.id as emp_id,
+    employer.name as name,
+    worker.category as category,
+    worker.city as city,
+    worker.id as worker_id,
+    worker.created as created
+    FROM worker INNER JOIN employer
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
+
+
+CREATE VIEW Ticket_Note AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    note.body as note_body,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    note.id as note_id
+    FROM ticket INNER JOIN note
+    ON note.ticket = ticket.id
+
+
+CREATE VIEW Ticket_Employer AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    employer.status as status,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    ticket.user as user
+    FROM ticket LEFT JOIN note
+    ON ticket.user = employer.id
