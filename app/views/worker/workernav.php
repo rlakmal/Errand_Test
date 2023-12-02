@@ -32,6 +32,7 @@
                         <a href="<?= ROOT ?>/worker/myjobs">My Jobs</a>
                         <a href="<?= ROOT ?>/worker/messages">Message</a>
                         <a href="<?= ROOT ?>/worker/workerprofile">Profile</a>
+                        <a href="<?= ROOT ?>/worker/tickets">Tickets</a>
                         <a href="<?= ROOT ?>/home">LogOut</a>
                     </div>
                 </div>

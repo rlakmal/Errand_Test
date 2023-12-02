@@ -38,3 +38,16 @@ CREATE VIEW Ticket_Note AS
     note.id as note_id
     FROM ticket INNER JOIN note
     ON note.ticket = ticket.id
+
+
+CREATE VIEW Ticket_Employer AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    employer.status as status,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    ticket.user as user
+    FROM ticket LEFT JOIN note
+    ON ticket.user = employer.id

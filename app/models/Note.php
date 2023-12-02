@@ -11,7 +11,7 @@ class Note
     protected $table = 'note';
 
     protected $allowedCloumns = [
-        'ticket',
+        'ticket_no',
         'body'
 
     ];
