@@ -1,7 +1,6 @@
 <?php
 
 
-use Model;
 
 class Ticket
 {
@@ -12,7 +11,8 @@ class Ticket
     protected $allowedCloumns = [
         'title',
         'description',
-        'archived'
+        'archived',
+        'user'
 
     ];
 }

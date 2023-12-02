@@ -46,6 +46,7 @@
                         <a class="bttn" onclick="openReport()">Post Job</a>
                         <a href="<?= ROOT ?>/employer/message">Message</a>
                         <a href="<?= ROOT ?>/employer/profile">Profile</a>
+                        <a href="<?= ROOT ?>/employer/tickets">Tickets</a>
                         <a href="<?= ROOT ?>/home">LogOut</a>
                     </div>
                 </div>

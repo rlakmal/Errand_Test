@@ -2,8 +2,8 @@
 
 //namespace controllers\Member;
 
-use Ticket;
-use Controller;
+//use Ticket;
+//use Controller;
 
 class Tickets extends Controller
 {
