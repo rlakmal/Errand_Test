@@ -24,6 +24,7 @@ class SignIn extends Controller
                 $_POST['profile_image'] = 'prof.png';
 
                 $user->insert($_POST);
+
                 redirect('home/signin');
             }
         }

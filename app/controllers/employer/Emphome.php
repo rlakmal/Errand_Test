@@ -23,7 +23,6 @@ class Emphome extends Controller
                 if (isset($_POST['postJob'])) {
 
                     // data validation 
-
                     unset($_POST['postJob']);
                     $emp_id = $_SESSION['USER']->id;
                     $emp_name = $_SESSION['USER']->name;

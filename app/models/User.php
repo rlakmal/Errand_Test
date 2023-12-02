@@ -112,10 +112,10 @@ class User
 			return false;
 		}
 	}
-	// public function getLastInsertId()
-	// {
-	// 	$con = $this->connect();
-	// 	return $con->lastInsertId();
-
-	// }
+	public function getLastInsertId()
+	{
+		$string = "mysql:host=" . DBHOST . ";dbname=" . DBNAME;
+		$con = new PDO($string, DBUSER, DBPASS);
+		return $con->lastInsertId();
+	}
 }
