@@ -26,3 +26,4 @@ CREATE VIEW workers_from_emp AS
     ON worker.email = employer.email
     WHERE employer.status = worker.status
 
+
