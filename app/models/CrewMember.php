@@ -9,9 +9,10 @@ class CrewMember
 
     protected $allowedCloumns = [
         'name',
-        'username',
+        'email',
         'password',
-        'status'
+        'status',
+        'emp_id',
 
     ];
 }

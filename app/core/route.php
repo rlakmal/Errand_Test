@@ -67,3 +67,9 @@ route('admin/adreports', 'admin/AdReports@index');
 route('member/home', 'member/AdHome@index');
 route('member/workers', 'member/WorkersList@index');
 route('member/tickets', 'member/Ticket@index');
+
+
+/*---------------------------------------------------------------------
+    crew member routes
+--------------------------------------------------------------------- */
+route('crewMember/home', 'crewMember/CrewHome@index');
