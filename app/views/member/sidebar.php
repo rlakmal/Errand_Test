@@ -5,14 +5,14 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="<?= ROOT ?>/admin/home">
+                <a href="<?= ROOT ?>/member/home">
                     <i class="bx bxs-grid-alt"></i>
                     <span class="link_name">DashBoard</span>
                 </a>
                 <span class="tooltip">DashBoard</span>
             </li>
             <li>
-                <a href="<?= ROOT ?>/member/workers">
+                <a href="<?= ROOT ?>/member/workerslist">
                     <i class="bx bxs-hard-hat"></i>
                     <span class="link_name">Workers</span>
                 </a>
@@ -39,13 +39,13 @@
 <!--                </a>-->
 <!--                <span class="tooltip">Notifications</span>-->
 <!--            </li>-->
-<!--            <li>-->
-<!--                <a href="--><?php //= ROOT ?><!--/admin/adreports">-->
-<!--                    <i class="bx bxs-report"></i>-->
-<!--                    <span class="link_name">Reports</span>-->
-<!--                </a>-->
-<!--                <span class="tooltip">Reports</span>-->
-<!--            </li>-->
+            <li>
+                <a href="<?= ROOT ?>/member/tickets">
+                    <i class="bx bxs-report"></i>
+                    <span class="link_name">Tickets</span>
+                </a>
+                <span class="tooltip">Tickets</span>
+            </li>
 <!--            <li>-->
 <!--                <a href="#">-->
 <!--                    <i class="bx bxs-user-circle"></i>-->
@@ -61,7 +61,7 @@
                         <div class="name">Admin 1</div>
                     </div>
                 </div>
-                <a href="<?= ROOT ?>/home">
+                <a href="<?= ROOT ?>/home/signout">
                     <i class="bx bx-log-out" id="log_out"></i>
                     <span class="link_name">Logout</span>
                 </a>

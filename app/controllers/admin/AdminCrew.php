@@ -8,10 +8,11 @@ class AdminCrew extends Controller
 
         if ($username != 'User' && isset($_SESSION['USER']->status) && $_SESSION['USER']->status == 'admin') {
             $member = new CrewMember;
+            $user = new User;
 
             if (isset($_POST['memberRegister'])) {
                 show($_POST);
-                $this->handleMemberRegistration($_POST, $member);
+                $this->handleMemberRegistration($_POST, $member, $user);
             }
 
             $result = $member->findAll('id');
@@ -35,14 +36,23 @@ class AdminCrew extends Controller
         }
     }
 
-    private function handleMemberRegistration($postData, $member)
+    private function handleMemberRegistration($postData, $member, $user)
     {
         unset($postData['memberRegister']);
-        $postData['status'] = 'crew_member';
-        $postData['active'] = 1;
         $password = $_POST['password'];
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $postData['password'] = $hash;
+        $postData['status'] = 'crew_member';
+        $postData["email"] = $postData["username"];
+        unset($postData["username"]);
+        $postData['is_active'] = 1;
+
+        $user->insert($postData);
+        unset($postData["is_active"]);
+        $postData["username"] = $postData["email"];
+        unset($postData["email"]);
+        $postData['active'] = 1;
+
         $member->insert($postData);
         redirect('admin/admincrew');
     }

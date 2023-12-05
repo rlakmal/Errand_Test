@@ -51,3 +51,17 @@ CREATE VIEW Ticket_Employer AS
     ticket.user as user
     FROM ticket LEFT JOIN note
     ON ticket.user = employer.id
+
+CREATE VIEW employer_worker AS
+    SELECT
+    worker.category as category,
+    worker.gender as gender,
+    worker.id as worker_id,
+    worker.created as signedup,
+    worker.name as name,
+    worker.verified as verified,
+    employer.email as username,
+    employer.id as user_id
+    FROM worker LEFT JOIN employer
+    ON job.emp_id = employer.id
+    ORDER BY job.created;

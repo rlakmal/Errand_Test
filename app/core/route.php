@@ -5,6 +5,7 @@
 route('home', 'Home@index');
 
 route('home/signin', 'SignIn@index');
+route('home/signout', 'SignOut@index');
 route('home/workerreg', 'worker/WorkerRegistration@index');
 
 
@@ -13,6 +14,8 @@ route('home/workerregthree', 'worker/WorkerRegThree@index');
 route('home/workerregfour', 'worker/WorkerRegFour@Index');
 route('home/workerregfive', 'worker/WorkerRegFive@Index');
 route('about', 'about/About@Index');
+
+
 
 /*---------------------------------------------------------------------
     employee routes
@@ -63,9 +66,12 @@ route('admin/adnotification2', 'admin/AdNotification2@index');
 route('admin/adreports', 'admin/AdReports@index');
 
 /*---------------------------------------------------------------------
-    worker routes
+    member routes
 --------------------------------------------------------------------- */
 
-route('member/home', 'member/AdHome@index');
-route('member/workers', 'member/WorkersList@index');
-route('member/tickets', 'member/Ticket@index');
+route('member/home', 'member/home@index');
+route('member/workerslist', 'member/WorkersList@index');
+route('member/tickets', 'member/Tickets@index');
+route('member/ticket', 'member/Ticket@index');
+
+
