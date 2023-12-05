@@ -34,6 +34,7 @@
                         <a href="<?= ROOT ?>/worker/workerprofile">Profile</a>
                         <a href="<?= ROOT ?>/worker/tickets">Tickets</a>
                         <a href="<?= ROOT ?>/home/signout">LogOut</a>
+
                     </div>
                 </div>
             </div>

@@ -32,7 +32,6 @@ route('employer/myworkerreq', 'employer/RequestByME@index');
 route('employer/profile', 'employer/EmployerProfile@index');
 route('employer/editprofile', 'employer/EditProfile@index');
 route('employer/notifications', 'employer/EmpNotification@index');
-route('employer/tickets', 'employer/Tickets@index');
 
 
 
@@ -51,7 +50,6 @@ route('worker/acceptedjobs', 'worker/AcceptedJobs@index');
 route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
-route('worker/tickets', 'worker/Tickets@index');
 
 /*---------------------------------------------------------------------
     admin routes
@@ -74,9 +72,3 @@ route('member/workerslist', 'member/WorkersList@index');
 route('member/tickets', 'member/Tickets@index');
 route('member/ticket', 'member/Ticket@index');
 route('member/workers', 'member/WorkersList@index');
-
-
-///*---------------------------------------------------------------------
-//    crew member routes
-//--------------------------------------------------------------------- */
-//route('crewMember/home', 'crewMember/CrewHome@index');
