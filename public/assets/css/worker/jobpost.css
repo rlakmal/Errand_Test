@@ -1,5 +1,12 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #dddddd;
+}
+
 .picture .image {
-  max-width: 40px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 
 .profile-name {
@@ -56,4 +63,31 @@
 .index {
   margin-top: -50px;
   margin-left: 60px;
+}
+.profile-container1 {
+  background-color: #ffffff;
+  width: 900px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  height: 150px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.post-container {
+  margin-top: 20px;
+  margin-left: 30%;
+}
+.set-margin {
+  margin-top: 92px;
+}
+.post-container :hover {
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
+  border-color: rgba(223, 225, 229, 0);
+  transform: scale(1.02);
+}
+
+.profile-container1 :hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
 }
