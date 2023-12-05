@@ -14,12 +14,18 @@ class Workerprofview extends Controller
             $arr['emp_id'] = $id;
             $result = $this->getData($arr, $worker);
             $data['data'] = $result;
+            if (!empty($data['data'])) {
+                $worker_name = $data['data'][0]->name;
+            }
             if (isset($_POST['reqWorker'])) {
                 unset($_POST['reqWorker']);
                 $emp_id = $_SESSION['USER']->id;
+                $emp_name = $_SESSION['USER']->name;
                 $wkr_id = $id;
                 $_POST['emp_id'] = $emp_id;
+                $_POST['emp_name'] = $emp_name;
                 $_POST['worker_id'] = $wkr_id;
+                $_POST['worker_name'] = $worker_name;
                 $request->insert($_POST);
             }
             $this->view('employer/workerprof', $data);
