@@ -2,9 +2,7 @@
 
 //namespace controllers\Member;
 
-use Controller;
-use models\TicketNote;
-use models\Note;
+
 
 class Ticket extends Controller
 {
@@ -12,19 +10,32 @@ class Ticket extends Controller
     {
         $ticketnote = new TicketNote;
         $note = new Note;
+        $ticket = new Ticket;
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'member') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
 
             if($_SERVER["REQUEST_METHOD"] == "GET"){
-                $qdata["id"] = $_GET["id"];
+                $qdata["ticket_id"] = $_GET["id"];
 
-                $data["data"] = $ticketnote->where($qdata);
+                $data["data"] = $ticketnote->where($qdata, "note_id");
 
                 $this->view('member/ticket', $data);
             }
 
             else {
+                if(isset($_POST["archive"])){
+                    $update_q["archived"] = true;
+                    $ticket->update($_GET["id"], $update_q);
+                    redirect("member/ticket?id=".$_GET["id"]);
+
+                }
+                if(isset($_POST["unarchive"])){
+                    $update_q["archived"] = false;
+                    $ticket->update($_GET["id"], $update_q);
+                    redirect("member/ticket?id=".$_GET["id"]);
+
+                }
                 $data["ticket"] = $_GET["id"];
                 $data["body"] = $_POST["body"];
                 $note->insert($data);

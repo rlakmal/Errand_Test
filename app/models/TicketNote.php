@@ -1,15 +1,12 @@
 <?php
 
 
-namespace models;
-
-use Model;
 
 class TicketNote
 {
     use Model;
 
-    protected $table = 'ticketnote';
+    protected $table = 'ticket_note';
 
     protected $allowedCloumns = [
         "title",
