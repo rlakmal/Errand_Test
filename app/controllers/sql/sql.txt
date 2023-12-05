@@ -1,4 +1,5 @@
 CREATE VIEW emp_post AS
+
     SELECT
     job.jobTitle as title,
     job.city as city,
@@ -15,7 +16,8 @@ CREATE VIEW emp_post AS
 
 
 CREATE VIEW workers_from_emp AS
-    SELECT 
+
+    SELECT
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -25,6 +27,7 @@ CREATE VIEW workers_from_emp AS
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
+
 
 CREATE VIEW Ticket_Note AS
     SELECT
