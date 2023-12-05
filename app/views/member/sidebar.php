@@ -5,14 +5,15 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="<?= ROOT ?>/admin/home">
+                <a href="<?= ROOT ?>/member/home">
                     <i class="bx bxs-grid-alt"></i>
                     <span class="link_name">DashBoard</span>
                 </a>
                 <span class="tooltip">DashBoard</span>
             </li>
             <li>
-                <a href="<?= ROOT ?>/member/workerslist">
+
+                <a href="<?= ROOT ?>/member/workers">
                     <i class="bx bxs-hard-hat"></i>
                     <span class="link_name">Workers</span>
                 </a>
