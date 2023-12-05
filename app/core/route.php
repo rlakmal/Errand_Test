@@ -72,3 +72,9 @@ route('member/workerslist', 'member/WorkersList@index');
 route('member/tickets', 'member/Tickets@index');
 route('member/ticket', 'member/Ticket@index');
 route('member/workers', 'member/WorkersList@index');
+
+/*---------------------------------------------------------------------
+    Crewmember routes
+--------------------------------------------------------------------- */
+
+route('crewMember/home', 'crewMember/crewHome@index');
