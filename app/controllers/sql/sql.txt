@@ -66,6 +66,8 @@ CREATE VIEW employer_worker AS
     ON job.emp_id = employer.id
     ORDER BY job.created;
     worker.id as worker_id
+
     FROM worker INNER JOIN employer
-    ON worker.name = employer.name
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
 
