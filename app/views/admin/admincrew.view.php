@@ -52,12 +52,14 @@
                 if (is_array($data)) {
                     $i = 1;
                     foreach ($data as $item) {
+
                 ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
                             <td><?php echo $item->id; ?></td>
                             <td><?php echo $item->name; ?></td>
-                            <td><?php echo $item->username; ?></td>
+                            <td><?php echo $item->email; ?></td>
+
 
                             <td class="edit-icon"><a type="hidden" data-order=<?= json_encode($item); ?> onclick="openView(this)">
                                     <i class="bx bxs-edit-alt"></i>
@@ -100,8 +102,8 @@
         <form method="POST">
 
             <input name="name" type="text" placeholder="Enter Member name">
-            <h4>Username : </h4>
-            <input name="username" type="text" placeholder="Enter Member email">
+            <h4>Email : </h4>
+            <input name="email" type="text" placeholder="Enter Member email">
             <h4>Password : </h4>
             <input name="password" type="text" placeholder="Enter Member password">
             <div class="btns">
@@ -118,8 +120,8 @@
 
             <h4> name : </h4>
             <input name="name" type="text" placeholder="Enter Member name">
-            <h4>Username : </h4>
-            <input name="username" type="text" placeholder="Enter Member email">
+            <h4>Email : </h4>
+            <input name="email" type="text" placeholder="Enter Member email">
             <h4>Password : </h4>
             <input name="password" type="text" placeholder="Enter Member email">
             <input type="hidden" name="id">
@@ -140,7 +142,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+    <!-- <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script> -->
+    <script src="<?= ROOT ?>/assets/js/admin/crewMembers.js"></script>
+
 </body>
 
 </html>
