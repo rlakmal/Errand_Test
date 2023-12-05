@@ -10,11 +10,11 @@ class Tickets extends Controller
     public function index($a = '', $b = '', $c = '')
     {
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
-        $ticket = new Ticket;
+        $ticket = new TicketUser;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'member') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
 
-            $data["data"] = $ticket->findAll();
+            $data["data"] = $ticket->findAll("ticket_id");
             $this->view('member/tickets',$data);
         } else {
             redirect('home');

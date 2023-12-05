@@ -1,8 +1,7 @@
 <?php
 
 
-namespace models;
-use Model;
+
 
 class Note
 {
