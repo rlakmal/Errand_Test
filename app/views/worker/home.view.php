@@ -63,7 +63,7 @@
 
 
                         </div>
-                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request</button></a>
+                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request Job</button></a>
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
