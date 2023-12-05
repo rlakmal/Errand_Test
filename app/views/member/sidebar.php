@@ -5,7 +5,7 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="<?= ROOT ?>/member/home">
+                <a href="<?= ROOT ?>/admin/home">
                     <i class="bx bxs-grid-alt"></i>
                     <span class="link_name">DashBoard</span>
                 </a>
