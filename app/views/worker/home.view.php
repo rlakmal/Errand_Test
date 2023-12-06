@@ -19,7 +19,6 @@
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {
-
                 date_default_timezone_set('Asia/Kolkata');
                 $date1 = new DateTime($item->job_created);
                 $date2 = new DateTime();
@@ -63,7 +62,7 @@
 
 
                         </div>
-                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">Request Job</button></a>
+                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
