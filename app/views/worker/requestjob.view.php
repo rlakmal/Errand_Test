@@ -30,7 +30,7 @@
     }
 
     .index {
-      margin-top: -200px;
+      margin-top: -290px;
     }
 
     .index div {
@@ -42,49 +42,66 @@
     }
   </style>
 
-  <div class="main-container4">
-    <div class="profile-container3">
+  <?php
+  if ($data) {
+    foreach ($data as $item) {
+  ?>
 
-      <div class="picture">
-        <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
-      </div>
-      <h3 class="emp-name">
-        Dasun Shanaka
-      </h3>
-      <div class="picture">
-        <img class="rates" src="<?= ROOT ?>/assets/images/worker/rates.png" alt="">
-      </div>
+      <div class="main-container4">
+        <div class="profile-container3">
 
-      <div class="index">
+          <div class="picture">
+            <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="">
+          </div>
+          <h3 class="emp-name">
+            <?php echo $item->name  ?>
+          </h3>
+          <div class="picture">
+            <img class="rates" src="<?= ROOT ?>/assets/images/worker/rates.png" alt="">
+          </div>
 
-        <h3>
-          JOb Title
-        </h3>
+          <div class="index">
 
-        <div type="text" name="fullname" value="" class="edit-gen" readonly>තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි</div>
-        <h3>
-          City
-        </h3>
-        <div type="text" name="city" value="" class="edit-gen" readonly>Kadawatha</div>
-        <h3>
-          Address
-        </h3>
-        <div type="text" name="address" value="" class="edit-gen" readonly>27/A, School Road, Kadawatha</div>
-        <h3>
-          Budget
-        </h3>
-        <div type="text" name="birthday" value='' class="edit-gen" readonly>Rs 3500/=</div>
-        <h3>
-          Request Budget
-        </h3>
-        <input type="text" name="birthday" value='' class="edit-gen">
+            <h3>
+              JOb Title
+            </h3>
 
-      </div>
-      <a href="<?= ROOT ?>/worker/home"><button class="close-button">Request</button></a>
-      <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
+            <div type="text" name="fullname" value="" class="edit-gen" readonly><?php echo $item->title  ?></div>
+            <h3>
+              City
+            </h3>
+            <div type="text" name="city" value="" class="edit-gen" readonly><?php echo $item->city ?></div>
+            <h3>
+              Address
+            </h3>
+            <div type="text" name="address" value="" class="edit-gen" readonly><?php echo $item->address ?></div>
+            <h3>
+              Budget
+            </h3>
+            <div type="text" name="birthday" value='' class="edit-gen" readonly>Rs <?php echo $item->budget ?> Per Day</div>
+            <h3>
+              Description
+            </h3>
+            <div type="text" name="birthday" value='' class="edit-gen" readonly><?php echo $item->description ?></div>
+            <h3>
+              Request Budget
+            </h3>
+            <input type="text" name="birthday" value='' class="edit-gen">
+
+          </div>
+          <a href="<?= ROOT ?>/worker/home"><button class="close-button">Request</button></a>
+          <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
 
 
-    </div>
+        </div>
+    <?php
+
+    }
+  }
+
+    ?>
+
+
 </body>
 
 </html>
