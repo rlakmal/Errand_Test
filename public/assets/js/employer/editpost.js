@@ -23,10 +23,8 @@ function closeEdit() {
 function dataBindtoForm(data) {
   // console.log(data);
 
-  document.querySelector('.popup-view input[name="id"]').value =
-    data.id;
-  document.querySelector('.popup-view input[name="jobTitle"]').value =
-    data.jobTitle;
+  document.querySelector('.popup-view input[name="id"]').value = data.id;
+  document.querySelector('.popup-view input[name="title"]').value = data.title;
 
   document.querySelector('.popup-view input[name="budget"]').value =
     data.budget;

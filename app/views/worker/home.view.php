@@ -62,7 +62,7 @@
 
 
                         </div>
-                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request Job</button></a>
+                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">Request Job</button></a>
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
