@@ -11,7 +11,7 @@
   <?php include 'workerfilter.php' ?>
   <style>
     .main-container4 {
-      margin-left: 450px;
+      margin-left: 30%;
       min-width: 900px;
       max-width: 500px;
       margin-top: 120px;
