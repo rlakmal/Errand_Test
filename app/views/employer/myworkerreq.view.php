@@ -13,7 +13,7 @@
 
 <body>
     <?php include 'employernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
         <?php
         if (is_array($data)) {

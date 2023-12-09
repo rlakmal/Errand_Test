@@ -13,7 +13,7 @@
 <body>
 
     <?php include 'employernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'myjobsidebar.php' ?>
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
@@ -95,6 +95,8 @@
     </div>
     <div id="overlay1" class="overlay"></div>
     <script src="<?= ROOT ?>/assets/js/employer/editpost.js"></script>
+    
+
 
 </body>
 
