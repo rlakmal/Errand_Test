@@ -25,7 +25,7 @@ body {
 /* Sidebar */
 .sidebar {
   min-height: 100vh;
-  width: 250px;
+  width: 285px;
   padding: 6px 14px;
   z-index: 99;
   background-color: #2a3441;
@@ -419,6 +419,91 @@ nav .nav-link .nav-link-profile{
     display: block;
   }
 } */
+
+#main {
+  position: fixed;
+  top: 78;
+  width: calc(100% - 250px);
+  height: 100%;
+  left: 250px;
+  transition: all 0.5s ease;
+  z-index: 2;
+  border-radius: 50px;
+}
+
+#main.open {
+  left: 78px;
+  width: calc(100% - 78px);
+}
+
+#main h2 {
+  position: relative;
+  padding: 10px 10px;
+  text-align: center;
+  background: #f4f7fc;
+  padding-bottom: 20px;
+}
+
+#main form {
+  background: #f4f7fc;
+  top: 64px;
+  padding-bottom: 30px;
+  padding-left: 20%;
+}
+
+.form-group {
+  position: relative;
+  left: 3%;
+  width: 20%;
+  background: #d5dfe7d5;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  transition: all 0.3s ease;
+  color: var(--dark);
+}
+
+.form-group:focus {
+  box-shadow: 0 0 0 1px var(--blue), 0 0 0 3px lightslategray;
+}
+
+.form .icon {
+  position: relative;
+  font-size: 20px;
+  top: 12%;
+  /* transform: translateY(-50%); */
+  color: var(--dark);
+}
+
+.btn {
+  position: absolute;
+  background: var(--red);
+  left: 85%;
+  top: 8.5%;
+  padding: 0px 30px;
+}
+
+.view-order-btn {
+  position: relative;
+  background: var(--blue);
+  left: 30%;
+}
+
+.pay-btn {
+  background: var(--red);
+  left: 74%;
+
+  padding: 10px 30px;
+}
+
+.ok-btn {
+  position: absolute;
+  background: var(--blue);
+  left: 85%;
+  top: 93%;
+  padding: 10px 30px;
+}
 
 @media (height <= 500px) {
   .sidebar li.profile {
