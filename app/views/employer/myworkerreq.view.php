@@ -27,7 +27,7 @@
                         </div>
                         <div class="index">
                             <div class="profile-name">My Post - <?php echo $item->title ?></div>
-                            <div class="profile-ratings">2 hrs ago</div>
+                            <div class="profile-ratings"><?php echo $item->created ?></div>
                             <div class="profile-type">Request To - <?php echo $item->worker_name ?></div>
                             <div class="budget">Budget - <?php echo $item->budget ?> /= per day</div>
                             <div class="location"><?php echo $item->city ?></div>
