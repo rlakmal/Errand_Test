@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
     <title>Document</title>
     <style>
-
+        .sidebar {
+            margin-top: -12px;
+        }
     </style>
 </head>
 
