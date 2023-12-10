@@ -1,0 +1,118 @@
+* {
+  font-family: Tahoma, Verdana, sans-serif;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f2f3f4;
+}
+
+.profile-container2 {
+  background-color: #ffffff;
+  width: 900px;
+  box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+  padding: 20px;
+  height: 150px;
+  border-radius: 20px;
+}
+
+.post-container :hover {
+  box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
+  border-color: rgba(223, 225, 229, 0);
+  transform: scale(1.02);
+}
+
+.profile-container2 :hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+}
+
+.location i {
+  color: #2a3441;
+}
+
+.picture .image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+
+.profile-type {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+
+.profile-ratings {
+  font-size: 16px;
+  color: #666;
+}
+
+.budget {
+  font-size: 18px;
+  color: black;
+}
+
+.location {
+  float: right;
+  font-size: 16px;
+  /* Adjust the font size to make it readable */
+  color: black;
+  margin-top: -100px;
+}
+
+.view-profile-button {
+  margin-top: -40px;
+  float: right;
+  background-color: #ff7f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.edit-profile-button {
+  margin-top: -40px;
+  margin-left: 700px;
+  background-color: #ff7f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.index {
+  margin-top: -58px;
+  margin-left: 72px;
+}
+
+.post-container {
+  margin-top: 20px;
+  margin-left: 30%;
+}
+.set-margin {
+  margin-top: 170px;
+}
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

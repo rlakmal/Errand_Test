@@ -4,17 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myjobPost.css">
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
     <title>Errand</title>
+    <style>
+        .sidebar {
+            margin-top: -90px;
+        }
+    </style>
 </head>
+
 
 <body>
     <?php include 'employernav.php' ?>
     <?php include 'myjobsidebar.php' ?>
+    <?php
+    if (is_array($data)) {
+        $len = count($data);
+        $msg = "    You have Posted $len Jobs";
+    } else {
+        $msg = "    You have't any Posted Job Yet";
+    }
+
+    $name = $_SESSION['USER']->name;
+    $first_name = explode(" ", $name);
+
+    ?>
 
     <div class="set-margin" id="set-marginid">
+        <section id="main" class="main">
+            <h2>Hello <?php echo $first_name[0] ?>!! <?php echo $msg ?></h2>
+        </section>
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {
