@@ -31,7 +31,6 @@ body {
   background-color: #2a3441;
   transition: all 0.5s ease;
   position: fixed;
-  margin-top: -12px;
   left: 0;
 }
 
@@ -423,9 +422,9 @@ nav .nav-link .nav-link-profile{
 #main {
   position: fixed;
   top: 78;
-  width: calc(100% - 250px);
-  height: 100%;
-  left: 250px;
+  width: calc(100% - 287px);
+  height: 50px;
+  left: 287px;
   transition: all 0.5s ease;
   z-index: 2;
   border-radius: 50px;
@@ -441,7 +440,7 @@ nav .nav-link .nav-link-profile{
   padding: 10px 10px;
   text-align: center;
   background: #f4f7fc;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 #main form {
