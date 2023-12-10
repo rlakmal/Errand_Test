@@ -19,6 +19,7 @@ class Myjob extends Controller
                 // view employer posted jobs            
                 $result = $jobPost->where($arr, 'job_created');
                 $data['data'] = $result;
+                $length = count($data);
 
 
                 // job delete
@@ -37,7 +38,7 @@ class Myjob extends Controller
                 //throw $th;
             }
 
-            $this->view('employer/myjob', $data);
+            $this->view('employer/myjob', $data, $length);
         } else {
             redirect('home');
         }

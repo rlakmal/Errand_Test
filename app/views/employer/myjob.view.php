@@ -11,9 +11,9 @@
 </head>
 
 <body>
-
     <?php include 'employernav.php' ?>
     <?php include 'myjobsidebar.php' ?>
+
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
@@ -43,6 +43,7 @@
                 } elseif ($seconds_difference == 0) {
                     $times_ago = " Just Now";
                 }
+
         ?>
                 <div class="post-container">
                     <div class="profile-container2">
@@ -95,7 +96,7 @@
     </div>
     <div id="overlay1" class="overlay"></div>
     <script src="<?= ROOT ?>/assets/js/employer/editpost.js"></script>
-    
+
 
 
 </body>
