@@ -1,14 +1,16 @@
 CREATE VIEW emp_post AS
 
     SELECT
+    job.id as id,
+    employer.id as emp_id,
     job.jobTitle as title,
     job.city as city,
     job.budget as budget,
     job.created as job_created,
+    job.description as description,
+    job.address as address,
     employer.name as name,
-    employer.id as emp_id,
-    employer.profile_image as profile_image,
-    job.id as job_id
+    employer.profile_image as profile_image
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
@@ -16,30 +18,23 @@ CREATE VIEW emp_post AS
 
 
 CREATE VIEW workers_from_emp AS
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     SELECT
+<<<<<<< HEAD
 
 =======
-    SELECT 
->>>>>>> 87f1f1a (updated)
-=======
-    SELECT 
->>>>>>> 349ef30 (crew member login)
+
+>>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
     worker.city as city,
-<<<<<<< HEAD
-<<<<<<< HEAD
     worker.id as worker_id,
     worker.created as created
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
 
-<<<<<<< HEAD
 CREATE VIEW Ticket_Note AS
     SELECT
     ticket.title as title,
@@ -83,16 +78,3 @@ CREATE VIEW employer_worker AS
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
-=======
-    worker.id as worker_id
-=======
-    worker.id as worker_id,
-    worker.created as created
->>>>>>> 4f1e905 (employer req worker)
-    FROM worker INNER JOIN employer
-    ON worker.email = employer.email
-    WHERE employer.status = worker.status
-
->>>>>>> 87f1f1a (updated)
-=======
->>>>>>> 349ef30 (crew member login)
