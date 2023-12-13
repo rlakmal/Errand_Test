@@ -27,7 +27,7 @@
                 $days_difference = $interval->days;
                 $hours_difference = $interval->h;
                 $minutes_difference = $interval->i;
-                $seconds_difference = $interval->s;
+                $seconds_difference = $interval-z>s;
 
 
                 if ($days_difference > 0) {
@@ -44,7 +44,8 @@
 
         ?>
                 <div class="post-container">
-                    <div class="profile-container1">
+
+                    <div class="profile-container2">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                         </div>
@@ -62,7 +63,8 @@
 
 
                         </div>
-                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request</button></a>
+
+                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 

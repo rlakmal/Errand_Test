@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
     <title>Document</title>
     <style>
-
+        .sidebar {
+            margin-top: -12px;
+        }
     </style>
 </head>
 
 <body>
     <?php include 'employernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
         <?php
         if (is_array($data)) {
@@ -27,7 +29,7 @@
                         </div>
                         <div class="index">
                             <div class="profile-name">My Post - <?php echo $item->title ?></div>
-                            <div class="profile-ratings">2 hrs ago</div>
+                            <div class="profile-ratings"><?php echo $item->created ?></div>
                             <div class="profile-type">Request To - <?php echo $item->worker_name ?></div>
                             <div class="budget">Budget - <?php echo $item->budget ?> /= per day</div>
                             <div class="location"><?php echo $item->city ?></div>

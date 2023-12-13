@@ -25,8 +25,6 @@ class Emphome extends Controller
                     // data validation 
                     unset($_POST['postJob']);
                     $emp_id = $_SESSION['USER']->id;
-                    $emp_name = $_SESSION['USER']->name;
-                    $_POST['emp_name'] = $emp_name;
                     $_POST['emp_id'] = $emp_id;
                     $jobPost->insert($_POST);
                     redirect('employer/home');

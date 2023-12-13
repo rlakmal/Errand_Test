@@ -11,20 +11,22 @@ class Myjob extends Controller
 
             try {
 
-                $jobPost = new JobPost;
+                $jobPost = new EmpPost;
+                $mypost  = new JobPost;
                 $emp_id = $_SESSION['USER']->id;
                 $arr['emp_id'] = $emp_id;
 
                 // view employer posted jobs            
-                $result = $jobPost->where($arr, 'created');
+                $result = $jobPost->where($arr, 'job_created');
                 $data['data'] = $result;
+                $length = count($data);
 
 
                 // job delete
                 if (isset($_POST['jobDelete'])) {
                     $jobId = $_POST['id'];
                     // echo $jobId;
-                    $this->jobDelete($jobId, $jobPost);
+                    $this->jobDelete($jobId, $mypost);
                 }
 
                 // job update 
@@ -36,22 +38,26 @@ class Myjob extends Controller
                 //throw $th;
             }
 
-            $this->view('employer/myjob', $data);
+            $this->view('employer/myjob', $data, $length);
         } else {
             redirect('home');
         }
     }
 
     // each employer created job delete method
-    private function jobDelete($data, $jobPost)
+    private function jobDelete($data, $mypost)
     {
-        $jobPost->delete($data, 'id');
+        // show($mypost);
+        // show($data);
+
+        $mypost->delete($data, 'id');
         redirect('employer/myjob');
     }
 
     // each employer created job update method
     private function jobUpdate($data, $jobPost)
     {
+        show($data);
         $id = $data['id'];
         unset($data['id']);
 
@@ -59,8 +65,7 @@ class Myjob extends Controller
 
         $date = new DateTime();
         $formattedTime = $date->format('Y-m-d H:i:s');
-        $data['created'] = $formattedTime;
-        // show($data);
+        $data['job_created'] = $formattedTime;
         $jobPost->update($id, $data, 'id');
         redirect('employer/myjob');
     }

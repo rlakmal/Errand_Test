@@ -13,9 +13,7 @@ class JobPost
 		'address',
 		'created',
 		'emp_id',
-		'personnel',
 		'budget',
 		'city',
-		'emp_name',
 	];
 }

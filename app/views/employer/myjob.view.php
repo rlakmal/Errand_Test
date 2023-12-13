@@ -4,26 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myjobPost.css">
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
     <title>Errand</title>
+    <style>
+        .sidebar {
+            margin-top: -90px;
+        }
+    </style>
 </head>
 
-<body>
 
+<body>
     <?php include 'employernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'myjobsidebar.php' ?>
+    <?php
+    if (is_array($data)) {
+        $len = count($data);
+        $msg = "    You have Posted $len Jobs";
+    } else {
+        $msg = "    You have't any Posted Job Yet";
+    }
+
+    $name = $_SESSION['USER']->name;
+    $first_name = explode(" ", $name);
+
+    ?>
+
     <div class="set-margin" id="set-marginid">
+        <section id="main" class="main">
+            <h2>Hello <?php echo $first_name[0] ?>!! <?php echo $msg ?></h2>
+        </section>
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {
-                // show($item);
-
                 // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
                 date_default_timezone_set('Asia/Kolkata');
 
-                $date1 = new DateTime($item->created);
+                $date1 = new DateTime($item->job_created);
                 $date2 = new DateTime();
 
                 // Calculate the difference between the dates
@@ -45,16 +64,17 @@
                 } elseif ($seconds_difference == 0) {
                     $times_ago = " Just Now";
                 }
+
         ?>
                 <div class="post-container">
                     <div class="profile-container2">
                         <div class="picture">
-                            <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image  ?>" alt="placeholder">
+                            <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                         </div>
                         <div class="index">
-                            <div class="profile-name"><?php echo $item->emp_name ?></div>
+                            <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
-                            <div class="profile-type"><?php echo $item->jobTitle ?></div>
+                            <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="budget">Rs <?php echo $item->budget ?> /= per day</div>
                             <div class="location"><?php echo $item->city ?></div>
 
@@ -77,7 +97,7 @@
         <form method="POST">
             <h2>Edit your Post</h2>
             <h4>Job Title : </h4>
-            <input name="jobTitle" type="text" value="" required placeholder="Enter Tiltle of the Job">
+            <input name="title" type="text" value="" required placeholder="Enter Tiltle of the Job">
             <h4>Budget : </h4>
             <input name="budget" type="text" value="" required placeholder="Enter your Budget" autocomplete="off">
             <h4>Address : </h4>
@@ -97,6 +117,8 @@
     </div>
     <div id="overlay1" class="overlay"></div>
     <script src="<?= ROOT ?>/assets/js/employer/editpost.js"></script>
+
+
 
 </body>
 

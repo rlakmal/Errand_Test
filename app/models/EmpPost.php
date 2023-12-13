@@ -11,9 +11,12 @@ class EmpPost
         'title',
         'job_created',
         'emp_id',
-        'job_id',
+        'id',
         'budget',
+        'description',
+        'profile_image',
         'city',
+        'address',
         'name',
     ];
 }
