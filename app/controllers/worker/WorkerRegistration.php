@@ -41,6 +41,8 @@ class WorkerRegistration extends Controller
             // unset($_POST['city']);
             unset($_POST['dob']);
             unset($_POST['password']);
+
+            unset($_POST['status']);
             $worker->insert($_POST);
 
             redirect('home');

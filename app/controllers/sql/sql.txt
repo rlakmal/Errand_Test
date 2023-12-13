@@ -16,13 +16,18 @@ CREATE VIEW emp_post AS
 
 
 CREATE VIEW workers_from_emp AS
+<<<<<<< HEAD
 
     SELECT
 
+=======
+    SELECT 
+>>>>>>> 87f1f1a (updated)
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
     worker.city as city,
+<<<<<<< HEAD
     worker.id as worker_id,
     worker.created as created
     FROM worker INNER JOIN employer
@@ -72,3 +77,9 @@ CREATE VIEW employer_worker AS
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
+=======
+    worker.id as worker_id
+    FROM worker INNER JOIN employer
+    ON worker.name = employer.name
+
+>>>>>>> 87f1f1a (updated)
