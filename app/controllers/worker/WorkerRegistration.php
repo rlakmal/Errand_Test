@@ -43,6 +43,7 @@ class WorkerRegistration extends Controller
             unset($_POST['password']);
 
             unset($_POST['status']);
+
             $worker->insert($_POST);
 
             redirect('home');

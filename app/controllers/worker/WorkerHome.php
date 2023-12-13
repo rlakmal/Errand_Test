@@ -19,5 +19,6 @@ class WorkerHome extends Controller
         $result = $jobs->findAll('job_created');
         $data['data'] = $result;
         return  $data;
+
     }
 }
