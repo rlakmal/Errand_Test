@@ -10,7 +10,6 @@ class EditProfile extends Controller
             $use_id = $_SESSION['USER']->id;
             // edit for get Data
             $result =  $this->getProfileData($user, $use_id);
-            show($result);
 
             if (isset($_POST['edit'])) {
 
