@@ -79,3 +79,6 @@ route('member/tickets', 'member/Tickets@index');
 route('member/ticket', 'member/MemTicket@index');
 route('member/workers', 'member/WorkersList@index');
 route('member/verification', 'member/Verification@index');
+route('member/tickets', 'member/Ticket@index');
+
+

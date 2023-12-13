@@ -17,12 +17,16 @@ CREATE VIEW emp_post AS
 
 CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     SELECT
 
 =======
     SELECT 
 >>>>>>> 87f1f1a (updated)
+=======
+    SELECT 
+>>>>>>> 349ef30 (crew member login)
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -35,6 +39,7 @@ CREATE VIEW workers_from_emp AS
     ON worker.email = employer.email
     WHERE employer.status = worker.status
 
+<<<<<<< HEAD
 CREATE VIEW Ticket_Note AS
     SELECT
     ticket.title as title,
@@ -89,3 +94,5 @@ CREATE VIEW employer_worker AS
     WHERE employer.status = worker.status
 
 >>>>>>> 87f1f1a (updated)
+=======
+>>>>>>> 349ef30 (crew member login)
