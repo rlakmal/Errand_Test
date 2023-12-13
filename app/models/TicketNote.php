@@ -12,7 +12,10 @@ class TicketNote
         "title",
         "description",
         "note_body",
-        "archived"
+        "archived",
+        "note_id",
+        "ticket_id",
+        "created"
 
     ];
 }

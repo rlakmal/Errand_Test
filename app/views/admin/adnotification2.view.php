@@ -180,7 +180,6 @@
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
-                show($item);
                 ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
