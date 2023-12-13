@@ -10,7 +10,7 @@ class Home extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
 
-            $this->view('admin/home2');
+            $this->view('member/home');
         } else {
             redirect('home');
         }

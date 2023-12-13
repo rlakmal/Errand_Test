@@ -1,0 +1,18 @@
+{
+    "name": "ruwanga/errand_test",
+    "description": "group project I",
+    "autoload": {
+        "psr-4": {
+            "Ruwanga\\ErrandTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ruwangakonara",
+            "email": "ruwangathandulakonara@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}

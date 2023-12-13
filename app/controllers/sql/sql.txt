@@ -20,7 +20,11 @@ CREATE VIEW emp_post AS
 CREATE VIEW workers_from_emp AS
 
     SELECT
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -74,4 +78,3 @@ CREATE VIEW employer_worker AS
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
-

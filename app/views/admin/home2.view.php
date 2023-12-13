@@ -43,6 +43,23 @@
         </tr>
         </thead>
     </table>
+    <div id="overlay" class="overlay"></div>
+
+    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+        <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+        <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+        <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
+        <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
+    </div>
 </section>
 
 <!-- POPUP -->
@@ -89,23 +106,7 @@
     </div>
     <button type="button" class="ok-btn" onclick="closeView()">OK</button>
 </div>
-<div id="overlay" class="overlay"></div>
 
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
-</div>
-
-<div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-    <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
-</div>
 
 <style>
     .chart-container {

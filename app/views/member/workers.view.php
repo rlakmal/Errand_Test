@@ -156,44 +156,34 @@
             <th></th>
             <th class="ordId">Worker Name</th>
             <th class="desc">Category</th>
-            <th class="stth">Worker ID</th>
-            <th class="cost">Contact</th>
+            <th class="stth">email</th>
+            <th class="cost">Username</th>
             <th class="verified">Verified</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td><a href="#" class="worker-link">John Doe</a></td>
-            <td>Category 1</td>
-            <td>12345</td>
-            <td>johndoe@example.com</td>
-            <td class="verified-widget">
-                <i class="bx bx-check-circle verified-icon"></i>
-                <span>Verified</span>
-            </td>
-            <td class="edit-view-profile"><a href="#">
-                    <!-- <i class="bx bxs-user-detail"></i> -->
-                    <span class="link_name">View Profile</span>
-                </a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="#" class="worker-link">Jane Smith</a></td>
-            <td>Category 2</td>
-            <td>67890</td>
-            <td>janesmith@example.com</td>
-            <td class="verified-widget">
-                <i class="bx bx-x-circle not-verified-icon"></i>
-                <span>Not Verified</span>
-            </td>
-            <td class="edit-view-profile"><a href="#">
-                    <!-- <i class="bx bxs-user-detail"></i> -->
-                    <span class="link_name">View Profile</span>
-                </a></td>
-        </tr>
-        <!-- Add more rows with dummy data as needed -->
+        <?php foreach ($data as $worker) : ?>
+            <tr>
+<!--                <td>--><?php //= $index + 1 ?><!--</td>-->
+                <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
+                <td><?= $worker->category ?></td>
+                <td><?= $worker->id ?></td>
+                <td><?= $worker->email ?></td>
+                <td class="verified-widget">
+                    <?php if ($worker->verified) : ?>
+                        <i class="bx bx-check-circle verified-icon"></i>
+                        <span>Verified</span>
+                    <?php else : ?>
+                        <i class="bx bx-x-circle not-verified-icon"></i>
+                        <span>Not Verified</span>
+                    <?php endif; ?>
+                </td>
+                <td class="edit-view-profile"><a href="<?=ROOT?>/member/verification&id=<?=$worker->id?>">
+                        <span class="link_name">View Profile</span>
+                    </a></td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </section>

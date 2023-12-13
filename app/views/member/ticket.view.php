@@ -44,14 +44,12 @@
         }
 
         .archive-button {
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             margin-bottom: 20px;
+            border: none;
         }
 
         .note-list {
@@ -70,6 +68,12 @@
         .note-item p {
             margin: 0;
             font-size: 14px;
+        }
+
+        .note-item small {
+            display: block;
+            font-size: 12px;
+            color: #777;
         }
 
         .add-note-form {
@@ -93,6 +97,16 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        .archive-button.archive {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .archive-button.unarchive {
+            background-color: #2ecc71;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -110,30 +124,37 @@
         <h2>Ticket <?= $ticket->id ?></h2>
         <p><?= $ticket->title ?></p>
         <p><?= $ticket->description ?></p>
-        <p>User Type: <?= $ticket->title ?></p>
-        <p>Archived: No</p>
+        <p>User Type: Placeholder</p>
         <p><?= $ticket->created ?></p>
     </div>
 
-    <form>
-        <input type="submit" class="archive-button">Archive Ticket</input>
+    <form method="post" action="<?= ROOT ?>/member/ticket?id=<?= $ticket->id ?>">
+        <input type="submit" class="archive-button <?= $ticket->archived ? 'unarchive' : 'archive' ?>"
+               value="<?= $ticket->archived ? 'Unarchive' : 'Archive' ?>"
+               name="<?= $ticket->archived ? 'unarchive' : 'archive' ?>">
     </form>
 
     <h2>Notes</h2>
-    <ul class="note-list">
-        <li class="note-item">
-            <p>Note 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </li>
-        <li class="note-item">
-            <p>Note 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </li>
-        <!-- Add more notes as needed -->
-    </ul>
+    <?php if (!empty($notes)) : ?>
+        <ul class="note-list">
+            <?php foreach ($notes as $item) : ?>
+                <li class="note-item">
+                    <p><?= $item->note_body ?></p>
+                    <small><?= $item->created ?></small>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else : ?>
+        <p>No notes available.</p>
+    <?php endif; ?>
 
     <div class="add-note-form">
         <h2>Add Note</h2>
-        <textarea placeholder="Type your note here"></textarea>
-        <button>Add Note</button>
+        <form method="post" action="<?= ROOT ?>/member/ticket?id=<?= $ticket->id ?>">
+            <!-- Replace 'process_note.php' with the actual form processing script -->
+            <textarea name="body" placeholder="Type your note here"></textarea>
+            <button type="submit">Add Note</button>
+        </form>
     </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
