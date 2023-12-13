@@ -99,35 +99,35 @@
 
 <body>
 
-<?php include 'employernav.php' ?>
-<?php include 'empfilter.php' ?>
-<div class="set-margin" id="set-marginid">
-    <?php
-    if (is_array($data)) {
-        foreach ($data as $item) {
-            ?>
-            <div class="post-container">
-                <div class="profile-container2">
-                    <div class="picture">
-                        <!-- <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt=""> -->
-                    </div>
-                    <div class="index">
-                        <div class="profile-name"><?php echo $item->title ?></div>
-                        <div class="profile-type"><?php echo $item->body ?></div>
-                        <div class="budget">Posted: <?php echo $item->created ?></div>
-                        <div class="location">
-                            <!-- <?php echo $item->city ?> -->
-                            <i class="bx bxs-map icon"></i>
+    <?php include 'employernav.php' ?>
+    <?php include 'empfilter.php' ?>
+    <div class="set-margin" id="set-marginid">
+        <?php
+        if (is_array($data)) {
+            foreach ($data as $item) {
+        ?>
+                <div class="post-container">
+                    <div class="profile-container2">
+                        <div class="picture">
+                            <!-- <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt=""> -->
                         </div>
-                        <a href="#" class="view-profile-button">View</a>
+                        <div class="index">
+                            <div class="profile-name"><?php echo $item->title ?></div>
+                            <div class="profile-type"><?php echo $item->body ?></div>
+                            <div class="budget">Posted: <?php echo $item->created ?></div>
+                            <div class="location">
+                                <!-- <?php echo $item->city ?> -->
+                                <i class="bx bxs-map icon"></i>
+                            </div>
+                            <a href="#" class="view-profile-button">View</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php
+        <?php
+            }
         }
-    }
-    ?>
-</div>
+        ?>
+    </div>
 
 </body>
 
