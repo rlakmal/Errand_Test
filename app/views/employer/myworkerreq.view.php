@@ -17,12 +17,44 @@
     <?php include 'employernav.php' ?>
     <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
-        <?php
-        if (is_array($data)) {
-            foreach ($data as $item) {
+        <section id="main" class="main">
+            <h2>Your Request to Workers</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No </th>
+                        <th class="ordId">Job Title</th>
+                        <th class="desc">Request To:</th>
+                        <th class="stth">Budget</th>
+                        <th class="cost">Location</th>
+                        <th>Status</th>
+                        <th></th>
 
-        ?>
-                <div class="post-container">
+                    </tr>
+                </thead>
+                <?php
+                $no = 0;
+                if (is_array($data)) {
+                    foreach ($data as $item) {
+                        $no++;
+
+
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $item->title ?></td>
+                                <td><a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a></td>
+                                <td>RS <?php echo $item->budget ?>/=</td>
+                                <td><?php echo $item->city ?></td>
+                                <td><button>Pending</button></td>
+                                <td><button>Cancel</button></td>
+
+                            </tr>
+
+                            <!-- Add more rows with dummy data as needed -->
+                        </tbody>
+                        <!-- <div class="post-container">
                     <div class="profile-container2">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image  ?>" alt="">
@@ -30,7 +62,7 @@
                         <div class="index">
                             <div class="profile-name">My Post - <?php echo $item->title ?></div>
                             <div class="profile-ratings"><?php echo $item->created ?></div>
-                            <div class="profile-type">Request To - <?php echo $item->worker_name ?></div>
+                            <div class="profile-type">Request To - </div>
                             <div class="budget">Budget - <?php echo $item->budget ?> /= per day</div>
                             <div class="location"><?php echo $item->city ?></div>
 
@@ -39,14 +71,16 @@
                         <a><button class="worker-profile-button">Cancel</button></a>
 
                     </div>
-                </div>
+                </div> -->
 
-        <?php
-            }
-        }
+                <?php
+                    }
+                }
 
 
-        ?>
+                ?>
+            </table>
+        </section>
     </diV>
 
 

@@ -255,3 +255,11 @@ table tbody tr.active-row {
   pointer-events: all;
   z-index: 100;
 }
+@media (max-width: 650px) {
+  td {
+    display: block;
+  }
+  th {
+    display: none;
+  }
+}
