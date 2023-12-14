@@ -41,11 +41,11 @@ class adNotification2 extends Controller
 
                 foreach ($data as $item) {
 
-                    unset($item->title);
-                    unset($item->body);
-                    unset($item->worker);
-                    unset($item->employer);
-                    unset($item->created);
+//                    unset($item->title);
+//                    unset($item->body);
+//                    unset($item->worker);
+//                    unset($item->employer);
+//                    unset($item->created);
                     //  show($item->password);
                 }
             }
