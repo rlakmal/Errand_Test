@@ -5,6 +5,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+
 class SignIn2 extends Controller
 {
     public function index($a = '', $b = '', $c = '')
@@ -75,16 +76,16 @@ class SignIn2 extends Controller
                     //    echo $username;
 
                     if ($row->status == 'employer') {
-                        if($row->verified){
+                        if ($row->verified) {
                             redirect('employer/home');
                         } else {
-                            redirect('verifyprompt&id='.$row->id);
+                            redirect('verifyprompt&id=' . $row->id);
                         }
                     } else if ($row->status == 'worker') {
-                        if($row->verified){
+                        if ($row->verified) {
                             redirect('worker/home');
                         } else {
-                            redirect('verifyprompt&id='.$row->id);
+                            redirect('verifyprompt&id=' . $row->id);
                         }
                     } else if ($row->status == 'admin') {
                         redirect('admin/home');
@@ -106,9 +107,9 @@ class SignIn2 extends Controller
     }
     private function sendConfirmationEmail($email, $name, $user_id)
     {
-//        require 'http://localhost/Errand_Test/vendor/PHPMailer/PHPMailer.php'; // Adjust the path accordingly
-//        require 'http://localhost/Errand_Test/vendor/PHPMailer/Exception.php';
-//        require 'http://localhost/Errand_Test/vendor/PHPMailer/SMTP.php';
+        //        require 'http://localhost/Errand_Test/vendor/PHPMailer/PHPMailer.php'; // Adjust the path accordingly
+        //        require 'http://localhost/Errand_Test/vendor/PHPMailer/Exception.php';
+        //        require 'http://localhost/Errand_Test/vendor/PHPMailer/SMTP.php';
 
         $mail = new PHPMailer(true);
 
@@ -117,8 +118,8 @@ class SignIn2 extends Controller
             $mail->isSMTP();
             $mail->Host       = 'sandbox.smtp.mailtrap.io';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'ae5b41dbc1ca75';
-            $mail->Password   = '9bab48ac962ac0';
+            $mail->Username   = '7bb845361170d5';
+            $mail->Password   = '26ad98a010271d';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 2525;
 
