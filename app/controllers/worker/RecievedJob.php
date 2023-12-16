@@ -24,7 +24,7 @@ class RecievedJob extends Controller
                 $this->view('worker/recievedjobs', $viewData);
             } else {
                 echo ("No data");
-                $this->view('worker/recievedjobs', $viewData);
+                $this->view('worker/recievedjobs');
             }
         }
         // echo "this is a about controller";
