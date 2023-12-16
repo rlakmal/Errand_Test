@@ -11,7 +11,8 @@ body {
   border-radius: 20px;
 }
 .picture .image {
-  max-width: 40px;
+  max-width: 50px;
+  border-radius: 50%;
 }
 
 .profile-name {

@@ -172,10 +172,8 @@
 
   .profile-menu {
     padding-top: 30px;
-    margin-top: 15px;
     margin-left: -20px;
     padding-bottom: 10px;
-    width: 100%;
-    top: 80px;
+    width: 350%;
   }
 }
