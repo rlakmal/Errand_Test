@@ -19,9 +19,8 @@
                 $image = $images['images'][$i];
 
                 // Fixed 3-day countdown
-                $expirationDate = strtotime($item->created) + (3 * 24 * 60 * 60); // 3 days in seconds
+                $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                 $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
-
         ?>
                 <div class="post-container2">
                     <div class="profile-container2">
@@ -30,33 +29,47 @@
                         </div>
                         <div class="index">
                             <div class="profile-name"><?php echo $item->emp_name ?></div>
-                            <div class="profile-ratings"><?php echo formatTime($timeRemaining); ?> remaining</div>
+                            <div class="profile-ratings"><?php echo $item->created ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="budget"><?php echo $item->budget ?> /= per day</div>
                             <div class="location"><?php echo $item->city ?></div>
 
                         </div>
-                        <div class="status">Expire in <?php echo formatTime($timeRemaining); ?></div>
-                        <a><button class="view-profile-button">Reject</button></a>
-                        <a><button class="edit-profile-button">Accept</button></a>
-                        <a><button class="request-profile-button">Request Budget</button></a>
+
+                        <div class="status"><?php echo remain_Time($timeRemaining); ?></div>
+
+                        <?php
+                        // Display buttons only if time has not expired
+                        if ($item->status == 'Pending') {
+                        ?>
+                            <a><button class="view-profile-button">Reject</button></a>
+                            <a><button class="edit-profile-button">Accept</button></a>
+                            <a><button class="request-profile-button">Request Budget</button></a>
+
+                        <?php
+                        } else {
+                        ?>
+                            <a><button class="view-profile-button">Expired</button></a>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
 
         <?php
             }
-        } else {
-            // Display a message or take alternative action when there is no data
-            // echo "<p>No data available.</p>";
         }
 
-        // Function to format remaining time
-        function formatTime($seconds)
+        function remain_Time($seconds)
         {
-            $days = floor($seconds / (24 * 60 * 60));
-            $hours = floor(($seconds % (24 * 60 * 60)) / (60 * 60));
-            $minutes = floor(($seconds % (60 * 60)) / 60);
-            return "{$days} days {$hours} hours {$minutes} minutes";
+            if ($seconds > 0) {
+                $days = floor($seconds / (24 * 60 * 60));
+                $hours = floor(($seconds % (24 * 60 * 60)) / (60 * 60));
+                $minutes = floor(($seconds % (60 * 60)) / 60);
+                return "Expire in $days days $hours hours $minutes minutes";
+            } else {
+                return "Expired";
+            }
         }
         ?>
     </div>

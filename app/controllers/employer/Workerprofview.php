@@ -26,6 +26,8 @@ class Workerprofview extends Controller
                 $_POST['emp_name'] = $emp_name;
                 $_POST['worker_id'] = $wkr_id;
                 $_POST['worker_name'] = $worker_name;
+                $_POST['status'] = "Pending";
+                $_POST['time_remain'] = time();
                 $request->insert($_POST);
             }
             $this->view('employer/workerprof', $data);
