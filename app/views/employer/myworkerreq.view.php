@@ -47,7 +47,7 @@
                                 <td><a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a></td>
                                 <td>RS <?php echo $item->budget ?>/=</td>
                                 <td><?php echo $item->city ?></td>
-                                <td><button>Pending</button></td>
+                                <td><button><?php echo $item->status ?></button></td>
                                 <td><button>Cancel</button></td>
 
                             </tr>
