@@ -15,6 +15,14 @@ class RecievedJob extends Controller
             $data['data'] = $results;
 
 
+            if (isset($_POST['Reject'])) {
+                $id = $_POST['id'];
+                $updateData = [
+                    'status' => 'Rejected',
+                ];
+                $recieved->update($id, $updateData, 'id');;
+            }
+
             if (!empty($data['data'])) {
                 for ($i = 0; $i < count($data['data']); $i++) {
                     $arr_img['id'] = $data['data'][$i]->emp_id;
@@ -24,14 +32,11 @@ class RecievedJob extends Controller
                     //3-day countdown
                     $expirationDate = $data['data'][$i]->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                     $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
-                    // show($timeRemaining);
-
-                    if ($timeRemaining <= 0) {
+                    if ($timeRemaining <= 60) {
                         // Update the status to "expired" in your_table_name
                         $id = $data['data'][$i]->id;
                         $updateData = [
                             'status' => 'Expired',
-                            // Add other columns if needed
                         ];
                         $recieved->update($id, $updateData, 'id');
                     }

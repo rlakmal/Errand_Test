@@ -17,7 +17,6 @@
             for ($i = 0; $i < count($data['data']); $i++) {
                 $item = $data['data'][$i];
                 $image = $images['images'][$i];
-
                 // Fixed 3-day countdown
                 $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                 $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
@@ -36,20 +35,22 @@
 
                         </div>
 
-                        <div class="status"><?php echo remain_Time($timeRemaining); ?></div>
+                        <div class="status"><?php echo remain_Time($timeRemaining, $item->status); ?></div>
 
                         <?php
                         // Display buttons only if time has not expired
                         if ($item->status == 'Pending') {
                         ?>
-                            <a><button class="view-profile-button">Reject</button></a>
-                            <a><button class="edit-profile-button">Accept</button></a>
-                            <a><button class="request-profile-button">Request Budget</button></a>
-
+                            <form method="POST">
+                                <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                <button type="submit" name="Reject" value="Reject" class="view-profile-button">Reject</button>
+                                <a><button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button></a>
+                                <a><button type="submit" name="Request" value="Request" class="request-profile-button">Request Budget</button></a>
+                            </form>
                         <?php
                         } else {
                         ?>
-                            <a><button class="view-profile-button">Expired</button></a>
+                            <a><button class="view-profile-button"><?php echo $item->status ?></button></a>
                         <?php
                         }
                         ?>
@@ -60,14 +61,14 @@
             }
         }
 
-        function remain_Time($seconds)
+        function remain_Time($seconds, $status)
         {
-            if ($seconds > 0) {
+            if ($seconds >= 60 && $status == 'Pending') {
                 $days = floor($seconds / (24 * 60 * 60));
                 $hours = floor(($seconds % (24 * 60 * 60)) / (60 * 60));
                 $minutes = floor(($seconds % (60 * 60)) / 60);
                 return "Expire in $days days $hours hours $minutes minutes";
-            } else {
+            } elseif ($status == 'Expired') {
                 return "Expired";
             }
         }
