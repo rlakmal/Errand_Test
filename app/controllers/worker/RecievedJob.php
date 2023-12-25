@@ -21,6 +21,7 @@ class RecievedJob extends Controller
                     'status' => 'Rejected',
                 ];
                 $recieved->update($id, $updateData, 'id');;
+                redirect('worker/recievedjobs');
             }
 
             if (!empty($data['data'])) {

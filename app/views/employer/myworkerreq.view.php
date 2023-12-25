@@ -19,42 +19,73 @@
     <diV class="set_margin">
         <section id="main" class="main">
             <h2>Your Request to Workers</h2>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No </th>
-                        <th class="ordId">Job Title</th>
-                        <th class="desc">Request To:</th>
-                        <th class="stth">Budget</th>
-                        <th class="cost">Location</th>
-                        <th>Status</th>
-                        <th></th>
+            <div class="scrollable-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No </th>
+                            <th class="ordId">Job Title</th>
+                            <th class="desc">Request To:</th>
+                            <th></th>
+                            <th class="stth">Budget</th>
+                            <th class="cost">Location</th>
+                            <th>Status</th>
+                            <th class="thcancel"></th>
 
-                    </tr>
-                </thead>
-                <?php
-                $no = 0;
-                if (is_array($data)) {
-                    foreach ($data as $item) {
-                        $no++;
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 0;
+                        if (is_array($data)) {
+                            foreach ($data as $item) {
+                                // show($item);
+                                $no++;
 
 
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><?php echo $no ?></td>
-                                <td><?php echo $item->title ?></td>
-                                <td><a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a></td>
-                                <td>RS <?php echo $item->budget ?>/=</td>
-                                <td><?php echo $item->city ?></td>
-                                <td><button><?php echo $item->status ?></button></td>
-                                <td><button>Cancel</button></td>
+                        ?>
 
-                            </tr>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td><?php echo $item->title ?></td>
+                                    <td>
+                                        <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
+                                    </td>
+                                    <td>
+                                        <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
+                                    </td>
+                                    <td>RS <?php echo $item->budget ?>/=</td>
+                                    <td><?php echo $item->city ?></td>
+                                    <td><button class="<?php if ($item->status == "Pending") {
+                                                            echo "pendingbutton";
+                                                        } elseif ($item->status == "Rejected") {
+                                                            echo "rejectedbutton";
+                                                        } else {
+                                                            echo "expirebutton";
+                                                        }
 
-                            <!-- Add more rows with dummy data as needed -->
-                        </tbody>
-                        <!-- <div class="post-container">
+                                                        ?>"><?php echo $item->status ?></button></td>
+                                    <?php
+                                    if ($item->status == 'Pending') {
+                                    ?>
+                                        <form method="POST">
+                                            <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                            <td class="thcancel"><button type="submit" name="Cancel" value="Cancel" class="cancelbutton">Cancel Request</button></td>
+                                        </form>
+
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <td class="thcancel"></td>
+                                    <?php
+                                    }
+                                    ?>
+
+                                </tr>
+
+                                <!-- Add more rows with dummy data as needed -->
+
+                                <!-- <div class="post-container">
                     <div class="profile-container2">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image  ?>" alt="">
@@ -73,13 +104,15 @@
                     </div>
                 </div> -->
 
-                <?php
-                    }
-                }
+                        <?php
+                            }
+                        }
 
 
-                ?>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </diV>
 
