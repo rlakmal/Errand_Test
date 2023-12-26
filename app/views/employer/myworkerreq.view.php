@@ -24,9 +24,9 @@
                     <thead>
                         <tr>
                             <th>No </th>
-                            <th class="ordId">Job Title</th>
+
                             <th class="desc">Request To:</th>
-                            <th></th>
+                            <th class="ordId">Job Title</th>
                             <th class="stth">Budget</th>
                             <th class="cost">Location</th>
                             <th>Status</th>
@@ -46,14 +46,15 @@
                         ?>
 
                                 <tr>
-                                    <td><?php echo $no ?></td>
-                                    <td><?php echo $item->title ?></td>
-                                    <td>
+                                    <td class="proimage"><?php echo $no ?></td>
+
+                                    <td class="proimage">
                                         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
-                                    </td>
-                                    <td>
+                                        <!-- </td>
+                                    <td class="proname"> -->
                                         <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
                                     </td>
+                                    <td><?php echo $item->title ?></td>
                                     <td>RS <?php echo $item->budget ?>/=</td>
                                     <td><?php echo $item->city ?></td>
                                     <td><button class="<?php if ($item->status == "Pending") {

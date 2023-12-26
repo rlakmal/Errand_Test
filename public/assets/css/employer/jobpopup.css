@@ -108,6 +108,7 @@ table th,
 table td {
   padding: 12px 30px 12px 20px;
   width: -1px;
+  background-color: #e7e9ff;
 }
 
 table tr,

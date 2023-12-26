@@ -23,6 +23,12 @@ class RecievedJob extends Controller
                 $recieved->update($id, $updateData, 'id');;
                 redirect('worker/recievedjobs');
             }
+            if (isset($_POST['Accept'])) {
+                $id = $_POST['id'];
+                $updateData = ['status' => 'Accepted'];
+                $recieved->update($id, $updateData, 'id');;
+                redirect('worker/recievedjobs');
+            }
 
             if (!empty($data['data'])) {
                 for ($i = 0; $i < count($data['data']); $i++) {
