@@ -7,7 +7,9 @@ var editButton = document.getElementById("editButton");
 function openEdit(button) {
   // get edit data
   const itemData = button.getAttribute("data-order");
+  console.log(itemData);
   const data = JSON.parse(itemData);
+  console.log(data);
 
   dataBindtoForm(data);
 
