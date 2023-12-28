@@ -126,42 +126,34 @@ body {
   text-align: center;
   border-radius: 20px;
 }
-.form {
+/* .form {
   float: right;
   margin-top: -3%;
-}
+} */
 form .view-profile-button {
-  float: right;
-  margin-top: -27%;
   background-color: rgb(255 80 80);
   color: #fff;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  display: block;
   text-align: center;
   border-radius: 20px;
 }
 form .edit-profile-button {
-  margin-left: -23%;
-  margin-top: -27%;
   background-color: rgb(22, 117, 19);
   color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  display: block;
   text-align: center;
   border-radius: 20px;
 }
-form .request-profile-button {
-  margin-left: -135%;
+.request-profile-button {
   background-color: rgb(213, 108, 28);
   color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  display: block;
   text-align: center;
   border-radius: 20px;
 }
