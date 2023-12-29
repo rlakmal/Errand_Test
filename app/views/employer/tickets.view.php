@@ -50,34 +50,57 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 2;
+            max-width: 400px; /* Set max-width to control the width */
         }
 
-        /* Adjusted post-container CSS */
-        .post-container {
-            display: flex;
-            justify-content: space-between;
-            align-content: center;
-            align-items: center;
+        /* Advanced styling for the popup */
+        .popup h2 {
+            color: #333;
             margin-bottom: 20px;
-            /*border: 1px solid #ddd; !* Add a border for better visibility *!*/
-            padding: 10px; /* Add padding for spacing */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
 
-        .profile-container2 {
-            display: flex;
-            align-items: center;
+        .popup label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
         }
 
-        .index {
-            /*flex: 1;*/
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            margin-left: 10px; /* Add margin for spacing */
+        .popup input,
+        .popup textarea {
+            width: 100%;
+            padding: 8px; /* Make the text box thinner */
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        .view-profile-button {
-            margin-left: 10px; /* Add margin for spacing */
+        .popup button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #2980b9;
+        }
+
+        .close-popup {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-popup:hover {
+            background-color: #c0392b;
         }
     </style>
     <title>Document</title>
@@ -86,6 +109,7 @@
 <body>
 
 <?php include 'employernav.php' ?>
+<?php include 'empfilter.php' ?>
 <section id="main" class="main">
 
     <div class="set-margin" id="set-marginid">
@@ -113,7 +137,7 @@
                                 <?php } ?>
                             </div>
                         </div>
-<!--                        <a><button class="view-profile-button" id="request-button">View</button></a>-->
+                        <!--                        <a><button class="view-profile-button" id="request-button">View</button></a>-->
                     </div>
                 </div>
                 <?php
@@ -137,11 +161,11 @@
         <input type="text" id="title" name="title" required>
         <br>
         <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
+        <textarea id="description" name="description" rows="6" required></textarea>
         <br>
         <button type="submit">Submit</button>
     </form>
-    <button id="close-popup">Close</button>
+    <button class="close-popup">Close</button>
 </div>
 
 <script>
@@ -163,10 +187,12 @@
         });
 
         // Add event listener for the close button in the popup
-        var closePopupButton = document.getElementById('close-popup');
-        closePopupButton.addEventListener('click', function () {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('popup').style.display = 'none';
+        var closePopupButtons = document.querySelectorAll('.close-popup');
+        closePopupButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popup').style.display = 'none';
+            });
         });
     });
 </script>

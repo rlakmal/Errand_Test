@@ -7,27 +7,42 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <style>
+        .archive-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: none;
+        }
 
+        .archive-button.archive {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+    </style>
     <title>Document</title>
 </head>
 
 <body>
-    <?php include 'workernav.php' ?>
-    <?php include 'workerfilter.php' ?>
+    <?php include 'navigationbar.php' ?>
+    <?php include 'sidebar.php' ?>
+
+    <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
-
-
             foreach ($data as $item) {
-                // show($item);
-                // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
                 date_default_timezone_set('Asia/Kolkata');
                 $date1 = new DateTime($item->job_created);
                 $date2 = new DateTime();
-
-                // Calculate the difference between the dates
                 $interval = $date1->diff($date2);
 
                 $days_difference = $interval->days;
@@ -48,7 +63,6 @@
                     $times_ago = " Just Now";
                 }
 
-                // echo $times_ago;;
         ?>
                 <div class="post-container">
                     <div class="profile-container2">
@@ -69,21 +83,24 @@
 
 
                         </div>
-<<<<<<< HEAD
-                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
-=======
-                        <a><button class="view-profile-button" id="request-button">View</button></a>
->>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f
-
+<!--                        <a href="--><?php //= ROOT ?><!--/worker/requestjob?id=--><?php //echo $item->id ?><!--"><button class="view-profile-button">Request Job</button></a>-->
+                        <form method="post" action="<?= ROOT ?>/admin/jobs?id=<?= $item->id ?>">
+                            <input type="submit" class="view-profile-button archive-button archive "
+                                   value="Delete" name="Delete">
+                        </form>
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
                     </div>
                 </div>
+
+
+
         <?php
             }
         }
+
         ?>
-    </div>
+
 
 </body>
 

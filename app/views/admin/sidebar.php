@@ -12,7 +12,14 @@
                 <span class="tooltip">DashBoard</span>
             </li>
             <li>
-                <a href="<?= ROOT ?>/admin/workers">
+                <a href="<?= ROOT ?>/admin/jobs">
+                    <i class="bx bxs-wrench"></i>
+                    <span class="link_name">Jobs</span>
+                </a>
+                <span class="tooltip">Jobs</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/admin/workers2">
                     <i class="bx bxs-hard-hat"></i>
                     <span class="link_name">Workers</span>
                 </a>
@@ -21,9 +28,9 @@
             <li>
                 <a href="<?= ROOT ?>/admin/employers">
                     <i class="bx bxs-user-detail"></i>
-                    <span class="link_name">Users</span>
+                    <span class="link_name">Employers</span>
                 </a>
-                <span class="tooltip">Users</span>
+                <span class="tooltip">Employers</span>
             </li>
             <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
