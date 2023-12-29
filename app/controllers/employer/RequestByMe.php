@@ -9,8 +9,17 @@ class RequestByMe extends Controller
             $myrequests = new EmployerReqWorker;
             $id = $_SESSION['USER']->id;
             $arr['emp_id'] = $id;
-            $result = $myrequests->where($arr, 'created');
+            $result = $myrequests->where($arr, 'id');
             $data['data'] = $result;
+
+            if (isset($_POST['Cancel'])) {
+                $id = $_POST['id'];
+                $updateData = [
+                    'status' => 'Canceled',
+                ];
+                $myrequests->update($id, $updateData, 'id');
+                redirect('employer/myworkerreq');
+            }
 
             // echo "this is a about controller";
             $this->view('employer/myworkerreq', $data);
