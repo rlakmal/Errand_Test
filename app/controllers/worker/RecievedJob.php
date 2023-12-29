@@ -13,11 +13,28 @@ class RecievedJob extends Controller
             $arr['worker_id'] = $id;
             $results = $recieved->where($arr);
             $data['data'] = $results;
+
+
             if (!empty($data['data'])) {
                 for ($i = 0; $i < count($data['data']); $i++) {
                     $arr_img['id'] = $data['data'][$i]->emp_id;
                     $prof_image = $user->where($arr_img);
                     $images['images'][$i] = $prof_image[0]->profile_image;
+
+                    //3-day countdown
+                    $expirationDate = $data['data'][$i]->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
+                    $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
+                    // show($timeRemaining);
+
+                    if ($timeRemaining <= 0) {
+                        // Update the status to "expired" in your_table_name
+                        $id = $data['data'][$i]->id;
+                        $updateData = [
+                            'status' => 'Expired',
+                            // Add other columns if needed
+                        ];
+                        $recieved->update($id, $updateData, 'id');
+                    }
                 }
 
                 $viewData = ['data' => $data, 'images' => $images];
@@ -27,7 +44,5 @@ class RecievedJob extends Controller
                 $this->view('worker/recievedjobs');
             }
         }
-        // echo "this is a about controller";
-
     }
 }
