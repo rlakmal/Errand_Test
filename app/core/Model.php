@@ -58,6 +58,7 @@ trait Model
         // run the quary stage
         $this->quary($quary, $data);
 
+
         return false;
     }
 

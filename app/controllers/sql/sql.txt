@@ -1,0 +1,26 @@
+CREATE VIEW emp_post AS
+    SELECT 
+    job.jobTitle as title,
+    job.city as city,
+    job.budget as budget,
+    job.created as job_created,
+    employer.name as name,
+    employer.id as emp_id,
+    employer.profile_image as profile_image,
+    job.id as job_id
+    FROM job INNER JOIN employer
+    ON job.emp_id = employer.id
+    ORDER BY job.created;
+
+
+
+CREATE VIEW workers_from_emp AS
+    SELECT 
+    employer.id as emp_id,
+    employer.name as name,
+    worker.category as category,
+    worker.city as city,
+    worker.id as worker_id
+    FROM worker INNER JOIN employer
+    ON worker.name = employer.name
+

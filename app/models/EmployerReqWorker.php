@@ -8,12 +8,14 @@ class EmployerReqWorker
         'emp_id ',
         'emp_name',
 
+
         'title',
         'budget',
         'city',
         'description',
         'worker_id',
         'worker_name',
+
 
     ];
 }

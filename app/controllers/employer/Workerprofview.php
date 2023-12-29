@@ -8,6 +8,7 @@ class Workerprofview extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $worker = new WorkerServices;
+
             $request = new EmployerReqWorker;
             $id = $_GET['id'];
             // show($id);
@@ -27,6 +28,7 @@ class Workerprofview extends Controller
                 $_POST['emp_name'] = $emp_name;
                 $_POST['worker_id'] = $wkr_id;
                 $_POST['worker_name'] = $worker_name;
+
 
                 $request->insert($_POST);
             }

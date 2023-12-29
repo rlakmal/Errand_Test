@@ -46,6 +46,7 @@ class WorkerRegistration extends Controller
 
             $worker->insert($_POST);
 
+
             redirect('home');
         }
         $this->view('home/workerRegistration');
