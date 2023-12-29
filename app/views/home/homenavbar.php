@@ -19,7 +19,7 @@
                         <a href="<?= ROOT ?>/about">About</a>
                     </li>
                     <li>
-                        <a href="<?= ROOT ?>/home/signin2" class="active">Login</a>
+                        <a href="<?= ROOT ?>/home/signin" class="active">Login</a>
                     </li>
                     <li>
                         <a href="<?= ROOT ?>/home/workerreg2" class="active">Register As Worker</a>

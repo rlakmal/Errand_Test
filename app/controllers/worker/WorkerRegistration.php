@@ -37,9 +37,9 @@ class WorkerRegistration extends Controller
             $_POST['gender'] = $temp_gender;
             // unset($_POST['name']);
             unset($_POST['nic']);
-            unset($_POST['address']);
+//            unset($_POST['address']);
             // unset($_POST['city']);
-            unset($_POST['dob']);
+//            unset($_POST['dob']);
             unset($_POST['password']);
 
             unset($_POST['status']);

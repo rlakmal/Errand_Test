@@ -123,27 +123,10 @@
         <div class="form">
             <!-- Category Selector -->
             <select class="form-group" name="category">
-                <option value="all">All Categories</option>
-                <option value="category1">Technicians</option>
-                <option value="category2">AC Repairs</option>
-                <option value="CCTV">CCTV</option>
-                <option value="Constructions">Constructions</option>
-                <option value="Electricians">Electricians</option>
-                <option value="Electronic Repairs">Electronic Repairs</option>
-                <option value="Glass & Aluminium">Glass & Aluminium</option>
-                <option value="Iron Works">Iron Works</option>
-                <option value="Masonry">Masonry</option>
-                <option value="Odd Jobs">Odd Jobs</option>
-                <option value="Pest Controllers">Pest Controllers</option>
-                <option value="Plumbing">Plumbing</option>
-                <option value="Wood Works">Wood Works</option>
                 <!-- Add more categories as needed -->
             </select>
             <!-- Location Selector -->
             <select class="form-group" name="location">
-                <option value="all">All Locations</option>
-                <option value="location1">Location 1</option>
-                <option value="location2">Location 2</option>
                 <!-- Add more locations as needed -->
             </select>
             <input class="form-group" type="text" placeholder="Search...">
@@ -156,8 +139,8 @@
             <th></th>
             <th class="ordId">Worker Name</th>
             <th class="desc">Category</th>
-            <th class="stth">email</th>
-            <th class="cost">Username</th>
+            <th class="stth">Worker ID</th>
+            <th class="cost">Contact</th>
             <th class="verified">Verified</th>
             <th></th>
         </tr>
@@ -179,16 +162,18 @@
                         <span>Not Verified</span>
                     <?php endif; ?>
                 </td>
-                <td class="edit-view-profile"><a href="<?=ROOT?>/member/verification2&id=<?=$worker->id?>">
-                        <span class="link_name">View Profile</span>
-                    </a></td>
+                <td class="edit-view-profile">
+                    <a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->id ?>">
+                        <i class="fas fa-user icon"></i>
+                    </a>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://code.iconify.design/1/1.0.7/iconify-icon.min.js"></script>
 <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
 </body>
 

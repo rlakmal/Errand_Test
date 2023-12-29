@@ -1,0 +1,80 @@
+CREATE VIEW emp_post AS
+
+    SELECT
+    job.id as id,
+    employer.id as emp_id,
+    job.jobTitle as title,
+    job.city as city,
+    job.budget as budget,
+    job.created as job_created,
+    job.description as description,
+    job.address as address,
+    employer.name as name,
+    employer.profile_image as profile_image
+    FROM job INNER JOIN employer
+    ON job.emp_id = employer.id
+    ORDER BY job.created;
+
+
+
+CREATE VIEW workers_from_emp AS
+
+    SELECT
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
+    employer.id as emp_id,
+    employer.name as name,
+    employer.category as category,
+    employer.city as city,
+    employer.id as worker_id,
+    employer.created as created
+    FROM employer INNER JOIN employer
+    ON employer.email = employer.email
+    WHERE employer.status = employer.status
+
+CREATE VIEW Ticket_Note AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    note.body as note_body,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    note.id as note_id
+    FROM ticket INNER JOIN note
+    ON note.ticket = ticket.id
+
+
+CREATE VIEW Ticket_Employer AS
+    SELECT
+    ticket.title as title,
+    ticket.description as description,
+    employer.status as status,
+    ticket.archived as archived,
+    ticket.created as created,
+    ticket.id as ticket_id,
+    ticket.user as user
+    FROM ticket LEFT JOIN note
+    ON ticket.user = employer.id
+
+CREATE VIEW employer_worker AS
+    SELECT
+    employer.category as category,
+    employer.gender as gender,
+    employer.id as worker_id,
+    employer.created as signedup,
+    employer.name as name,
+    employer.verified as verified,
+    employer.email as username,
+    employer.id as user_id
+    FROM employer LEFT JOIN employer
+    ON job.emp_id = employer.id
+    ORDER BY job.created;
+    employer.id as worker_id
+
+    FROM employer INNER JOIN employer
+    ON employer.email = employer.email
+    WHERE employer.status = employer.status
