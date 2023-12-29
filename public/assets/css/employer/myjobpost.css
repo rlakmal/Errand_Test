@@ -73,11 +73,7 @@ body {
 }
 
 .view-profile-button {
-<<<<<<< HEAD
-  margin-top: -40px;
-=======
   margin-top: -41px;
->>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f
   float: right;
   background-color: #ff7f00;
   color: #fff;
@@ -90,7 +86,6 @@ body {
 }
 
 .edit-profile-button {
-
   margin-top: -41px;
   margin-left: 700px;
   background-color: #ff7f00;
