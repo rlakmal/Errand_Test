@@ -44,15 +44,8 @@
 
         ?>
                 <div class="post-container">
-<<<<<<< HEAD
-<!--<<<<<<< HEAD-->
                     <div class="profile-container2">
-<!--=======-->
-<!--                    <div class="profile-container1">-->
-<!--&gt;>>>>>> 20cdef3 (workerhome)-->
-=======
-                    <div class="profile-container2">
->>>>>>> aec644d (css updates)
+
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                         </div>
@@ -71,10 +64,14 @@
 
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
 =======
                         <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request Job</button></a>
 >>>>>>> 04bb0b1 (job updates)
+=======
+                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">Request Job</button></a>
+>>>>>>> a97cef1 (update my job)
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
