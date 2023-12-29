@@ -53,11 +53,15 @@
 
         ?>
                 <div class="post-container">
+<<<<<<< HEAD
 <!--<<<<<<< HEAD-->
                     <div class="profile-container2">
 <!--=======-->
 <!--                    <div class="profile-container1">-->
 <!--&gt;>>>>>> 20cdef3 (workerhome)-->
+=======
+                    <div class="profile-container2">
+>>>>>>> aec644d (css updates)
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                         </div>
