@@ -4,19 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
 
-=======
->>>>>>> 4f1e905 (employer req worker)
-=======
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
->>>>>>> 20cdef3 (workerhome)
 
     <title>Document</title>
 </head>
@@ -79,7 +70,11 @@
 
 
                         </div>
+<<<<<<< HEAD
                         <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
+=======
+                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request Job</button></a>
+>>>>>>> 04bb0b1 (job updates)
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
