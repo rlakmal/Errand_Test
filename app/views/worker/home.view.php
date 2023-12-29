@@ -63,15 +63,8 @@
 
 
                         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
-=======
-                        <a href="<?= ROOT ?>/worker/requestjob"><button class="view-profile-button">Request Job</button></a>
->>>>>>> 04bb0b1 (job updates)
-=======
-                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">Request Job</button></a>
->>>>>>> a97cef1 (update my job)
+
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
@@ -87,10 +80,6 @@
         ?>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 20cdef3 (workerhome)
 </body>
 
 </html>
