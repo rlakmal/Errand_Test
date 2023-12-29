@@ -18,10 +18,16 @@
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
+
+
             foreach ($data as $item) {
+                // show($item);
+                // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
                 date_default_timezone_set('Asia/Kolkata');
                 $date1 = new DateTime($item->job_created);
                 $date2 = new DateTime();
+
+                // Calculate the difference between the dates
                 $interval = $date1->diff($date2);
 
                 $days_difference = $interval->days;
@@ -42,6 +48,7 @@
                     $times_ago = " Just Now";
                 }
 
+                // echo $times_ago;;
         ?>
                 <div class="post-container">
                     <div class="profile-container2">
@@ -62,21 +69,21 @@
 
 
                         </div>
+<<<<<<< HEAD
                         <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
+=======
+                        <a><button class="view-profile-button" id="request-button">View</button></a>
+>>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
                     </div>
                 </div>
-
-
-
         <?php
             }
         }
-
         ?>
-
+    </div>
 
 </body>
 

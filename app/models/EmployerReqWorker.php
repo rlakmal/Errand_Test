@@ -14,6 +14,8 @@ class EmployerReqWorker
         'description',
         'worker_id',
         'worker_name',
+        'status',
+        'time_remain'
 
     ];
 }

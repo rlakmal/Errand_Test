@@ -1,22 +1,16 @@
-* {
-  font-family: Tahoma, Verdana, sans-serif;
-}
 body {
   font-family: "Arial", sans-serif;
-
-  background-color: #f6f1ff;
+  background-color: #f4f4f4;
 }
-
 .profile-container2 {
   background-color: #ffffff;
-  width: 900px;
-  box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+  width: 800px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   height: 150px;
   border-radius: 20px;
 }
-
-.post-container :hover {
+.main-container2 :hover {
   box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
   border-color: rgba(223, 225, 229, 0);
   transform: scale(1.02);
@@ -28,56 +22,40 @@ body {
   transform: none;
 }
 
-.location i {
-  color: #2a3441;
-}
-
 .picture .image {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  max-width: 80px;
 }
 
 .profile-name {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #000;
   font-family: "Lato", sans-serif;
   margin: 10px 0;
 }
-
 .profile-type {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 300;
   color: #000;
   font-family: "Lato", sans-serif;
   margin: 10px 0;
 }
-
 .profile-ratings {
   font-size: 16px;
   color: #666;
 }
-
-.budget {
-  font-size: 18px;
-  color: black;
+.job-count {
+  font-size: 16px;
+  color: #666;
 }
-
 .location {
   float: right;
-  font-size: 16px;
-  /* Adjust the font size to make it readable */
+  font-size: 16px; /* Adjust the font size to make it readable */
   color: black;
   margin-top: -100px;
 }
-
 .view-profile-button {
-<<<<<<< HEAD
   margin-top: -40px;
-=======
-  margin-top: -41px;
->>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f
   float: right;
   background-color: #ff7f00;
   color: #fff;
@@ -86,34 +64,10 @@ body {
   cursor: pointer;
   display: block;
   text-align: center;
-  border-radius: 20px;
 }
-
-.edit-profile-button {
-
-  margin-top: -41px;
-  margin-left: 700px;
-  background-color: #ff7f00;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  border-radius: 20px;
-}
-
 .index {
-  margin-top: -58px;
-  margin-left: 72px;
-}
-
-.post-container {
-  margin-top: 20px;
-  margin-left: 30%;
-}
-.set-margin {
-  margin-top: 170px;
+  margin-top: -90px;
+  margin-left: 150px;
 }
 .homenavbar {
   width: 100%;
@@ -121,4 +75,12 @@ body {
   top: 0;
   left: 0;
   z-index: 10;
+}
+
+.main-container2 {
+  margin-top: 20px;
+  margin-left: 30%;
+}
+.set-margin {
+  margin-top: 92px;
 }

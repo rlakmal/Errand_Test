@@ -67,8 +67,8 @@ class WorkerRegistration2 extends Controller
             $mail->isSMTP();
             $mail->Host       = 'sandbox.smtp.mailtrap.io';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'ae5b41dbc1ca75';
-            $mail->Password   = '9bab48ac962ac0';
+            $mail->Username   = '7bb845361170d5';
+            $mail->Password   = '26ad98a010271d';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 2525;
 

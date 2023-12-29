@@ -23,7 +23,11 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD:app/controllers/sql/sql
 
+=======
+    
+>>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f:app/controllers/sql/sql.txt
 >>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
     employer.id as emp_id,
     employer.name as name,

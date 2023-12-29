@@ -107,7 +107,8 @@ table thead tr {
 table th,
 table td {
   padding: 12px 30px 12px 20px;
-  width: 10px;
+  width: -1px;
+  background-color: #e7e9ff;
 }
 
 table tr,
@@ -254,4 +255,12 @@ table tbody tr.active-row {
   opacity: 1;
   pointer-events: all;
   z-index: 100;
+}
+@media (max-width: 650px) {
+  td {
+    display: block;
+  }
+  th {
+    display: none;
+  }
 }

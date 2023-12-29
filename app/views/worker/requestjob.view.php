@@ -45,6 +45,9 @@
   <?php
   if ($data) {
     foreach ($data as $item) {
+
+      show($data);
+
   ?>
 
       <div class="main-container4">
