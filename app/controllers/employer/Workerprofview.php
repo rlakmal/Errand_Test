@@ -9,6 +9,7 @@ class Workerprofview extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $worker = new WorkerServices;
 
+
             $request = new EmployerReqWorker;
             $id = $_GET['id'];
             // show($id);
