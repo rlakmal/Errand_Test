@@ -23,17 +23,21 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD:app/controllers/sql/sql
+
+=======
     
+>>>>>>> 52165f248ae0db8ef80d3ff841b47db29f48cf6f:app/controllers/sql/sql.txt
 >>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
     employer.id as emp_id,
     employer.name as name,
-    worker.category as category,
-    worker.city as city,
-    worker.id as worker_id,
-    worker.created as created
-    FROM worker INNER JOIN employer
-    ON worker.email = employer.email
-    WHERE employer.status = worker.status
+    employer.category as category,
+    employer.city as city,
+    employer.id as worker_id,
+    employer.created as created
+    FROM employer INNER JOIN employer
+    ON employer.email = employer.email
+    WHERE employer.status = employer.status
 
 CREATE VIEW Ticket_Note AS
     SELECT
@@ -62,19 +66,19 @@ CREATE VIEW Ticket_Employer AS
 
 CREATE VIEW employer_worker AS
     SELECT
-    worker.category as category,
-    worker.gender as gender,
-    worker.id as worker_id,
-    worker.created as signedup,
-    worker.name as name,
-    worker.verified as verified,
+    employer.category as category,
+    employer.gender as gender,
+    employer.id as worker_id,
+    employer.created as signedup,
+    employer.name as name,
+    employer.verified as verified,
     employer.email as username,
     employer.id as user_id
-    FROM worker LEFT JOIN employer
+    FROM employer LEFT JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
-    worker.id as worker_id
+    employer.id as worker_id
 
-    FROM worker INNER JOIN employer
-    ON worker.email = employer.email
-    WHERE employer.status = worker.status
+    FROM employer INNER JOIN employer
+    ON employer.email = employer.email
+    WHERE employer.status = employer.status

@@ -27,6 +27,7 @@ body {
   min-height: 100vh;
   width: 285px;
   padding: 6px 14px;
+
   z-index: 100;
   background-color: #2a3441;
   transition: all 0.5s ease;
@@ -384,6 +385,42 @@ nav .nav-link .nav-link-profile{
 } */
 /* Navigation Bar */
 
+/*
+@media screen and (max-width: 30%) {
+	#home-section {
+		position: relative;
+		width: calc(100% - 60px);
+		transition: all .3s ease;
+	}
+	
+	nav .nav-icons,
+	nav .badge-1,
+	nav .badge-2{
+		display: none;
+	}
+	nav.nav-link .nav-icons{
+		width: 80px;
+		margin-top: 2%;
+	
+	
+	}
+
+} */
+
+/* @media only screen and (max-width: 900px){
+  nav{
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .nav-icons{
+    margin-top: 20px;
+    display: block;
+  }
+} */
+
+
 #main {
   position: fixed;
   top: 78;
@@ -404,6 +441,7 @@ nav .nav-link .nav-link-profile{
   position: relative;
   padding: 10px 10px;
   text-align: center;
+
   background: #dae8ffbd;
   padding-bottom: 30px;
 }
@@ -468,6 +506,7 @@ nav .nav-link .nav-link-profile{
   top: 93%;
   padding: 10px 30px;
 }
+
 
 @media only screen and (max-width: 768px) {
   .sidebar {

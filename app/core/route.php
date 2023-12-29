@@ -63,12 +63,16 @@ route('worker/notifications', 'worker/WorkerNotification@index');
 --------------------------------------------------------------------- */
 
 route('admin/home', 'admin/AdHome@index');
+route('admin/jobs', 'admin/Jobs@index');
 route('admin/workers', 'admin/WorkersList@index');
+route('admin/workers2', 'admin/WorkersList2@index');
 route('admin/employers', 'admin/EmployersList@index');
+route('admin/employeracc', 'admin/EmployerAcc@index');
 route('admin/admincrew', 'admin/AdminCrew@index');
 route('admin/adnotification', 'admin/AdNotification@index');
 route('admin/adnotification2', 'admin/AdNotification2@index');
 route('admin/adreports', 'admin/AdReports@index');
+route('admin/workerprof', 'admin/WorkerProf@index');
 
 /*---------------------------------------------------------------------
     member routes
@@ -80,3 +84,7 @@ route('member/tickets', 'member/Tickets@index');
 route('member/ticket', 'member/MemTicket@index');
 route('member/workers', 'member/WorkersList@index');
 route('member/verification', 'member/Verification@index');
+route('member/verification2', 'member/Verification2@index');
+route('member/tickets', 'member/Ticket@index');
+
+
