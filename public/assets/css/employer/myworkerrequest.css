@@ -153,8 +153,8 @@ body {
   max-height: 590px;
 }
 .image {
-  height: 65px;
-  width: 65px;
+  height: 40px;
+  width: 40px;
   object-fit: cover;
   border-radius: 50%;
   margin-right: 10px;
@@ -162,4 +162,16 @@ body {
 .wkname {
   width: 145px;
   color: blue;
+}
+table th.desc {
+  width: 100px;
+  text-align: center;
+  align-items: center;
+}
+table td.proimage,
+table td.proname {
+  background-color: #f6f7ff;
+}
+table th {
+  font-size: larger;
 }
