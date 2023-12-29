@@ -39,26 +39,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>12345</td>
-                    <td>johndoe@example.com</td>
-                    <td class="edit-view-profile"><a href="#">
-                            <i class="bx bxs-user-detail"></i>
-                            <span class="link_name"></span>
-                        </a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>67890</td>
-                    <td>janesmith@example.com</td>
-                    <td class="edit-view-profile"><a href="#">
-                            <i class="bx bxs-user-detail"></i>
-                            <span class="link_name"></span>
-                        </a></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td>John Doe</td>-->
+<!--                    <td>12345</td>-->
+<!--                    <td>johndoe@example.com</td>-->
+<!--                    <td class="edit-view-profile"><a href="#">-->
+<!--                            <i class="bx bxs-user-detail"></i>-->
+<!--                            <span class="link_name"></span>-->
+<!--                        </a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>2</td>-->
+<!--                    <td>Jane Smith</td>-->
+<!--                    <td>67890</td>-->
+<!--                    <td>janesmith@example.com</td>-->
+<!--                    <td class="edit-view-profile"><a href="#">-->
+<!--                            <i class="bx bxs-user-detail"></i>-->
+<!--                            <span class="link_name"></span>-->
+<!--                        </a></td>-->
+<!--                </tr>-->
+                <?php $index = 0; foreach ($data as $employer) : $index = $index + 1?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= $employer->name ?></td>
+                        <td><?= $employer->id ?></td>
+                        <td><?= $employer->email ?></td>
+
+                        <td class="edit-view-profile">
+                            <a href="<?= ROOT ?>/admin/employeracc&id=<?= $employer->id ?>">
+                                <i class="bx bxs-user-detail"></i>
+                                <span class="link_name"></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 <!-- Add more rows with dummy data as needed -->
             </tbody>
         </table>

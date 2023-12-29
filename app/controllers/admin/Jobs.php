@@ -1,16 +1,25 @@
 <?php
 
-class WorkerHome extends Controller
+class Jobs extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
-        if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 
             $jobs = new EmpPost;
+            $jobs2 = new JobPost;
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                $arr["id"] = $_GET["id"];
+                $jobs2->delete($arr);
+                redirect("admin/jobs");
+            }
             $data = $this->getAllJob($jobs);
             // echo "this is a about controller";
-            $this->view('worker/home', $data);
+            $this->view('admin/jobs', $data);
+
+
         }
     }
 
@@ -22,4 +31,3 @@ class WorkerHome extends Controller
 
     }
 }
-

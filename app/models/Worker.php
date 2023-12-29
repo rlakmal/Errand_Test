@@ -16,5 +16,6 @@ class Worker
 		'city',
 		'email',
         "verified"
+
 	];
 }

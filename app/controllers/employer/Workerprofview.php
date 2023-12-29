@@ -14,6 +14,7 @@ class Workerprofview extends Controller
             $arr['emp_id'] = $id;
             $result = $this->getData($arr, $worker);
             $data['data'] = $result;
+
             if (!empty($data['data'])) {
                 $worker_name = $data['data'][0]->name;
             }
