@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
     <title>Document</title>
     <style>
+<<<<<<< HEAD
         .sidebar {
             margin-top: -12px;
         }
+=======
+
+>>>>>>> 2c2b08c (employer request done)
     </style>
 </head>
 
 <body>
     <?php include 'employernav.php' ?>
+<<<<<<< HEAD
     <?php include 'myjobsidebar.php' ?>
+=======
+    <?php include 'jobnav.php' ?>
+>>>>>>> 2c2b08c (employer request done)
     <diV class="set_margin">
         <?php
         if (is_array($data)) {
