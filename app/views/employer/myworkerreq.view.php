@@ -41,10 +41,7 @@
                             foreach ($data as $item) {
                                 // show($item);
                                 $no++;
-
-
                         ?>
-
                                 <tr>
                                     <td class="proimage"><?php echo $no ?></td>
 
@@ -117,10 +114,6 @@
             </div>
         </section>
     </diV>
-
-
-
-
 </body>
 
 </html>

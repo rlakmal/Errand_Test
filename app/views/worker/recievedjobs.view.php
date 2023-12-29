@@ -8,7 +8,7 @@
         .popup-view {
             position: absolute;
             height: fit-content;
-            width: 30%;
+            width: 35%;
             background: #ffffff;
             margin-top: -3%;
             margin-bottom: 3%;
@@ -161,7 +161,7 @@
                             if ($item->status == 'Pending') {
                             ?>
                                 <div class="bttns">
-                                    <button type="submit" onclick="openEdit()" class="request-profile-button">Request Budget</button>
+                                    <button type="submit" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)" class="request-profile-button">Request Budget</button>
                                     <form class="form" method="POST">
                                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
                                         <button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button>
@@ -177,6 +177,8 @@
                                                         echo "greenbutton";
                                                     } elseif ($item->status == 'Rejected' || $item->status == 'Expired') {
                                                         echo "redbutton";
+                                                    } elseif ($item->status == 'Requested') {
+                                                        echo "orangebutton";
                                                     }
 
                                                     ?>"><?php echo $item->status ?></button></a>
@@ -208,17 +210,22 @@
             <div class="popup-view">
                 <form method="POST">
                     <h2>Enter Your Budget</h2>
-                    <input name="title" type="hidden" value="">
                     <h4>Budget : </h4>
-                    <input name="budget" type="text" value="" required placeholder="Enter your Budget" autocomplete="off">
-                    <input name="address" type="hidden" value="">
+                    <input name="newbudget" type="text" value="" required placeholder="Enter your Budget" autocomplete="off">
+                    <input name="emp_id" type="hidden" value="">
+                    <input name="title" type="hidden" value="">
+                    <input name="budget" type="hidden" value="">
+                    <input name="id" type="hidden" value="">
                     <input name="city" type="hidden" value="">
                     <input name="description" type="hidden" value="">
-                    <input name="id" type="hidden" value="">
-
+                    <input name="worker_id" type="hidden" value="">
+                    <input name="emp_name" type="hidden" value="">
+                    <input name="created" type="hidden" value="">
+                    <input name="worker_name" type="hidden" value="">
+                    <input name="status" type="hidden" value="">
                     <div class="btns">
                         <button type="button" class="cancelR-btn" onclick="closeEdit()">Cancel</button>
-                        <button name="editPost" type="submit" value="Post" class="close-btn">Post</button>
+                        <button name="ReqBudget" type="submit" value="Post" class="close-btn">Send</button>
                     </div>
                 </form>
             </div>
@@ -231,7 +238,12 @@
 
                 // editButton.addEventListener("click", openEdit);
 
-                function openEdit() {
+                function openEdit(button) {
+                    const itemData = button.getAttribute("data-order");
+                    console.log(itemData);
+                    const data = JSON.parse(itemData);
+                    console.log(data);
+                    dataBindtoForm(data);
                     popupEdit.classList.add("open-popup-view");
                     overlay1.classList.add("overlay-active");
                 }
@@ -239,6 +251,22 @@
                 function closeEdit() {
                     popupEdit.classList.remove("open-popup-view");
                     overlay1.classList.remove("overlay-active");
+                }
+
+                function dataBindtoForm(data) {
+                    console.log(data);
+
+                    document.querySelector('.popup-view input[name="emp_id"]').value = data.emp_id;
+                    document.querySelector('.popup-view input[name="title"]').value = data.title;
+                    document.querySelector('.popup-view input[name="budget"]').value = data.budget;
+                    document.querySelector('.popup-view input[name="id"]').value = data.id;
+                    document.querySelector('.popup-view input[name="city"]').value = data.city;
+                    document.querySelector('.popup-view input[name="description"]').value = data.description;
+                    document.querySelector('.popup-view input[name="worker_id"]').value = data.worker_id;
+                    document.querySelector('.popup-view input[name="emp_name"]').value = data.emp_name;
+                    document.querySelector('.popup-view input[name="created"]').value = data.created;
+                    document.querySelector('.popup-view input[name="worker_name"]').value = data.worker_name;
+                    document.querySelector('.popup-view input[name="status"]').value = data.status;
                 }
             </script>
     </div>
