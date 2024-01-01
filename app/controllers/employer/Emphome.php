@@ -21,11 +21,23 @@ class Emphome extends Controller
 
                 // Post job
                 if (isset($_POST['postJob'])) {
-
+                    show($_POST);
                     // data validation 
                     unset($_POST['postJob']);
                     $emp_id = $_SESSION['USER']->id;
                     $_POST['emp_id'] = $emp_id;
+                    $job_image_name = $_FILES['job_image']['name'];
+                    $job_image1_name = $_FILES['job_image1']['name'];
+                    if ($job_image_name != null) {
+                        $_POST['job_image'] = $job_image_name;
+                    }
+                    if ($job_image1_name != null) {
+                        $_POST['job_image1'] = $job_image1_name;
+                    }
+                    show($_POST);
+                    $this->uploadImage($_FILES['job_image']['tmp_name'], $job_image_name, '/assets/images/jobimages/');
+                    $this->uploadImage($_FILES['job_image1']['tmp_name'], $job_image1_name, '/assets/images/jobimages/');
+
                     $jobPost->insert($_POST);
                     redirect('employer/home');
                 }
@@ -44,5 +56,10 @@ class Emphome extends Controller
         $result = $jobPost->findAll('job_created');
         $data['data'] = $result;
         return  $data;
+    }
+    public function uploadImage($img, $img_name, $location)
+    {
+        $target = PUBROOT . $location . $img_name;
+        return move_uploaded_file($img, $target);
     }
 }

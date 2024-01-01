@@ -137,7 +137,7 @@
                 $item = $data['data'][$i];
                 $image = $images['images'][$i];
                 // Fixed 3-day countdown
-                $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
+                $expirationDate = $item->time_remain + (90); // 3 days in seconds
                 $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
         ?>
                 <?php
@@ -190,6 +190,11 @@
                         ?>
                         </div>
                     </div>
+                    <!-- <script>
+                        setInterval(function() {
+                            checkJobStatus(<?php echo $item->id ?>);
+                        }, 60000); // Repeat the check every 60 seconds
+                    </script> -->
 
             <?php
             }
@@ -231,7 +236,24 @@
             </div>
             <div id="overlay" class="overlay"></div>
 
+            <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
             <script>
+                function checkJobStatus(id) {
+                    // $.ajax({
+                    //     url: 'your_endpoint_to_get_job_status.php?id=' + id,
+                    //     method: 'GET',
+                    //     dataType: 'json',
+                    //     success: function(response) {
+                    //         if (response.status === 'Expired') {
+                    //             // Update the UI or take appropriate action
+                    //             alert('Job has expired!');
+                    //             // You can redirect or update the UI as needed
+                    //             // window.location.reload();
+                    //         }
+                    //     }
+                    // });
+                }
+
                 let popupEdit = document.querySelector(".popup-view");
                 let overlay1 = document.getElementById("overlay");
                 var editButton = document.getElementById("editButton");
