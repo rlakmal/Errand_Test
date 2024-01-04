@@ -60,6 +60,7 @@ class RecievedJob extends Controller
                             'status' => 'Expired',
                         ];
                         $recieved->update($id, $updateData, 'id');
+                        
                         redirect('worker/recievedjobs');
                     }
                 }

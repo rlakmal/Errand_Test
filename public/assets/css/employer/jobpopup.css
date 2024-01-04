@@ -151,7 +151,7 @@ table tbody tr.active-row {
 .popup-edit {
   position: absolute;
   height: fit-content;
-  width: 28%;
+  width: 29%;
   background: #ffffff;
   margin-top: 0%;
   margin-bottom: 0%;
@@ -211,33 +211,36 @@ table tbody tr.active-row {
 .popup-report .btns,
 .popup-view .btns {
   position: relative;
-  left: 40%;
-  width: 50%;
+  margin: 10px;
+  left: 67%;
+  left: 68%;
+  /* top: 0%; */
+  width: 2%;
   height: 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .popup-report .close-btn,
 .popup-view .close-btn,
 .cancelR-btn {
-  position: absolute;
+  position: relative;
   right: 1%;
   font-size: 16px;
-  color: var(--red);
+  color: #c81b33;
   cursor: pointer;
   padding: 5px 15px;
   border-radius: 6px;
-  color: #000;
+  color: #fff9f9;
   border: none;
-  background: var(--red);
+  background: #ff7734;
 }
 
 .popup-report .cancelR-btn,
 .cancelR-btn {
+  position: absolute;
   right: 28%;
-  background: var(--blue);
+  background: #e94949;
 }
 
 .overlay {
@@ -273,12 +276,20 @@ table tbody tr.active-row {
   width: 90px;
 }
 .jobimage {
+  cursor: pointer;
   max-width: 125px;
   max-height: 103px;
 }
 .postjobimages {
   display: flex;
 }
+.form-upload1 i {
+  size: 20px;
+}
+.bxs-image-add {
+  font-size: 24px;
+}
+
 @media (max-width: 650px) {
   td {
     display: block;

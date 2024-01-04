@@ -29,7 +29,8 @@ body {
 }
 
 .edit-gen {
-  font-size: 20px;
+  width: 75%;
+  font-size: 16px;
   font-weight: 300;
   color: #000;
   font-family: "Lato", sans-serif;
@@ -117,7 +118,7 @@ body {
   margin-left: 20px;
 }
 .close-button {
-  float: right;
+  width: 171px;
   top: 10px;
   right: 10px;
   border-radius: 20px;
@@ -126,4 +127,14 @@ body {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+}
+.container-left {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
 }
