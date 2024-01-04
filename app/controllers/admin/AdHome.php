@@ -8,7 +8,7 @@ class AdHome extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 
-            $this->view('admin/home2');
+            $this->view('admin/home3');
         }
     }
 }
