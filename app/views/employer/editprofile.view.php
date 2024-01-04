@@ -7,24 +7,29 @@
 </head>
 
 <body>
-    <?php include 'employernav.php' ?>
+    <?php include 'employernavex.php' ?>
     <style>
         .main-container4 {
-            margin-left: 200px;
-            min-width: 900px;
-            max-width: 500px;
-            margin-top: 120px;
-            margin-bottom: 10px;
+            display: flex;
+            border-radius: 40px;
+            margin: 6%;
+            width: 80%;
+            height: 552px;
+            background: #f3f3f3;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
 
         }
 
         .profile-container3 {
+            display: flex;
+            margin: 1%;
+            position: relative;
             background-color: #ffffff;
-            width: auto;
+            width: 98%;
+            height: 515px;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            height: 500px;
-            position: absolute;
             border-radius: 20px;
         }
 
@@ -41,29 +46,119 @@
             align-items: center;
             text-align: center;
         }
+
+        .index_img {
+            display: flex;
+            position: relative;
+            align-items: center;
+            width: 50%;
+            flex-direction: column;
+        }
+
+        .container-right {
+            position: relative;
+            display: flex;
+            width: 80%;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bottum_index {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .main-container4 {
+                height: 100%;
+                display: flex;
+                margin-left: 40px;
+                margin-top: 20%;
+                max-width: 200%;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .profile-container3 {
+                height: 80%;
+                display: flex;
+                width: 100%;
+                margin-left: 0;
+                flex-direction: column;
+            }
+
+            .form-upload {
+                margin-left: 20px;
+                /* Adjust as needed for small screens */
+            }
+
+            .container-left {
+                height: 478px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+                align-items: flex-start;
+
+            }
+
+            .container-right {
+                display: flex;
+                height: 455px;
+                width: 100%;
+                flex-direction: column;
+                flex-wrap: nowrap;
+            }
+
+            .index_img {
+                display: flex;
+            }
+
+            .picture .rates {
+
+                margin-left: 25%;
+                width: 300px;
+                flex-direction: row;
+
+            }
+
+            .bottum_index {
+                display: flex;
+                justify-content: center;
+
+            }
+        }
     </style>
 
-    <div class="main-container4">
-        <div class="profile-container3">
-            <form method="POST" enctype="multipart/form-data">
 
-                <button type="submit" class="close-button" value="Edit" name="edit">Done</button>
-                <div class="form-drag-area">
-                    <div class="picture">
-                        <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="profile_image_placeholder">
 
-                    </div>
-                    <div class="form-upload">
-                        <input type="file" id="profile_image" style="display: none;" name="profile_image">
-                        Choose Image
+    <form method="POST" enctype="multipart/form-data">
+        <div class="main-container4">
+            <div class="profile-container3">
+                <div class="container-left">
+                    <div class="index_img">
+
+                        <div class="form-drag-area">
+                            <div class="picture">
+                                <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="profile_image_placeholder">
+
+                            </div>
+                            <div class="form-upload">
+                                <input type="file" id="profile_image" style="display: none;" name="profile_image">
+                                Choose Image
+
+                            </div>
+                        </div>
+                        <div class="picture">
+                            <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
+                        </div>
 
                     </div>
                 </div>
-                <div class="picture">
-                    <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
-                </div>
-
-                <div class="index_edit">
+                <div class="container-right">
+                    <h2>Personal Information</h2>
 
                     <h3>
                         Full Name
@@ -86,14 +181,19 @@
                         Date of Birth
                     </h3>
                     <input type="text" name="dob" value="<?php echo $data['newData']['dob']; ?>" class="edit-gen" placeholder="Empty Date of Birth">
-
                 </div>
-
-            </form>
-
-
+            </div>
+            <div class="bottum_index">
+                <button type="submit" class="close-button" value="Edit" name="edit">Done</button>
+            </div>
         </div>
-        <script src="<?= ROOT ?>/assets/js/employer/imageUpload.js"></script>
+
+    </form>
+
+
+
+
+    <script src="<?= ROOT ?>/assets/js/employer/imageUpload.js"></script>
 </body>
 
 
