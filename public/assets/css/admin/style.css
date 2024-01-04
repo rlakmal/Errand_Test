@@ -1,0 +1,201 @@
+.material-symbols-sharp {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+:root {
+    --color-primary: orange;
+    --color-primary2: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #363949;
+    --color-dark: #363949;
+    --color-lights: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-lights);
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--color-background);
+}
+
+#main {
+    position: fixed;
+    top: 78px;
+    width: calc(100% - 120px);
+    height: max-content;
+    left: 78px;
+    margin-left: 20px;
+    transition: all 0.5s ease;
+    z-index: 2;
+    border-radius: 50px;
+}
+  
+#main.open {
+    left: 250px;
+    width: calc(100% - 280px);
+}
+
+#main > h1 {
+    font-size: 24px;
+    background-color: #f4f7fc;
+    font-weight: bold;
+}
+
+#main .insights {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.6rem;
+}
+
+#main .insights > div {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    /* margin-top: 1rem; */
+    margin-top: 0.5rem;  
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main .insights > div > h1 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#main .insights > div:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#main .insights > div span {
+    background: coral;
+    /* padding: 0.5rem; */
+    padding: 0.3rem;
+    border-radius: 50%;
+    font-size: 45px;
+    color: var(--color-white);
+    background-color: var(--color-primary2);
+}
+
+#main .insights > div.completed-jobs span {
+    background: var(--color-danger);
+}
+
+#main .insights > div.income span {
+    background: var(--color-success);
+}
+
+#main .insights > div .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main .insights > div .middle h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/*#main .insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}*/
+
+#main .insights small {
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* ================= Recent Orders ================== */
+/* #main .charts {
+    margin-top: 2rem;
+} */
+
+/* #main .recent-orders h2 {
+    margin-bottom: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+#main .recent-orders table {
+    background: var(--color-white);
+    width: 100%;
+    text-align: center;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+#main .recent-orders table:hover {
+    box-shadow: none;
+}
+
+#main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-lights);
+    color: var(--color-dark-variant);
+}
+
+#main table tbody tr:last-child td {
+    border: none;
+}
+
+#main .recent-orders a {
+    text-align: center;
+    display: block;
+    color: var(--color-primary2);
+    margin: 1rem auto;
+} */
+
+#main .charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 0.7rem;
+    /* margin-top: 60px; */
+}
+
+#main .charts > .chart-card {
+    /* background-color: #263043; */
+    margin-bottom: 30px;
+    padding: 25px;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+#main .charts .chart-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
