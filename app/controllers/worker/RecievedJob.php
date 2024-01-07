@@ -24,6 +24,7 @@ class RecievedJob extends Controller
                 ];
                 $recieved->update($id, $updateData, 'id');;
                 redirect('worker/recievedjobs');
+<<<<<<< HEAD
             }
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
@@ -45,6 +46,8 @@ class RecievedJob extends Controller
 
                 redirect('worker/myjobs');
                 //redirect('worker/recievedjobs');
+=======
+>>>>>>> f8b82fb (cancel job req)
             }
 
             if (!empty($data['data'])) {
