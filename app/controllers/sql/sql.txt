@@ -29,6 +29,7 @@ CREATE VIEW workers_from_emp AS
     worker.category as category,
     worker.city as city,
 <<<<<<< HEAD
+<<<<<<< HEAD
     worker.id as worker_id,
     worker.created as created
     FROM worker INNER JOIN employer
@@ -62,7 +63,12 @@ CREATE VIEW Ticket_Employer AS
     ON ticket.user = employer.id
 =======
     worker.id as worker_id
+=======
+    worker.id as worker_id,
+    worker.created as created
+>>>>>>> 4f1e905 (employer req worker)
     FROM worker INNER JOIN employer
-    ON worker.name = employer.name
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
 
 >>>>>>> 87f1f1a (updated)
