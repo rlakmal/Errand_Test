@@ -8,7 +8,7 @@ class SignIn extends Controller
 
         // sign in validation
         if (isset($_POST['signIn'])) {
-            //show($_POST);
+
             $this->signinVerify($user);
         }
 
@@ -16,16 +16,18 @@ class SignIn extends Controller
         if (isset($_POST['signUp'])) {
 
             if ($user->validate($_POST)) {
+                show($_POST);
 
                 unset($_POST['re-password']);
                 unset($_POST['signUp']);
-
                 $_POST['status'] = 'employer';
                 $_POST['profile_image'] = 'prof.png';
+                show($_POST);
+                
 
                 $user->insert($_POST);
 
-                redirect('home/signin');
+                //redirect('home/signin');
             }
         }
 
