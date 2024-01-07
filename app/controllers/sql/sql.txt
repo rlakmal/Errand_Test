@@ -1,17 +1,28 @@
 CREATE VIEW emp_post AS
+<<<<<<< HEAD
 
 
     SELECT
     job.id as id,
     employer.id as emp_id,
+=======
+    SELECT 
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     job.jobTitle as title,
     job.city as city,
     job.budget as budget,
     job.created as job_created,
+<<<<<<< HEAD
     job.description as description,
     job.address as address,
     employer.name as name,
     employer.profile_image as profile_image
+=======
+    employer.name as name,
+    employer.id as emp_id,
+    employer.profile_image as profile_image,
+    job.id as job_id
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
@@ -21,6 +32,7 @@ CREATE VIEW emp_post AS
 CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     SELECT
 =======
     SELECT 
@@ -28,12 +40,18 @@ CREATE VIEW workers_from_emp AS
 =======
     SELECT 
 >>>>>>> 349ef30 (crew member login)
+=======
+    SELECT
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
     worker.city as city,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     worker.id as worker_id,
     worker.created as created
     FROM worker INNER JOIN employer
@@ -41,6 +59,9 @@ CREATE VIEW workers_from_emp AS
     WHERE employer.status = worker.status
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 
 CREATE VIEW Ticket_Note AS
     SELECT
@@ -65,6 +86,7 @@ CREATE VIEW Ticket_Employer AS
     ticket.id as ticket_id,
     ticket.user as user
     FROM ticket LEFT JOIN note
+<<<<<<< HEAD
     ON ticket.user = employer.id
 =======
     worker.id as worker_id
@@ -79,3 +101,6 @@ CREATE VIEW Ticket_Employer AS
 >>>>>>> 87f1f1a (updated)
 =======
 >>>>>>> 349ef30 (crew member login)
+=======
+    ON ticket.user = employer.id
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
