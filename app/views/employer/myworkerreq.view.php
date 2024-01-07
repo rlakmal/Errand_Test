@@ -41,10 +41,7 @@
                     foreach ($data as $item) {
                         // show($item);
                         $no++;
-
-
                         ?>
-
                         <tr>
                             <td class="proimage"><?php echo $no ?></td>
 
@@ -57,9 +54,9 @@
                             <td><?php echo $item->title ?></td>
                             <td>RS <?php echo $item->budget ?>/=</td>
                             <td><?php echo $item->city ?></td>
-                            <td><button class="<?php if ($item->status == "Pending") {
+                            <td><button class="<?php if ($item->status == "Pending" || $item->status == "Accepted") {
                                     echo "pendingbutton";
-                                } elseif ($item->status == "Rejected") {
+                                } elseif ($item->status == "Rejected" || $item->status == "Requested") {
                                     echo "rejectedbutton";
                                 } else {
                                     echo "expirebutton";
@@ -117,10 +114,6 @@
         </div>
     </section>
 </diV>
-
-
-
-
 </body>
 
 </html>

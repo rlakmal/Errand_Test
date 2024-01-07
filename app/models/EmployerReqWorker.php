@@ -8,7 +8,6 @@ class EmployerReqWorker
         'emp_id ',
         'emp_name',
 
-
         'title',
         'budget',
         'city',
@@ -17,7 +16,6 @@ class EmployerReqWorker
         'worker_name',
         'status',
         'time_remain'
-
 
     ];
 }
