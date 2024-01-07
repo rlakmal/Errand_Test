@@ -21,6 +21,7 @@ class AdReports extends Controller
             $rep1->workersveri = !$workersveri ? 0 : count($workersveri);
             $qdata["verified"] = false;
             $rep1->workersunveri = count($worker->where($qdata));
+            unset($qdata["verified"]);
             $qdata["status"] = "employer";
             $rep1->employers = count($user->where($qdata));
             $rep1->crew = count($crew->findAll());
