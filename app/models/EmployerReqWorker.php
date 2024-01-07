@@ -18,6 +18,5 @@ class EmployerReqWorker
         'status',
         'time_remain'
 
-
     ];
 }

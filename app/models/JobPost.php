@@ -15,5 +15,7 @@ class JobPost
 		'emp_id',
 		'budget',
 		'city',
+		'job_image',
+		'job_image1'
 	];
 }

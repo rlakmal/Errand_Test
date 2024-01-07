@@ -24,3 +24,4 @@ class WorkerHome extends Controller
 
     }
 }
+
