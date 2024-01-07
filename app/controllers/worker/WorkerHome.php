@@ -20,6 +20,8 @@ class WorkerHome extends Controller
         $data['data'] = $result;
         return  $data;
 
+
+
     }
 }
 

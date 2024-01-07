@@ -73,6 +73,8 @@ route('admin/adnotification', 'admin/AdNotification@index');
 route('admin/adnotification2', 'admin/AdNotification2@index');
 route('admin/adreports', 'admin/AdReports@index');
 route('admin/workerprof', 'admin/WorkerProf@index');
+route('admin/message', 'admin/Message@index');
+
 
 /*---------------------------------------------------------------------
     member routes

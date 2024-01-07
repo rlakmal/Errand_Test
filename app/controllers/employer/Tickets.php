@@ -15,7 +15,7 @@ class Tickets extends Controller
                 // Fix the assignment operator here and initialize the array
                 $q_data["user"] = $_SESSION["USER"]->id;
                 $view_data["data"] = $ticket->where($q_data);
-                $this->view("employer/tickets", $view_data);
+                $this->view("employer/tickets3", $view_data);
             }
         }
         else {

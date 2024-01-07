@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <?php include 'employernav.php' ?>
     <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
@@ -104,6 +105,7 @@
                 </div> -->
 
                         <?php
+
                             }
                         }
 

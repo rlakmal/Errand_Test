@@ -12,6 +12,8 @@
 </head>
 
 <body>
+<script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+
 <!-- Sidebar -->
 <?php include 'sidebar.php' ?>
 <!-- Navigation bar -->
@@ -54,6 +56,7 @@
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
+                show($item);
                 ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
@@ -127,7 +130,31 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<<<<<<< HEAD
 <script src="<?= ROOT ?>/assets/js/admin/crewMembers.js"></script>
+=======
+<script>
+    // function openReport() {
+    //     document.querySelector('.popup-report').style.display = 'flex';
+    //     document.querySelector('.overlay').style.display = 'block';
+    // }
+    //
+    // function closeReport() {
+    //     document.querySelector('.popup-report').style.display = 'none';
+    //     document.querySelector('.overlay').style.display = 'none';
+    // }
+    //
+    // function openView(element) {
+    //     document.querySelector('.popup-view').style.display = 'flex';
+    //     document.querySelector('.overlay').style.display = 'block';
+    // }
+    //
+    // function closeView() {
+    //     document.querySelector('.popup-view').style.display = 'none';
+    //     document.querySelector('.overlay').style.display = 'none';
+    // }
+</script>
+>>>>>>> 349ef30 (crew member login)
 </body>
 
 </html>
