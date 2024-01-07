@@ -24,7 +24,6 @@ class RecievedJob extends Controller
                 ];
                 $recieved->update($id, $updateData, 'id');;
                 redirect('worker/recievedjobs');
-<<<<<<< HEAD
             }
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
@@ -45,18 +44,6 @@ class RecievedJob extends Controller
                 $reqbudget->insert($_POST);
 
                 redirect('worker/myjobs');
-                //redirect('worker/recievedjobs');
-=======
->>>>>>> f8b82fb (cancel job req)
-            }
-            if (isset($_POST['Accept'])) {
-                $id = $_POST['id'];
-                $updateData = ['status' => 'Accepted'];
-                $recieved->update($id, $updateData, 'id');;
-                redirect('worker/recievedjobs');
-            }
-            if (isset($_POST['editPost'])) {
-                show($_POST);
                 //redirect('worker/recievedjobs');
             }
 
