@@ -2,13 +2,65 @@
 <html lang="en">
 
 <head>
-    <title>Sidebar</title>
+    <title>Admin Dashboard</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .nue {
+            overflow-y: scroll;
+        }
+
+        .curve-bar {
+            position: relative;
+            height: 20px;
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .filling-bar-verified {
+            position: absolute;
+            height: 100%;
+            width: 0;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            animation: fillAnimationVerified 2s ease-in;
+        }
+
+        .filling-bar-completed {
+            position: absolute;
+            height: 100%;
+            width: 0;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            animation: fillAnimationCompleted 2s ease-in;
+        }
+
+        @keyframes fillAnimationVerified {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: <?= round($verifiedpercentage) ?>%;
+            }
+        }
+
+        @keyframes fillAnimationCompleted {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 60%; /* Adjust the completed jobs percentage accordingly */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -19,31 +71,44 @@
 <!-- Scripts -->
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
-<!-- content  -->
-<section id="main" class="main">
-    <h2>Data</h2>
-    <form>
-        <div class="form">
-            <input class="form-group" type="text" placeholder="Search...">
-            <i class='bx bx-search icon'></i>
-            <input class="new-btn" type="button" onclick="openNew()" value="+ New ">
-            <input class="btn" type="button" onclick="openReport()" value="Report Problem">
+<!-- Content -->
+<section id="main" class="main nue">
+    <h2>Administrator Home</h2>
+    <div class="stats">
+        <div class="stat-box">
+            <h3>Total Workers</h3>
+            <p class="stat-number"><?= count($workers) ?></p>
         </div>
-    </form>
+        <div class="stat-box">
+            <h3>Total Employers</h3>
+            <p class="stat-number"><?= count($employers) ?></p>
+        </div>
+        <div class="stat-box">
+            <h3>Total Jobs Posted</h3>
+            <p class="stat-number"><?= count($jobs) ?></p>
+        </div>
+        <div class="stat-box">
+            <h3>Verified Workers</h3>
+            <div class="curve-bar">
+                <div class="filling-bar-verified"></div>
+            </div>
+            <p class="stat-number"><?= round($verifiedpercentage) ?>%</p>
+        </div>
+        <div class="stat-box">
+            <h3>Completed Jobs</h3>
+            <div class="curve-bar">
+                <div class="filling-bar-completed"></div>
+            </div>
+            <p class="stat-number">60%</p>
+        </div>
+        <!-- Add more stats boxes as needed -->
+    </div>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th class="ordId">Total Workers</th>
-            <th class="desc">Categories</th>
-            <th class="stth">Current Week</th>
-            <th class="cost">Profit</th>
-            <th></th>
-        </tr>
-        </thead>
-    </table>
-    <div id="overlay" class="overlay"></div>
+    <?php
+    $categories = array_unique(array_column($workers, 'category'));
+    $categoryCounts = array_count_values(array_column($workers, 'category'));
+
+    ?>
 
     <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
         <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
@@ -60,55 +125,13 @@
     <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
         <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
     </div>
-
 </section>
 
 <!-- POPUP -->
 
 <div class="popup-report">
-    <h2>Report Your Problem</h2>
-    <h4>Your name : </h4>
-    <input type="text" placeholder="Enter your name">
-    <h4>Your email : </h4>
-    <input type="text" placeholder="Enter your email">
-    <h4>Problem : </h4>
-    <textarea name="problem" id="problem" cols="30" rows="10" placeholder="Enter your problem"></textarea>
-    <div class="btns">
-        <button type="button" class="cancelR-btn" onclick="closeReport()">Cancel</button>
-        <button type="button" class="close-btn" onclick="closeReport()">Submit</button>
-    </div>
+    <!-- Popup content here -->
 </div>
-
-<div class="popup-view" id="popup-view">
-    <button type="button" class="update-btn pb">Update Order</button>
-    <button type="button" class="cancel-btn pb">Cancel Order</button>
-    <h2>Order Details</h2>
-    <div class="status">
-        <ul>
-            <li>
-                <iconify-icon icon="streamline:interface-time-stop-watch-alternate-timer-countdown-clock"></iconify-icon>
-                <div class="progress one">
-                    <i class="uil uil-check"></i>
-                </div>
-                <p class="text">Pending</p>
-            </li>
-            <!-- Include other status items as needed -->
-        </ul>
-    </div>
-    <div class="container1">
-        <form>
-            <!-- Include other input fields as needed -->
-            <div class="input-box">
-                <span class="details">Order Id </span>
-                <input type="text" id="" />
-            </div>
-            <!-- Include other input boxes as needed -->
-        </form>
-    </div>
-    <button type="button" class="ok-btn" onclick="closeView()">OK</button>
-</div>
-
-
 
 <style>
     .chart-container {
@@ -117,6 +140,25 @@
         float: left;
         margin-top: 20px;
         margin-right: 20px;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .stat-box {
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
     }
 </style>
 
@@ -135,15 +177,30 @@
         };
 
         var jobDistributionData = {
-            labels: ['Web Development', 'Graphic Design', 'Data Entry', 'Delivery'],
+            labels: <?= json_encode(array_keys($categoryCounts)) ?>,
             datasets: [{
-                label: 'Job Distribution',
-                data: [30, 20, 15, 35],
-                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
-                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                label: 'Workers Distribution',
+                data: <?= json_encode(array_values($categoryCounts)) ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
                 borderWidth: 1
             }]
         };
+
 
         var thirdChartData = {
             labels: ['A', 'B', 'C', 'D', 'E'],

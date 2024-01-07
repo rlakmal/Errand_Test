@@ -2,13 +2,13 @@
     <section class="home-section" id="navbar">
         <nav>
             <div class="nav-icons">
-                <a href="#" class="nav-link">
+                <a href="<?=ROOT?>/admin/message" class="nav-link">
                     <i class='bx bxs-bell-ring icon'></i>
                     <span class="bell-notification">5</span>
                 </a>
-                <a href="<?=ROOT?>/admin/message" class="nav-link">
+                <a href="#" class="nav-link">
                     <i class='bx bxs-chat icon'></i>
-                    <span class="chat-notification">8</span>
+<!--                    <span class="chat-notification">8</span>-->
                 </a>
 
                 <!-- <a href="#" class="nav-link-profile">
