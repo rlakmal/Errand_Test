@@ -67,12 +67,13 @@
                                 <i class="bx bxs-map icon"></i>
                             </div>
 
+                            <div class="index_btn">
+                                <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
+                                <a><button class="view-button" id="request-button">View</button></a>
+                            </div>
+
 
                         </div>
-                        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
-                        <a><button class="view-profile-button" id="request-button">View</button></a>
-
-                        <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
                     </div>
                 </div>

@@ -1,0 +1,128 @@
+body {
+  font-family: Tahoma, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.select-container {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 10;
+}
+.edit-gen {
+  width: 75%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+
+.main-container4 {
+  display: flex;
+  border-radius: 40px;
+  margin: 6%;
+  margin-left: 27%;
+  width: 65%;
+  padding: 25px;
+  background-color: #ffffff;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container3 {
+  display: flex;
+  margin: 1%;
+  position: relative;
+  width: 98%;
+  height: 700px;
+  border-radius: 20px;
+}
+
+.container-left {
+  display: flex;
+  position: relative;
+  background: transparent;
+  background: aliceblue;
+  width: 45%;
+  border-radius: 39px;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.container-right {
+  left: 10%;
+  position: relative;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+.image {
+  margin-top: -19%;
+  width: 165px;
+  border-radius: 50%;
+  height: 165px;
+}
+.rates {
+  max-width: 365px;
+  border-radius: 13px;
+}
+.title-line {
+  margin: 60px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.index_bottom {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.job_images {
+  position: relative;
+  display: flex;
+}
+.jobimage {
+  max-width: 38%;
+}
+.jobimage1 {
+  max-width: 38%;
+  margin-left: 20px;
+}
+.category {
+  color: rgb(112, 114, 116);
+  margin-top: -24%;
+}
+.emp-name {
+  margin-top: -30%;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container4 {
+    height: 100%;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20%;
+    max-width: 200%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile-container3 {
+    height: 80%;
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+}
