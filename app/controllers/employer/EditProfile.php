@@ -11,6 +11,7 @@ class EditProfile extends Controller
             // edit for get Data
             $result =  $this->getProfileData($user, $use_id);
 
+
             if (isset($_POST['edit'])) {
 
                 unset($_POST['edit']);

@@ -65,6 +65,8 @@
 
         /* Popup Styles */
         #popup {
+            z-index: 9999;
+
             display: none;
             position: fixed;
             top: 0;
@@ -77,6 +79,7 @@
         }
 
         .popup-content {
+            z-index: 9999;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -118,29 +121,29 @@
     <h2>Reports</h2>
 
     <div class="report-widgets">
-        <div class="report-widget" onclick="openPopup('Report 1', 'Data: Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nDate: October 25, 2023')">
-            <a href="#">Report 1</a>
+        <div class="report-widget" onclick="openPopup('Population Statistics', 'No of Employers: <?= $rep1->employers?>\n\nNo of Workers(Unverified): <?= $rep1->workersunveri?>\n\nNo of Workers(Verified): <?= $rep1->workersveri?>\n\nNo of Crew Members: <?= $rep1->crew?>\n\nNo of Jobs: <?= $rep1->workers?>\n\nDate: <?= date("m-d-y")?>')">
+            <a href="#">Population Statistics</a>
             <div class="widget-content">
-                <p>Data: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Date: October 25, 2023</p>
+                <p>User Statistic Basics</p>
+                <p><?= date("m-d-y")?></p>
             </div>
         </div>
 
         <!-- Include other report widgets as needed -->
 
-        <div class="report-widget" onclick="openPopup('Report 2', 'Data: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nDate: October 26, 2023')">
-            <a href="#">Report 2</a>
+        <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep1->employers?>\n\nExpired: <?= $rep1->workersunveri?>\n\nCancelled: <?= $rep1->workersveri?>\n\nRejected: <?= $rep1->crew?>\n\nRequested: <?= $rep1->workers?>\n\nWorker Requests\n\nAccepted: <?= $rep1->employers?>\n\nExpired: <?= $rep1->workersunveri?>\n\nPending: <?= $rep1->workersunveri?>\n\nDate: <?= date("m-d-y")?>')">
+            <a href="#">Requests</a>
             <div class="widget-content">
-                <p>Data: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Date: October 26, 2023</p>
+                <p>Request Statistics Basics</p>
+                <p><?= date("m-d-y")?></p>
             </div>
         </div>
 
-        <div class="report-widget" onclick="openPopup('Report 3', 'Data: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\nDate: October 27, 2023')">
-            <a href="#">Report 3</a>
+        <div class="report-widget" onclick="openPopup('Last 30 Days Finances', 'Job Acceptances, quis nostrud e\n\nRevenue: xercitation ullamco laboris.\n\nDate:<?= date("m-d-y")?>')">
+            <a href="#">Finances </a>
             <div class="widget-content">
-                <p>Data: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <p>Date: October 27, 2023</p>
+                <p>Last 30 days</p>
+                <p><?= date("m-d-y")?></p>
             </div>
         </div>
 
@@ -174,6 +177,9 @@
 
 <script>
     function openPopup(title, data) {
+        // Replace line breaks with <br> tags and escape single quotes
+        data = data.replace(/\n/g, '<br>').replace(/'/g, "\\'");
+
         document.getElementById('popup-title').innerHTML = title;
         document.getElementById('popup-data').innerHTML = data;
         document.getElementById('popup').style.display = 'flex';
@@ -184,8 +190,32 @@
     }
 
     function downloadReport() {
-        // Implement download logic here
-        alert('Downloading report...');
+        // Get the report data from the popup
+        var reportTitle = document.getElementById('popup-title').innerText;
+        var reportData = document.getElementById('popup-data').innerText;
+
+        // Combine title and data
+        var content = reportTitle + '\n\n' + reportData;
+
+        // Create a Blob containing the content
+        var blob = new Blob([content], { type: 'text/plain' });
+
+        // Create a temporary link element
+        var link = document.createElement('a');
+
+        // Set the download attribute and create a link to the file
+        link.download = reportTitle.replace(/\s+/g, '_') + '.txt';
+        link.href = window.URL.createObjectURL(blob);
+
+        // Append the link to the body and trigger a click
+        document.body.appendChild(link);
+        link.click();
+
+        // Remove the temporary link from the document
+        document.body.removeChild(link);
+
+        // Close the popup
+        closePopup();
     }
 </script>
 </body>

@@ -8,6 +8,7 @@ class RecievedJob extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
 
             $recieved = new EmployerReqWorker;
+
             $reqbudget = new WorkeRrequestJobs;
             $user = new User;
             $id = $_SESSION['USER']->id;
@@ -28,6 +29,7 @@ class RecievedJob extends Controller
                 $id = $_POST['id'];
                 $updateData = ['status' => 'Accepted'];
                 $recieved->update($id, $updateData, 'id');;
+
                 redirect('worker/acceptedjobs');
             }
             if (isset($_POST['ReqBudget'])) {
@@ -50,6 +52,7 @@ class RecievedJob extends Controller
                     $arr_img['id'] = $data['data'][$i]->emp_id;
                     $prof_image = $user->where($arr_img);
                     $images['images'][$i] = $prof_image[0]->profile_image;
+
                     //3-day countdown
                     $expirationDate = $data['data'][$i]->time_remain + (90); // 3 days in seconds
                     $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
@@ -60,6 +63,7 @@ class RecievedJob extends Controller
                             'status' => 'Expired',
                         ];
                         $recieved->update($id, $updateData, 'id');
+
                         
                         redirect('worker/recievedjobs');
                     }
