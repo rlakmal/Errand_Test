@@ -76,12 +76,20 @@
                         <div class="profile-ratings"><?php echo $times_ago ?></div>
                         <div class="profile-type"><?php echo $item->title ?></div>
 
+                            <div class="index_btn">
+                                <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
+                                <a><button class="view-button" id="request-button">View</button></a>
+                            </div>
+
+
+                        </div>
 
                         <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
                         <div class="location">
                             <?php echo $item->city ?>
                             <i class="bx bxs-map icon"></i>
                         </div>
+
 
 
                     </div>

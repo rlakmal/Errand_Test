@@ -45,7 +45,7 @@ route('employer/tickets', 'employer/tickets@index');
     worker routes
 --------------------------------------------------------------------- */
 
-route('worker/home3', 'worker/WorkerHome@index');
+route('worker/home', 'worker/WorkerHome@index');
 route('worker/requestjob', 'worker/RequestJob@index');
 route('worker/services', 'worker/WorkersList@index');
 route('worker/viewworker', 'worker/ViewWorkers@index');
