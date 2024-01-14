@@ -12,7 +12,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBPASS', '');
     define('DBDRIVER', '');
 
-    define('ROOT', 'http://localhost/Errand_test/public');
+    define('ROOT', 'http://localhost/Group-project/public');
     define('PUBROOT', dirname(dirname(dirname(__FILE__))) . '/public');
 } else {
 
