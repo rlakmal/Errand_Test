@@ -65,6 +65,7 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     worker.id as worker_id,
@@ -124,7 +125,12 @@ CREATE VIEW Ticket_Employer AS
 >>>>>>> 20cdef3 (workerhome)
 =======
     worker.id as worker_id
+=======
+    worker.id as worker_id,
+    worker.created as created
+>>>>>>> 4f1e905 (employer req worker)
     FROM worker INNER JOIN employer
-    ON worker.name = employer.name
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
 
 >>>>>>> 87f1f1a (updated)
