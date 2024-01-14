@@ -8,7 +8,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 <?php include 'employernav.php' ?>
 <?php include 'myjobsidebar.php' ?>
 <?php include 'workerrequest.php' ?>
@@ -16,14 +15,6 @@
 <?php include 'workerrequest.php' ?>
 <?php include 'workerrequest.php' ?>
 <!-- <?php include 'workerrequest2.php' ?> -->
-=======
-    <?php include 'employernav.php' ?>
-    <?php include 'myjobsidebar.php' ?>
-    <?php include 'workerrequest.php' ?>
-    <?php include 'workerrequest.php' ?>
-    <?php include 'workerrequest.php' ?>
-    <!-- <?php include 'workerrequest2.php' ?> -->
->>>>>>> c5ef733 (recieved job img)
 
 </body>
 
