@@ -46,10 +46,6 @@ class RecievedJob extends Controller
                 redirect('worker/myjobs');
                 //redirect('worker/recievedjobs');
             }
-            if (isset($_POST['editPost'])) {
-                show($_POST);
-                //redirect('worker/recievedjobs');
-            }
 
             if (!empty($data['data'])) {
                 for ($i = 0; $i < count($data['data']); $i++) {
