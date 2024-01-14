@@ -55,6 +55,7 @@
         <!--                <span class="tooltip">Profile</span>-->
         <!--            </li>-->
 
+
         <li class="profile">
             <div class="profile_details">
                 <img src="<?= ROOT ?>/assets/images/manager/elon_musk.jpg" alt="profile image">

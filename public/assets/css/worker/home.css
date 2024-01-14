@@ -8,3 +8,27 @@
 .select-container {
   margin-top: -12px;
 }
+.index_btn {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  float: right;
+  margin-top: -25px;
+}
+.request-button {
+  background: #f2762c;
+  border-radius: 30px;
+  position: relative;
+}
+.view-button {
+  width: 99px;
+  background: #f2762c;
+  border-radius: 30px;
+  position: relative;
+}
+.view-button:hover {
+  background: black;
+  background-color: white;
+}

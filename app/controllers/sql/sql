@@ -9,6 +9,8 @@ CREATE VIEW emp_post AS
     job.created as job_created,
     job.description as description,
     job.address as address,
+    job.job_image as job_image,
+    job.job_image1 as job_image1, 
     employer.name as name,
     employer.profile_image as profile_image
     FROM job INNER JOIN employer
@@ -20,11 +22,6 @@ CREATE VIEW emp_post AS
 CREATE VIEW workers_from_emp AS
 
     SELECT
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
     employer.id as emp_id,
     employer.name as name,
     employer.category as category,

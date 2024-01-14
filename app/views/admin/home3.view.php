@@ -92,11 +92,11 @@
 
         <div class="completed-jobs">
             <div class="middle">
-                <h1>Job Acceptances</h1>
+                <h1>Completed Jobs</h1>
                 <span class="material-symbols-sharp">bar_chart</span>
             </div>
             <h1>54</h1>
-            <small class="text-muted">Last 7 days</small>
+            <small class="text-muted">Last 24 hours</small>
         </div>
         <!-- END OF Expenses -->
 
