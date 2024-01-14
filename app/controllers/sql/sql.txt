@@ -1,5 +1,6 @@
 CREATE VIEW emp_post AS
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
     SELECT
@@ -11,10 +12,14 @@ CREATE VIEW emp_post AS
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 =======
 >>>>>>> a97cef1 (update my job)
+=======
+    SELECT 
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     job.jobTitle as title,
     job.city as city,
     job.budget as budget,
     job.created as job_created,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     job.description as description,
@@ -22,10 +27,13 @@ CREATE VIEW emp_post AS
     employer.name as name,
     employer.profile_image as profile_image
 =======
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     employer.name as name,
     employer.id as emp_id,
     employer.profile_image as profile_image,
     job.id as job_id
+<<<<<<< HEAD
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 =======
     job.description as description,
@@ -33,6 +41,8 @@ CREATE VIEW emp_post AS
     employer.name as name,
     employer.profile_image as profile_image
 >>>>>>> a97cef1 (update my job)
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
@@ -45,6 +55,7 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     SELECT
 =======
     SELECT 
@@ -61,6 +72,9 @@ CREATE VIEW workers_from_emp AS
 =======
     SELECT 
 >>>>>>> 349ef30 (crew member login)
+=======
+    SELECT
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -70,6 +84,9 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 =======
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
     worker.id as worker_id,
@@ -82,6 +99,9 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 =======
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
 
@@ -108,6 +128,7 @@ CREATE VIEW Ticket_Employer AS
     ticket.id as ticket_id,
     ticket.user as user
     FROM ticket LEFT JOIN note
+<<<<<<< HEAD
 <<<<<<< HEAD
     ON ticket.user = employer.id
 =======
@@ -141,3 +162,6 @@ CREATE VIEW Ticket_Employer AS
 >>>>>>> 87f1f1a (updated)
 =======
 >>>>>>> 349ef30 (crew member login)
+=======
+    ON ticket.user = employer.id
+>>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
