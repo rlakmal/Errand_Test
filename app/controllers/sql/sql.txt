@@ -7,6 +7,7 @@ CREATE VIEW emp_post AS
     job.id as id,
     employer.id as emp_id,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     SELECT 
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
@@ -15,10 +16,13 @@ CREATE VIEW emp_post AS
 =======
     SELECT 
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
+=======
+>>>>>>> a97cef1 (update my job)
     job.jobTitle as title,
     job.city as city,
     job.budget as budget,
     job.created as job_created,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -43,6 +47,12 @@ CREATE VIEW emp_post AS
 >>>>>>> a97cef1 (update my job)
 =======
 >>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
+=======
+    job.description as description,
+    job.address as address,
+    employer.name as name,
+    employer.profile_image as profile_image
+>>>>>>> a97cef1 (update my job)
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
