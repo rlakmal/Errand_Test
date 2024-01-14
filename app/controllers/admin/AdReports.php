@@ -10,6 +10,7 @@ class AdReports extends Controller
         $job = new JobPost();
         $crew = new CrewMember();
         $empreq = new EmployerReqWorker();
+        $workreq = new WorkeRrequestJobs();
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
@@ -17,14 +18,36 @@ class AdReports extends Controller
             $rep1 = new stdClass();
             $rep1->workers = count($worker->findAll());
             $qdata["verified"] = true;
-            $rep1->workersveri = count($worker->where($qdata));
+            $workersveri = $worker->where($qdata);
+            $rep1->workersveri = !$workersveri ? 0 : count($workersveri);
             $qdata["verified"] = false;
             $rep1->workersunveri = count($worker->where($qdata));
+            unset($qdata["verified"]);
             $qdata["status"] = "employer";
             $rep1->employers = count($user->where($qdata));
             $rep1->crew = count($crew->findAll());
 
             $data["rep1"] = $rep1;
+
+            $qdata["status"] = "Expired";
+
+            $rep2 = new stdClass();
+            $rep2->emplexp = count($empreq->where($qdata));
+
+            $qdata["status"] = "Canceled";
+            $rep2->empcanc = count($empreq->where($qdata));
+            $qdata["status"] = "Accepted";
+            $rep2->empacc = count($empreq->where($qdata));
+            $qdata["status"] = "Rejected";
+            $rep2->emprej = count($empreq->where($qdata));
+            $qdata["status"] = "Requested";
+            $rep2->empreqs = count($empreq->where($qdata));
+
+
+            $qdata["status"] = "pending";
+            $rep2->workpend = count($workreq->where($qdata));
+
+            $data["rep2"] = $rep2;
 
             $this->view('admin/reports', $data);
         } else {

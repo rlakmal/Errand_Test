@@ -64,7 +64,7 @@ class RecievedJob extends Controller
                         ];
                         $recieved->update($id, $updateData, 'id');
 
-                        
+
                         redirect('worker/recievedjobs');
                     }
                 }

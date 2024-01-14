@@ -8,7 +8,6 @@ class EmployerReqWorker
         'emp_id ',
         'emp_name',
 
-
         'title',
         'budget',
         'city',

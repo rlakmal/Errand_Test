@@ -130,9 +130,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<<<<<<< HEAD
 <script src="<?= ROOT ?>/assets/js/admin/crewMembers.js"></script>
-=======
 <script>
     // function openReport() {
     //     document.querySelector('.popup-report').style.display = 'flex';
@@ -154,7 +152,6 @@
     //     document.querySelector('.overlay').style.display = 'none';
     // }
 </script>
->>>>>>> 349ef30 (crew member login)
 </body>
 
 </html>

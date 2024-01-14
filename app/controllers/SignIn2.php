@@ -23,22 +23,34 @@ class SignIn2 extends Controller
 
             if ($user->validate($_POST)) {
 
-                unset($_POST['re-password']);
-                unset($_POST['signUp']);
-
-                $_POST['status'] = 'employer';
-                $_POST['profile_image'] = 'prof.png';
-                $_POST['verified'] = false;
-
-                $user->insert($_POST);
-
                 $qdata["email"] = $_POST["email"];
-                $row = $user->first($qdata);
 
-                $this->sendConfirmationEmail($_POST['email'], $_POST['name'], $row->id);
+                $email = $user->first($qdata);
+
+                if(!$email){
+                    unset($_POST['re-password']);
+                    unset($_POST['signUp']);
+
+                    $_POST['status'] = 'employer';
+                    $_POST['profile_image'] = 'prof.png';
+                    $_POST['verified'] = false;
+
+                    $user->insert($_POST);
+
+                    $qdata["email"] = $_POST["email"];
+
+                    $row = $user->first($qdata);
+
+                    $this->sendConfirmationEmail($_POST['email'], $_POST['name'], $row->id);
 
 
-                redirect('verifyprompt&id=' . $row->id);
+                    redirect('verifyprompt&id=' . $row->id);
+
+                } else {
+                    $user ->errors = "Username Already Exists";
+                }
+
+
             }
         }
 

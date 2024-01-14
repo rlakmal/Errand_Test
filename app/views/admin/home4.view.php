@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +8,11 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style.css">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .nue {
@@ -74,85 +79,96 @@
 <!-- Content -->
 <section id="main" class="main nue">
     <h2>Administrator Home</h2>
-    <div class="stats">
-        <div class="stat-box">
-            <h3>Total Workers</h3>
-            <p class="stat-number"><?= count($workers) ?></p>
-        </div>
-        <div class="stat-box">
-            <h3>Total Employers</h3>
-            <p class="stat-number"><?= count($employers) ?></p>
-        </div>
-        <div class="stat-box">
-            <h3>Total Jobs Posted</h3>
-            <p class="stat-number"><?= count($jobs) ?></p>
-        </div>
-        <div class="stat-box">
-            <h3>Verified Workers</h3>
-            <div class="curve-bar">
-                <div class="filling-bar-verified"></div>
+    <div class="insights">
+        <div class="income">
+            <div class="middle">
+                <h1>Total Income</h1>
+                <span class="material-symbols-sharp">stacked_line_chart</span>
             </div>
-            <p class="stat-number"><?= round($verifiedpercentage) ?>%</p>
+            <h1>Rs.10,558/=</h1>
+            <small class="text-muted">Last 24 hours</small>
         </div>
-        <div class="stat-box">
-            <h3>Completed Jobs</h3>
-            <div class="curve-bar">
-                <div class="filling-bar-completed"></div>
+        <!-- END OF Income -->
+
+        <div class="posted-jobs">
+            <div class="middle">
+                <h1>Posted Jobs</h1>
+                <span class="material-symbols-sharp">analytics</span>
             </div>
-            <p class="stat-number">60%</p>
+            <h1>80</h1>
+            <small class="text-muted">Last 24 hours</small>
         </div>
-        <!-- Add more stats boxes as needed -->
-    </div>
+        <!-- END OF SALES -->
 
-    <?php
-    $categories = array_unique(array_column($workers, 'category'));
-    $categoryCounts = array_count_values(array_column($workers, 'category'));
+        <div class="completed-jobs">
+            <div class="middle">
+                <h1>Job Acceptances</h1>
+                <span class="material-symbols-sharp">bar_chart</span>
+            </div>
+            <h1>54</h1>
+            <small class="text-muted">Last 7 days</small>
+        </div>
+        <!-- END OF Expenses -->
 
-    // Sample data for registered users bar chart
-    $months = [];
-    $employerData = [];
-    $workerData = [];
+        <div class="adminCrew">
+            <div class="middle">
+                <h1>Crew Members</h1>
+                <span class="material-symbols-sharp">groups</span>
+            </div>
+            <h1>25</h1>
+            <small class="text-muted">Last 24 hours</small>
+        </div>
 
-    // Assuming $users have user objects, each with ->created(datetime)
-    foreach ($users as $user) {
-        $createdMonth = date('F', strtotime($user->created));
-        $userType = ($user->status == 'employer') ? 'Employer' : 'Worker';
+        <?php
+        $categories = array_unique(array_column($workers, 'category'));
+        $categoryCounts = array_count_values(array_column($workers, 'category'));
 
-        if (!in_array($createdMonth, $months)) {
-            $months[] = $createdMonth;
+        // Sample data for registered users bar chart
+        $months = [];
+        $employerData = [];
+        $workerData = [];
+
+        // Assuming $users have user objects, each with ->created(datetime)
+        foreach ($users as $user) {
+            $createdMonth = date('F', strtotime($user->created));
+            $userType = ($user->status == 'employer') ? 'Employer' : 'Worker';
+
+            if (!in_array($createdMonth, $months)) {
+                $months[] = $createdMonth;
+            }
+
+            if (!isset($employerData[$createdMonth])) {
+                $employerData[$createdMonth] = 0;
+            }
+
+            if (!isset($workerData[$createdMonth])) {
+                $workerData[$createdMonth] = 0;
+            }
+
+            if ($userType == 'Employer') {
+                $employerData[$createdMonth]++;
+            } elseif ($userType == 'Worker') {
+                $workerData[$createdMonth]++;
+            }
         }
+        ?>
 
-        if (!isset($employerData[$createdMonth])) {
-            $employerData[$createdMonth] = 0;
-        }
 
-        if (!isset($workerData[$createdMonth])) {
-            $workerData[$createdMonth] = 0;
-        }
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+            <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
 
-        if ($userType == 'Employer') {
-            $employerData[$createdMonth]++;
-        } elseif ($userType == 'Worker') {
-            $workerData[$createdMonth]++;
-        }
-    }
-    ?>
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+            <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
 
-    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-        <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
-    </div>
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+            <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
 
-    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-        <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
-    </div>
-
-    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-        <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
-    </div>
-
-    <div class="chart-container" style="margin-top: 20px; margin-left: 20px;">
-        <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
-    </div>
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+            <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
+        </div>
 </section>
 
 <!-- POPUP -->
@@ -162,11 +178,11 @@
 
 <style>
     .chart-container {
-        width: 45%;
-        height: 400px;
+        width: 1200px;
+        height: 600px;
         float: left;
-        margin-top: 20px;
-        margin-right: 20px;
+        margin-top: 50px;
+        margin-right: 50px;
     }
 
     .stats {

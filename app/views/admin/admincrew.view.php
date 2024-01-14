@@ -143,7 +143,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <!-- <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script> -->
-    <script src="<?= ROOT ?>/assets/js/employer/ticket.js"></script>
+    <script src="<?= ROOT ?>/assets/js/admin/crewMembers.js"></script>
 
 </body>
 
