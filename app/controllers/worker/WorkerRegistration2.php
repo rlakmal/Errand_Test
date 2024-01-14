@@ -13,41 +13,48 @@ class WorkerRegistration2 extends Controller
         $worker = new Worker;
 
         if (isset($_POST['worker_register'])) {
-            $temp_category = $_POST['category'];
-            $temp_gender = $_POST['gender'];
-            unset($_POST['worker_register']);
-            unset($_POST['category']);
-            unset($_POST['gender']);
-            unset($_POST['re-password']);
+            $qdata["email"] = $_POST["email"];
 
-            $_POST['status'] = 'worker';
+            $email = $user->first($qdata);
+            if(!$email){
+                $temp_category = $_POST['category'];
+                $temp_gender = $_POST['gender'];
+                unset($_POST['worker_register']);
+                unset($_POST['category']);
+                unset($_POST['gender']);
+                unset($_POST['re-password']);
 
-            $password = $_POST['password'];
-            $hash = password_hash($password, PASSWORD_BCRYPT);
-            $_POST['password'] = $hash;
+                $_POST['status'] = 'worker';
+
+                $password = $_POST['password'];
+                $hash = password_hash($password, PASSWORD_BCRYPT);
+                $_POST['password'] = $hash;
 //            $_POST["verified" =>
 
-            $_POST['verified'] = false;
+                $_POST['verified'] = false;
 
-            $user_id = $user->insert($_POST);
+                $user_id = $user->insert($_POST);
 
-            $_POST['category'] = $temp_category;
-            $_POST['gender'] = $temp_gender;
-            unset($_POST['name']);
-            unset($_POST['nic']);
-            unset($_POST['address']);
-            unset($_POST['dob']);
-            unset($_POST['password']);
+                $_POST['category'] = $temp_category;
+                $_POST['gender'] = $temp_gender;
+                unset($_POST['name']);
+                unset($_POST['nic']);
+                unset($_POST['address']);
+                unset($_POST['dob']);
+                unset($_POST['password']);
 
-            $worker->insert($_POST);
+                $worker->insert($_POST);
 
-            $qdata["email"] = $_POST["email"];
-            $row = $user->first($qdata);
+                $qdata["email"] = $_POST["email"];
+                $row = $user->first($qdata);
 
 
-            $this->sendConfirmationEmail($_POST['email'], $_POST['name'], $row->id);
+                $this->sendConfirmationEmail($_POST['email'], $_POST['name'], $row->id);
 
-            redirect('verifyprompt&id='.$row->id);
+                redirect('verifyprompt&id='.$row->id);
+
+            }
+
 
         }
 

@@ -45,7 +45,7 @@ route('employer/tickets', 'employer/tickets@index');
     worker routes
 --------------------------------------------------------------------- */
 
-route('worker/home3', 'worker/WorkerHome@index');
+route('worker/home', 'worker/WorkerHome@index');
 route('worker/requestjob', 'worker/RequestJob@index');
 route('worker/services', 'worker/WorkersList@index');
 route('worker/viewworker', 'worker/ViewWorkers@index');
@@ -74,6 +74,8 @@ route('admin/adnotification2', 'admin/AdNotification2@index');
 route('admin/adreports', 'admin/AdReports@index');
 route('admin/workerprof', 'admin/WorkerProf@index');
 route('admin/message', 'admin/Message@index');
+route('admin/emprequests', 'admin/EmpRequests@index');
+route('admin/workrequests', 'admin/WorkRequests@index');
 
 
 /*---------------------------------------------------------------------

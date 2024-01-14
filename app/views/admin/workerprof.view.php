@@ -57,19 +57,19 @@
 <div class="main-container3">
     <div class="profile-container2">
         <a href="<?= ROOT ?>/admin/workers2"><button class="close-button">Close</button></a>
-        <form method="post" action="<?= ROOT ?>/member/verification2?id=<?= $data->id ?>">
+        <form method="post" action="<?= ROOT ?>/admin/workerprof?id=<?= $data['newData']['work_id'] ?>">
             <input type="submit" class="archive-button  archive "
                    value="Delete" name="Delete">
         </form>
 
-        <?php if ($data->verified) : ?>
+        <?php if ($data['newData']['verified']) : ?>
             <span class="verification-badge"><i class="fas fa-check-circle"></i> Verified</span>
         <?php else : ?>
             <span class="not-verified-badge"><i class="fas fa-times-circle"></i> Not Verified</span>
         <?php endif; ?>
 
         <div class="picture">
-            <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
+            <img class="image" src="<?= ROOT ?>/assets/images/<?php if($data['newData']['profile_image']) echo "profileImages/".$data['newData']['profile_image']; else echo  "employer/profile.jpg" ?>" alt="">
         </div>
         <div class="picture">
             <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
@@ -86,23 +86,23 @@
                 Full Name
             </h3>
 
-            <input type="text" name="fullname" value="<?php echo $data->name ?>" class="edit-gen" readonly>
+            <input type="text" name="fullname" value=<?php echo ucfirst($data['newData']['name']); ?> class="edit-gen" readonly>
             <h3>
                 City
             </h3>
-            <input type="text" name="city" value="<?php echo $data->city ?>" class="edit-gen" readonly>
+            <input type="text" name="city" value=<?php echo ucfirst($data['newData']['city']); ?> class="edit-gen" readonly>
             <h3>
                 Address
             </h3>
-            <input type="text" name="address" value=<?= $data->address ?> class="edit-gen" readonly>
+            <input type="text" name="address" value=<?php echo ucfirst($data['newData']['address']); ?>class="edit-gen" readonly>
             <h3>
                 Date of Birth
             </h3>
-            <input type="text" name="birthday" value='2012-12-12' class="edit-gen" readonly>
+            <input type="text" name="birthday" value=<?php echo ucfirst($data['newData']['dob']); ?> class="edit-gen" readonly>
             <h3>
                 Profession
             </h3>
-            <input type="text" name="profession" value='<?php echo $data->category ?>' class="edit-gen" readonly>
+            <input type="text" name="profession" value=<?php echo ucfirst($data['newData']['name']); ?> class="edit-gen" readonly>
 
             <h3>
                 Skills
@@ -116,16 +116,16 @@
         </div>
 
         <!-- Stripe Account Integration Status and Details -->
-        <div class="stripe-status">
-            <h3>Stripe Account Integration Status:</h3>
-            <?php if ($data->stripe_integration) : ?>
-                <p>Integrated</p>
-                <h3>Stripe Account Details:</h3>
-                <!-- Display Stripe Account Details here -->
-            <?php else : ?>
-                <p>Not Integrated</p>
-            <?php endif; ?>
-        </div>
+<!--        <div class="stripe-status">-->
+<!--            <h3>Stripe Account Integration Status:</h3>-->
+<!--            --><?php //if ($data->stripe_integration) : ?>
+<!--                <p>Integrated</p>-->
+<!--                <h3>Stripe Account Details:</h3>-->
+<!--                <!-- Display Stripe Account Details here -->
+<!--            --><?php //else : ?>
+<!--                <p>Not Integrated</p>-->
+<!--            --><?php //endif; ?>
+<!--        </div>-->
 
     </div>
 </div>

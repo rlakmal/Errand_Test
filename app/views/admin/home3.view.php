@@ -68,7 +68,7 @@
 <!-- Siraj Section -->
 <section id="main" class="main">
     <h1>Dashboard</h1>
-    
+
     <div class="insights">
         <div class="income">
             <div class="middle">
@@ -89,14 +89,14 @@
             <small class="text-muted">Last 24 hours</small>
         </div>
         <!-- END OF SALES -->
-        
-        <div class="completed-jobs">     
+
+        <div class="completed-jobs">
             <div class="middle">
-                <h1>Completed Jobs</h1>
-                <span class="material-symbols-sharp">bar_chart</span> 
+                <h1>Job Acceptances</h1>
+                <span class="material-symbols-sharp">bar_chart</span>
             </div>
             <h1>54</h1>
-            <small class="text-muted">Last 24 hours</small>
+            <small class="text-muted">Last 7 days</small>
         </div>
         <!-- END OF Expenses -->
 
@@ -109,10 +109,10 @@
             <small class="text-muted">Last 24 hours</small>
         </div>
         <!-- END OF CREW MEMBERS -->
-        
+
     </div>
     <!----------- END OF INSIGHTS ----------->
-    
+
     <div class="charts">
         <div class="chart-card">
             <h2 class="chart-title">Registered Users</h2>
@@ -123,7 +123,7 @@
             <h2 class="chart-title">Job Requests</h2>
             <div id="area-chart"></div>
         </div>
-    </div>  
+    </div>
 </section>
 
 <!-- POPUP -->
