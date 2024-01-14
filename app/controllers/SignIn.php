@@ -27,7 +27,7 @@ class SignIn extends Controller
 
                 $user->insert($_POST);
 
-                redirect('home/signin');
+                //redirect('home/signin');
             }
         }
 
