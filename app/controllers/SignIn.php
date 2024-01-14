@@ -70,9 +70,8 @@ class SignIn extends Controller
                         redirect('worker/home');
                     } else if ($row->status == 'admin') {
                         redirect('admin/home');
-                    } else if ($row->status == 'member') {
+                    } else if ($row->status == 'crew_member') {
                         redirect('member/home');
-
                     }
                 } else {
                     $data['errors'] = "";

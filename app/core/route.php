@@ -90,3 +90,9 @@ route('member/workers', 'member/WorkersList@index');
 route('member/verification', 'member/Verification@index');
 route('member/verification2', 'member/Verification2@index');
 route('member/tickets', 'member/Ticket@index');
+
+
+/*---------------------------------------------------------------------
+    crew member routes
+--------------------------------------------------------------------- */
+route('crewMember/home', 'crewMember/CrewHome@index');

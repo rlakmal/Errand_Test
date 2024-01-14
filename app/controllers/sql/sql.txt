@@ -44,6 +44,7 @@ CREATE VIEW workers_from_emp AS
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     SELECT
 =======
     SELECT 
@@ -57,6 +58,9 @@ CREATE VIEW workers_from_emp AS
 =======
     SELECT 
 >>>>>>> 87f1f1a (updated)
+=======
+    SELECT 
+>>>>>>> 349ef30 (crew member login)
     employer.id as emp_id,
     employer.name as name,
     worker.category as category,
@@ -74,6 +78,7 @@ CREATE VIEW workers_from_emp AS
     ON worker.email = employer.email
     WHERE employer.status = worker.status
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -134,3 +139,5 @@ CREATE VIEW Ticket_Employer AS
     WHERE employer.status = worker.status
 
 >>>>>>> 87f1f1a (updated)
+=======
+>>>>>>> 349ef30 (crew member login)
