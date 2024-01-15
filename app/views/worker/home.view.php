@@ -62,7 +62,6 @@
                             </div>
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
 
-
                         </div>
 
 
@@ -71,14 +70,19 @@
                             <i class="bx bxs-map icon"></i>
                         </div>
 
+
+
                     </div>
+                    <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
+                    <a><button class="view-profile-button" id="request-button">View</button></a>
 
+                    <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
-
-
-
+                </div>
     </div>
 <?php
+            }
+        }
 ?>
 </div>
 
