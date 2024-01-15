@@ -137,7 +137,7 @@
                 $item = $data['data'][$i];
                 $image = $images['images'][$i];
                 // Fixed 3-day countdown
-                $expirationDate = $item->time_remain + (90); // 3 days in seconds
+                $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                 $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
         ?>
                 <?php
