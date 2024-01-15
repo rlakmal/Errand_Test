@@ -1,7 +1,5 @@
 <?php
 
-use LDAP\Result;
-
 class Emphome extends Controller
 {
     public function index($a = '', $b = '', $c = '')
@@ -29,20 +27,18 @@ class Emphome extends Controller
                     $job_image_name = $_FILES['job_image']['name'];
                     $job_image1_name = $_FILES['job_image1']['name'];
                     if ($job_image_name != null) {
-                        $_POST['job_image'] = $job_image_name;
+                        $_POST['job_image'] = $this->uploadImage($_FILES['job_image']['tmp_name'], $job_image_name, '/assets/images/jobimages/');
                     }
                     if ($job_image1_name != null) {
-                        $_POST['job_image1'] = $job_image1_name;
+                        $_POST['job_image1'] = $this->uploadImage($_FILES['job_image1']['tmp_name'], $job_image1_name, '/assets/images/jobimages/');
                     }
                     show($_POST);
-                    $this->uploadImage($_FILES['job_image']['tmp_name'], $job_image_name, '/assets/images/jobimages/');
-                    $this->uploadImage($_FILES['job_image1']['tmp_name'], $job_image1_name, '/assets/images/jobimages/');
 
                     $jobPost->insert($_POST);
                     redirect('employer/home');
                 }
             } catch (Exception $e) {
-                //throw $th;
+                // handle the exception
             }
 
             $this->view('employer/emphome', $data);
@@ -57,9 +53,19 @@ class Emphome extends Controller
         $data['data'] = $result;
         return  $data;
     }
+
     public function uploadImage($img, $img_name, $location)
     {
-        $target = PUBROOT . $location . $img_name;
-        return move_uploaded_file($img, $target);
+        $timestamp = time(); // Get current timestamp
+        $file_info = pathinfo($img_name);
+        $new_img_name = $file_info['filename'] . '_' . $timestamp . '.' . $file_info['extension'];
+
+        $target = PUBROOT . $location . $new_img_name;
+
+        if (move_uploaded_file($img, $target)) {
+            return $new_img_name;
+        } else {
+            return false;
+        }
     }
 }

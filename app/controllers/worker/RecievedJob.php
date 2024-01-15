@@ -54,7 +54,7 @@ class RecievedJob extends Controller
                     $images['images'][$i] = $prof_image[0]->profile_image;
 
                     //3-day countdown
-                    $expirationDate = $data['data'][$i]->time_remain + (90); // 3 days in seconds
+                    $expirationDate = $data['data'][$i]->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                     $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
                     if ($timeRemaining <= 60 && $data['data'][$i]->status == 'Pending') {
                         // Update the status to "expired" in your_table_name

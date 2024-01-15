@@ -28,9 +28,9 @@ body {
   display: flex;
   border-radius: 40px;
   margin: 6%;
-  margin-left: 27%;
+  margin-left: 26%;
   width: 65%;
-  padding: 25px;
+  padding: 48px;
   background-color: #ffffff;
   flex-direction: column;
   align-content: center;
@@ -40,10 +40,10 @@ body {
 
 .profile-container3 {
   display: flex;
-  margin: 1%;
+  margin: 0%;
   position: relative;
   width: 98%;
-  height: 700px;
+  height: 625px;
   border-radius: 20px;
 }
 
@@ -62,6 +62,7 @@ body {
 
 .container-right {
   left: 10%;
+  top: -7%;
   position: relative;
   display: flex;
   width: 80%;

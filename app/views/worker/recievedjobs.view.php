@@ -130,18 +130,19 @@
 <?php include 'jobnav.php' ?>
 <div class="set_margin">
 
-    <?php
-    // Check if there is data in @item
-    if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
-        for ($i = 0; $i < count($data['data']); $i++) {
-            $item = $data['data'][$i];
-            $image = $images['images'][$i];
-            // Fixed 3-day countdown
-            $expirationDate = $item->time_remain + (90); // 3 days in seconds
-            $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
-            ?>
-            <?php
-            if (!($item->status == 'Canceled')) {
+        <?php
+        // Check if there is data in @item
+        if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
+            for ($i = 0; $i < count($data['data']); $i++) {
+                $item = $data['data'][$i];
+                $image = $images['images'][$i];
+                // Fixed 3-day countdown
+                $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
+                $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
+        ?>
+                <?php
+                if (!($item->status == 'Canceled')) {
+
                 ?>
                 <div class="post-container2">
                 <div class="profile-container2">
