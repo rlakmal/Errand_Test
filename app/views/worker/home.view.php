@@ -73,14 +73,12 @@
 
                     </div>
 
-                    <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
-                </div>
+
+
+
     </div>
 <?php
-            }
-        }
-
 ?>
 </div>
 

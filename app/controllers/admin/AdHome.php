@@ -24,10 +24,14 @@ class AdHome extends Controller
         $data["verifiedpercentage"] = (count($data["verified"]) / count($data["workers"])) * 100;
 
 
+        unset($qdata["verified"]);
+
+        $data["users"] = array_merge($data["workers"], $data["employers"]);
 
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 
-            $this->view('admin/home2', $data);
+            $this->view('admin/home4', $data);
+
         }
     }
 }

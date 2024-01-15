@@ -131,7 +131,7 @@
 
         <!-- Include other report widgets as needed -->
 
-        <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep1->employers?>\n\nExpired: <?= $rep1->workersunveri?>\n\nCancelled: <?= $rep1->workersveri?>\n\nRejected: <?= $rep1->crew?>\n\nRequested: <?= $rep1->workers?>\n\nWorker Requests\n\nAccepted: <?= $rep1->employers?>\n\nExpired: <?= $rep1->workersunveri?>\n\nPending: <?= $rep1->workersunveri?>\n\nDate: <?= date("m-d-y")?>')">
+        <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
             <a href="#">Requests</a>
             <div class="widget-content">
                 <p>Request Statistics Basics</p>

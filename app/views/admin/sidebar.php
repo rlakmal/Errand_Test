@@ -33,6 +33,20 @@
                 <span class="tooltip">Employers</span>
             </li>
             <li>
+                <a href="<?= ROOT ?>/admin/emprequests">
+                    <i class="bx bx-dollar"></i>
+                    <span class="link_name">Employer Requests</span>
+                </a>
+                <span class="tooltip">Employer Requests</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/admin/workrequests">
+                    <i class="bx bx-edit"></i>
+                    <span class="link_name">Worker Requests</span>
+                </a>
+                <span class="tooltip">Worker Requests</span>
+            </li>
+            <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
                     <i class="bx bxs-group"></i>
                     <span class="link_name">Admin Crew</span>

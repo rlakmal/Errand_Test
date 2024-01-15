@@ -2,19 +2,19 @@
 <html>
 
 <head>
-  <title>Painter Profile</title>
-  <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
+    <title>Painter Profile</title>
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
 </head>
 
 <body>
-  <?php include 'workernav.php' ?>
-  <?php include 'workerfilter.php' ?>
+<?php include 'workernav.php' ?>
+<?php include 'workerfilter.php' ?>
 
-  <?php
-  if ($data) {
+<?php
+if ($data) {
     foreach ($data as $item) {
 
-      //show($data);
+
 
   ?>
 
@@ -71,15 +71,14 @@
           <button type="submit" name="Rquest" value="Request" class="close-button">Request</button>
           </form>
           <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
-        </div>
 
-      </div>
-  <?php
+        </div>
+        <?php
 
     }
-  }
+}
 
-  ?>
+?>
 
 
 </body>

@@ -74,6 +74,8 @@ route('admin/adnotification2', 'admin/AdNotification2@index');
 route('admin/adreports', 'admin/AdReports@index');
 route('admin/workerprof', 'admin/WorkerProf@index');
 route('admin/message', 'admin/Message@index');
+route('admin/emprequests', 'admin/EmpRequests@index');
+route('admin/workrequests', 'admin/WorkRequests@index');
 
 
 /*---------------------------------------------------------------------
