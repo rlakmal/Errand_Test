@@ -55,41 +55,30 @@
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
-                <div class="post-container">
-                    <div class="profile-container2">
-                        <div class="picture">
-                            <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
-                        </div>
-                        <div class="index">
-                            <div class="profile-name"><?php echo $item->name ?></div>
-                            <div class="profile-ratings"><?php echo $times_ago ?></div>
-                            <div class="profile-type"><?php echo $item->title ?></div>
 
-                            <div class="index_btn">
-                                <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
-                            </div>
-                            <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
+
                             <div class="index_btn">
                                 <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
                             </div>
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
 
                         </div>
-                        </div>
-
-
                         <div class="location">
                             <?php echo $item->city ?>
                             <i class="bx bxs-map icon"></i>
                         </div>
                     </div>
+
+
+
                 </div>
-        <?php
+    </div>
+<?php
             }
         }
 
-        ?>
-    </div>
+?>
+</div>
 
 </body>
 
