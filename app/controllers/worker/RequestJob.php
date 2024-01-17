@@ -25,6 +25,7 @@ class RequestJob extends Controller
     private function requestInsert($results, $data, $newreq, $worker_name, $worker_id)
     {
         //show($results[0]->title);
+        $newdata['id'] = $results[0]->id;
         $newdata['emp_id'] = $results[0]->emp_id;
         $newdata['title'] = $results[0]->title;
         $newdata['city'] = $results[0]->city;

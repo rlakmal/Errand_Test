@@ -9,7 +9,7 @@ class RecievedJob extends Controller
 
             $recieved = new EmployerReqWorker;
 
-            $reqbudget = new WorkeRrequestJobs;
+            $reqbudget = new Bargainbgt;
             $user = new User;
             $id = $_SESSION['USER']->id;
             $arr['worker_id'] = $id;
@@ -34,14 +34,22 @@ class RecievedJob extends Controller
             }
             if (isset($_POST['ReqBudget'])) {
                 $id = $_POST['id'];
-                show($_POST);
-                $updateData = ['status' => 'Requested'];
-                $recieved->update($id, $updateData, 'id');
+                //show($_POST);
 
-                unset($_POST['id']);
+
+                //unset($_POST['id']);
+                unset($_POST['city']);
+                unset($_POST['description']);
+                unset($_POST['emp_name']);
+                unset($_POST['worker_name']);
+                unset($_POST['status']);
                 unset($_POST['created']);
                 unset($_POST['ReqBudget']);
+
+
                 $reqbudget->insert($_POST);
+                $updateData = ['status' => 'Requested'];
+                $recieved->update($id, $updateData, 'id');
 
                 redirect('worker/myjobs');
                 //redirect('worker/recievedjobs');

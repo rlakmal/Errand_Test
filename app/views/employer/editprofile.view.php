@@ -27,6 +27,7 @@
             display: flex;
             margin: 1%;
             position: relative;
+            padding: 15px;
             background-color: #ffffff;
             width: 98%;
             height: 578px;
@@ -118,7 +119,7 @@
 
             .container-right {
                 display: flex;
-                height: 455px;
+                height: 550px;
                 width: 100%;
                 flex-direction: column;
                 flex-wrap: nowrap;

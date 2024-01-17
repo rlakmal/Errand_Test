@@ -19,7 +19,7 @@
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {
-                // show($item);
+                //show($item);
                 // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
                 date_default_timezone_set('Asia/Kolkata');
                 $date1 = new DateTime($item->job_created);
