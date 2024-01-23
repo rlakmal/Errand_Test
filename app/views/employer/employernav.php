@@ -1,112 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
-
-
-    <title>Document</title>
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/empnav.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-<?php include 'workernav.php' ?>
-<?php include 'workerfilter.php' ?>
-<div class="set-margin" id="set-marginid">
-    <?php
-    if (is_array($data)) {
-
-
-    foreach ($data as $item) {
-    // show($item);
-    // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
-    date_default_timezone_set('Asia/Kolkata');
-    $date1 = new DateTime($item->job_created);
-    $date2 = new DateTime();
-
-    // Calculate the difference between the dates
-    $interval = $date1->diff($date2);
-
-    $days_difference = $interval->days;
-    $hours_difference = $interval->h;
-    $minutes_difference = $interval->i;
-    $seconds_difference = $interval->s;
-
-
-    foreach ($data as $item) {
-    // show($item);
-    // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
-    date_default_timezone_set('Asia/Kolkata');
-    $date1 = new DateTime($item->job_created);
-    $date2 = new DateTime();
-
-    // Calculate the difference between the dates
-    $interval = $date1->diff($date2);
-
-    $days_difference = $interval->days;
-    $hours_difference = $interval->h;
-    $minutes_difference = $interval->i;
-    $seconds_difference = $interval->s;
-
-
-    if ($days_difference > 0) {
-        $times_ago = $days_difference . " days ago";
-    } elseif ($hours_difference > 0) {
-        $times_ago = $hours_difference . " hours ago";
-    } elseif ($minutes_difference > 0) {
-        $times_ago = $minutes_difference . " minutes ago";
-    } elseif ($seconds_difference > 0) {
-        $times_ago = $seconds_difference . " seconds ago";
-    } elseif ($seconds_difference == 0) {
-        $times_ago = " Just Now";
-    }
-
-    // echo $times_ago;;
-    ?>
-    <div class="post-container">
-        <div class="profile-container2">
-            <div class="picture">
-                <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
-            </div>
-            <div class="index">
-                <div class="profile-name"><?php echo $item->name ?></div>
-                <div class="profile-ratings"><?php echo $times_ago ?></div>
-                <div class="profile-type"><?php echo $item->title ?></div>
-
-                <div class="index_btn">
-                    <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
-                    <a><button class="view-button" id="request-button">View</button></a>
+<div class="homenavbar">
+    <header>
+        <div class="logo">Errand</div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a class="bttn" type="button" onclick="openReport()">Post Job</a>
+                </li>
+                <li>
+                    <a href="<?= ROOT ?>/employer/home">Jobs</a>
+                </li>
+                <li>
+                    <a href="<?= ROOT ?>/employer/services">Services</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="<?= ROOT ?>/employer/message">
+                <i class="bx bxs-chat icon"></i>
+            </a>
+            <!-- <a href="<?= ROOT ?>/employer/message"><img src="<?= ROOT ?>/assets/images/employer/msg.png" alt="Message"></a> -->
+            <a href="<?= ROOT ?>/employer/notifications">
+                <i class="bx bxs-bell icon"></i>
+                <!-- <img src="<?= ROOT ?>/assets/images/employer/belll.png" alt="notification"> -->
+            </a>
+            <div class="profile-dropdown" id="profile-dropdown">
+                <a href="#">
+                    <i class="bx bxs-user icon"></i>
+                    <!-- <img class="profile-icon" src="<?= ROOT ?>/assets/images/employer/prr.png" alt="Profile"> -->
+                </a>
+                <div class="profile-menu" id="profile-menu">
+                    <a href="<?= ROOT ?>/employer/home">Home</a>
+                    <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
+                    <a class="bttn" onclick="openReport()">Post Job</a>
+                    <a href="<?= ROOT ?>/employer/message">Message</a>
+                    <a href="<?= ROOT ?>/employer/profile">Profile</a>
+                    <a href="<?= ROOT ?>/employer/tickets">Tickets</a>
+                    <a href="<?= ROOT ?>/home/signout">LogOut</a>
                 </div>
-
-
             </div>
-
-            <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
-            <div class="location">
-                <?php echo $item->city ?>
-                <i class="bx bxs-map icon"></i>
-            </div>
-
-
-
         </div>
-        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
-        <a><button class="view-profile-button" id="request-button">View</button></a>
+        <label for="nav_check" class="hamburger"></label>
 
-        <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
-    </div>
+    </header>
 </div>
-<?php
-}
-}
-}
-?>
+<script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
+
+<div class="popup-report">
+    <form method="POST" enctype="multipart/form-data">
+        <h2>Post your Job</h2>
+        <h4>Job Title : </h4>
+        <input name="jobTitle" type="text" placeholder="Enter Tiltle of the Job">
+        <h4>Budget : </h4>
+        <input name="budget" type="text" placeholder="Enter your Budget" autocomplete="off">
+        <h4>Address : </h4>
+        <input name="address" type="text" placeholder="Enter address">
+        <h4>City : </h4>
+        <input name="city" type="text" placeholder="Select Location">
+        <h4>Description : </h4>
+        <input name="description" type="text" placeholder="Enter your description">
+        <diV class="postjobimages">
+            <div class="form-drag-area">
+
+                <div class="form-upload">
+                    <input type="file" id="job_image" style="display: none;" name="job_image">
+                    <div class="jobpicture">
+                        <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/job.png" alt="placeholder" id="job_image_placeholder">
+                    </div>
+                    Choose Image
+                </div>
+            </div>
+            <div class="form-drag-area1">
+                <div class="jobpicture">
+
+                </div>
+                <div class="form-upload1">
+                    <input type="file" id="job_image1" style="display: none;" name="job_image1">
+                    <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/job.png" alt="placeholder" id="job_image1_placeholder">
+                </div>
+            </div>
+        </diV>
+        <div class="btns">
+            <button type="button" class="cancelR-btn" onclick="closeReport()">Cancel</button>
+            <button name="postJob" type="submit" value="POST" class="close-btn" onclick="closeReport()">POST</button>
+        </div>
+    </form>
 </div>
+<div id="overlay" class="overlay"></div>
 
 </body>
+<script src="<?= ROOT ?>/assets/js/employer/addpost.js"></script>
+<script src="<?= ROOT ?>/assets/js/employer/jobimageUpload.js"></script>
 
 </html>

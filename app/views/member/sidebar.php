@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="sidebar">
     <div class="logo_details">
         <div class="logo_icon">Errand</div>

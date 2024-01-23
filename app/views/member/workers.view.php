@@ -180,7 +180,7 @@
                     <?php endif; ?>
                 </td>
                 <td class="edit-view-profile"><a href="<?=ROOT?>/member/verification2&id=<?=$worker->id?>">
-                        <span class="link_name">View Profile</span>
+                        <span class="link_name"><i class="fas fa-user icon"></i></span>
                     </a></td>
             </tr>
         <?php endforeach; ?>

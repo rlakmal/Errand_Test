@@ -64,7 +64,6 @@
         $times_ago = " Just Now";
     }
 
-<<<<<<< HEAD
     // echo $times_ago;;
     ?>
     <div class="post-container">
@@ -80,17 +79,6 @@
                 <div class="index_btn">
                     <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
                     <a><button class="view-button" id="request-button">View</button></a>
-=======
-                            <div class="index_btn">
-                                <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="request-button">Request Job</button></a>
-                                <a><button class="view-button" id="request-button">View</button></a>
-                            </div>
-
-
-                        </div>
-
-                    </div>
->>>>>>> 421d177 (job image done)
                 </div>
 
 
@@ -105,8 +93,8 @@
 
 
         </div>
-        <a href="<?= ROOT ?>/worker/requestjob?id=<?php echo $item->id ?>"><button class="view-profile-button">Request Job</button></a>
-        <a><button class="view-profile-button" id="request-button">View</button></a>
+<!--        <a href="--><?php //= ROOT ?><!--/worker/requestjob?id=--><?php //echo $item->id ?><!--"><button class="view-profile-button">Request Job</button></a>-->
+<!--        <a><button class="view-profile-button" id="request-button">View</button></a>-->
 
         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 

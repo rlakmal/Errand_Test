@@ -22,17 +22,17 @@
     <!-- content  -->
     <section id="main" class="main">
 
-        <h2>Data</h2>
+        <h2>Welcome <?=$_SESSION["USER"]->name?>!</h2>
 
-        <form>
-            <div class="form">
-                <input class="form-group" type="text" placeholder="Search...">
-                <i class='bx bx-search icon'></i>
-                <input class="new-btn" type="button" onclick="openNew()" value="+ New ">
-                <input class="btn" type="button" onclick="openReport()" value="Report Problem">
-            </div>
-
-        </form>
+<!--        <form>-->
+<!--            <div class="form">-->
+<!--                <input class="form-group" type="text" placeholder="Search...">-->
+<!--                <i class='bx bx-search icon'></i>-->
+<!--                <input class="new-btn" type="button" onclick="openNew()" value="+ New ">-->
+<!--                <input class="btn" type="button" onclick="openReport()" value="Report Problem">-->
+<!--            </div>-->
+<!---->
+<!--        </form>-->
 
 <!--        <table class="table">-->
 <!--            <thead>-->
