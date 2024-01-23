@@ -5,6 +5,12 @@
   <title>Painter Profile</title>
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/workerprof.css">
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
+
+  <style>
+    .close-button {
+      float: right;
+    }
+  </style>
 </head>
 
 <body>

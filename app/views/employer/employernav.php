@@ -40,9 +40,12 @@
                     <i class="bx bxs-user icon"></i>
                     <!-- <img class="profile-icon" src="<?= ROOT ?>/assets/images/employer/prr.png" alt="Profile"> -->
                 </a>
+<<<<<<< HEAD
                 <div class="profile-menu" id="profile-menu">
                     <a href="<?= ROOT ?>/employer/home">Home</a>
                     <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
+                    <a href="<?= ROOT ?>/employer/dashboard">Dashboard</a>
+
                     <a class="bttn" onclick="openReport()">Post Job</a>
                     <a href="<?= ROOT ?>/employer/message">Message</a>
                     <a href="<?= ROOT ?>/employer/profile">Profile</a>

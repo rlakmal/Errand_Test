@@ -1,3 +1,6 @@
+body {
+  background-color: aliceblue;
+}
 .homenavbar {
   width: 100%;
   position: fixed;

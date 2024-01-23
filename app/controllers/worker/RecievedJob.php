@@ -9,7 +9,7 @@ class RecievedJob extends Controller
 
             $recieved = new EmployerReqWorker;
 
-            $reqbudget = new WorkeRrequestJobs;
+            $reqbudget = new Bargainbgt;
             $user = new User;
             $id = $_SESSION['USER']->id;
             $arr['worker_id'] = $id;
@@ -34,14 +34,22 @@ class RecievedJob extends Controller
             }
             if (isset($_POST['ReqBudget'])) {
                 $id = $_POST['id'];
-                show($_POST);
-                $updateData = ['status' => 'Requested'];
-                $recieved->update($id, $updateData, 'id');
+                //show($_POST);
 
-                unset($_POST['id']);
+
+                //unset($_POST['id']);
+                unset($_POST['city']);
+                unset($_POST['description']);
+                unset($_POST['emp_name']);
+                unset($_POST['worker_name']);
+                unset($_POST['status']);
                 unset($_POST['created']);
                 unset($_POST['ReqBudget']);
+
+
                 $reqbudget->insert($_POST);
+                $updateData = ['status' => 'Requested'];
+                $recieved->update($id, $updateData, 'id');
 
                 redirect('worker/myjobs');
                 //redirect('worker/recievedjobs');
@@ -54,7 +62,7 @@ class RecievedJob extends Controller
                     $images['images'][$i] = $prof_image[0]->profile_image;
 
                     //3-day countdown
-                    $expirationDate = $data['data'][$i]->time_remain + (90); // 3 days in seconds
+                    $expirationDate = $data['data'][$i]->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
                     $timeRemaining = max(0, $expirationDate - time()); // Ensure the remaining time is non-negative
                     if ($timeRemaining <= 60 && $data['data'][$i]->status == 'Pending') {
                         // Update the status to "expired" in your_table_name

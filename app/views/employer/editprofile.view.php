@@ -12,9 +12,10 @@
         .main-container4 {
             display: flex;
             border-radius: 40px;
-            margin: 6%;
+            margin: 10%;
+            margin-top: 7%;
             width: 80%;
-            height: 552px;
+            height: 100%;
             background: #f3f3f3;
             flex-direction: column;
             align-content: center;
@@ -26,18 +27,19 @@
             display: flex;
             margin: 1%;
             position: relative;
+            padding: 15px;
             background-color: #ffffff;
             width: 98%;
-            height: 515px;
+            height: 578px;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
             border-radius: 20px;
         }
 
         .form-upload {
-            margin-top: -30px;
-            margin-left: 250px;
+            /* margin-top: -30px; */
+            /* margin-left: 250px; */
             cursor: pointer;
-            width: 110px;
+            /* width: 110px; */
             height: 24px;
             background-color: #f16a2d;
             color: white;
@@ -58,8 +60,10 @@
         .container-right {
             position: relative;
             display: flex;
-            width: 80%;
+            width: 160%;
+            line-height: 28px;
             flex-direction: column;
+            left: 5%;
             justify-content: center;
         }
 
@@ -68,6 +72,15 @@
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
+        }
+
+        .info {
+            margin: 10px;
+            display: flex;
+            margin-left: -7%;
+            color: #4d5151;
+            /* margin-right: 3%; */
+            justify-content: center;
         }
 
         @media only screen and (max-width: 600px) {
@@ -106,7 +119,7 @@
 
             .container-right {
                 display: flex;
-                height: 455px;
+                height: 550px;
                 width: 100%;
                 flex-direction: column;
                 flex-wrap: nowrap;
@@ -158,7 +171,7 @@
                     </div>
                 </div>
                 <div class="container-right">
-                    <h2>Personal Information</h2>
+                    <h2 class="info">Personal Information</h2>
 
                     <h3>
                         Full Name

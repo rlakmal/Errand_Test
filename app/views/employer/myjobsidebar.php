@@ -16,8 +16,15 @@
         </div>
         <ul class="nav-list">
             <li>
+                <a href="<?= ROOT ?>/employer/dashboard">
+                    <i class='bx bxs-dashboard' ></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
                 <a href="<?= ROOT ?>/employer/myjob">
-                    <i class="bx bxs-grid-alt"></i>
+                    <i class='bx bxs-receipt'></i>
                     <span class="link_name">My Posts</span>
                 </a>
                 <span class="tooltip">My Posts</span>
