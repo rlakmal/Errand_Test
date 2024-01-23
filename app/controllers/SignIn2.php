@@ -101,7 +101,7 @@ class SignIn2 extends Controller
                         }
                     } else if ($row->status == 'admin') {
                         redirect('admin/home');
-                    } else if ($row->status == 'crew_member') {
+                    } else if ($row->status == 'member') {
                         redirect('member/home');
                     }
                 } else {

@@ -50,6 +50,9 @@ class WorkerProf extends Controller
         $newData['dob'] = $result->dob;
         $newData['profile_image'] = $result->image;
         $newData['verified'] = $result->verified;
+        $newData["id"] = $result->work_id;
+        $newData["category"] = $result->category;
+
         $data['newData'] = $newData;
 
         return $data;

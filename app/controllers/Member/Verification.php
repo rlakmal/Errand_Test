@@ -11,7 +11,7 @@ class Verification extends Controller
         $worker = new Worker;
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'member') {
 
             $qdata["id"] = $_GET["id"];
             $data["worker"] = $worker->first($qdata);
