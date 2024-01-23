@@ -7,6 +7,7 @@ class RequestByMe extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $myrequests = new EmployerReqWorker;
+            $newbgt = new Bargainbgt;
             $id = $_SESSION['USER']->id;
             $arr['emp_id'] = $id;
             $result = $myrequests->where($arr, 'id');
@@ -20,6 +21,13 @@ class RequestByMe extends Controller
                 $myrequests->update($id, $updateData, 'id');
                 redirect('employer/myworkerreq');
             }
+
+            // if (isset($_POST['viewRequest'])) {
+            //     $id = $_POST['id'];
+            //     $arr['id'] = $id;
+            //     $bargain = $newbgt->first($arr);
+            //     //show($bargain);
+            // }
 
             // echo "this is a about controller";
             $this->view('employer/myworkerreq', $data);
