@@ -30,6 +30,9 @@ route('employer/addjob', 'employer/AddJob@index');
 route('employer/message', 'employer/Message@index');
 route('employer/services', 'employer/Services@index');
 route('employer/workerprof', 'employer/Workerprofview@index');
+// edited by siraj for the employer dashboard
+route('employer/dashboard', 'employer/Dashboard@index');
+
 route('employer/myjob', 'employer/Myjob@index');
 route('employer/postedjobsrequest', 'employer/PostedjobsRequest@index');
 route('employer/myworkerreq', 'employer/RequestByME@index');
