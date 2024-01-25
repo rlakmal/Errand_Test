@@ -40,7 +40,6 @@
                     <i class="bx bxs-user icon"></i>
                     <!-- <img class="profile-icon" src="<?= ROOT ?>/assets/images/employer/prr.png" alt="Profile"> -->
                 </a>
-<<<<<<< HEAD
                 <div class="profile-menu" id="profile-menu">
                     <a href="<?= ROOT ?>/employer/home">Home</a>
                     <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
