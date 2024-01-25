@@ -3,6 +3,7 @@
     home routes
 --------------------------------------------------------------------- */
 route('home', 'Home@index');
+route('home/payment', 'Payment@index');
 
 route('home/signin', 'SignIn@index');
 route('home/signin2', 'SignIn2@index');
