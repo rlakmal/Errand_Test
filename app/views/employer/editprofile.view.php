@@ -127,6 +127,10 @@
 
             }
 
+            .picture .image {
+                margin-left: 70px;
+            }
+
             .bottum_index {
                 display: flex;
                 justify-content: center;
