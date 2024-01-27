@@ -58,6 +58,7 @@
               <input type="hidden" name="id" value="<?php echo $item->id ?>">
 
 
+
               <div class="job_images">
                 <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="">
                 <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="">
@@ -69,8 +70,8 @@
           <button type="submit" name="Rquest" value="Request" class="close-button">Request</button>
           </form>
           <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
-
         </div>
+
     <?php
 
     }
