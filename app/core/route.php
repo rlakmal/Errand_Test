@@ -3,6 +3,7 @@
     home routes
 --------------------------------------------------------------------- */
 route('home', 'Home@index');
+route('home/payment', 'Payment@index');
 
 route('home/signin', 'SignIn@index');
 route('home/signin2', 'SignIn2@index');
@@ -94,4 +95,3 @@ route('member/ticket', 'member/MemTicket@index');
 route('member/workers', 'member/WorkersList@index');
 route('member/verification', 'member/Verification@index');
 route('member/verification2', 'member/Verification2@index');
-route('member/tickets', 'member/Ticket@index');

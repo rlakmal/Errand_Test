@@ -14,7 +14,7 @@ class MemTicket extends Controller
         $user = new User;
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'member') {
 
             if($_SERVER["REQUEST_METHOD"] == "GET"){
                 $qdata["id"] = $_GET["id"];

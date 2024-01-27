@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,8 +93,8 @@
                 <h1>Posted Jobs</h1>
                 <span class="material-symbols-sharp">analytics</span>
             </div>
-            <h1>80</h1>
-            <small class="text-muted">Last 24 hours</small>
+            <h1><?=$data["jobs30"]?></h1>
+            <small class="text-muted">Last 30 days</small>
         </div>
         <!-- END OF SALES -->
 
@@ -105,8 +103,8 @@
                 <h1>Job Acceptances</h1>
                 <span class="material-symbols-sharp">bar_chart</span>
             </div>
-            <h1>54</h1>
-            <small class="text-muted">Last 7 days</small>
+            <h1><?=$data["req30"]?></h1>
+            <small class="text-muted">Last 30 days</small>
         </div>
         <!-- END OF Expenses -->
 
@@ -115,8 +113,8 @@
                 <h1>Crew Members</h1>
                 <span class="material-symbols-sharp">groups</span>
             </div>
-            <h1>25</h1>
-            <small class="text-muted">Last 24 hours</small>
+            <h1><?=count($data["members"])?></h1>
+            <small class="text-muted">Currently</small>
         </div>
 
         <?php
@@ -156,19 +154,24 @@
 
         <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
             <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
+            <h2>User Registration</h2>
         </div>
 
         <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
             <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
+            <h2>Categories of Worker</h2>
         </div>
 
         <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
             <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
+            <h2>Third Chart</h2>
         </div>
 
         <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
             <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
+            <h2>Fourth Chart</h2>
         </div>
+    </div>
 </section>
 
 <!-- POPUP -->
