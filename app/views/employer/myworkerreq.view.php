@@ -18,6 +18,7 @@
     <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
         <section id="main" class="main">
+
             <h2>Your Request to Workers</h2>
             <div class="scrollable-table">
                 <table class="table">
@@ -48,7 +49,7 @@
                                     <td class="proimage">
                                         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
                                         <!-- </td>
-                            <td class="proname"> -->
+                                        <td class="proname"> -->
                                         <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
                                     </td>
                                     <td><?php echo $item->title ?></td>
@@ -97,37 +98,42 @@
 
             </div>
             <div class="pop-view">
-                <form method="POST">
-                    <h2>Worker has negotiate your budget</h2>
+                <form id="pop-form" method="POST">
+                    <div id="pop-header">Worker want to negotiate your budget</div>
                     <h4 id="newBudgetLabel">New Budget: </h4>
-                    <button>Accept Offer</button>
-                    <button>Rejecr</button>
+                    <div class="pop-btn">
+                        <button class="pop-accept">Accept Offer</button>
+                        <button class="pop-reject">Reject</button>
+                    </div>
                 </form>
 
             </div>
 
 
+
+            <div id="pop-overlay" class="pop-overlay"></div>
     </div>
 
 
     </section>
+
     </diV>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
         let popupEdit = document.querySelector(".pop-view");
-        // let overlay1 = document.getElementById("overlay");
+        let overlay1 = document.getElementById("pop-overlay");
         current_id = 0;
 
         function openEdit(id) {
             current_id = id;
             popupEdit.classList.add("open-pop-view");
-            // overlay1.classList.add("overlay-active");
+            overlay1.classList.add("pop-overlay-active");
         }
 
         function closeEdit() {
             popupEdit.classList.remove("open-pop-view");
-            // overlay1.classList.remove("overlay-active");
+            overlay1.classList.remove("pop-overlay-active");
         }
 
 
@@ -153,7 +159,7 @@
                             //console.log("Response:", res);
                             newData = JSON.parse(res);
                             console.log(newData);
-                            $("#newBudgetLabel").text("New Budget: " + newData.newbudget);
+                            $("#newBudgetLabel").text("New Budget: " + newData.newbudget + " Per Day");
                             try {} catch (error) {
 
                             }
@@ -169,6 +175,8 @@
 
         })
     </script>
+
 </body>
+
 
 </html>
