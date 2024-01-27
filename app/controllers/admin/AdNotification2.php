@@ -15,6 +15,19 @@ class adNotification2 extends Controller
 
                 unset($_POST['announcement']);
 
+                if(isset($_POST["worker"])){
+                    $_POST["worker"] = true;
+                } else {
+                    $_POST["worker"] = false;
+
+                }
+                if(isset($_POST["employer"])){
+                    $_POST["employer"] = true;
+                } else {
+                    $_POST["employer"] = false;
+
+                }
+
 //                $_POST['status'] = 'crew_member';
 //                $_POST['active'] = 1;
 //
@@ -41,11 +54,11 @@ class adNotification2 extends Controller
 
                 foreach ($data as $item) {
 
-                    unset($item->title);
-                    unset($item->body);
-                    unset($item->worker);
-                    unset($item->employer);
-                    unset($item->created);
+//                    unset($item->title);
+//                    unset($item->body);
+//                    unset($item->worker);
+//                    unset($item->employer);
+//                    unset($item->created);
                     //  show($item->password);
                 }
             }

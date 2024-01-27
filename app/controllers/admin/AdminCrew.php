@@ -44,7 +44,7 @@ class AdminCrew extends Controller
     private function handleMemberRegistration($postData, $member, $crew_member_id)
     {
         unset($postData['memberRegister']);
-        $postData['status'] = 'crew_member';
+        $postData['status'] = 'member';
         $postData['active'] = 1;
         $postData['emp_id'] = $crew_member_id;
         $password = $_POST['password'];

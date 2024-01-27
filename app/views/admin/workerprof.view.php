@@ -57,7 +57,7 @@
 <div class="main-container3">
     <div class="profile-container2">
         <a href="<?= ROOT ?>/admin/workers2"><button class="close-button">Close</button></a>
-        <form method="post" action="<?= ROOT ?>/admin/workerprof?id=<?= $data['newData']['work_id'] ?>">
+        <form method="post" action="<?= ROOT ?>/admin/workerprof?id=<?= $data['newData']['id'] ?>">
             <input type="submit" class="archive-button  archive "
                    value="Delete" name="Delete">
         </form>
@@ -102,7 +102,7 @@
             <h3>
                 Profession
             </h3>
-            <input type="text" name="profession" value=<?php echo ucfirst($data['newData']['name']); ?> class="edit-gen" readonly>
+            <input type="text" name="profession" value=<?php echo ucfirst($data['newData']['category']); ?> class="edit-gen" readonly>
 
             <h3>
                 Skills

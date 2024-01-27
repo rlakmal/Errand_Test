@@ -12,7 +12,7 @@ class Tickets extends Controller
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         $ticket = new TicketUser;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'member') {
 
             $data["data"] = $ticket->findAll("ticket_id");
             $this->view('member/tickets',$data);
