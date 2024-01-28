@@ -18,7 +18,6 @@
     <?php include 'myjobsidebar.php' ?>
     <diV class="set_margin">
         <section id="main" class="main">
-
             <h2>Your Request to Workers</h2>
             <div class="scrollable-table">
                 <table class="table">
@@ -97,27 +96,23 @@
                 </table>
 
             </div>
-            <div class="pop-view">
-                <form id="pop-form" method="POST">
-                    <div id="pop-header">Worker want to negotiate your budget</div>
-                    <h4 id="newBudgetLabel">New Budget: </h4>
-                    <div class="pop-btn">
-                        <button class="pop-accept">Accept Offer</button>
-                        <button class="pop-reject">Reject</button>
-                    </div>
-                </form>
 
-            </div>
+        </section>
 
-
-
-            <div id="pop-overlay" class="pop-overlay"></div>
     </div>
+    <div class="pop-view">
+        <form id="pop-form" method="POST">
+            <div id="pop-header">Worker want to negotiate your budget</div>
+            <h4 id="newBudgetLabel">New Budget: </h4>
+            <div class="pop-btn">
+                <button class="pop-accept">Accept Offer</button>
+                <button class="pop-reject">Reject</button>
+            </div>
+        </form>
 
+    </div>
+    <div id="pop-overlay" class="pop-overlay"></div>
 
-    </section>
-
-    </diV>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <script>
@@ -159,7 +154,7 @@
                             //console.log("Response:", res);
                             newData = JSON.parse(res);
                             console.log(newData);
-                            $("#newBudgetLabel").text("New Budget: " + newData.newbudget + " Per Day");
+                            $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
                             try {} catch (error) {
 
                             }
@@ -177,6 +172,7 @@
     </script>
 
 </body>
+
 
 
 </html>
