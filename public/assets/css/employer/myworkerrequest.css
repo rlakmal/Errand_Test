@@ -116,7 +116,7 @@ body {
   border: none;
   border-radius: 18px;
   border: solid 1px red;
-  color: #e00000;
+  color: #000000;
   width: 112px;
   height: 30px;
   cursor: pointer;
@@ -127,13 +127,28 @@ body {
   color: #f4f4f4;
   transform: scale(1.05);
 }
-
+.viewbutton {
+  background-color: white;
+  border: none;
+  border-radius: 18px;
+  border: solid 1px rgb(255, 162, 0);
+  color: #000000;
+  width: 112px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: 300;
+}
+.viewbutton:hover {
+  color: white;
+  background-color: #ff7f00;
+  transition: (1.23);
+}
 .pendingbutton {
   background-color: rgb(239 255 238);
   /* border: none; */
   border: solid 1px #08cd08;
   border-radius: 18px;
-  color: #36e21c;
+  color: #000000;
   width: 100px;
   height: 30px;
   font-weight: 300;
@@ -142,17 +157,17 @@ body {
   background-color: rgb(255 248 239);
   border: solid 1px orange;
   border-radius: 18px;
-  color: #835635;
+  color: #000000;
   width: 100px;
   height: 30px;
   font-weight: 300;
 }
 .expirebutton {
-  background-color: #fff9f9;
+  background-color: #ffeeee;
   /* border: none; */
   border: solid 1px red;
   border-radius: 18px;
-  color: #ff0000;
+  color: #000000;
   font-weight: bold;
   width: 100px;
   height: 30px;
@@ -184,4 +199,50 @@ table td.proname {
 }
 table th {
   font-size: larger;
+}
+table.table {
+  border-collapse: collapse;
+  margin: 0px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100%;
+  border-radius: 12px;
+  padding-right: 15px;
+}
+
+table thead tr {
+  background-color: #f4f7fc;
+  color: #191919;
+  text-align: justify;
+  border-radius: 12px;
+}
+
+table th,
+table td {
+  padding: 12px 30px 12px 20px;
+  width: -1px;
+  background-color: #e7e9ff;
+}
+
+table tr,
+table td {
+  background: #ffffff;
+}
+
+table tbody tr {
+  border-top: 1px solid #cdcdcd;
+  height: 60px;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #191919;
+}
+
+table tbody tr:last-of-type {
+  border-top: 2px solid #bcc2ce;
+}
+
+table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }

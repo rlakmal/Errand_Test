@@ -12,8 +12,7 @@
 </head>
 
 <body>
-<script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
-
+<!-- Script for customer-orders.js is commented out as it is not provided -->
 <!-- Sidebar -->
 <?php include 'sidebar.php' ?>
 <!-- Navigation bar -->
@@ -23,7 +22,6 @@
 
 <!-- content  -->
 <section id="main" class="main">
-
     <h2>Announcements</h2>
 
     <form>
@@ -31,10 +29,7 @@
             <input class="form-group" type="text" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">
-            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         </div>
-
     </form>
 
     <table class="table">
@@ -56,7 +51,6 @@
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
-                show($item);
                 ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
@@ -130,27 +124,45 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="<?= ROOT ?>/assets/js/admin/crewMembers.js"></script>
+<script src="<?= ROOT ?>/assets/js/admin/notify.js"></script>
+
 <script>
-    // function openReport() {
-    //     document.querySelector('.popup-report').style.display = 'flex';
-    //     document.querySelector('.overlay').style.display = 'block';
-    // }
-    //
-    // function closeReport() {
-    //     document.querySelector('.popup-report').style.display = 'none';
-    //     document.querySelector('.overlay').style.display = 'none';
-    // }
-    //
-    // function openView(element) {
-    //     document.querySelector('.popup-view').style.display = 'flex';
-    //     document.querySelector('.overlay').style.display = 'block';
-    // }
-    //
-    // function closeView() {
-    //     document.querySelector('.popup-view').style.display = 'none';
-    //     document.querySelector('.overlay').style.display = 'none';
-    // }
+    let overlay = document.getElementById("overlay");
+    let popupReport = document.querySelector(".popup-report");
+    let popupView = document.querySelector(".popup-view");
+
+    function openView(button) {
+        const itemData = button.getAttribute("data-order");
+        const data = JSON.parse(itemData);
+        dataBindtoForm(data);
+
+        popupView.classList.add("open-popup-view");
+        overlay.classList.add("overlay-active");
+    }
+
+    function closeView() {
+        popupView.classList.remove("open-popup-view");
+        overlay.classList.remove("overlay-active");
+    }
+
+    function openReport() {
+        popupReport.classList.add("open-popup-report");
+        overlay.classList.add("overlay-active");
+    }
+
+    function closeReport() {
+        popupReport.classList.remove("open-popup-report");
+        overlay.classList.remove("overlay-active");
+    }
+
+    // edit form for bind that data
+    function dataBindtoForm(data) {
+        document.querySelector('.popup-view input[name="id"]').value = data.id;
+        document.querySelector('.popup-view input[name="title"]').value = data.title;
+        document.querySelector('.popup-view input[name="body"]').value = data.body;
+        document.querySelector('.popup-view input[name="worker"]').checked = data.worker;
+        document.querySelector('.popup-view input[name="employer"]').checked = data.employer;
+    }
 </script>
 </body>
 

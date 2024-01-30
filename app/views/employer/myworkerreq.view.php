@@ -5,117 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/view_reqpopup.css">
     <title>Document</title>
     <style>
-        .sidebar {
-            margin-top: -12px;
-        }
+
     </style>
 </head>
 
 <body>
 
-<?php include 'employernav.php' ?>
-<?php include 'myjobsidebar.php' ?>
-<diV class="set_margin">
-    <section id="main" class="main">
-        <h2>Your Request to Workers</h2>
-        <div class="scrollable-table">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>No </th>
-
-                    <th class="desc">Request To:</th>
-                    <th class="ordId">Job Title</th>
-                    <th class="stth">Budget</th>
-                    <th class="cost">Location</th>
-                    <th>Status</th>
-                    <th class="thcancel"></th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                $no = 0;
-                if (is_array($data)) {
-                    foreach ($data as $item) {
-                        // show($item);
-                        $no++;
-                        ?>
+    <?php include 'employernav2.php' ?>
+    <?php include 'myjobsidebar.php' ?>
+    <diV class="set_margin">
+        <section id="main" class="main">
+            <h2>Your Request to Workers</h2>
+            <div class="scrollable-table">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td class="proimage"><?php echo $no ?></td>
+                            <th>No </th>
 
-                            <td class="proimage">
-                                <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
-                                <!-- </td>
-                            <td class="proname"> -->
-                                <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
-                            </td>
-                            <td><?php echo $item->title ?></td>
-                            <td>RS <?php echo $item->budget ?>/=</td>
-                            <td><?php echo $item->city ?></td>
-                            <td><button class="<?php if ($item->status == "Pending" || $item->status == "Accepted") {
-                                    echo "pendingbutton";
-                                } elseif ($item->status == "Rejected" || $item->status == "Requested") {
-                                    echo "rejectedbutton";
-                                } else {
-                                    echo "expirebutton";
-                                }
-
-                                ?>"><?php echo $item->status ?></button></td>
-                            <?php
-                            if ($item->status == 'Pending') {
-                                ?>
-                                <form method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                                    <td class="thcancel"><button type="submit" name="Cancel" value="Cancel" class="cancelbutton">Cancel Request</button></td>
-                                </form>
-
-                                <?php
-                            } else {
-                                ?>
-                                <td class="thcancel"></td>
-                                <?php
-                            }
-                            ?>
+                            <th class="desc">Request To:</th>
+                            <th class="ordId">Job Title</th>
+                            <th class="stth">Budget</th>
+                            <th class="cost">Location</th>
+                            <th>Status</th>
+                            <th class="thcancel">Action</th>
 
                         </tr>
-
-                        <!-- Add more rows with dummy data as needed -->
-
-                        <!-- <div class="post-container">
-                    <div class="profile-container2">
-                        <div class="picture">
-                            <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image  ?>" alt="">
-                        </div>
-                        <div class="index">
-                            <div class="profile-name">My Post - <?php echo $item->title ?></div>
-                            <div class="profile-ratings"><?php echo $item->created ?></div>
-                            <div class="profile-type">Request To - <?php echo $item->worker_name ?></div>
-
-                            <div class="budget">Budget - <?php echo $item->budget ?> /= per day</div>
-                            <div class="location"><?php echo $item->city ?></div>
-
-                        </div>
-                        <a><button class="view-profile-button">Pending</button></a>
-                        <a><button class="worker-profile-button">Cancel</button></a>
-
-                    </div>
-                </div> -->
-
+                    </thead>
+                    <tbody>
                         <?php
+                        $no = 0;
+                        if (is_array($data)) {
+                            foreach ($data as $item) {
+                                // show($item);
+                                $no++;
+                        ?>
+                                <tr>
+                                    <td class="proimage"><?php echo $no ?></td>
 
+                                    <td class="proimage">
+                                        <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
+                                        <!-- </td>
+                                        <td class="proname"> -->
+                                        <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
+                                    </td>
+                                    <td><?php echo $item->title ?></td>
+                                    <td>RS <?php echo $item->budget ?>/=</td>
+                                    <td><?php echo $item->city ?></td>
+                                    <td><button class="<?php if ($item->status == "Pending" || $item->status == "Accepted") {
+                                                            echo "pendingbutton";
+                                                        } elseif ($item->status == "Rejected" || $item->status == "Requested") {
+                                                            echo "rejectedbutton";
+                                                        } else {
+                                                            echo "expirebutton";
+                                                        }
+
+                                                        ?>"><?php echo $item->status ?></button></td>
+                                    <?php
+                                    if ($item->status == 'Pending') {
+                                    ?>
+                                        <form method="POST">
+                                            <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                            <td class="thcancel"><button type="submit" name="Cancel" value="Cancel" class="cancelbutton">Cancel Request</button></td>
+                                        </form>
+
+                                    <?php
+                                    } elseif ($item->status == 'Requested') {
+                                    ?>
+                                        <!-- <form method="POST"> -->
+                                        <input type="hidden" name="id <?php echo $item->id ?>" value="<?php echo $item->id ?>">
+                                        <td class="thcancel">
+                                            <button id="viewRequestbtn_<?php echo $item->id ?>" name="viewRequest" value="viewRequest" onclick="openEdit( <?= $item->id ?> )" class="viewbutton">View Request</button>
+                                        </td>
+                                        <!-- </form> -->
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <td class="thcancel"></td>
+                                    <?php
+                                    }
+                                    ?>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+    <div class="pop-view">
+        <form id="pop-form" method="POST">
+            <div id="pop-header">Worker want to negotiate your budget</div>
+            <h4 id="newBudgetLabel">New Budget: </h4>
+            <div class="pop-btn">
+                <button class="pop-accept">Accept Offer</button>
+                <button class="pop-reject">Reject</button>
+            </div>
+        </form>
+
+    </div>
+    <div id="pop-overlay" class="pop-overlay"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        let popupEdit = document.querySelector(".pop-view");
+        let overlay1 = document.getElementById("pop-overlay");
+        current_id = 0;
+
+        function openEdit(id) {
+            current_id = id;
+            popupEdit.classList.add("open-pop-view");
+            overlay1.classList.add("pop-overlay-active");
+        }
+
+        function closeEdit() {
+            popupEdit.classList.remove("open-pop-view");
+            overlay1.classList.remove("pop-overlay-active");
+        }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            $(document).ready(function() {
+                $("[id^='viewRequestbtn_']").click(function(event) {
+                    event.preventDefault();
+                    // Extract the id from the button's id attribute
+                    let current_id = this.id.split("_")[1];
+                    data = {
+                        id: current_id
                     }
-                }
+                    console.log(data);
 
+                    $.ajax({
+                        type: "POST",
+                        url: "<?= ROOT ?>/employer/view_request",
+                        data: data,
+                        cache: false,
+                        success: function(res) {
+                            //console.log("Response:", res);
+                            newData = JSON.parse(res);
+                            console.log(newData);
+                            $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                            try {} catch (error) {
 
-                ?>
-                </tbody>
-            </table>
-        </div>
-    </section>
-</diV>
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            // return xhr;
+                        }
+                    })
+
+                })
+
+            })
+
+        })
+    </script>
+
 </body>
+
+
 
 </html>

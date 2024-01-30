@@ -22,6 +22,17 @@ CREATE VIEW emp_post AS
 CREATE VIEW workers_from_emp AS
 
     SELECT
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
+=======
+>>>>>>> 421d177 (job image done)
+=======
+>>>>>>> 88c8dfff0cb7e5ee7c78ecd96d3e2a36e4aa7d9e
     employer.id as emp_id,
     employer.name as name,
     employer.category as category,
