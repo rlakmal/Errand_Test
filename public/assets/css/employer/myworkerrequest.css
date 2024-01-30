@@ -175,7 +175,7 @@ body {
 }
 .scrollable-table {
   overflow: auto;
-  max-height: 590px;
+  max-height: 620px;
 }
 .image {
   height: 40px;
