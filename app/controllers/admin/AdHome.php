@@ -74,7 +74,7 @@ class AdHome extends Controller
         unset($qdata["status"]);
         $data["verified"] = $worker->where($qdata);
 
-        $data["verifiedpercentage"] = (count($data["verified"]) / count($data["workers"])) * 100;
+        $data["verifiedpercentage"] = $data["verified"] ? ((count($data["verified"]) / count($data["workers"])) * 100) : 0;
 
 
         unset($qdata["verified"]);
