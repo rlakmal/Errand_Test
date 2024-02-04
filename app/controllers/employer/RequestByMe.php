@@ -30,7 +30,7 @@ class RequestByMe extends Controller
             // }
 
             // echo "this is a about controller";
-            $this->view('employer/myworkerreq', $data);
+            $this->view('employer/myworkerreq2', $data);
         }
     }
 }

@@ -45,7 +45,7 @@ class MemTicket extends Controller
                     redirect("member/ticket?id=".$_GET["id"]);
 
                 }
-                $data["ticket_id"] = $_GET["id"];
+                $data["ticket_no"] = $_GET["id"];
                 $data["body"] = $_POST["body"];
                 $note->insert($data);
                 redirect("member/ticket?id=".$_GET["id"]);
