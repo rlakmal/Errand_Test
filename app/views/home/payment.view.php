@@ -24,7 +24,7 @@
     function makePayment() {
         var payment = new PayHere.Payment({
             "sandbox": true,
-            "merchant_id": "YOUR_MERCHANT_ID",
+            "merchant_id": 1225403,
             "return_url": "YOUR_RETURN_URL",
             "cancel_url": "YOUR_CANCEL_URL",
             "notify_url": "YOUR_NOTIFY_URL",
