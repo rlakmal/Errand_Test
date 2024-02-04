@@ -105,8 +105,12 @@
             <div id="pop-header">Worker want to negotiate your budget</div>
             <h4 id="newBudgetLabel">New Budget: </h4>
             <div class="pop-btn">
-                <button class="pop-accept">Accept Offer</button>
-                <button class="pop-reject">Reject</button>
+                <form method="POST">
+                    <input type="hidden" name="id" id="pop-hidden-id" value="">
+                    <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
+                    <button name="pop-reject-btn" class="pop-reject">Reject</button>
+                </form>
+
             </div>
         </form>
 
@@ -155,6 +159,7 @@
                             newData = JSON.parse(res);
                             console.log(newData);
                             $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                            $("#pop-hidden-id").val(newData.id);
                             try {} catch (error) {
 
                             }

@@ -509,9 +509,9 @@ nav .nav-link .nav-link-profile{
   .sidebar {
     width: 78px;
     z-index: 100;
-    position: relative;
+    position: fixed;
     left: 0;
-    top: 0;
+    height: 100%;
   }
   .sidebar li a .link_name {
     opacity: 0;
@@ -566,5 +566,23 @@ nav .nav-link .nav-link-profile{
 
   .home-section .text {
     margin: 10px;
+  }
+  section#main {
+    position: fixed;
+    top: 78px;
+    width: calc(100% - 78px);
+    height: 50px;
+    left: 78px;
+    transition: all 0.5s ease;
+    z-index: 2;
+  }
+  #main.open {
+    position: fixed;
+    top: 78px;
+    width: calc(100% - 190px);
+    height: 50px;
+    left: 190px;
+    transition: all 0.5s ease;
+    z-index: 2;
   }
 }
