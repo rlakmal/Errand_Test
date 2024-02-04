@@ -30,7 +30,30 @@ class RequestByMe extends Controller
             // }
 
             // echo "this is a about controller";
+            if (isset($_POST['pop-accept-btn'])) {
+                // show($_POST);
+                $id = $_POST['id'];
+                $updateData = [
+                    'status' => 'Accepted',
+                ];
+                $myrequests->update($id, $updateData, 'id');
+                redirect('employer/myworkerreq');
+            }
             $this->view('employer/myworkerreq2', $data);
+
         }
+    }
+
+    public function viewRequest($a = '', $b = '', $c = '')
+    {
+        // redirect("employer/view_request");
+        $newbgt = new Bargainbgt;
+        //show($_POST);
+        $id = $_POST['id'];
+        $arr['id'] = $id;
+        $bargain = $newbgt->first($arr);
+        //show($bargain);
+        $data = json_encode($bargain);
+        echo $data;
     }
 }

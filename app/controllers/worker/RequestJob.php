@@ -11,12 +11,12 @@ class RequestJob extends Controller
             $id = $_GET['id'];
             $arr['id'] = $id;
             $results = $job->where($arr);
-            //show($results);
+            // show($results);
             $data['data'] = $results;
             $worker_name = $_SESSION['USER']->name;
             $worker_id = $_SESSION['USER']->id;
             if (isset($_POST['Rquest'])) {
-                //show($_POST);
+                // show($_POST);
                 $this->requestInsert($results, $_POST, $newreq, $worker_name, $worker_id);
             }
             $this->view('worker/requestjob', $data);
@@ -25,7 +25,7 @@ class RequestJob extends Controller
     private function requestInsert($results, $data, $newreq, $worker_name, $worker_id)
     {
         //show($results[0]->title);
-        $newdata['id'] = $results[0]->id;
+        $newdata['job_id'] = $results[0]->id;
         $newdata['emp_id'] = $results[0]->emp_id;
         $newdata['title'] = $results[0]->title;
         $newdata['city'] = $results[0]->city;
@@ -36,6 +36,7 @@ class RequestJob extends Controller
         $newdata['worker_id'] = $worker_id;
         $newdata['emp_name'] = $results[0]->name;
         $newdata['status'] = "Pending";
+        // show($newdata);
 
         $newreq->insert($newdata);
         redirect('worker/requestjob?id=' . $data['id']);

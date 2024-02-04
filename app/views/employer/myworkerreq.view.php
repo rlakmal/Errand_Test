@@ -5,129 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/view_reqpopup.css">
     <title>Document</title>
     <style>
-        .pop-view {
-            position: absolute;
-            height: fit-content;
-            width: 35%;
-            background: #ffffff;
-            margin-top: -3%;
-            margin-bottom: 3%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
-            visibility: hidden;
-            transition: transform 0.5s, top 0.5s;
-            justify-content: center;
-        }
 
-        .open-pop-view {
-            position: fixed;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 101;
-        }
-
-        .pop-view h2 {
-            text-align: center;
-            padding-top: 2%;
-            padding-bottom: 4%;
-            margin: 4px;
-            font-weight: bold;
-        }
-
-        .pop-view h4 {
-            text-align: left;
-            padding-left: 10%;
-            padding-bottom: 2%;
-        }
-
-        .pop-view input {
-            position: relative;
-            left: 9%;
-            /* min-width: 500px; */
-            width: 80%;
-            background: #d5dfe7d5;
-            border-radius: 20px;
-            border-style: solid;
-            border: #000;
-            outline-width: 1px;
-            padding: 10px 30px;
-            margin-bottom: 2%;
-            transition: all 0.3s ease;
-            color: var(--dark);
-            font-size: 17px;
-        }
-
-        .pop-report .btns,
-        .pop-view .btns {
-            position: relative;
-            left: 40%;
-            width: 50%;
-            height: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .pop-report .close-btn,
-        .pop-view .close-btn,
-        .cancelR-btn {
-            position: absolute;
-            right: 1%;
-            font-size: 16px;
-            color: var(--red);
-            cursor: pointer;
-            padding: 5px 15px;
-            border-radius: 6px;
-            color: white;
-            border: none;
-            background-color: orangered;
-
-        }
-
-        .pop-report .cancelR-btn,
-        .cancelR-btn {
-            right: 28%;
-            color: white;
-            background-color: orangered;
-        }
-
-        .overlay {
-            position: fixed;
-            opacity: 0;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-        }
-
-        .overlay-active {
-            opacity: 1;
-            pointer-events: all;
-            z-index: 100;
-        }
-
-        .bttns {
-            position: relative;
-            top: -12%;
-            float: right;
-            width: 33%;
-            height: 0px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sidebar {
-            margin-top: -12px;
-        }
     </style>
 </head>
 
@@ -167,7 +48,7 @@
                                     <td class="proimage">
                                         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION['USER']->profile_image ?>" alt="profile image">
                                         <!-- </td>
-                            <td class="proname"> -->
+                                        <td class="proname"> -->
                                         <a class="wkname" href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><?php echo $item->worker_name ?></a>
                                     </td>
                                     <td><?php echo $item->title ?></td>
@@ -194,8 +75,10 @@
                                     } elseif ($item->status == 'Requested') {
                                     ?>
                                         <!-- <form method="POST"> -->
-                                        <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                                        <td class="thcancel"><button type="submit" name="viewRequest" value="viewRequest" onclick="openEdit()" class="viewbutton">View Request</button></td>
+                                        <input type="hidden" name="id <?php echo $item->id ?>" value="<?php echo $item->id ?>">
+                                        <td class="thcancel">
+                                            <button id="viewRequestbtn_<?php echo $item->id ?>" name="viewRequest" value="viewRequest" onclick="openEdit( <?= $item->id ?> )" class="viewbutton">View Request</button>
+                                        </td>
                                         <!-- </form> -->
                                     <?php
                                     } else {
@@ -213,37 +96,88 @@
                 </table>
 
             </div>
-            <div class="pop-view">
+
+        </section>
+
+    </div>
+    <div class="pop-view">
+        <form id="pop-form" method="POST">
+            <div id="pop-header">Worker want to negotiate your budget</div>
+            <h4 id="newBudgetLabel">New Budget: </h4>
+            <div class="pop-btn">
                 <form method="POST">
-                    <h2>Worker has negotiate your budget</h2>
-                    <h4>Budget : </h4>
-                    <button>Accept Offer</button>
-                    <button>Rejecr</button>
+                    <input type="hidden" name="id" id="pop-hidden-id" value="">
+                    <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
+                    <button name="pop-reject-btn" class="pop-reject">Reject</button>
                 </form>
 
             </div>
-
+        </form>
 
     </div>
+    <div id="pop-overlay" class="pop-overlay"></div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    </section>
-    </diV>
     <script>
         let popupEdit = document.querySelector(".pop-view");
-        // let overlay1 = document.getElementById("overlay");
+        let overlay1 = document.getElementById("pop-overlay");
+        current_id = 0;
 
-        function openEdit() {
-
+        function openEdit(id) {
+            current_id = id;
             popupEdit.classList.add("open-pop-view");
-            // overlay1.classList.add("overlay-active");
+            overlay1.classList.add("pop-overlay-active");
         }
 
         function closeEdit() {
             popupEdit.classList.remove("open-pop-view");
-            // overlay1.classList.remove("overlay-active");
+            overlay1.classList.remove("pop-overlay-active");
         }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            $(document).ready(function() {
+                $("[id^='viewRequestbtn_']").click(function(event) {
+                    event.preventDefault();
+                    // Extract the id from the button's id attribute
+                    let current_id = this.id.split("_")[1];
+                    data = {
+                        id: current_id
+                    }
+                    console.log(data);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?= ROOT ?>/employer/view_request",
+                        data: data,
+                        cache: false,
+                        success: function(res) {
+                            //console.log("Response:", res);
+                            newData = JSON.parse(res);
+                            console.log(newData);
+                            $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                            $("#pop-hidden-id").val(newData.id);
+                            try {} catch (error) {
+
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            // return xhr;
+                        }
+                    })
+
+                })
+
+            })
+
+        })
     </script>
+
 </body>
+
+
 
 </html>
