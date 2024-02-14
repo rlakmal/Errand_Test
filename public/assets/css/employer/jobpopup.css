@@ -150,7 +150,8 @@ table tbody tr.active-row {
 .popup-report,
 .popup-edit {
   position: absolute;
-  height: fit-content;
+  max-height: 80vh;
+  overflow-y: auto;
   width: 29%;
   background: #ffffff;
   margin-top: 0%;

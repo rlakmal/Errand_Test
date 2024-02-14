@@ -23,7 +23,7 @@ class SignIn extends Controller
                 $_POST['status'] = 'employer';
                 $_POST['profile_image'] = 'prof.png';
                 show($_POST);
-                
+
 
                 $user->insert($_POST);
 
@@ -70,8 +70,8 @@ class SignIn extends Controller
                         redirect('worker/home');
                     } else if ($row->status == 'admin') {
                         redirect('admin/home');
-                    } else if ($row->status == 'member') {
-                        redirect('member/home');
+                    } else if ($row->status == 'crew_member') {
+                        redirect('crewMember/home');
                     }
                 } else {
                     $data['errors'] = "";
