@@ -13,6 +13,7 @@ class EmpPost
         'emp_id',
         'id',
         'budget',
+        'location',
         'description',
         'profile_image',
         'city',

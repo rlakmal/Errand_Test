@@ -87,8 +87,8 @@ route('admin/workrequests', 'admin/WorkRequests@index');
 /*---------------------------------------------------------------------
     member routes
 --------------------------------------------------------------------- */
-
-route('member/home', 'member/home@index');
+route('crewMember/home', 'crewMember/crewHome@index');
+route('member/home', 'Member/Home@index');
 route('member/workerslist', 'member/WorkersList@index');
 route('member/tickets', 'member/Tickets@index');
 route('member/ticket', 'member/MemTicket@index');
