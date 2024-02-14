@@ -39,12 +39,12 @@
 
             // echo $times_ago;;
             ?>
-            <div class="post-container">
-                <div class="profile-container2">
+            <div class="post-container" style="padding-bottom: 5px">
+                <div class="profile-container2" style="padding-bottom: 5px justify-content: flex-start" >
                     <!--                    <div class="picture">-->
                     <!--                        <img class="image" src="--><?php //= ROOT ?><!--/assets/images/profileImages/--><?php //echo $item->profile_image  ?><!--" alt="placeholder">-->
                     <!--                    </div>-->
-                    <div class="index">
+                    <div >
                         <div class="profile-name"><?php echo $item->title ?></div>
                         <div class="profile-ratings"><?php echo $item->created ?></div>
                         <div class="profile-type"><?php echo $item->description ?></div>
@@ -64,7 +64,7 @@
 
 
                     </div>
-                    <a href="<?=ROOT?>/member/ticket?id=<?=$item->ticket_id?>"><button class="view-profile-button" id="request-button">View</button></a>
+                    <a href="<?=ROOT?>/member/ticket?id=<?=$item->ticket_id?>"><button class="view-profile-button" style="padding-bottom: 5px" id="request-button">View</button></a>
 
                     <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 

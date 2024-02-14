@@ -1151,3 +1151,77 @@ main.open {
 .right .sales-analytics .add-product div h3{
     font-weight: 600;
 }*/
+
+
+
+
+/* Add this at the end of your existing CSS */
+
+@media only screen and (max-width: 414px) { /* iPhone 14 Pro Max width */
+  body {
+    display: block;
+  }
+
+  .homenavbar nav ul {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homenavbar nav ul li a {
+    width: auto;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .homenavbar header {
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+
+  .sidebar {
+    width: 100%;
+    left: 0;
+  }
+
+  .sidebar.open {
+    width: 100%;
+  }
+
+  .home-section {
+    left: 0;
+    width: 100%;
+  }
+
+  main {
+    margin-left: 10px; /* Adjust the margin for smaller screens */
+  }
+
+  .right {
+    margin-right: 10px; /* Adjust the margin for smaller screens */
+  }
+
+  .right .top button {
+    display: block; /* Show the button on smaller screens */
+  }
+
+  .right .top .theme-toggler {
+    width: auto;
+  }
+
+  .recent-updates .update {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .sales-analytics .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right .sales-analytics .add-product {
+    width: 100%;
+  }
+}
+
