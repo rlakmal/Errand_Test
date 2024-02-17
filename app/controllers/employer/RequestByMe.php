@@ -21,6 +21,16 @@ class RequestByMe extends Controller
                 $myrequests->update($id, $updateData, 'id');
                 redirect('employer/myworkerreq');
             }
+
+
+            // if (isset($_POST['viewRequest'])) {
+            //     $id = $_POST['id'];
+            //     $arr['id'] = $id;
+            //     $bargain = $newbgt->first($arr);
+            //     //show($bargain);
+            // }
+
+            // echo "this is a about controller";
             if (isset($_POST['pop-accept-btn'])) {
                 // show($_POST);
                 $id = $_POST['id'];
@@ -31,6 +41,7 @@ class RequestByMe extends Controller
                 redirect('employer/myworkerreq');
             }
             $this->view('employer/myworkerreq2', $data);
+
         }
     }
 
