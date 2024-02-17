@@ -22,6 +22,7 @@ class RequestByMe extends Controller
                 redirect('employer/myworkerreq');
             }
 
+
             // if (isset($_POST['viewRequest'])) {
             //     $id = $_POST['id'];
             //     $arr['id'] = $id;

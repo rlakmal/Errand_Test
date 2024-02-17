@@ -5,7 +5,7 @@ class WorkerEmployer
 {
     use Model;
 
-    protected $table = 'worker_employer';
+    protected $table = 'employer_worker';
 
     protected $allowedCloumns = [
 

@@ -12,7 +12,7 @@ class EmployerAcc extends Controller
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $arr["id"] = $_GET["id"];
-                $user->delete($arr);
+                $user->delete($arr["id"]);
                 redirect("admin/employers");
             }
 
@@ -37,6 +37,7 @@ class EmployerAcc extends Controller
 
         $result = $user->first($arr);
 
+        $newData["id"] = $use_id;
         $newData['name'] = $result->name;
         $newData['nic'] = $result->nic;
         $newData['city'] = $result->city;

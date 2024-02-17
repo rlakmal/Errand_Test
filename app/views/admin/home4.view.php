@@ -151,23 +151,38 @@
         }
         ?>
 
+        <?php
+        // Update thirdChartData with data from empreqpaysums
+        $thirdChartData = [
+            'labels' => array_keys($data["empreqpaysums"]),
+            'datasets' => [
+                [
+                    'label' => 'Amount',
+                    'data' => array_values($data["empreqpaysums"]),
+                    'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
+                    'borderColor' => 'rgba(255, 99, 132, 1)',
+                    'borderWidth' => 1
+                ]
+            ]
+        ];
+        ?>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
             <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
             <h2>User Registration</h2>
         </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 85%; height: 600px;">
             <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
             <h2>Categories of Worker</h2>
         </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
             <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
-            <h2>Third Chart</h2>
+            <h2>Employer Request Payments</h2>
         </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 80%; height: 600px;">
+        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
             <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
             <h2>Fourth Chart</h2>
         </div>
@@ -255,24 +270,16 @@
             }]
         };
 
-        var thirdChartData = {
-            labels: ['A', 'B', 'C', 'D', 'E'],
-            datasets: [{
-                label: 'Dataset 1',
-                data: [10, 20, 30, 40, 50],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
+        var thirdChartData = <?= json_encode($thirdChartData) ?>;
 
+        // Data for fourth chart
         var fourthChartData = {
-            labels: ['X', 'Y', 'Z'],
+            labels: <?= json_encode(array_keys($data["joblocationcounts"])) ?>, // Use array keys as labels
             datasets: [{
-                label: 'Dataset 1',
-                data: [15, 25, 30],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                label: 'Job Location Counts',
+                data: <?= json_encode(array_values($data["joblocationcounts"])) ?>, // Use array values as data
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1
             }]
         };

@@ -63,8 +63,8 @@ class adNotification2 extends Controller
                 }
             }
 
-            if (isset($_POST['member'])) {
-                unset($_POST['member']);
+            if (isset($_POST['update'])) {
+                unset($_POST['update']);
                 $id = $_POST['id'];
 
                 unset($_POST['id']);
@@ -87,6 +87,19 @@ class adNotification2 extends Controller
     // update member data
     private function Updatedetails($notification, $use_id, $data)
     {
+
+        if(isset($data["worker"])){
+            $data["worker"] = true;
+        } else {
+            $data["worker"] = false;
+
+        }
+        if(isset($data["employer"])){
+            $data["employer"] = true;
+        } else {
+            $data["employer"] = false;
+
+        }
         $notification->update($use_id, $data, 'id');
         redirect('admin/adnotification2');
     }

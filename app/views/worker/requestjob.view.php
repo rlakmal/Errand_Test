@@ -71,6 +71,12 @@ foreach ($data as $item) {
           </form>
           <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
         </div>
+    </div>
+    <div class="index_bottom">
+        <button type="submit" name="Rquest" value="Request" class="close-button">Request</button>
+        </form>
+        <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
+    </div>
 
     <?php
 

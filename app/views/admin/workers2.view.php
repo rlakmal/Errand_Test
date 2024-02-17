@@ -136,7 +136,6 @@
     <table class="table">
         <thead>
         <tr>
-            <th></th>
             <th class="ordId">Worker Name</th>
             <th class="desc">Category</th>
             <th class="stth">Worker ID</th>

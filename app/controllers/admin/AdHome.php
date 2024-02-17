@@ -11,11 +11,48 @@ class AdHome extends Controller
         $member = new CrewMember();
         $empreq = new EmployerReqWorker();
         $wrkreq = new WorkeRrequestJobs();
+        $empreqpay = new Emp_req_pay();
+
 
         $qdata["status"] = "accepted";
 
         $data["empreq"] = $empreq->where($qdata);
         $data["wrkreq"] = $wrkreq->where($qdata);
+
+        $data["empreqpays"] = $empreqpay->findAll("req_id");
+
+
+// Assuming $data["empreqpays"] contains the array of objects
+
+// Define start and end dates for the past 7 days
+        $endDate = date('Y-m-d');
+        $startDate = date('Y-m-d', strtotime('-7 days', strtotime($endDate)));
+
+// Initialize empreqpaysums array with zeros for each date
+        $empreqpaysums = [];
+        $currentDate = $startDate;
+        while ($currentDate <= $endDate) {
+            $empreqpaysums[$currentDate] = 0;
+            $currentDate = date('Y-m-d', strtotime('+1 day', strtotime($currentDate)));
+        }
+
+// Loop through the empreqpays array
+        if($data["empreqpays"]){
+            foreach ($data["empreqpays"] as $payment) {
+                $paymentDate = date('Y-m-d', strtotime($payment->created));
+
+                // Check if the payment date is within the past 7 days
+                if ($paymentDate >= $startDate && $paymentDate <= $endDate) {
+                    // Add the amount to the corresponding date's sum
+                    $empreqpaysums[$paymentDate] += $payment->amount;
+                }
+            }
+        }
+
+
+// Now $empreqpaysums contains the sums of amounts for the past 7 days
+
+        $data["empreqpaysums"] = $empreqpaysums;
 
 //        $data["req"] = array_merge($data["empreq"], $data["wrkreq"]);
 
@@ -66,6 +103,18 @@ class AdHome extends Controller
 
 // Add the result to $data array
         $data["jobs30"] = $numberOfJobsLast30Days;
+
+        $joblocationcounts = [];
+
+        foreach ($jobsLast30Days as $job) {
+            $city = $job->city;
+            if (!isset($joblocationcounts[$city])) {
+                $joblocationcounts[$city] = 0;
+            }
+            $joblocationcounts[$city]++;
+        }
+
+        $data["joblocationcounts"] = $joblocationcounts;
         $data["members"] = $member->findAll();
 
         if(!$data["members"]) $data["members"] = [];

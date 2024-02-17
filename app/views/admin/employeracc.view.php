@@ -51,7 +51,7 @@
   <div class="main-container4">
     <div class="profile-container3">
       <a href="<?= ROOT ?>/admin/employers"><button class="close-button">Close</button></a>
-        <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data->id ?>">
+        <form action='<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>'  method='post'>
             <input type="submit" class="archive-button archive" value="Delete" name="Delete"/>
 
         </form>

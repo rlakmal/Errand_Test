@@ -1,2 +1,4 @@
 /app/core/.config
 /vendor/
+/node_modules/
+/app/core/phpmailer/
