@@ -25,10 +25,10 @@ class WorkerProf extends Controller
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 unset($arr["work_id"]);
                 $arr["id"] = $_GET["id"];
-                $worker->delete($arr);
+                $worker->delete($arr["id"]);
                 unset($arr["id"]);
                 $arr["username"]= $result["email"];
-                $user->delete($arr);
+                $user->delete($result["id"]);
                 redirect("admin/workers2");
             }
 

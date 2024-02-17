@@ -13,7 +13,7 @@ class EmpRequests extends Controller
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $arr["id"] = $_GET["id"];
-                $request->delete($arr);
+                $request->delete($arr["id"]);
                 redirect("admin/emprequests");
             }
 

@@ -108,7 +108,7 @@
                     <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
                     <td><?= $request->created ?></td>
                     <td>
-                        <form action="<?= ROOT ?>/edmin/emprequests?id=<?= $request->id ?>" method="post">
+                        <form action="<?= ROOT ?>/admin/emprequests?id=<?= $request->id ?>" method="post">
                             <!--                            <input type="hidden" name="request_id" value="--><?php //= $request->id ?><!--">-->
                             <input type="submit" class="delete-button" value="Delete">
                         </form>

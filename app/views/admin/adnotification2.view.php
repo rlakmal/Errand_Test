@@ -18,7 +18,7 @@
 <!-- Navigation bar -->
 <?php include 'navigationbar.php' ?>
 <!-- Scripts -->
-<script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+<!--<script src="--><?php //= ROOT ?><!--/assets/js/script-bar.js"></script>-->
 
 <!-- content  -->
 <section id="main" class="main">
@@ -59,11 +59,12 @@
                     <td><?php echo $item->body; ?></td>
                     <td><?php echo $item->worker; ?></td>
                     <td><?php echo $item->employer; ?></td>
-                    <td><?php echo $item->created;  unset($item->created);?></td>
-                    <td class="edit-icon"><a type="hidden" data-order=<?= json_encode($item); ?> onclick="openView(this)">
+                    <td><?php echo $item->created;  unset($item->created); ?></td>
+                    <td class="edit-icon">
+                        <a href="#" class="edit-btn" data-order="<?= htmlspecialchars(json_encode($item)); ?>">
                             <i class="bx bxs-edit-alt"></i>
-                            <span class="link_name"></span>
-                        </a></td>
+                        </a>
+                    </td>
                     <td>
                         <form method="POST">
                             <input type="hidden" name="id" value="<?php echo $item->id; ?>">
@@ -85,7 +86,7 @@
 <div class="popup-report">
     <h2>Post Announcement</h2>
     <h4>Title: </h4>
-    <form method="POST" action="<?=ROOT?>/admin/adnotification2">
+    <form method="POST" action="<?= ROOT ?>/admin/adnotification2">
         <input name="title" type="text" placeholder="Enter Title">
         <h4>Body: </h4>
         <input name="body" type="text" placeholder="Enter Body">
@@ -102,7 +103,7 @@
 
 <!-- update members -->
 <div class="popup-view">
-    <h2>Update Crew Member</h2>
+    <h2>Update Announcement</h2>
     <form method="POST">
         <h4>Title: </h4>
         <input name="title" type="text" placeholder="Enter Title">
@@ -115,26 +116,35 @@
         <input type="hidden" name="id">
         <div class="btns">
             <button type="button" class="cancelR-btn" onclick="closeView()">Cancel</button>
-            <button type="submit" name="member" value="Update" class="close-btn" onclick="closeView()">Update</button>
+            <button type="submit" name="update" value="Update" class="close-btn" onclick="closeView()">Update</button>
         </div>
     </form>
 </div>
 
 <div id="overlay" class="overlay"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>-->
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="<?= ROOT ?>/assets/js/admin/notify.js"></script>
+<!--<script src="--><?php //= ROOT ?><!--/assets/js/admin/notify.js"></script>-->
 
 <script>
     let overlay = document.getElementById("overlay");
     let popupReport = document.querySelector(".popup-report");
     let popupView = document.querySelector(".popup-view");
+    let editButtons = document.querySelectorAll('.edit-btn');
 
-    function openView(button) {
-        const itemData = button.getAttribute("data-order");
-        const data = JSON.parse(itemData);
-        dataBindtoForm(data);
+    editButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const itemData = JSON.parse(this.getAttribute('data-order'));
+            openView(itemData);
+        });
+    });
+
+    function openView(itemData) {
+
+        console.log("kariya")
+        dataBindtoForm(itemData);
 
         popupView.classList.add("open-popup-view");
         overlay.classList.add("overlay-active");

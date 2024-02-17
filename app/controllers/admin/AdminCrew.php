@@ -59,7 +59,7 @@ class AdminCrew extends Controller
 
         unset($postData['memberRegister']);
         unset($postData['active']);
-        $postData['status'] = 'crew_member';
+        $postData['status'] = 'member';
         $password = $_POST['password'];
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $postData['password'] = $hash;
