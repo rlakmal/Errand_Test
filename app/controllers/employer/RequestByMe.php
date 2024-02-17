@@ -46,4 +46,8 @@ class RequestByMe extends Controller
         $data = json_encode($bargain);
         echo $data;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 868fabd (ajax popup)

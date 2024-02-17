@@ -106,9 +106,16 @@
             <h4 id="newBudgetLabel">New Budget: </h4>
             <div class="pop-btn">
                 <form method="POST">
+<<<<<<< HEAD
                     <input type="hidden" name="id" id="pop-hidden-id" value="">
                     <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
                     <button name="pop-reject-btn" class="pop-reject">Reject</button>
+=======
+                    <h2>Worker has negotiate your budget</h2>
+                    <h4 id="newBudgetLabel">New Budget: </h4>
+                    <button>Accept Offer</button>
+                    <button>Rejecr</button>
+>>>>>>> 868fabd (ajax popup)
                 </form>
 
             </div>
@@ -119,9 +126,19 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+<<<<<<< HEAD
     <script>
         let popupEdit = document.querySelector(".pop-view");
         let overlay1 = document.getElementById("pop-overlay");
+=======
+    </section>
+    </diV>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        let popupEdit = document.querySelector(".pop-view");
+        // let overlay1 = document.getElementById("overlay");
+>>>>>>> 868fabd (ajax popup)
         current_id = 0;
 
         function openEdit(id) {
@@ -158,8 +175,12 @@
                             //console.log("Response:", res);
                             newData = JSON.parse(res);
                             console.log(newData);
+<<<<<<< HEAD
                             $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
                             $("#pop-hidden-id").val(newData.id);
+=======
+                            $("#newBudgetLabel").text("New Budget: " + newData.newbudget);
+>>>>>>> 868fabd (ajax popup)
                             try {} catch (error) {
 
                             }
