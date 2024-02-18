@@ -107,6 +107,7 @@
             <div class="pop-btn">
                 <form method="POST">
                     <input type="hidden" name="id" id="pop-hidden-id" value="">
+                    <input type="hidden" name="newbudget" id="pop-hidden-budget" value="">
                     <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
                     <button name="pop-reject-btn" class="pop-reject">Reject</button>
                 </form>
@@ -160,6 +161,7 @@
                             console.log(newData);
                             $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
                             $("#pop-hidden-id").val(newData.id);
+                            $("#pop-hidden-budget").val(newData.newbudget);
                             try {} catch (error) {
 
                             }
