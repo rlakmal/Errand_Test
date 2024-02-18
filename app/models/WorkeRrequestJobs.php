@@ -5,8 +5,6 @@ class WorkeRrequestJobs
     use Model;
     protected $table = "worker_req_jobs";
 
-    // public $errors1 = [];
-
     protected $allowed_columns = [
         'emp_id',
         'worker_id',
