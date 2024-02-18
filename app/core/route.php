@@ -41,6 +41,7 @@ route('employer/profile', 'employer/EmployerProfile@index');
 route('employer/editprofile', 'employer/EditProfile@index');
 route('employer/notifications', 'employer/EmpNotification@index');
 route('employer/tickets', 'employer/tickets@index');
+route('employer/acceptedreq', 'employer/AcceptedRequest@index');
 
 // AJAX
 route('employer/view_request', 'employer/RequestByME@viewRequest');
