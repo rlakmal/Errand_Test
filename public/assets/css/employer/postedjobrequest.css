@@ -49,8 +49,11 @@ body {
 }
 
 .index {
+  display: flex;
   flex-grow: 1;
-  /* Allow the content to grow within the flex container */
+  line-height: 1;
+  flex-direction: column;
+  max-width: 71%;
 }
 
 .profile-name,
@@ -75,19 +78,24 @@ body {
 }
 
 .index-right {
+  display: flex;
   max-width: 450px;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .index-right a {
   float: right;
 }
+.buton_bar {
+  display: flex;
+}
 
 .location {
+  display: flex;
   float: right;
-  font-size: 18px;
-  margin-top: -19%;
-  margin-right: -309px;
-  /* Adjusted the font size for readability */
+  font-size: 14px;
+  justify-content: flex-end;
 }
 
 .post-container {
@@ -99,14 +107,22 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .homenavbar header {
-    padding: 0 24px;
+    padding: 0 30px;
+  }
+  .index {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .index-right {
+    display: flex;
+    align-items: center;
   }
   .profile-container2 {
-    width: 150px;
+    width: 332px;
+    float: inline-end;
     flex-direction: column;
-    /* Stack items in a column on smaller screens */
     text-align: center;
-    /* Center text on smaller screens */
   }
 
   .picture {

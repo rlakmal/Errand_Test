@@ -8,10 +8,25 @@ class PostedjobsRequest extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
 
             $worker_req_jobs = new WorkeRrequestJobs;
+            if (isset($_POST['Accept'])) {
+                $id = $_POST['id'];
+                $updateData = ['status' => 'Accepted'];
+                $worker_req_jobs->update($id, $updateData, 'id');;
+                redirect('employer/postedjobsrequest');
+            }
 
-            $results = $worker_req_jobs->findAll('created');
+            if (isset($_POST['Reject'])) {
+                $id = $_POST['id'];
+                $updateData = ['status' => 'Rejected'];
+                $worker_req_jobs->update($id, $updateData, 'id');;
+                redirect('employer/postedjobsrequest');
+            }
+
+            $emp_id = $_SESSION['USER']->id;
+            $arr['emp_id'] = $emp_id;
+            $results = $worker_req_jobs->where($arr);
+            //show($results);
             $data['data'] = $results;
-
             $this->view('employer/postedjobsrequest', $data);
         }
     }

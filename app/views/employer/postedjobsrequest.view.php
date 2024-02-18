@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=helo, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/postedjobrequest.css">
     <title>Document</title>
 </head>
@@ -11,6 +11,7 @@
 <body>
     <?php include 'employernav2.php' ?>
     <?php include 'myjobsidebar.php' ?>
+
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
@@ -27,16 +28,34 @@
                             <div class="profile-ratings"><?php echo $item->created ?></div>
                             <div class="profile-type">WORKER- <?php echo $item->worker_name ?></div>
                             <div class="budget">WORKER's NOTE - <?php echo $item->newbudget ?></div>
-                            <div class="location">Kadawatha</div>
-
-
-
                         </div>
                         <div class="index-right">
+                            <div class="location">Kadawatha</div>
+                            <div class="buton_bar">
+                                <?php
+                                if ($item->status == 'Pending') {
 
-                            <a></a><button class="view-profile-button">Accept</button></a>
-                            <a></a><button class="edit-profile-button">Reject</button></a>
-                            <a href="<?= ROOT ?>/employer/workerprof"><button class="worker-profile-button">Worker Profile</button></a>
+                                ?>
+                                    <form method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                        <button type="submit" name="Accept" value="Accept" class="view-profile-button">Accept</button>
+                                        <button type="submit" name="Reject" value="Reject" class="edit-profile-button">Reject</button>
+                                    </form>
+                                    <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="<?php if ($item->status == 'Accepted') {
+                                                        echo "greenbutton";
+                                                    } elseif ($item->status == 'Rejected') {
+                                                        echo "redbutton";
+                                                    }
+
+                                                    ?>"><?php echo $item->status ?></button>
+                                <?php
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
