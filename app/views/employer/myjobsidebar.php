@@ -17,7 +17,7 @@
         <ul class="nav-list">
             <li>
                 <a href="<?= ROOT ?>/employer/dashboard">
-                    <i class='bx bxs-dashboard' ></i>
+                    <i class='bx bxs-dashboard'></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
@@ -42,6 +42,13 @@
                     <span class="link_name">My Requests</span>
                 </a>
                 <span class="tooltip">My Requests</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/employer/acceptedreq">
+                    <i class="bx bxs-user-detail"></i>
+                    <span class="link_name">Accepted Requests</span>
+                </a>
+                <span class="tooltip">Accepted Requests</span>
             </li>
             <!-- <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
