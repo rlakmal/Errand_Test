@@ -13,6 +13,9 @@
     <?php include 'myjobsidebar.php' ?>
 
     <div class="set-margin" id="set-marginid">
+        <section id="main" class="main">
+            <h2>Requests From Workers To Your Jobs</h2>
+        </section>
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {
