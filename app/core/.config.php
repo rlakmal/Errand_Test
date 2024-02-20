@@ -7,7 +7,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     // define('DBHOST', 'localhost');
 
     define('DBHOST', 'localhost:3306');
-    define('DBNAME', 'my_project_db4');
+    define('DBNAME', 'my_project_db');
     define('DBUSER', 'root');
     define('DBPASS', '');
     define('DBDRIVER', '');
