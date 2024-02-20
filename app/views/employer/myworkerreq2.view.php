@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myworkerrequest.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/view_reqpopup.css">
+
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">-->
     <title>Document</title>
     <style>
         .pop-view {
@@ -98,19 +100,17 @@
 
         .overlay {
             position: fixed;
-            opacity: 0;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+            z-index: 100; /* ensure it's above other content */
+            display: none; /* initially hidden */
         }
 
         .overlay-active {
-            opacity: 1;
-            pointer-events: all;
-            z-index: 100;
+            display: block; /* show the overlay when active */
         }
 
         .bttns {
@@ -270,8 +270,10 @@
                                 <?php
                             } elseif ($item->status == 'Requested') {
                                 ?>
-                                <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                                <td class="thcancel"><button type="submit" name="viewRequest" value="viewRequest" onclick="openEdit()" class="viewbutton">View Request</button></td>
+                                <input type="hidden" name="id <?php echo $item->id ?>" value="<?php echo $item->id ?>">
+                                <td class="thcancel">
+                                    <button id="viewRequestbtn_<?php echo $item->id ?>" name="viewRequest" value="viewRequest" onclick="openEdit( <?= $item->id ?> )" class="viewbutton">View Request</button>
+                                </td>
                                 <?php
                             } else {
                                 ?>
@@ -329,13 +331,22 @@
             </table>
         </div>
         <div class="pop-view">
-            <form method="POST">
-                <h2>Worker has negotiated your budget</h2>
-                <h4>Budget : </h4>
-                <button>Accept Offer</button>
-                <button>Reject</button>
+            <form id="pop-form" method="POST">
+                <div id="pop-header">Worker want to negotiate your budget</div>
+                <h4 id="newBudgetLabel">New Budget: </h4>
+                <div class="pop-btn">
+                    <form method="POST">
+                        <input type="hidden" name="id" id="pop-hidden-id" value="">
+                        <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
+                        <button name="pop-reject-btn" class="pop-reject">Reject</button>
+                    </form>
+
+                </div>
             </form>
+
         </div>
+        <div id="pop-overlay" class="pop-overlay"></div>
+
     </section>
 </div>
 
@@ -370,17 +381,28 @@
 
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
     let popupEdit = document.querySelector(".pop-view");
+    let overlay1 = document.getElementById("pop-overlay");
+    current_id = 0;
+
     let popupPayment = document.querySelector(".popup-payment");
 
-    function openEdit() {
+    let overlay = document.querySelector(".overlay");
+
+    function openEdit(id) {
+        current_id = id;
         popupEdit.classList.add("open-pop-view");
+        overlay.classList.add("overlay-active"); // Show the overlay
     }
 
     function closeEdit() {
         popupEdit.classList.remove("open-pop-view");
+        overlay.classList.remove("overlay-active"); // Hide the overlay
     }
+
 
     function openPaymentPopup(amount, hash, id) {
         console.log("Bossa")
@@ -401,6 +423,43 @@
         // You may want to redirect the user to the payment page or use an API to process payment
         // After handling the payment, you can close the payment popup
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        $(document).ready(function() {
+            $("[id^='viewRequestbtn_']").click(function(event) {
+                event.preventDefault();
+                // Extract the id from the button's id attribute
+                let current_id = this.id.split("_")[1];
+                data = {
+                    id: current_id
+                }
+                console.log(data);
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= ROOT ?>/employer/view_request",
+                    data: data,
+                    cache: false,
+                    success: function(res) {
+                        //console.log("Response:", res);
+                        newData = JSON.parse(res);
+                        console.log(newData);
+                        $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                        $("#pop-hidden-id").val(newData.id);
+                        try {} catch (error) {
+
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // return xhr;
+                    }
+                })
+
+            })
+
+        })
+
+    })
 </script>
 </body>
 
