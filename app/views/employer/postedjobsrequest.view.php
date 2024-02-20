@@ -3,18 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=helo, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/postedjobrequest.css">
     <title>Document</title>
 </head>
 
 <body>
-<?php include 'employernav.php' ?>
-<?php include 'myjobsidebar.php' ?>
-<?php include 'workerrequest.php' ?>
+    <?php include 'employernav2.php' ?>
+    <?php include 'myjobsidebar.php' ?>
 
-<?php include 'workerrequest.php' ?>
-<?php include 'workerrequest.php' ?>
-<!-- <?php include 'workerrequest2.php' ?> -->
+    <div class="set-margin" id="set-marginid">
+        <section id="main" class="main">
+            <h2>Requests From Workers To Your Jobs</h2>
+        </section>
+        <?php
+        if (is_array($data)) {
+            foreach ($data as $item) {
+
+        ?>
+                <div class="post-container">
+                    <div class="profile-container2">
+                        <div class="picture">
+                            <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
+                        </div>
+                        <div class="index">
+                            <div class="profile-name">POST Title - <?php echo $item->title ?></div>
+                            <div class="profile-ratings"><?php echo $item->created ?></div>
+                            <div class="profile-type">WORKER- <?php echo $item->worker_name ?></div>
+                            <div class="budget">WORKER's NOTE - <?php echo $item->newbudget ?></div>
+                        </div>
+                        <div class="index-right">
+                            <div class="location">Kadawatha</div>
+                            <div class="buton_bar">
+                                <?php
+                                if ($item->status == 'Pending') {
+
+                                ?>
+                                    <form method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                        <button type="submit" name="Accept" value="Accept" class="view-profile-button">Accept</button>
+                                        <button type="submit" name="Reject" value="Reject" class="edit-profile-button">Reject</button>
+                                    </form>
+                                    <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="<?php if ($item->status == 'Accepted') {
+                                                        echo "greenbutton";
+                                                    } elseif ($item->status == 'Rejected') {
+                                                        echo "redbutton";
+                                                    }
+
+                                                    ?>"><?php echo $item->status ?></button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+        <?php
+            }
+        }
+        ?>
+    </div>
 
 </body>
 

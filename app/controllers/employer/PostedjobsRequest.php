@@ -4,8 +4,30 @@ class PostedjobsRequest extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
-        // echo "this is a about controller";
-        $this->view('employer/postedjobsrequest');
-    }
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
 
+            $worker_req_jobs = new WorkeRrequestJobs;
+            if (isset($_POST['Accept'])) {
+                $id = $_POST['id'];
+                $updateData = ['status' => 'Accepted'];
+                $worker_req_jobs->update($id, $updateData, 'id');;
+                redirect('employer/postedjobsrequest');
+            }
+
+            if (isset($_POST['Reject'])) {
+                $id = $_POST['id'];
+                $updateData = ['status' => 'Rejected'];
+                $worker_req_jobs->update($id, $updateData, 'id');;
+                redirect('employer/postedjobsrequest');
+            }
+
+            $emp_id = $_SESSION['USER']->id;
+            $arr['emp_id'] = $emp_id;
+            $results = $worker_req_jobs->where($arr);
+            //show($results);
+            $data['data'] = $results;
+            $this->view('employer/postedjobsrequest', $data);
+        }
+    }
 }
