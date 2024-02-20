@@ -17,8 +17,26 @@ class Tickets extends Controller
                 $view_data["data"] = $ticket->where($q_data);
                 $this->view("employer/tickets3", $view_data);
             }
-        }
-        else {
+        } elseif (isset($_POST["Updater"])){
+
+            $data["title"] = $_POST["title"];
+            $data["description"] = $_POST["description"];
+
+            if($data["title"] == '' && $data["description"] = ''){
+                redirect("employer/tickets");
+
+            }
+            if($data["title"] == ''){
+                unset($data["title"]);
+            }
+            if($data["description"] == ''){
+                unset($data["description"]);
+            }
+            var_dump($_POST);
+            $ticket->update($_POST["id"], $data);
+            redirect("employer/tickets");
+
+        } else {
             if ($_SESSION["USER"]->status == "employer") {
                 // Fix the assignment operator here and initialize the array
                 $_POST["user"] = $_SESSION["USER"]->id;

@@ -41,7 +41,7 @@ class RequestByMe extends Controller
                 $myrequests->update($id, $updateData, 'id');
                 redirect('employer/myworkerreq');
             }
-            $this->view('employer/myworkerreq', $data);
+            $this->view('employer/myworkerreq2', $data);
         }
     }
 

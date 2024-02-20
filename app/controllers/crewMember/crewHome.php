@@ -8,7 +8,7 @@ class CrewHome extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'crew_member') {
 
-            $this->view('crewMember/dashboard');
+            $this->view('crewMember/home');
         } else {
             redirect('home');
         }
