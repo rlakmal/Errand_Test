@@ -22,10 +22,11 @@ class RequestByMe extends Controller
                 redirect('employer/myworkerreq');
             }
             if (isset($_POST['pop-accept-btn'])) {
-                // show($_POST);
+                //show($_POST);
                 $id = $_POST['id'];
                 $updateData = [
                     'status' => 'Accepted',
+                    'budget' => $_POST['newbudget'],
                 ];
                 $myrequests->update($id, $updateData, 'id');
                 redirect('employer/myworkerreq');
@@ -36,9 +37,9 @@ class RequestByMe extends Controller
 
     public function viewRequest($a = '', $b = '', $c = '')
     {
-        // redirect("employer/view_request");
+
+
         $newbgt = new Bargainbgt;
-        //show($_POST);
         $id = $_POST['id'];
         $arr['id'] = $id;
         $bargain = $newbgt->first($arr);

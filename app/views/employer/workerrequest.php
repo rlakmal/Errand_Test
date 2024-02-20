@@ -212,8 +212,8 @@
                 <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
             </div>
             <div class="index">
-                <div class="profile-name">Your Post -තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි</div>
-                <div class="profile-ratings">2 hrs ago</div>
+                <div class="profile-name">POST TITLE -<?php $item->title  ?></div>
+                <div class="profile-ratings"><?php $item->created ?></div>
                 <div class="profile-type">Requested By - Upul Perera</div>
                 <div class="budget">Requested Budget-RS 3500/= per day</div>
                 <div class="location">Kadawatha</div>
