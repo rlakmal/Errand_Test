@@ -20,6 +20,7 @@
         if (is_array($data)) {
             foreach ($data as $item) {
 
+
         ?>
                 <div class="post-container">
                     <div class="profile-container2">
@@ -41,6 +42,11 @@
                                 ?>
                                     <form method="POST">
                                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                        <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
+                                        <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
+                                        <input type="hidden" name="title" value="<?php echo $item->title ?>">
+                                        <input type="hidden" name="newbudget" value="<?php echo $item->newbudget ?>">
+                                        <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
                                         <button type="submit" name="Accept" value="Accept" class="view-profile-button">Accept</button>
                                         <button type="submit" name="Reject" value="Reject" class="edit-profile-button">Reject</button>
                                     </form>
@@ -53,7 +59,6 @@
                                                     } elseif ($item->status == 'Rejected') {
                                                         echo "redbutton";
                                                     }
-
                                                     ?>"><?php echo $item->status ?></button>
                                 <?php
                                 }

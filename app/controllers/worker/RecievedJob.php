@@ -8,7 +8,7 @@ class RecievedJob extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
 
             $recieved = new EmployerReqWorker;
-
+            $accepted_jobs = new AcceptedJobs;
             $reqbudget = new Bargainbgt;
             $user = new User;
             $id = $_SESSION['USER']->id;
@@ -27,8 +27,13 @@ class RecievedJob extends Controller
             }
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
+                show($_POST);
                 $updateData = ['status' => 'Accepted'];
                 $recieved->update($id, $updateData, 'id');;
+                unset($_POST['id']);
+                unset($_POST['Accept']);
+                show($_POST);
+                $accepted_jobs->insert($_POST);
 
                 redirect('worker/acceptedjobs');
             }

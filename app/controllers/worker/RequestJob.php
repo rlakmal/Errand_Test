@@ -31,12 +31,17 @@ class RequestJob extends Controller
         $newdata['city'] = $results[0]->city;
         $newdata['budget'] = $results[0]->budget;
         $newdata['description'] = $results[0]->description;
-        $newdata['newbudget'] = $data['newbudget'];
+        if ($data['newbudget'] == null) {
+            $newdata['newbudget'] = $results[0]->budget;
+        } else {
+            $newdata['newbudget'] = $data['newbudget'];
+        }
+
         $newdata['worker_name'] = $worker_name;
         $newdata['worker_id'] = $worker_id;
         $newdata['emp_name'] = $results[0]->name;
         $newdata['status'] = "Pending";
-        // show($newdata);
+        //show($newdata);
 
         $newreq->insert($newdata);
         redirect('worker/requestjob?id=' . $data['id']);
