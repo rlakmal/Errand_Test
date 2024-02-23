@@ -39,7 +39,7 @@
                         $no = 0;
                         if (is_array($data)) {
                             foreach ($data as $item) {
-                                // show($item);
+                                //show($item);
                                 $no++;
                         ?>
                                 <tr>
@@ -108,6 +108,10 @@
                 <form method="POST">
                     <input type="hidden" name="id" id="pop-hidden-id" value="">
                     <input type="hidden" name="newbudget" id="pop-hidden-budget" value="">
+                    <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
+                    <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
+                    <input type="hidden" name="title" value="<?php echo $item->title ?>">
+                    <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
                     <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
                     <button name="pop-reject-btn" class="pop-reject">Reject</button>
                 </form>

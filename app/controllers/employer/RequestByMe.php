@@ -7,6 +7,7 @@ class RequestByMe extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $myrequests = new EmployerReqWorker;
+            $accepted_jobs = new AcceptedJobs;
             $newbgt = new Bargainbgt;
             $id = $_SESSION['USER']->id;
             $arr['emp_id'] = $id;
@@ -39,6 +40,12 @@ class RequestByMe extends Controller
                     'budget' => $_POST['newbudget'],
                 ];
                 $myrequests->update($id, $updateData, 'id');
+                unset($_POST['id']);
+                unset($_POST['pop-accept-btn']);
+                $_POST['budget'] = $_POST['newbudget'];
+                unset($_POST['newbudget']);
+                //show($_POST);
+                $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
             }
             $this->view('employer/myworkerreq', $data);

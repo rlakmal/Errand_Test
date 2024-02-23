@@ -6,12 +6,21 @@ class PostedjobsRequest extends Controller
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
-
             $worker_req_jobs = new WorkeRrequestJobs;
+            $accepted_jobs = new AcceptedJobs;
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
+                $arr['id'] = $id;
                 $updateData = ['status' => 'Accepted'];
-                $worker_req_jobs->update($id, $updateData, 'id');;
+                $worker_req_jobs->update($id, $updateData, 'id');
+                $budegt = $_POST['newbudget'];
+                unset($_POST['newbudget']);
+                unset($_POST['id']);
+                unset($_POST['Accept']);
+                $_POST['budget'] = $budegt;
+                show($_POST);
+                $accepted_jobs->insert($_POST);
+
                 redirect('employer/postedjobsrequest');
             }
 
