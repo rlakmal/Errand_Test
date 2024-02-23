@@ -48,7 +48,7 @@ class RequestByMe extends Controller
                 $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
             }
-            $this->view('employer/myworkerreq', $data);
+            $this->view('employer/myworkerreq2', $data);
         }
     }
 

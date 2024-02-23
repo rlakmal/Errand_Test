@@ -9,6 +9,7 @@ class Ticket
     protected $table = 'ticket';
 
     protected $allowedCloumns = [
+//        'id',
         'title',
         'description',
         'archived',

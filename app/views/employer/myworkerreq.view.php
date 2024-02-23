@@ -14,29 +14,30 @@
 
 <body>
 
-    <?php include 'employernav2.php' ?>
-    <?php include 'myjobsidebar.php' ?>
-    <diV class="set_margin">
-        <section id="main" class="main">
-            <h2>Your Request to Workers</h2>
-            <div class="scrollable-table">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>No </th>
+<?php include 'employernav2.php' ?>
+<?php include 'myjobsidebar.php' ?>
+<diV class="set_margin">
+    <section id="main" class="main">
+        <h2>Your Request to Workers</h2>
+        <div class="scrollable-table">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>No </th>
 
-                            <th class="desc">Request To:</th>
-                            <th class="ordId">Job Title</th>
-                            <th class="stth">Budget</th>
-                            <th class="cost">Location</th>
-                            <th>Status</th>
-                            <th class="thcancel">Action</th>
+                    <th class="desc">Request To:</th>
+                    <th class="ordId">Job Title</th>
+                    <th class="stth">Budget</th>
+                    <th class="cost">Location</th>
+                    <th>Status</th>
+                    <th class="thcancel">Action</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 0;
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $no = 0;
+               
                         if (is_array($data)) {
                             foreach ($data as $item) {
                                 //show($item);
@@ -151,36 +152,36 @@
                     let current_id = this.id.split("_")[1];
                     data = {
                         id: current_id
-                    }
-                    console.log(data);
+                }
+                console.log(data);
 
-                    $.ajax({
-                        type: "POST",
-                        url: "<?= ROOT ?>/employer/view_request",
-                        data: data,
-                        cache: false,
-                        success: function(res) {
-                            //console.log("Response:", res);
-                            newData = JSON.parse(res);
-                            console.log(newData);
-                            $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
-                            $("#pop-hidden-id").val(newData.id);
-                            $("#pop-hidden-budget").val(newData.newbudget);
-                            try {} catch (error) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?= ROOT ?>/employer/view_request",
+                    data: data,
+                    cache: false,
+                    success: function(res) {
+                        //console.log("Response:", res);
+                        newData = JSON.parse(res);
+                        console.log(newData);
+                        $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                        $("#pop-hidden-id").val(newData.id);
+                        $("#pop-hidden-budget").val(newData.newbudget);
+                        try {} catch (error) {
 
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            // return xhr;
                         }
-                    })
-
+                    },
+                    error: function(xhr, status, error) {
+                        // return xhr;
+                    }
                 })
 
             })
 
         })
-    </script>
+
+    })
+</script>
 
 </body>
 
