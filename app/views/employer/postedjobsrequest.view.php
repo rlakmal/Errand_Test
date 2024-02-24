@@ -27,11 +27,26 @@
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
                         </div>
-                        <div class="index">
-                            <div class="profile-name">POST Title - <?php echo $item->title ?></div>
-                            <div class="profile-ratings"><?php echo $item->created ?></div>
-                            <div class="profile-type">WORKER- <?php echo $item->worker_name ?></div>
-                            <div class="budget">WORKER's NOTE - <?php echo $item->newbudget ?></div>
+
+                        <div class="<?php if ($item->status == 'Pending') {
+                                        echo 'b_index';
+                                    } else {
+                                        echo 'index';
+                                    } ?>">
+                            <div class="profile-name">POST Title</div>
+                            <div class="profile-ratings">Date Time</div>
+                            <div class="profile-type">WORKER </div>
+                            <div class="budget">WORKER's NOTE</div>
+                        </div>
+                        <div class="<?php if ($item->status == 'Pending') {
+                                        echo 'b_index_info';
+                                    } else {
+                                        echo 'index_info';
+                                    } ?>">
+                            <div>- <?php echo $item->title ?></div>
+                            <div>- <?php echo $item->created ?></div>
+                            <div>- <?php echo $item->worker_name ?></div>
+                            <div>- <?php echo $item->newbudget ?></div>
                         </div>
                         <div class="index-right">
                             <div class="location">Kadawatha</div>
@@ -49,8 +64,9 @@
                                         <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
                                         <button type="submit" name="Accept" value="Accept" class="view-profile-button">Accept</button>
                                         <button type="submit" name="Reject" value="Reject" class="edit-profile-button">Reject</button>
+                                        <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
                                     </form>
-                                    <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
+
                                 <?php
                                 } else {
                                 ?>

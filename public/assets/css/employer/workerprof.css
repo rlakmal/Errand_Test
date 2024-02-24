@@ -20,7 +20,6 @@ body {
 }
 .picture .image {
   width: 165px;
-  /* margin-left: 90px; */
   border-radius: 50%;
   height: 160px;
 }
@@ -84,14 +83,7 @@ body {
   margin-top: 120px;
   margin-bottom: 10px;
 }
-.index input {
-  width: 600px;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  min-width: 400px;
-  outline: none;
-}
+
 
 .index_edit input {
   width: 600px;
@@ -139,7 +131,7 @@ body {
   justify-content: center;
   /* align-content: center; */
   align-items: center;
-  background: #f7f5ff;
+  background: #ffece2;
   border-radius: 28px;
-  box-shadow: 2px 2px 2px 2px rgb(171 188 255 / 32%);
+  box-shadow: 2px 2px 2px 2px rgb(255 136 66 / 32%);
 }
