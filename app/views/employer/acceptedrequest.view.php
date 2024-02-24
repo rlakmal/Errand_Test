@@ -8,14 +8,15 @@
 
     <style>
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 3%;
+            margin-left: 3%;
+            width: 94%;
+            border: 1px solid #d7d7d7;
+            border-radius: 6px;
         }
 
         th,
         td {
-            border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
@@ -27,6 +28,20 @@
         tr:hover {
             background-color: #f5f5f5;
         }
+
+        .my_table {
+            left: 10%;
+
+        }
+
+        .t_head {
+            height: 73px;
+            border: 1px solid black;
+        }
+
+        .th_one {
+            border: 23px;
+        }
     </style>
 </head>
 
@@ -34,27 +49,46 @@
     <?php include 'employernav2.php' ?>
     <?php include 'myjobsidebar.php' ?>
     <section id="main" class="main">
-
-        <table>
+        <h2>Accepted Request to Your Jobs</h2>
+        <table class="my_table">
             <thead>
-                <tr>
-                    <th>Worker Name</th>
+                <tr class="t_head">
+                    <th class="th_one">Worker Name</th>
                     <th>JOb Title</th>
                     <th>Budget</th>
                     <th>Payment Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
 
-                    <td>Dasun Shanaka</td>
-                    <td>නිවසක ජල නල සවි කිරීම</td>
-                    <td>4000</td>
-                    <td></td>
-                </tr>
-                <!-- Add more rows if needed -->
-            </tbody>
+            <?php
+            if (is_array($data)) {
+                foreach ($data as $item) {
+
+
+            ?>
+
+
+                    <tbody>
+                        <tr>
+
+                            <td><?php echo $item->worker_name ?></td>
+                            <td><?php echo $item->title ?></td>
+                            <td><?php echo $item->budget ?></td>
+                            <td></td>
+                        </tr>
+                        <!-- Add more rows if needed -->
+                    </tbody>
+
+
+
+            <?php
+                }
+            }
+
+            ?>
         </table>
+
+
 
     </section>
 </body>
