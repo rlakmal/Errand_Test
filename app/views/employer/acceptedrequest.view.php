@@ -11,7 +11,7 @@
             margin: 3%;
             margin-left: 3%;
             width: 94%;
-            border: 1px solid #d7d7d7;
+            border: 3px solid #bbbbbb;
             border-radius: 6px;
         }
 

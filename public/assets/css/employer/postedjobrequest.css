@@ -53,9 +53,19 @@ body {
   flex-grow: 1;
   line-height: 1;
   flex-direction: column;
-  max-width: 71%;
+  max-width: 14%;
+  color: #7c7c7c;
+  font-weight: 700;
 }
-
+.b_index {
+  display: flex;
+  flex-grow: 1;
+  line-height: 1;
+  flex-direction: column;
+  max-width: 13%;
+  color: #7c7c7c;
+  font-weight: 700;
+}
 .profile-name,
 .profile-type,
 .profile-ratings,
@@ -75,6 +85,11 @@ body {
   border-radius: 20px;
   margin-top: 80px;
   margin-left: 5px;
+}
+.view-profile-button:hover,
+.edit-profile-button:hover,
+.worker-profile-button:hover {
+  background-color: #2a3441;
 }
 
 .index-right {
@@ -103,7 +118,35 @@ body {
   width: calc(100% - 287px);
   margin-top: 20px;
 }
-
+.greenbutton {
+  background: #f16a2d;
+  border: #f16a2d;
+  padding: 8px;
+  border-radius: 20px;
+  color: white;
+}
+.redbutton {
+  background: #ff2626;
+  border: #ff2626;
+  padding: 8px;
+  border-radius: 20px;
+  color: white;
+}
+.index_info {
+  display: flex;
+  flex-direction: column;
+  line-height: 2.31;
+  width: 59%;
+}
+.b_index_info {
+  display: flex;
+  flex-direction: column;
+  line-height: 2.3;
+  width: 35%;
+}
+.mobile_index {
+  display: flex;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .homenavbar header {
