@@ -42,6 +42,20 @@
         .th_one {
             border: 23px;
         }
+
+        .before_pay {
+            background: #f16a2d;
+            border: #f16a2d;
+            padding: 8px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+
+        }
+
+        .before_pay:hover {
+            background: #2a3441;
+        }
     </style>
 </head>
 
@@ -53,6 +67,7 @@
         <table class="my_table">
             <thead>
                 <tr class="t_head">
+                    <th>No</th>
                     <th class="th_one">Worker Name</th>
                     <th>JOb Title</th>
                     <th>Budget</th>
@@ -61,20 +76,26 @@
             </thead>
 
             <?php
+            $no = 0;
             if (is_array($data)) {
                 foreach ($data as $item) {
-
+                    $no++;
 
             ?>
 
 
                     <tbody>
                         <tr>
-
+                            <td><?php echo $no ?></td>
                             <td><?php echo $item->worker_name ?></td>
                             <td><?php echo $item->title ?></td>
                             <td><?php echo $item->budget ?></td>
-                            <td></td>
+                            <td><button class="<?php if ($item->payment_stat == "Make Payment") {
+                                                    echo "before_pay";
+                                                } else {
+                                                    echo "after_pay";
+                                                }
+                                                ?>"><?php echo $item->payment_stat ?></button></td>
                         </tr>
                         <!-- Add more rows if needed -->
                     </tbody>
