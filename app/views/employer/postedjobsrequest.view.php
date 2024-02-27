@@ -36,7 +36,7 @@
                             <div class="profile-name">POST Title</div>
                             <div class="profile-ratings">Date Time</div>
                             <div class="profile-type">WORKER </div>
-                            <div class="budget">WORKER's NOTE</div>
+                            <div class="budget">WORKER's Budget</div>
                         </div>
                         <div class="<?php if ($item->status == 'Pending') {
                                         echo 'b_index_info';
