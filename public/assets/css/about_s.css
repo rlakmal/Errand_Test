@@ -1,0 +1,190 @@
+h1 {
+    color: #8f0b0b;
+}
+section{
+    height:100vh;
+    width: 100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-attachment: fixed;
+   
+}
+.image-1 {
+  background-image: url("https://img.freepik.com/free-photo/abstract-luxury-plain-blur-grey-black-gradient-used-as-background-studio-wall-display-your-products_1258-101806.jpg?w=740&t=st=1703272226~exp=1703272826~hmac=8480e30246db93ef96684a5569bf469544f0c3478577c7cd19078791ef9c085c")
+}
+
+.image-2 {
+  background-image: url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+.image-3 {
+  background-image: url("https://plus.unsplash.com/premium_photo-1664300494539-313eac2a6095?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+.image-4 {
+  background-image: url("https://img.freepik.com/free-photo/gray-textured-wall_53876-88964.jpg?w=1060&t=st=1703272755~exp=1703273355~hmac=92254656dfaeca8dff981a6dd97c4ad683ad8f471140be59e874a4216f72482f");
+
+}
+p{
+    color: rgb(234, 115, 4);
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    margin-left: 500px;
+    border: 100px;
+}
+pre.intro{
+    margin-left: 500px;
+    border: 100px;
+    margin-top: 5px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+font-family: 'Sevillana', cursive;
+}
+img.intropic{
+    height: 400px;
+    weight: 400px;
+    position: absolute;
+    top: 150px;
+    right: 160px;
+    }
+    footer {
+        text-align: center;
+        padding: 3px;
+        background-color: rgba(246, 245, 244, 0.155);
+        color: rgb(189, 113, 13);
+      }
+      
+     
+  
+      .button-container {
+        text-align: center;
+      }
+  
+      .btn {
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+        border: none;
+        outline: none;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: rgb(14, 14, 26);
+        color: rgb(234, 234, 234);
+        font-weight: 700;
+        transition: 0.6s;
+        box-shadow: 0px 0px 60px #1f4c65;
+        -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+        font-family: 'Kanit', sans-serif;
+      }
+  
+      .btn:active {
+        transform: scale(0.92); /* Correcting the property name to transform */
+      }
+  
+      .btn:hover {
+        background: rgb(2,29,78);
+        background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+        color: rgb(4, 4, 38);
+      }
+
+
+
+      .tile-container {
+        white-space: nowrap;
+        color: transparent;
+        animation: moveTiles 15s linear infinite; 
+      }
+      .tilepara{
+          
+          
+          
+          
+      }
+      .tile img {
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          margin-top: 10px;
+          
+      }
+      .tile {
+        display: inline-block;
+        width: 400px; 
+        height: 200px; 
+        background-color: #b0c4c8; 
+        margin-right: 25px;
+      border-radius: 20%;
+        text-align: center; 
+      }
+  
+      @keyframes moveTiles {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-120%); /* Adjust the percentage based on the number of tiles */
+        }
+      }
+      .underline-animation {
+          color:#dafb02;
+          text-align: center;
+          margin-left: 250px;
+          text-shadow: #dafb02;
+          text-transform: uppercase;
+          font-size: 40px;
+          text-shadow: 2px 2px 2px;
+          text-rendering: geometricPrecision;
+          display: inline-block;
+          position: relative;
+          text-decoration: none;
+          float: unset;
+          
+          font-family: 'Abril Fatface', serif;
+        
+        }
+    
+        .underline-animation::after {
+          content: '';
+         
+          position: absolute;
+          left:5px;
+          
+          bottom: 0;
+          top:50px;
+          height: 5px; 
+          width: 0;
+          background-color: #1eea07; 
+          transition: width 1s ease-in; 
+        }
+    
+        .underline-animation:hover::after {
+          width: 100%;
+        }     
+        pre.tiletext {
+          color: #ea8808;
+          font-size: 20px;
+        }
+
+        .container {
+          position: relative;
+          text-align: center;
+        }
+        .container img{
+          opacity: 50%;
+          height:10 rem;
+        }
+        
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        .text-block {
+          background-color: black;
+          color: white;
+          padding: 40px;
+          opacity: 0.8;
+          font-size: 40px
+        }
