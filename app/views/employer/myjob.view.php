@@ -75,18 +75,24 @@
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="budget">Rs <?php echo $item->budget ?> /= per day</div>
-                            <div class="location"><?php echo $item->city ?></div>
+
                             <div class="no-of-requests" data-post-id="<?php echo $item->id ?>">
 
                             </div>
 
                         </div>
-
-                        <form method="POST">
-                            <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                            <button type="submit" name="jobDelete" value="Delete" class="view-profile-button">Delete</button>
-                        </form>
-                        <button type="submit" class="edit-profile-button" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)">Edit</button>
+                        <div class="bottom-index">
+                            <div class="location">
+                                <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
+                            </div>
+                            <div class="buton_bar">
+                                <form method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                    <button type="submit" name="jobDelete" value="Delete" class="view-profile-button">Delete</button>
+                                </form>
+                                <button type="submit" class="edit-profile-button" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)">Edit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
         <?php
@@ -142,13 +148,13 @@
                     success: function(res) {
                         console.log("Response:", res);
                         newData = JSON.parse(res);
-                        console.log(newData);
+                        //console.log(newData);
 
                         // Update the corresponding element with the job count
                         if (newData.job_count === 'No Requests') {
                             container.text('No Requests');
                         } else {
-                            container.text('Requests: ' + newData.job_count);
+                            container.text('Worker Requests: ' + newData.job_count);
                         }
                     },
                     error: function(xhr, status, error) {

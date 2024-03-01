@@ -72,19 +72,12 @@ class Myjob extends Controller
 
     public function countRequest($a = '', $b = '', $c = '')
     {
-
-        // $id = $_POST['id'];
-        // $arr['id'] = $id;
-        // $result = $worker_req->where($arr);
-        // $c_req = count($result);
-        // $data = json_encode($c_req);
-        // echo $data;
         $worker_req = new WorkeRrequestJobs;
         $id = $_POST['job_id'];
         $arr['job_id'] = $id;
-        $bargain = $worker_req->where($arr);
-        if ($bargain != NULL) {
-            $job_count['job_count'] = count($bargain);
+        $req_count = $worker_req->where($arr);
+        if ($req_count != NULL) {
+            $job_count['job_count'] = count($req_count);
         } else {
             $job_count['job_count'] = "No Requests";
         }
