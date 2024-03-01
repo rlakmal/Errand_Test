@@ -49,7 +49,10 @@
                             <div>- <?php echo $item->newbudget ?></div>
                         </div>
                         <div class="index-right">
-                            <div class="location">Kadawatha</div>
+                            <div class="location">
+                                <?php echo $item->city ?>
+                                <i class="bx bxs-map icon"></i>
+                            </div>
                             <div class="buton_bar">
                                 <?php
                                 if ($item->status == 'Pending') {

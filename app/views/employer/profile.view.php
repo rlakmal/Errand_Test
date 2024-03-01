@@ -87,7 +87,7 @@
       justify-content: center;
       /* align-content: center; */
       align-items: center;
-      background: #ffece2;
+      background: #ffffff;
       border-radius: 28px;
       box-shadow: 2px 2px 2px 2px rgb(255 136 66 / 32%);
     }
