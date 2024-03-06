@@ -44,11 +44,14 @@
     .pro_container-right {
       position: relative;
       display: flex;
-      width: 160%;
+      width: 155%;
       line-height: 28px;
       flex-direction: column;
-      left: 5%;
+      left: 0%;
       justify-content: center;
+      background: #eeeeee;
+      padding: 35px;
+      border: 1px solid #d8d0d0;
     }
 
     .info {
@@ -89,7 +92,6 @@
       align-items: center;
       background: #ffffff;
       border-radius: 28px;
-      box-shadow: 2px 2px 2px 2px rgb(255 136 66 / 32%);
     }
 
     .edit-gen {
@@ -116,15 +118,23 @@
     }
 
     .close-button {
-      width: 171px;
-      top: 10px;
-      right: 10px;
-      border-radius: 20px;
-      background-color: #ff7f00;
-      color: #fff;
-      padding: 10px 20px;
+      font-size: 28px;
+      background: white;
       border: none;
       cursor: pointer;
+      color: #ff7f00;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 25px;
+    }
+
+    .tags i {
+      font-size: 28px;
+      color: #ff7f00;
     }
 
     @media only screen and (max-width: 600px) {
@@ -202,7 +212,7 @@
 
         </div>
         <div class="form-upload">
-          <a href="<?= ROOT ?>/employer/editprofile"><button class="close-button">Edit profile</button></a>
+          <a href="<?= ROOT ?>/employer/editprofile"><button class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
         </div>
 
         <div class="picture">
@@ -213,13 +223,17 @@
       </div>
 
       <div class="pro_container-right">
-        <h2 class="info">Personal Information</h2>
-
+        <div class="tags">
+          <h2 class="info">Personal Information</h2>
+          <a href="<?= ROOT ?>/employer/editprofile"><i class="bx bxs-edit-alt icon"></i></a>
+        </div>
 
         <h3>
           Full Name
         </h3>
-        <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['name']); ?>" placeholder="Empty Full Name" class="edit-gen" readonly>
+        <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['name']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
+
+
         <h3>
           NIC Number
         </h3>
