@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myjobPost.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
+    
     <title>Errand</title>
     <style>
         .sidebar {
