@@ -7,7 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/emphome.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -67,7 +67,7 @@
 
 
                         </div>
-                        <a><button class="view-profile-button" id="request-button">View</button></a>
+                        <a href="<?= ROOT ?>/employer/viewjob?id=<?php echo $item->id ?>"><button class="view-profile-button" id="request-button">View</button></a>
 
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 

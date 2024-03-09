@@ -69,4 +69,20 @@ class Myjob extends Controller
         $jobPost->update($id, $data, 'id');
         redirect('employer/myjob');
     }
+
+    public function countRequest($a = '', $b = '', $c = '')
+    {
+        $worker_req = new WorkeRrequestJobs;
+        $id = $_POST['job_id'];
+        $arr['job_id'] = $id;
+        $req_count = $worker_req->where($arr);
+        if ($req_count != NULL) {
+            $job_count['job_count'] = count($req_count);
+        } else {
+            $job_count['job_count'] = "No Requests";
+        }
+
+        $data = json_encode($job_count);
+        echo $data;
+    }
 }

@@ -165,6 +165,11 @@
                                     <button type="submit" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)" class="request-profile-button">Request Budget</button>
                                     <form class="form" method="POST">
                                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                        <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
+                                        <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
+                                        <input type="hidden" name="title" value="<?php echo $item->title ?>">
+                                        <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
+                                        <input type="hidden" name="budget" value="<?php echo $item->budget ?>">
                                         <button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button>
                                         <button type="submit" name="Reject" value="Reject" class="view-profile-button">Reject</button>
                                     </form>

@@ -7,9 +7,9 @@
 </head>
 
 <body>
+
 <?php include 'workernav.php' ?>
 <?php include 'workerfilter.php' ?>
-
 <?php
 if ($data) {
     foreach ($data as $item) {
@@ -57,13 +57,10 @@ if ($data) {
                         <input name="newbudget" type="text" name="bargain" value='' class="edit-gen">
                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
 
-
-
                         <div class="job_images">
-                            <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="">
+                            <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="">
                             <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="">
                         </div>
-
                 </div>
             </div>
             <div class="index_bottom">
@@ -79,8 +76,6 @@ if ($data) {
 }
 
 ?>
-
-
 </body>
 
 </html>

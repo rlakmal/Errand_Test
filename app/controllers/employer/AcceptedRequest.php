@@ -6,10 +6,13 @@ class AcceptedRequest extends Controller
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
-
-
-
-            $this->view('employer/acceptedrequest');
+            $accepted_jobs = new AcceptedJobs;
+            $emp_id = $_SESSION['USER']->id;
+            $arr['emp_id'] = $emp_id;
+            $results = $accepted_jobs->where($arr);
+            $data['data'] = $results;
+            //show($data);
+            $this->view('employer/acceptedrequest', $data);
         }
     }
 }
