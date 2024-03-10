@@ -102,18 +102,10 @@
                 flex-direction: column;
             }
 
-            .form-upload {
-                margin-left: 20px;
-                /* Adjust as needed for small screens */
-            }
-
             .container-left {
                 height: 478px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-content: center;
-                align-items: flex-start;
 
             }
 
@@ -130,15 +122,9 @@
             }
 
             .picture .rates {
-
-                margin-left: 25%;
-                width: 300px;
+                width: 280px;
                 flex-direction: row;
 
-            }
-
-            .picture .image {
-                margin-left: 70px;
             }
 
             .bottum_index {
