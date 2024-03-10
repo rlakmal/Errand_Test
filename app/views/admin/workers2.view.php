@@ -23,28 +23,12 @@
             overflow-x: scroll;
         }
 
-        .form {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            padding: 10px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .icon {
-            font-size: 24px;
-        }
 
         .table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            z-index: -9999;
         }
 
         .table th, .table td {
@@ -136,18 +120,20 @@
     <table class="table">
         <thead>
         <tr>
-            <th class="ordId">Worker Name</th>
-            <th class="desc">Category</th>
-            <th class="stth">Worker ID</th>
-            <th class="cost">Contact</th>
-            <th class="verified">Verified</th>
+            <th></th>
+            <th class="ordId">WORKER NAME</th>
+            <th class="desc">CATEGORY</th>
+            <th class="stth">WORKER ID</th>
+            <th class="cost">USERNAME</th>
+            <th class="verified">VERIFIED</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
+        <?php $index = 1; ?>
         <?php foreach ($data as $worker) : ?>
             <tr>
-<!--                <td>--><?php //= $index + 1 ?><!--</td>-->
+                <td><?= $index ?></td>
                 <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
                 <td><?= $worker->category ?></td>
                 <td><?= $worker->id ?></td>
@@ -167,6 +153,7 @@
                     </a>
                 </td>
             </tr>
+            <?php $index++; ?>
         <?php endforeach; ?>
         </tbody>
     </table>

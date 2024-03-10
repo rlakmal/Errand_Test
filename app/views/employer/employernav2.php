@@ -7,10 +7,29 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+        #map {
+            height: 300px;
+            width: 85%;
+            margin-left: 6%;
+        }
+
+        /* Style for the "Powered by Google Translator" */
+        .google-translate-element {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 9999; /* Ensure it's above other elements */
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="homenavbar">
+    <div class="homenavbar" style="position: relative">
         <header>
             <div class="logo">Errand</div>
             <input type="checkbox" id="nav_check" hidden>
@@ -54,6 +73,7 @@
             </div>
             <label for="nav_check" class="hamburger"></label>
 
+            <div id="google_translate_element_sinhala" class="google-translate-element"></div>
 
         </header>
     </div>
@@ -81,5 +101,37 @@
     <!-- <div id="overlay" class="overlay"></div> -->
 
 </body>
+
+<script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script>
+
+<script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>
+
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,si' }, 'google_translate_element_sinhala');
+        // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
+    }
+
+    function toggleLanguageSinhala() {
+        var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+        if (select.value === 'en') {
+            select.value = 'si';
+        } else {
+            select.value = 'en';
+        }
+        select.dispatchEvent(new Event('change'));
+    }
+
+    // function toggleLanguageTamil() {
+    //     var select = document.querySelector('#google_translate_element_tamil .goog-te-combo');
+    //     if (select.value === 'en') {
+    //         select.value = 'ta';
+    //     } else {
+    //         select.value = 'en';
+    //     }
+    //     select.dispatchEvent(new Event('change'));
+    // }
+</script>
+
 
 </html>

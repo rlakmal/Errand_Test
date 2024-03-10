@@ -75,16 +75,16 @@
                 <span class="tooltip">Profile</span>
             </li>
 
-            <li class="profile">
-                <div class="profile_details">
-                    <img src="<?= ROOT ?>/assets/images/manager/elon_musk.jpg" alt="profile image">
-                    <div class="profile_content">
-                        <div class="name">Admin 1</div>
-                    </div>
-                </div>
+            <li class="profile" style="margin-bottom: 3%">
+<!--                <div class="profile_details">-->
+<!--                    <img src="--><?php //= ROOT ?><!--/assets/images/manager/elon_musk.jpg" alt="profile image">-->
+<!--                    <div class="profile_content">-->
+<!--                        <div class="name">Admin 1</div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <a href="<?= ROOT ?>/home/signout">
                     <i class="bx bx-log-out" id="log_out"></i>
-                    <span class="link_name">Logout</span>
+                    <span class="link_name" style="margin-left: 10px">Logout</span>
                 </a>
                 <span class="tooltip">logOut</span>
 
