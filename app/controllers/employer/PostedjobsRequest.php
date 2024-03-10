@@ -18,8 +18,12 @@ class PostedjobsRequest extends Controller
                 unset($_POST['id']);
                 unset($_POST['Accept']);
                 $_POST['budget'] = $budegt;
+<<<<<<< HEAD
                 $_POST['payment_stat'] = "Make Payment";
                 //show($_POST);
+=======
+                show($_POST);
+>>>>>>> 1ceb8dc (worker accept req)
                 $accepted_jobs->insert($_POST);
 
                 redirect('employer/postedjobsrequest');

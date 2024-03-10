@@ -45,7 +45,10 @@ class RequestByMe extends Controller
                 $_POST['budget'] = $_POST['newbudget'];
                 unset($_POST['newbudget']);
                 //show($_POST);
+<<<<<<< HEAD
                 $_POST['payment_stat'] = "Make Payment";
+=======
+>>>>>>> 1ceb8dc (worker accept req)
                 $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
             }
