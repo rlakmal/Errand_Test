@@ -6,11 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/myjobPost.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
-    
+
     <title>Errand</title>
     <style>
         .sidebar {
             margin-top: -90px;
+        }
+
+        .hidden-div {
+            display: none;
+            width: 90%;
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+            height: 200px;
+        }
+
+        #displaydiv {
+            height: 200px;
         }
     </style>
 </head>
@@ -76,10 +89,8 @@
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="budget">Rs <?php echo $item->budget ?> /= per day</div>
-
-                            <div class="no-of-requests" data-post-id="<?php echo $item->id ?>">
-
-                            </div>
+                            <div class="no-of-requests" data-post-id="<?php echo $item->id ?>" onclick="showRequests()"></div>
+                            <div class=" hidden-div" id="displayDiv_<?php echo $item->id ?>"></div>
 
                         </div>
                         <div class="bottom-index">
@@ -96,6 +107,7 @@
                         </div>
                     </div>
                 </div>
+
         <?php
             }
         }
@@ -124,6 +136,7 @@
             </div>
         </form>
     </div>
+
     <div id="overlay1" class="overlay"></div>
     <script src="<?= ROOT ?>/assets/js/employer/editpost.js"></script>
 
@@ -132,14 +145,26 @@
 
 
     <script>
+        function showRequests() {
+            var displayDiv = $('#displayDiv_' + postId);
+            console.log("a" + displayDiv);
+            if (displayDiv.is(':visible')) {
+                displayDiv.hide();
+            } else {
+                displayDiv.show();
+            }
+        }
         $(document).ready(function() {
             $('.no-of-requests').each(function() {
                 var postId = $(this).data('post-id');
-                var container = $(this); // store the reference to the current element
-
+                console.log(postId);
+                var displayDiv = $('#displayDiv_' + postId);
+                console.log(displayDiv);
+                var container = $(this);
                 data = {
                     job_id: postId
                 }
+
 
                 $.ajax({
                     type: "POST",
@@ -151,12 +176,12 @@
                         newData = JSON.parse(res);
                         //console.log(newData);
 
-                        // Update the corresponding element with the job count
                         if (newData.job_count === 'No Requests') {
                             container.text('No Requests');
                         } else {
                             container.text('Worker Requests: ' + newData.job_count);
                         }
+
                     },
                     error: function(xhr, status, error) {
                         // Handle error if needed
