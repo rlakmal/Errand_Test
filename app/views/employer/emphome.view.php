@@ -48,7 +48,7 @@
 
                 // echo $times_ago;;
         ?>
-                <div class="post-container">
+                <div class="post-container" id="myData">
                     <div class="profile-container2">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
@@ -78,6 +78,26 @@
         }
         ?>
     </div>
+
+    <script>
+        function searchTable() {
+            var input, filter, data, items, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            data = document.getElementById("set-marginid");
+            items = data.getElementsByClassName("post-container");
+
+            for (i = 0; i < items.length; i++) {
+                txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 
 </body>
 
