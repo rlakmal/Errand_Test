@@ -27,7 +27,7 @@ body {
 
 /* Styles for the search box */
 .search-box {
-  width: 200px;
+  width: 278px;
   border-radius: 50px;
   padding: 8px;
   border: 2px solid #f16a2d;
@@ -99,7 +99,7 @@ label {
 }
 
 select {
-  width: 200px;
+  width: 278px;
   padding: 10px;
   border: 2px;
   border-right: 15px solid #fff;
