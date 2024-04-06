@@ -16,7 +16,7 @@
 
         /* Style for the "Powered by Google Translator" */
         .google-translate-element {
-            position: fixed;
+            position: relative;
             bottom: 10px;
             right: 10px;
             z-index: 9999; /* Ensure it's above other elements */
@@ -24,6 +24,14 @@
             padding: 5px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjust the position of the Google Translate element */
+        #google_translate_element_sinhala {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999; /* Ensure it's above other elements */
         }
     </style>
 </head>
@@ -36,7 +44,7 @@
         <nav>
             <ul>
                 <li>
-                    <a class="bttn" type="button" onclick="openReport()">Create Job</a>
+                    <a class="bttn" type="button" onclick="openReport()">Post Job</a>
                 </li>
                 <li>
                     <a href="<?= ROOT ?>/employer/home">Jobs</a>
@@ -71,12 +79,14 @@
             </div>
         </div>
         <label for="nav_check" class="hamburger"></label>
-        <!-- Google Translate Elements -->
-        <div id="google_translate_element_sinhala" class="google-translate-element"></div>
-<!--        <div id="google_translate_element_tamil" class="google-translate-element"></div>-->
+
+
     </header>
 </div>
 <script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
+
+<!-- Google Translate Element -->
+<div id="google_translate_element_sinhala"></div>
 
 <div class="popup-report">
     <form method="POST" enctype="multipart/form-data">
@@ -122,12 +132,12 @@
 
 <div id="overlay" class="overlay"></div>
 
+<!-- Google Translate Script -->
 <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>
 
 <script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,si' }, 'google_translate_element_sinhala');
-        // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
     }
 
     function toggleLanguageSinhala() {
@@ -139,19 +149,10 @@
         }
         select.dispatchEvent(new Event('change'));
     }
-
-    // function toggleLanguageTamil() {
-    //     var select = document.querySelector('#google_translate_element_tamil .goog-te-combo');
-    //     if (select.value === 'en') {
-    //         select.value = 'ta';
-    //     } else {
-    //         select.value = 'en';
-    //     }
-    //     select.dispatchEvent(new Event('change'));
-    // }
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
+<!-- Google Maps API Script -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6GOvTVdWC3aNfI8Jg4gOkyk74hiOB0RE&libraries=places&callback=initMap"></script>
 
 <script>
     let map, marker;
