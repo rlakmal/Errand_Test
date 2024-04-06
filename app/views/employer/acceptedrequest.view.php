@@ -60,58 +60,58 @@
 </head>
 
 <body>
-    <?php include 'employernav2.php' ?>
-    <?php include 'myjobsidebar.php' ?>
-    <section id="main" class="main">
-        <h2>Accepted Request to Your Jobs</h2>
-        <table class="my_table">
-            <thead>
-                <tr class="t_head">
-                    <th>No</th>
-                    <th class="th_one">Worker Name</th>
-                    <th>JOb Title</th>
-                    <th>Budget</th>
-                    <th>Payment Status</th>
+<?php include 'employernav2.php' ?>
+<?php include 'myjobsidebar.php' ?>
+<section id="main" class="main">
+    <h2>Accepted Request to Your Jobs</h2>
+    <table class="my_table">
+        <thead>
+        <tr class="t_head">
+            <th>No</th>
+            <th class="th_one">Worker Name</th>
+            <th>JOb Title</th>
+            <th>Budget</th>
+            <th>Payment Status</th>
+        </tr>
+        </thead>
+
+        <?php
+        $no = 0;
+        if (is_array($data)) {
+            foreach ($data as $item) {
+                $no++;
+
+                ?>
+
+
+                <tbody>
+                <tr>
+                    <td><?php echo $no ?></td>
+                    <td><?php echo $item->worker_name ?></td>
+                    <td><?php echo $item->title ?></td>
+                    <td><?php echo $item->budget ?></td>
+                    <td><button class="<?php if ($item->payment_stat == "Make Payment") {
+                            echo "before_pay";
+                        } else {
+                            echo "after_pay";
+                        }
+                        ?>"><?php echo $item->payment_stat ?></button></td>
                 </tr>
-            </thead>
-
-            <?php
-            $no = 0;
-            if (is_array($data)) {
-                foreach ($data as $item) {
-                    $no++;
-
-            ?>
-
-
-                    <tbody>
-                        <tr>
-                            <td><?php echo $no ?></td>
-                            <td><?php echo $item->worker_name ?></td>
-                            <td><?php echo $item->title ?></td>
-                            <td><?php echo $item->budget ?></td>
-                            <td><button class="<?php if ($item->payment_stat == "Make Payment") {
-                                                    echo "before_pay";
-                                                } else {
-                                                    echo "after_pay";
-                                                }
-                                                ?>"><?php echo $item->payment_stat ?></button></td>
-                        </tr>
-                        <!-- Add more rows if needed -->
-                    </tbody>
+                <!-- Add more rows if needed -->
+                </tbody>
 
 
 
-            <?php
-                }
+                <?php
             }
+        }
 
-            ?>
-        </table>
+        ?>
+    </table>
 
 
 
-    </section>
+</section>
 </body>
 
 </html>
