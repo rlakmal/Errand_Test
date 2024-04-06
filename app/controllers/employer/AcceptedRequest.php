@@ -1,4 +1,3 @@
-
 <?php
 
 class AcceptedRequest extends Controller
