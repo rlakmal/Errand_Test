@@ -24,7 +24,10 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+<<<<<<< HEAD
   /* border: solid 4px #a7a7c4; */
+=======
+>>>>>>> eda85ab (ajax popup ui)
 }
 
 .pop-view h2 {
@@ -139,7 +142,11 @@
 } */
 #pop-form {
   margin: 0%;
+<<<<<<< HEAD
   background-color: #f4f7fc;
+=======
+  background-color: aquamarine;
+>>>>>>> eda85ab (ajax popup ui)
 }
 .pop-btn {
   right: 1%;
@@ -180,4 +187,8 @@
   background-color: rgb(255, 60, 53);
   border: solid 1px rgb(134, 17, 11);
   color: #ffffff;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eda85ab (ajax popup ui)

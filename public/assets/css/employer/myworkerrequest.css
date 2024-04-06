@@ -106,7 +106,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
 }
 .set_margin {
   margin-top: 92px;
@@ -200,6 +199,7 @@ table td.proname {
 table th {
   font-size: larger;
 }
+<<<<<<< HEAD
 table.table {
   border-collapse: collapse;
   margin: 0px 0;
@@ -246,3 +246,5 @@ table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
 }
+=======
+>>>>>>> eda85ab (ajax popup ui)
