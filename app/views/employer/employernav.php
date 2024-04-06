@@ -31,6 +31,7 @@
 
 <body>
     <div class="homenavbar" style="position: relative">
+
         <header>
             <div class="logo">Errand</div>
             <input type="checkbox" id="nav_check" hidden>
