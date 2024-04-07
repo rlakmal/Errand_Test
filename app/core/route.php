@@ -47,8 +47,8 @@ route('employer/viewjob', 'employer/ViewJob@index');
 // AJAX
 route('employer/view_request', 'employer/RequestByME@viewRequest');
 route('employer/count_request', 'employer/Myjob@countRequest');
-
-
+route('employer/paymentgate', 'employer/AcceptedRequest@paymentConfig');
+route('employer/paidstatus', 'employer/AcceptedRequest@updatePayStatus');
 
 /*---------------------------------------------------------------------
     worker routes
