@@ -60,6 +60,7 @@
 </head>
 
 <body>
+
     <?php include 'employernav2.php' ?>
     <?php include 'myjobsidebar.php' ?>
     <section id="main" class="main">
@@ -72,16 +73,24 @@
                     <th>JOb Title</th>
                     <th>Work Budget</th>
                     <th>Charges</th>
-                </tr>
-            </thead>
 
-            <?php
-            $no = 0;
-            if (is_array($data)) {
-                foreach ($data as $item) {
-                    $no++;
 
-            ?>
+        </tr>
+        </thead>
+
+        <?php
+        $no = 0;
+        if (is_array($data)) {
+            foreach ($data as $item) {
+                $no++;
+
+                ?>
+
+
+
+
+
+
 
 
                     <tbody>
@@ -104,10 +113,14 @@
 
             <?php
                 }
-            }
 
-            ?>
-        </table>
+                <?php
+
+            }
+        }
+
+        ?>
+    </table>
 
     </section>
     <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
@@ -188,6 +201,9 @@
     </script>
 
 
+
+
+</section>
 
 </body>
 

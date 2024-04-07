@@ -15,6 +15,7 @@ class AcceptedRequest extends Controller
             $this->view('employer/acceptedrequest', $data);
         }
     }
+
     public function paymentConfig($a = '', $b = '', $c = '')
     {
         $id = $_GET['id'];
@@ -55,3 +56,6 @@ class AcceptedRequest extends Controller
         echo "Payment Successfull";
     }
 }
+
+}
+
