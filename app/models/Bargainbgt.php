@@ -14,6 +14,7 @@ class Bargainbgt
         'title',
         'newbudget',
         'budget',
+        'worker_name',
 
     ];
 }
