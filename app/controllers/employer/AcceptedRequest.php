@@ -56,6 +56,3 @@ class AcceptedRequest extends Controller
         echo "Payment Successfull";
     }
 }
-
-}
-
