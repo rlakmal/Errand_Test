@@ -50,6 +50,13 @@
                 </a>
                 <span class="tooltip">Accepted Requests</span>
             </li>
+            <li>
+                <a href="<?= ROOT ?>/employer/reviewreq">
+                    <i class="bx bxs-user-detail"></i>
+                    <span class="link_name">Review Requests</span>
+                </a>
+                <span class="tooltip">Review Requests</span>
+            </li>
             <!-- <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
                     <i class="bx bxs-group"></i>

@@ -50,6 +50,17 @@
             border-radius: 20px;
             color: white;
             cursor: pointer;
+            width: 70%;
+
+        }
+
+        .after_pay {
+            background-color: #4fbb07;
+            border: #f16a2d;
+            padding: 8px;
+            border-radius: 20px;
+            color: white;
+            width: 70%;
 
         }
 
