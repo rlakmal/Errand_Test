@@ -29,4 +29,13 @@ class ReviewRequest extends Controller
             echo "Job completed Successfully";
         }
     }
+
+    public function handleRating($a = '', $b = '', $c = '')
+    {
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
+
+            
+        }
+    }
 }
