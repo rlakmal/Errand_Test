@@ -53,6 +53,16 @@
 
         }
 
+        .after_reiew {
+            background: #9b3001;
+            border: #f16a2d;
+            padding: 8px;
+            border-radius: 20px;
+            color: white;
+            width: 70%;
+
+        }
+
         .review_btn:hover {
             background: #2a3441;
         }
@@ -90,13 +100,22 @@
                             <td><?php echo $item->worker_name ?></td>
                             <td><?php echo $item->title ?></td>
                             <td>Rs <?php echo $item->budget ?>.00</td>
-                            <td><button onclick="markAsCompleted(<?php echo $item->id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
-                                                                                                        echo "review_btn";
-                                                                                                    } else {
-                                                                                                        echo "after_review";
-                                                                                                    }
-                                                                                                    ?>"><?php echo $item->review_status ?></button></td>
+                            <?php if ($item->review_status == "Mark As Completed") {
+                            ?>
+                                <td><button onclick="markAsCompleted(<?php echo $item->id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
+                                                                                                            echo "review_btn";
+                                                                                                        }
+                                                                                                        ?>"><?php echo $item->review_status ?></button></td>
+                            <?php
+                            } else {
+                            ?>
+                                <td><button class="after_reiew">Rate This Worker</button></td>
+
+                            <?php
+                            }
+                            ?>
                         </tr>
+
 
                     </tbody>
 
