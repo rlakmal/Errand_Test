@@ -53,7 +53,7 @@ route('employer/count_request', 'employer/Myjob@countRequest');
 route('employer/paymentgate', 'employer/AcceptedRequest@paymentConfig');
 route('employer/paidstatus', 'employer/AcceptedRequest@updatePayStatus');
 route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
-
+route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
