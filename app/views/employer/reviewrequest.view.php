@@ -98,6 +98,8 @@
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
+            margin: 12% 0% 0% 40%;
+
         }
 
         .rating-modal-header {
@@ -258,7 +260,7 @@
                             <?php
                             } else {
                             ?>
-                                <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal()">Review</button>
+                                <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>)">Review</button>
 
                                 <?php
                             }
@@ -331,9 +333,11 @@
     </script>
 
     <script>
-        function openModal() {
+        function openModal(worker_id) {
             document.getElementById('review_modal').style.display = 'block';
+            $('#save_review').data('worker_id', worker_id);
         }
+
 
         function closeModal() {
             document.getElementById('review_modal').style.display = 'none';
@@ -376,10 +380,12 @@
         }
 
         $('#save_review').click(function() {
+            var worker_id = $(this).data('worker_id');
             var user_name = $('#user_name').val();
             var user_review = $('#user_review').val();
             console.log(user_name);
             console.log(user_review);
+            console.log(worker_id);
 
             if (user_name == '' || user_review == '') {
                 alert("Please Fill Both Fields");
@@ -389,6 +395,7 @@
                     url: "<?= ROOT ?>/employer/ratingsreviews",
                     method: "POST",
                     data: {
+                        worker_id: worker_id,
                         rating_data: rating_data,
                         user_name: user_name,
                         user_review: user_review
