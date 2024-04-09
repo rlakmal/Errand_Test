@@ -137,6 +137,72 @@
       color: #ff7f00;
     }
 
+    .progress-label-left {
+      float: left;
+      margin-right: 0.5em;
+      line-height: 1em;
+    }
+
+    .progress-label-right {
+      float: right;
+      margin-left: 0.3em;
+      line-height: 1em;
+    }
+
+    .text-warning {
+      color: #ffc107;
+
+    }
+
+    .star-light {
+      color: #e9ecef;
+    }
+
+    .progress {
+      height: 20px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #ffc107;
+      /* Set your desired progress bar color */
+      text-align: center;
+      line-height: 20px;
+      color: #000;
+      /* Set your desired text color */
+      font-weight: bold;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .row {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .review_percent {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+    }
+
+    .review-bar {
+      display: flex;
+      flex-direction: column;
+      width: 65%;
+      margin: 33px;
+
+    }
+
+    .one-bar {
+      margin: 2%;
+    }
+
     @media only screen and (max-width: 600px) {
       .main-container4 {
         height: 100%;
@@ -215,8 +281,64 @@
           <a href="<?= ROOT ?>/employer/editprofile"><button class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
         </div>
 
-        <div class="picture">
-          <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
+        <div class="row">
+          <div class="review_percent">
+            <h1 class="text-warning ">
+              <b><span id="average_rating">0.0</span> / 5</b>
+            </h1>
+            <div>
+              <i class="fas fa-star star-light mr-1 main_star"></i>
+              <i class="fas fa-star star-light mr-1 main_star"></i>
+              <i class="fas fa-star star-light mr-1 main_star"></i>
+              <i class="fas fa-star star-light mr-1 main_star"></i>
+              <i class="fas fa-star star-light mr-1 main_star"></i>
+            </div>
+            <h3><span id="total_review">0</span> Review</h3>
+          </div>
+
+          <div class="review-bar">
+            <div class="one-bar">
+              <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+              <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+              <div class="progress">
+                <div class="progress-bar" id="five_star_progress"></div>
+              </div>
+            </div>
+
+
+            <div class="one-bar">
+              <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
+              <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+              <div class="progress">
+                <div class="progress-bar" id="four_star_progress"></div>
+              </div>
+            </div>
+
+            <div class="one-bar">
+              <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
+              <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+              <div class="progress">
+                <div class="progress-bar" id="three_star_progress"></div>
+              </div>
+            </div>
+            <div class="one-bar">
+              <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
+              <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+              <div class="progress">
+                <div class="progress-bar" id="two_star_progress"></div>
+              </div>
+            </div>
+            <div class="one-bar">
+              <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+              <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+              <div class="progress">
+                <div class="progress-bar" id="one_star_progress"></div>
+              </div>
+            </div>
+
+            <!-- Repeat the structure for other star ratings -->
+          </div>
+
         </div>
 
 

@@ -32,10 +32,13 @@ class ReviewRequest extends Controller
 
     public function handleRating($a = '', $b = '', $c = '')
     {
-        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
-        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
+        $ratingnreview = new Ratings;
+        if (isset($_POST["rating_data"])) {
 
-            
+            $_POST['emp_id'] = $_SESSION['USER']->id;
+            show($_POST);
+            $ratingnreview->insert($_POST);
+            echo "Your Review & Rating Successfully Submitted";
         }
     }
 }
