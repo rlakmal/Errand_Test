@@ -56,8 +56,9 @@ class RequestByMe extends Controller
     public function viewRequest($a = '', $b = '', $c = '')
     {
 
-
+        // redirect("employer/view_request");
         $newbgt = new Bargainbgt;
+        //show($_POST);
         $id = $_POST['id'];
         $arr['id'] = $id;
         $bargain = $newbgt->first($arr);

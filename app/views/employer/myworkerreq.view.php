@@ -91,6 +91,7 @@
                             ?>
                         </tr>
                         <?php
+
                     }
                 }
                 ?>
@@ -110,10 +111,10 @@
             <form method="POST">
                 <input type="hidden" name="id" id="pop-hidden-id" value="">
                 <input type="hidden" name="newbudget" id="pop-hidden-budget" value="">
-                <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
-                <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
-                <input type="hidden" name="title" value="<?php echo $item->title ?>">
-                <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
+                <input type="hidden" name="emp_id" id="pop-hidden-empid" value="">
+                <input type="hidden" name="worker_id" id="pop-hidden-worker_id" value="">
+                <input type="hidden" name="title" id="pop-hidden-title" value="">
+                <input type="hidden" name="worker_name" id="pop-hidden-worker_name" value="">
                 <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
                 <button name="pop-reject-btn" class="pop-reject">Reject</button>
             </form>
@@ -168,7 +169,12 @@
                         $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
                         $("#pop-hidden-id").val(newData.id);
                         $("#pop-hidden-budget").val(newData.newbudget);
+                        $("#pop-hidden-empid").val(newData.emp_id);
+                        $("#pop-hidden-worker_id").val(newData.worker_id);
+                        $("#pop-hidden-title").val(newData.title);
+                        $("#pop-hidden-worker_name").val(newData.worker_name);
                         try {} catch (error) {
+
 
                         }
                     },
