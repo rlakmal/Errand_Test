@@ -16,3 +16,4 @@ class AcceptedRequest extends Controller
         }
     }
 }
+

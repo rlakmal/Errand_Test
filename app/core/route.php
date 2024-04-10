@@ -43,13 +43,17 @@ route('employer/notifications', 'employer/EmpNotification@index');
 route('employer/tickets', 'employer/Tickets@index');
 route('employer/acceptedreq', 'employer/AcceptedRequest@index');
 route('employer/viewjob', 'employer/ViewJob@index');
+route('employer/reviewreq', 'employer/ReviewRequest@index');
+
 
 // AJAX
 route('employer/view_request', 'employer/RequestByME@viewRequest');
 route('employer/count_request', 'employer/Myjob@countRequest');
-
-
-
+route('employer/paymentgate', 'employer/AcceptedRequest@paymentConfig');
+route('employer/paidstatus', 'employer/AcceptedRequest@updatePayStatus');
+route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
+route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
+route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */

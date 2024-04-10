@@ -47,7 +47,6 @@ class RecievedJob extends Controller
                 unset($_POST['city']);
                 unset($_POST['description']);
                 unset($_POST['emp_name']);
-                unset($_POST['worker_name']);
                 unset($_POST['status']);
                 unset($_POST['created']);
                 unset($_POST['ReqBudget']);
