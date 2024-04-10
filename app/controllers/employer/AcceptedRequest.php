@@ -13,6 +13,7 @@ class AcceptedRequest extends Controller
             $data['data'] = $results;
             //show($data);
             $this->view('employer/acceptedrequest2', $data);
+
         }
     }
 }
