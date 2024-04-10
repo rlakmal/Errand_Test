@@ -175,7 +175,7 @@
                         <span>Not Verified</span>
                     <?php endif; ?>
                 </td>
-                <td class="edit-view-profile"><a href="<?= ROOT ?>/member/verification2&id=<?= $worker->id ?>">
+                <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->id ?>">
                         <span class="link_name"><i class="fas fa-user icon"></i></span>
                     </a></td>
             </tr>

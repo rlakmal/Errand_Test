@@ -14,6 +14,7 @@ class Home extends Controller
             $worker = new Worker();
             $complaint = new Ticket();
             $complaint_arch = new Archive_Time();
+            $accepts = new AcceptedJobs();
 
             $qdata["status"] = "employer";
             $emp = $user->where($qdata);
@@ -111,7 +112,45 @@ class Home extends Controller
 // Now $data["tickmonths"] contains counts for each month
 
 
+            unset($qdata);
+            $qdata["status"] = "worker";
+
+
+            $data["workers"] = $user->where($qdata);
+            $qdata["status"] = "employer";
+            $data["employers"] = $user->where($qdata);
+
+            $data["users"] = array_merge($data["workers"], $data["employers"]);
+            unset($data["employers"]);
+            unset($data["workers"]);
+
+
+// Sort the list of objects based on the created datetime property
+            usort($data["users"], function($a, $b) {
+                return strtotime($b->created) - strtotime($a->created);
+            });
+
+// Select the last eight items
+            $data["eight"] = array_slice($data["users"], 0, 8);
+
+
+
+            unset($qdata);
+
+            $data["accepts"] = $accepts->findAll();
+
+            // Sort the list of objects based on the created datetime property
+            usort($data["accepts"], function($a, $b) {
+                return strtotime($b->created) - strtotime($a->created);
+            });
+
+// Select the last eight items
+            $data["eightacc"] = array_slice($data["accepts"], 0, 8);
+
+            unset($data["accepts"]);
+
             $this->view('member/dashboard2', $data);
+
         } else {
             redirect('home');
         }

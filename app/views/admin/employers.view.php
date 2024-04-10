@@ -133,6 +133,36 @@
         </table>
     </div>
 </section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.querySelector(".form-group");
+        const tableRows = document.querySelectorAll(".table tbody tr");
+
+        searchInput.addEventListener("input", function (event) {
+            const searchText = event.target.value.trim().toLowerCase();
+
+            tableRows.forEach(function (row) {
+                const employerName = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+                const employerId = row.querySelector("td:nth-child(3)").textContent;
+
+                if (!isNaN(searchText)) {
+                    if (employerId.includes(searchText)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                } else {
+                    if (employerName.includes(searchText)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                }
+            });
+        });
+    });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>

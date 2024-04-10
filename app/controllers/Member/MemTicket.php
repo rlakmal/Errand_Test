@@ -24,10 +24,11 @@ class MemTicket extends Controller
                 $qdata["id"] = $data["ticket"]->user;
                 $data["user"] = $user->first($qdata);
 
-                $qdata["ticket_id"] = $_GET["id"];
+                $qdata["ticket_no"] = $_GET["id"];
 
                 unset($qdata["id"]);
-                $data["notes"] = $ticketnote->where($qdata, "note_id");
+                $data["notes"] = $note->where($qdata);
+
 
                 $this->view('member/ticket', $data);
             }
@@ -47,6 +48,9 @@ class MemTicket extends Controller
                 }
                 $data["ticket_no"] = $_GET["id"];
                 $data["body"] = $_POST["body"];
+                $data["mem_id"] = $_SESSION["USER"]->id;
+                $data["mem_name"] = $_SESSION["USER"]->name;
+
                 $note->insert($data);
                 redirect("member/ticket?id=".$_GET["id"]);
             }

@@ -104,7 +104,6 @@
 
 <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script>
 
-<script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>
 
 <script>
     function googleTranslateElementInit() {
