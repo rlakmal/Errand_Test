@@ -49,8 +49,6 @@ route('employer/view_request', 'employer/RequestByME@viewRequest');
 route('employer/count_request', 'employer/Myjob@countRequest');
 
 
-
-
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
