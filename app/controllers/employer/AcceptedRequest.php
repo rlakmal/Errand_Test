@@ -12,13 +12,10 @@ class AcceptedRequest extends Controller
             $results = $accepted_jobs->where($arr);
             $data['data'] = $results;
             //show($data);
-            $this->view('employer/acceptedrequest2', $data);
-
+            $this->view('employer/acceptedrequest', $data);
         }
     }
-<<<<<<< HEAD
-}
-=======
+
     public function paymentConfig($a = '', $b = '', $c = '')
     {
         $id = $_GET['id'];
@@ -31,10 +28,10 @@ class AcceptedRequest extends Controller
         $hash = strtoupper(
             md5(
                 $merchant_id .
-                    $order_id .
-                    number_format($amount, 2, '.', '') .
-                    $currency .
-                    strtoupper(md5($merchant_secret))
+                $order_id .
+                number_format($amount, 2, '.', '') .
+                $currency .
+                strtoupper(md5($merchant_secret))
             )
         );
 
@@ -59,4 +56,3 @@ class AcceptedRequest extends Controller
         echo "Payment Successfull";
     }
 }
->>>>>>> 61cefeb (employer payment)
