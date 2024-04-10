@@ -26,12 +26,13 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+
     </style>
 </head>
 
 <body>
-    <div class="homenavbar" style="position: relative">
 
+    <div class="homenavbar">
         <header>
             <div class="logo">Errand</div>
             <input type="checkbox" id="nav_check" hidden>
@@ -78,6 +79,7 @@
             <label for="nav_check" class="hamburger"></label>
 
             <div id="google_translate_element_sinhala" class="google-translate-element"></div>
+
 
         </header>
     </div>
