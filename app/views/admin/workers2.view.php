@@ -113,11 +113,11 @@
             <select class="form-group" name="location">
                 <!-- Add more locations as needed -->
             </select>
-            <input class="form-group" type="text" placeholder="Search...">
+            <input class="form-group" type="text" id="searchInput" placeholder="Search..." onkeyup="search()">
             <i class='bx bx-search icon'></i>
         </div>
     </form>
-    <table class="table">
+    <table class="table" id="workersTable">
         <thead>
         <tr>
             <th></th>
@@ -161,6 +161,32 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/1/1.0.7/iconify-icon.min.js"></script>
 <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+
+<script>
+    function search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("workersTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            tdName = tr[i].getElementsByTagName("td")[1]; // Worker Name
+            tdId = tr[i].getElementsByTagName("td")[3]; // Worker ID
+            if (tdName || tdId) {
+                txtValueName = tdName.textContent || tdName.innerText;
+                txtValueId = tdId.textContent || tdId.innerText;
+                if (txtValueName.toUpperCase().indexOf(filter) > -1 || txtValueId.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </body>
 
 </html>

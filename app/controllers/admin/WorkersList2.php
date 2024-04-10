@@ -11,7 +11,7 @@ class WorkersList2 extends Controller
 
             $data["data"] = $worker->findAll();
 
-            $this->view('admin/workers2', $data);
+            $this->view('admin/workers3', $data);
         } else {
             redirect('home');
         }

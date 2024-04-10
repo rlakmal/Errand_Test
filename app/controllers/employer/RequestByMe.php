@@ -66,4 +66,3 @@ class RequestByMe extends Controller
         echo $data;
     }
 }
-

@@ -9,7 +9,7 @@ class Emphome extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
 
-            try {
+//            try {
                 $jobPost = new JobPost;
                 $post = new EmpPost;
                 // $results = $post->findAll('job_created');
@@ -37,9 +37,9 @@ class Emphome extends Controller
                     $jobPost->insert($_POST);
                     redirect('employer/home');
                 }
-            } catch (Exception $e) {
-                // handle the exception
-            }
+//            } catch (Exception $e) {
+//                // handle the exception
+//            }
 
             $this->view('employer/emphome', $data);
         } else {

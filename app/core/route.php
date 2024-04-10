@@ -89,6 +89,8 @@ route('admin/workerprof', 'admin/WorkerProf@index');
 route('admin/message', 'admin/Message@index');
 route('admin/emprequests', 'admin/EmpRequests@index');
 route('admin/workrequests', 'admin/WorkRequests@index');
+route('admin/viewjob', 'admin/ViewJob@index');
+
 
 
 /*---------------------------------------------------------------------

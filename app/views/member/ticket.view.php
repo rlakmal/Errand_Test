@@ -186,8 +186,10 @@
         <ul class="note-list">
             <?php foreach ($notes as $item) : ?>
                 <li class="note-item">
-                    <p><?= $item->note_body ?></p>
+                    <p><?= $item->body ?></p>
                     <small><?= $item->created ?></small>
+                    <small><?= $item->mem_name ?>(<?= $item->mem_id ?>)</small>
+<!--                    <small>--><?php //= $item->created ?><!--</small>-->
                 </li>
             <?php endforeach; ?>
         </ul>
