@@ -22,17 +22,6 @@ CREATE VIEW emp_post AS
 CREATE VIEW workers_from_emp AS
 
     SELECT
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7f08495c51192aef096fba940bfdb3f72213cd0e
-=======
->>>>>>> 421d177 (job image done)
-=======
->>>>>>> 88c8dfff0cb7e5ee7c78ecd96d3e2a36e4aa7d9e
     employer.id as emp_id,
     employer.name as name,
     employer.category as category,
@@ -56,17 +45,18 @@ CREATE VIEW Ticket_Note AS
     ON note.ticket = ticket.id
 
 
-CREATE VIEW Ticket_Employer AS
-    SELECT
-    ticket.title as title,
-    ticket.description as description,
-    employer.status as status,
-    ticket.archived as archived,
-    ticket.created as created,
-    ticket.id as ticket_id,
-    ticket.user as user
-    FROM ticket LEFT JOIN note
-    ON ticket.user = employer.id
+CREATE VIEW workers_from_emp AS
+    SELECT 
+    employer.id as emp_id,
+    worker.name as name,
+    worker.category as category,
+    worker.city as city,
+    worker.id as worker_id,
+    worker.profile_image as profile_image,
+    worker.created as created
+    FROM worker INNER JOIN employer
+    ON worker.email = employer.email
+    WHERE employer.status = worker.status
 
 CREATE VIEW employer_worker AS
     SELECT
