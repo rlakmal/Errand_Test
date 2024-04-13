@@ -23,7 +23,9 @@ body {
 }
 
 .picture .image {
+  border-radius: 50%;
   max-width: 80px;
+  height: 80px;
 }
 
 .profile-name {

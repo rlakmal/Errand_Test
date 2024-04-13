@@ -73,6 +73,7 @@ route('worker/acceptedjobs', 'worker/AcceptedJobs@index');
 route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
+route('worker/editprofile', 'worker/EditProfile@index');
 
 /*---------------------------------------------------------------------
     admin routes
