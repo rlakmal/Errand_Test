@@ -22,7 +22,7 @@
                 <div class="main-container2">
                     <div class="profile-container2">
                         <div class="picture">
-                            <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
+                            <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="">
                         </div>
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
