@@ -11,6 +11,7 @@ class EditProfile extends Controller
             $emp_id = $_SESSION['USER']->id;
             $arr['emp_id'] = $emp_id;
             $foundworker = $workerdet->first($arr);
+            
             $worker_id = $foundworker->worker_id;
 
             $data = $this->create($worker, $worker_id);
@@ -20,12 +21,17 @@ class EditProfile extends Controller
 
 
                 $profile_image_name = $_FILES['workerprofile_image']['name'];
+                $certificate_image_name = $_FILES['workergs_image']['name'];
                 if ($profile_image_name != null) {
                     $_POST['profile_image'] = $this->uploadImage($_FILES['workerprofile_image']['tmp_name'], $profile_image_name, '/assets/images/worker/profileImages/');
+                }
+                if ($certificate_image_name != null) {
+                    $_POST['certificate_image'] = $this->uploadImage($_FILES['workergs_image']['tmp_name'], $certificate_image_name, '/assets/images/worker/certifiImages/');
                 }
                 //show($_POST);
                 $this->UpdateProfile($worker, $worker_id, $_POST);
             }
+            //show($data);
 
             $this->view('worker/editworkerprofile', $data);
         }
@@ -44,6 +50,7 @@ class EditProfile extends Controller
         $newData['skills'] = $result->skills;
         $newData['expierience'] = $result->expierience;
         $newData['profile_image'] = $result->profile_image;
+        $newData['certificate_image'] = $result->certificate_image;
         $data['newData'] = $newData;
 
         return $data;
