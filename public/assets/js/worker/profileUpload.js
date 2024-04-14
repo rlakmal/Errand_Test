@@ -17,6 +17,7 @@ dropArea.addEventListener("dragover", (event) => {
   event.preventDefault();
   dropArea.classList.add("active");
 });
+
 dropArea.addEventListener("dragleave", () => {
   dropArea.classList.remove("active");
 });

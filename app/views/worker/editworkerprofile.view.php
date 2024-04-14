@@ -15,8 +15,8 @@
         .main-container4 {
             display: flex;
             border-radius: 40px;
-            margin: 10%;
-            margin: 2%;
+            /* margin: 10%;
+            margin: 2%; */
             width: 80%;
             height: 100%;
             background: #f3f3f3;
@@ -24,11 +24,12 @@
             align-content: center;
             justify-content: center;
             align-items: flex-end;
+
         }
 
         .profile-container3 {
             display: flex;
-            margin: 1%;
+            margin-top: 1%;
             position: relative;
             padding: 15px;
             background-color: #ffffff;
@@ -36,7 +37,7 @@
             height: 50%;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
             border-radius: 20px;
-            flex-direction: column;
+            flex-direction: row;
         }
 
         .pro_container-right {
@@ -117,11 +118,13 @@
         }
 
         .close-button {
-            font-size: 28px;
-            background: white;
+            margin-top: 8px;
+            border-radius: 20px;
+            background-color: #ff7f00;
+            color: #fff;
+            padding: 10px 20px;
             border: none;
             cursor: pointer;
-            color: #ff7f00;
         }
 
         .tags {
@@ -214,6 +217,20 @@
             text-align: center;
         }
 
+        .form-upload1 {
+            cursor: pointer;
+            height: 19px;
+            background-color: #141312;
+            color: white;
+            border-radius: 20px;
+            font-size: 19px;
+            align-items: center;
+            text-align: center;
+            justify-content: space-between;
+            align-content: center;
+
+        }
+
         .index_img {
             display: flex;
             position: relative;
@@ -222,6 +239,36 @@
             flex-direction: column;
         }
 
+        .form-drag-area1 {
+            margin-top: 8%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .picture .image1 {
+            width: 70px;
+            height: 70px;
+        }
+
+        .bottum_index {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .ctag {
+            margin-top: 8px;
+            color: #eb0000;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .upload-gs {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
 
         @media only screen and (max-width: 600px) {
             .main-container4 {
@@ -303,6 +350,18 @@
                         <div class="picture">
                             <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
                         </div>
+                        <div class="upload-gs">
+                            <div class="ctag">Upload Gs Certificate</div>
+                            <div class="form-drag-area1">
+                                <div class="picture">
+                                    <img class="image1" src="<?= ROOT ?>/assets/images/worker/certifiImages/<?php echo $data['newData']['certificate_image'] ?>" alt="placeholder" id="workergs_image_placeholder">
+                                </div>
+                                <div class="form-upload1">
+                                    <input type="file" id="workergs_image" style="display: none;" name="workergs_image">
+                                    <i class="bx bxs-image-add icon"></i>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -315,9 +374,7 @@
                 <div class="pro_container-right">
                     <div class="tags">
                         <h2 class="info">Personal Information</h2>
-
                     </div>
-
                     <h3>
                         Full Name
                     </h3>
@@ -359,6 +416,7 @@
     </form>
 
     <script src="<?= ROOT ?>/assets/js/worker/profileUpload.js"></script>
+    <script src="<?= ROOT ?>/assets/js/worker/certifiUpload.js"></script>
 </body>
 
 </html>

@@ -28,7 +28,7 @@
           <a href="<?= ROOT ?>/employer/services"><button class="close-button">Close</button></a>
           <button onclick="openRequest()" class="close-button">Request</button>
           <div class="picture">
-            <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
+            <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="">
           </div>
           <div class="picture">
             <img class="rates" src="<?= ROOT ?>/assets/images/employer/rates.png" alt="">
