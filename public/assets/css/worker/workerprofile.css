@@ -190,6 +190,7 @@ body {
 }
 
 .picture .image1 {
+  cursor: pointer;
   width: 70px;
   height: 70px;
 }
