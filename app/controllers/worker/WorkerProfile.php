@@ -31,6 +31,7 @@ class WorkerProfile extends Controller
         $newData['skills'] = $result->skills;
         $newData['expierience'] = $result->expierience;
         $newData['profile_image'] = $result->profile_image;
+        $newData['certificate_image'] = $result->certificate_image;
         $data['newData'] = $newData;
 
         return $data;
