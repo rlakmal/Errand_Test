@@ -4,7 +4,7 @@
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/empnav.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -27,6 +27,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
+
 </head>
 
 <body>
