@@ -52,8 +52,10 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">42</div>
-                        <div class="cardName">Verfied Workers</div>
+                        <div class="numbers"><?=$faccep?></div>
+                        <div class="cardName">Accepted Requests</div>
+                        <small class="text-muted">Last 14 days</small>
+
                     </div>
 
                     <div class="iconBx verifiedWorkers">

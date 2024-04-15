@@ -30,6 +30,7 @@ class AdHome extends Controller
 
 // Initialize empreqpaysums array with zeros for each date
         $empreqpaysums = [];
+        $sum = 0;
         $currentDate = $startDate;
         while ($currentDate <= $endDate) {
             $empreqpaysums[$currentDate] = 0;
@@ -45,6 +46,7 @@ class AdHome extends Controller
                 if ($paymentDate >= $startDate && $paymentDate <= $endDate) {
                     // Add the amount to the corresponding date's sum
                     $empreqpaysums[$paymentDate] += $payment->amount;
+                    $sum += $payment->amount;
                 }
             }
         }
@@ -53,6 +55,7 @@ class AdHome extends Controller
 // Now $empreqpaysums contains the sums of amounts for the past 7 days
 
         $data["empreqpaysums"] = $empreqpaysums;
+        $data["sum"] = $sum;
 
 //        $data["req"] = array_merge($data["empreq"], $data["wrkreq"]);
 
@@ -129,6 +132,8 @@ class AdHome extends Controller
         unset($qdata["verified"]);
 
         $data["users"] = array_merge($data["workers"], $data["employers"]);
+
+
 
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 

@@ -23,7 +23,7 @@ class EmployerAcc extends Controller
             //show($data);
 
 
-            $this->view('admin/employeracc', $data);
+            $this->view('admin/employeracc2', $data);
         } else {
             redirect('home');
         }

@@ -92,88 +92,88 @@
                         </tr>
                         <?php
 
-                            }
-                        }
-                        ?>
-                    </tbody>
-                </table>
-
-            </div>
-
-        </section>
-
-    </div>
-    <div class="pop-view">
-        <form id="pop-form" method="POST">
-            <div id="pop-header">Worker want to negotiate your budget</div>
-            <h4 id="newBudgetLabel">New Budget: </h4>
-            <div class="pop-btn">
-                <form method="POST">
-                    <input type="hidden" name="id" id="pop-hidden-id" value="">
-                    <input type="hidden" name="newbudget" id="pop-hidden-budget" value="">
-                    <input type="hidden" name="emp_id" id="pop-hidden-empid" value="">
-                    <input type="hidden" name="worker_id" id="pop-hidden-worker_id" value="">
-                    <input type="hidden" name="title" id="pop-hidden-title" value="">
-                    <input type="hidden" name="worker_name" id="pop-hidden-worker_name" value="">
-                    <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
-                    <button name="pop-reject-btn" class="pop-reject">Reject</button>
-                </form>
-
-            </div>
-        </form>
-
-    </div>
-    <div id="pop-overlay" class="pop-overlay"></div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <script>
-        let popupEdit = document.querySelector(".pop-view");
-        let overlay1 = document.getElementById("pop-overlay");
-        current_id = 0;
-
-        function openEdit(id) {
-            current_id = id;
-            popupEdit.classList.add("open-pop-view");
-            overlay1.classList.add("pop-overlay-active");
-        }
-
-        function closeEdit() {
-            popupEdit.classList.remove("open-pop-view");
-            overlay1.classList.remove("pop-overlay-active");
-        }
-
-
-
-
-        document.addEventListener("DOMContentLoaded", () => {
-            $(document).ready(function() {
-                $("[id^='viewRequestbtn_']").click(function(event) {
-                    event.preventDefault();
-                    // Extract the id from the button's id attribute
-                    let current_id = this.id.split("_")[1];
-                    data = {
-                        id: current_id
                     }
-                    console.log(data);
+                }
+                ?>
+                </tbody>
+            </table>
 
-                    $.ajax({
-                        type: "POST",
-                        url: "<?= ROOT ?>/employer/view_request",
-                        data: data,
-                        cache: false,
-                        success: function(res) {
-                            //console.log("Response:", res);
-                            newData = JSON.parse(res);
-                            console.log(newData);
-                            $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
-                            $("#pop-hidden-id").val(newData.id);
-                            $("#pop-hidden-budget").val(newData.newbudget);
-                            $("#pop-hidden-empid").val(newData.emp_id);
-                            $("#pop-hidden-worker_id").val(newData.worker_id);
-                            $("#pop-hidden-title").val(newData.title);
-                            $("#pop-hidden-worker_name").val(newData.worker_name);
-                            try {} catch (error) {
+        </div>
+
+    </section>
+
+</div>
+<div class="pop-view">
+    <form id="pop-form" method="POST">
+        <div id="pop-header">Worker want to negotiate your budget</div>
+        <h4 id="newBudgetLabel">New Budget: </h4>
+        <div class="pop-btn">
+            <form method="POST">
+                <input type="hidden" name="id" id="pop-hidden-id" value="">
+                <input type="hidden" name="newbudget" id="pop-hidden-budget" value="">
+                <input type="hidden" name="emp_id" id="pop-hidden-empid" value="">
+                <input type="hidden" name="worker_id" id="pop-hidden-worker_id" value="">
+                <input type="hidden" name="title" id="pop-hidden-title" value="">
+                <input type="hidden" name="worker_name" id="pop-hidden-worker_name" value="">
+                <button name="pop-accept-btn" class="pop-accept">Accept Offer</button>
+                <button name="pop-reject-btn" class="pop-reject">Reject</button>
+            </form>
+
+        </div>
+    </form>
+
+</div>
+<div id="pop-overlay" class="pop-overlay"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    let popupEdit = document.querySelector(".pop-view");
+    let overlay1 = document.getElementById("pop-overlay");
+    current_id = 0;
+
+    function openEdit(id) {
+        current_id = id;
+        popupEdit.classList.add("open-pop-view");
+        overlay1.classList.add("pop-overlay-active");
+    }
+
+    function closeEdit() {
+        popupEdit.classList.remove("open-pop-view");
+        overlay1.classList.remove("pop-overlay-active");
+    }
+
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        $(document).ready(function() {
+            $("[id^='viewRequestbtn_']").click(function(event) {
+                event.preventDefault();
+                // Extract the id from the button's id attribute
+                let current_id = this.id.split("_")[1];
+                data = {
+                    id: current_id
+                }
+                console.log(data);
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= ROOT ?>/employer/view_request",
+                    data: data,
+                    cache: false,
+                    success: function(res) {
+                        //console.log("Response:", res);
+                        newData = JSON.parse(res);
+                        console.log(newData);
+                        $("#newBudgetLabel").text("New Budget: " + "Rs " + newData.newbudget + " Per Day");
+                        $("#pop-hidden-id").val(newData.id);
+                        $("#pop-hidden-budget").val(newData.newbudget);
+                        $("#pop-hidden-empid").val(newData.emp_id);
+                        $("#pop-hidden-worker_id").val(newData.worker_id);
+                        $("#pop-hidden-title").val(newData.title);
+                        $("#pop-hidden-worker_name").val(newData.worker_name);
+                        try {} catch (error) {
 
 
                         }

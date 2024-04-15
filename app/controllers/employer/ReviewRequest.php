@@ -55,7 +55,14 @@ class ReviewRequest extends Controller
             $total_user_rating = 0;
             $review_content = array();
 
-            $id = $_SESSION['USER']->id;
+            if($_SESSION["USER"]->status == "admin"){
+                $id = $_POST["id"];
+
+            } else{
+                $id = $_SESSION['USER']->id;
+
+            }
+
             $ratingnreview = new Ratings;
             $arr['emp_id'] = $id;
             $result = $ratingnreview->where($arr);

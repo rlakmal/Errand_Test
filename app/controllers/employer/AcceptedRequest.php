@@ -27,10 +27,10 @@ class AcceptedRequest extends Controller
         $hash = strtoupper(
             md5(
                 $merchant_id .
-                    $order_id .
-                    number_format($amount, 2, '.', '') .
-                    $currency .
-                    strtoupper(md5($merchant_secret))
+                $order_id .
+                number_format($amount, 2, '.', '') .
+                $currency .
+                strtoupper(md5($merchant_secret))
             )
         );
 

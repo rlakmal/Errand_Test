@@ -255,9 +255,9 @@
 
     <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
         <input type="hidden" name="merchant_id" value="1225403"> <!-- Replace your Merchant ID -->
-        <input type="hidden" name="return_url" value="<?= ROOT ?>/public/employer/acceptedreq">
-        <input type="hidden" name="cancel_url" value="<?= ROOT ?>/public/employer/acceptedreq">
-        <input type="hidden" name="notify_url" value="<?= ROOT ?>/public/employer/paynotify">
+        <input type="hidden" name="return_url" value="<?= ROOT ?>/employer/acceptedreq">
+        <input type="hidden" name="cancel_url" value="<?= ROOT ?>/employer/acceptedreq">
+        <input type="hidden" name="notify_url" value="<?= ROOT ?>/employer/paynotify">
         <input type="hidden" name="order_id" id="id">
         <input type="hidden" name="items" value="Request Accept">
         <input type="hidden" name="currency" value="LKR">

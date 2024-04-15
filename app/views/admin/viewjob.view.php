@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
+
     <title>viewjob</title>
     <style>
         /* .job_images {
@@ -50,6 +52,8 @@
 <body>
 <?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+<script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+
 <?php
 if ($data) {
     foreach ($data as $item) {
@@ -98,7 +102,7 @@ if ($data) {
                 </div>
             </div>
             <div class="index_bottom">
-                <a href="<?= ROOT ?>/employer/home"><button class="close-button">Back</button></a>
+                <a href="<?= ROOT ?>/admin/jobs"><button style="background-color: orange; color: white; height: 40px; width: 100px; border-radius: 20px" class="close-button">Back</button></a>
             </div>
         </div>
 

@@ -139,6 +139,27 @@ class Home extends Controller
 
             $data["accepts"] = $accepts->findAll();
 
+
+// Assuming $data["accepts"] is array of objects
+
+            $accepts = $data["accepts"];
+            $last14DaysAccepts = 0;
+            $currentDate = new DateTime();
+
+            foreach ($accepts as $accept) {
+                // Assuming $accept->created is the datetime property of each object
+                $createdDate = new DateTime($accept->created);
+                $interval = $currentDate->diff($createdDate);
+
+                // Check if the object was created within the last 14 days
+                if ($interval->days <= 14) {
+                    $last14DaysAccepts++;
+                }
+            }
+
+            $data["faccep"] = $last14DaysAccepts;
+
+
             // Sort the list of objects based on the created datetime property
             usort($data["accepts"], function($a, $b) {
                 return strtotime($b->created) - strtotime($a->created);

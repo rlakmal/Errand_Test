@@ -53,12 +53,21 @@ class WorkerRegistration2 extends Controller
 
                 redirect('verifyprompt&id='.$row->id);
 
+            } else {
+
+                $user ->errors = "Username Already Exists";
+
+
             }
 
 
         }
 
-        $this->view('home/workerRegistration');
+        $data['errors'] = $user->errors;
+        $data['loginData'] = $_POST;
+
+
+        $this->view('home/workerRegistration', $data);
     }
 
     private function sendConfirmationEmail($email, $name, $user_id)

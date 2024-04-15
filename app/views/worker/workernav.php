@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
     <div class="homenavbar">
         <header>
             <div class="logo">Errand</div>

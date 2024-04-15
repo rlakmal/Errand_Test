@@ -105,6 +105,28 @@
         .edit-btn:hover {
             color: #2980b9;
         }
+
+        /* Added styles for filter buttons */
+        .filter-btns {
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            background-color: #ccc;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .filter-btn.active {
+            background-color: #3498db;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -118,9 +140,15 @@
 <section id="main" class="main">
     <h2>Announcements</h2>
 
+    <!-- Filter Buttons -->
+    <div class="filter-btns">
+        <button class="filter-btn" id="workerBtn">Worker</button>
+        <button class="filter-btn" id="employerBtn">Employer</button>
+    </div>
+
     <form>
         <div class="form">
-            <input class="form-group" type="text" placeholder="Search...">
+            <input class="form-group" type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">
         </div>
@@ -140,13 +168,13 @@
             <th></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
         <?php
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
                 ?>
-                <tr>
+                <tr data-worker="<?php echo $item->worker; ?>" data-employer="<?php echo $item->employer; ?>">
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $item->id; ?></td>
                     <td><?php echo $item->title; ?></td>
@@ -222,6 +250,54 @@
     let popupReport = document.querySelector(".popup-report");
     let popupView = document.querySelector(".popup-view");
     let editButtons = document.querySelectorAll('.edit-btn');
+    let tableBody = document.getElementById('tableBody');
+    let workerBtn = document.getElementById('workerBtn');
+    let employerBtn = document.getElementById('employerBtn');
+
+    // Filter buttons functionality
+    workerBtn.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            filterItems('worker', false);
+        } else {
+            toggleFilter(this);
+            filterItems('worker', true);
+        }
+    });
+
+    employerBtn.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            filterItems('employer', false);
+        } else {
+            toggleFilter(this);
+            filterItems('employer', true);
+        }
+    });
+
+    function toggleFilter(btn) {
+        // Remove 'active' class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(function(button) {
+            button.classList.remove('active');
+        });
+        // Add 'active' class to the clicked button
+        btn.classList.add('active');
+    }
+
+    function filterItems(filterType, isActive) {
+        Array.from(tableBody.children).forEach(function(row) {
+            let dataAttr = row.getAttribute('data-' + filterType);
+            if (isActive) {
+                if (dataAttr === "1") {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
 
     editButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -260,6 +336,21 @@
         document.querySelector('.popup-view input[name="worker"]').checked = data.worker;
         document.querySelector('.popup-view input[name="employer"]').checked = data.employer;
     }
+
+    // Search functionality
+    let searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', function() {
+        let searchText = searchInput.value.toLowerCase();
+        Array.from(tableBody.children).forEach(function(row) {
+            let id = row.children[1].textContent.trim().toLowerCase();
+            let title = row.children[2].textContent.trim().toLowerCase();
+            if (id.includes(searchText) || title.includes(searchText)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
 </script>
 </body>
 

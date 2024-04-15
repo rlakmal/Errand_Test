@@ -59,7 +59,8 @@ class AdReports extends Controller
             $qdata["status"] = "Rejected";
             $rep2->emprej = count($empreq->where($qdata));
             $qdata["status"] = "Requested";
-            $rep2->empreqs = count($empreq->where($qdata));
+            $empreqrequested = $empreq->where($qdata);
+            $rep2->empreqs = $empreqrequested ? count($empreqrequested): 0;
 
 
             $qdata["status"] = "pending";
@@ -72,14 +73,25 @@ class AdReports extends Controller
 
             $rep4 = new stdClass();
 
-            $rep4->empreqpays = $empreqpay->findAll("req_id");
+            unset($qdata);
+            $qdata["type"] = "employer";
+
+            $rep4->empreqpays = $empreqpay->where($qdata, "req_id");
+
+            unset($qdata);
+            $qdata["type"] = "worker";
+
+            $rep4->workreqpays = $empreqpay->where($qdata, "req_id");
+
+//            var_dump($rep4->workreqpays);
 
             $rep4->last30empreqpays = [];
+            $rep4->last30workreqpays = [];
 
             $currentTimestamp = time();
 
 // Timestamp 30 days ago
-            $thirtyDaysAgoTimestamp = strtotime('-30 days');
+            $thirtyDaysAgoTimestamp = intval(strtotime('-30 days'));
 
             if ($rep4->empreqpays) {
                 foreach ($rep4->empreqpays as $pay) {
@@ -96,6 +108,26 @@ class AdReports extends Controller
             }
 
             $rep4->empreqcount = count($rep4->last30empreqpays);
+
+            if ($rep4->workreqpays) {
+                foreach ($rep4->workreqpays as $pay) {
+                    // Convert 'created' date string to Unix timestamp
+                    $createdTimestamp = intval(strtotime($pay->created));
+
+
+                    // Check if the 'created' date falls within the last 30 days
+                    var_dump($createdTimestamp);
+                    var_dump($thirtyDaysAgoTimestamp);
+                    var_dump($currentTimestamp);
+
+                    if ($createdTimestamp >= $thirtyDaysAgoTimestamp && $createdTimestamp <= $currentTimestamp) {
+                        // Add the ticket to the last 30 days work array
+                        array_push($rep4->last30workreqpays, $pay);
+                    }
+                }
+            }
+
+            $rep4->workreqcount = count($rep4->last30workreqpays);
 
 
 
