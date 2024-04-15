@@ -83,8 +83,8 @@
                 <h1>Total Income</h1>
                 <span class="material-symbols-sharp">stacked_line_chart</span>
             </div>
-            <h1>Rs.10,558/=</h1>
-            <small class="text-muted">Last 24 hours</small>
+            <h1>Rs.<?=$data["sum"]?>/=</h1>
+            <small class="text-muted">Last 7 days</small>
         </div>
         <!-- END OF Income -->
 

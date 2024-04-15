@@ -35,11 +35,11 @@
             background-color: #f5f5f5;
         }
 
-        .status-requested {
+        .status-pending {
             color: #007bff;
         }
 
-        .status-accepted {
+        .status-paid {
             color: #28a745;
         }
 
@@ -47,11 +47,11 @@
             color: #dc3545;
         }
 
-        .status-rejected {
+        .status-chargedback {
             color: #ffc107;
         }
 
-        .status-expired {
+        .status-unpaid {
             color: #6c757d;
         }
 
@@ -120,94 +120,6 @@
             }
         }
 
-        .popup-v {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 40px;
-            z-index: 9999;
-            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-            max-width: 90%;
-            animation: popup-show 0.5s ease forwards;
-            border: 3px solid red; /* Add red border */
-            width: 30%;
-        }
-
-        @keyframes popup-show {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .popup-v h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .popup-v form {
-            text-align: left;
-        }
-
-        .popup-v label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .popup-v input[type="text"] {
-            width: calc(100% - 20px);
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 16px;
-            background-color: lightgray;
-        }
-
-        .popup-v .btns {
-            display: flex;
-            justify-content: center;
-            border-radius: 20px;
-        }
-
-        .popup-v .btns button {
-            padding: 12px 24px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .popup-v .btns .cancelb {
-            background-color: #ccc;
-            color: #fff;
-        }
-
-        .popup-v .btns button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        /* Animation for hiding the popup */
-        @keyframes popup-hide {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-        }
-
 
     </style>
 </head>
@@ -222,7 +134,7 @@
 
 <!-- content -->
 <section id="main" class="main">
-    <h2>Employer Requests</h2>
+    <h2>Accepted Requests</h2>
     <div class="form">
         <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
         <i class='bx bx-search icon'></i>
@@ -234,15 +146,15 @@
                 <th>ID</th>
                 <th>Employer ID</th>
                 <th>Worker ID</th>
-                <th>Employer</th>
+<!--                <th>Employer</th>-->
                 <th>Worker</th>
                 <th>Title</th>
-                <th>Budget</th>
-                <th>City</th>
+                <th>Payment</th>
+                <th>Type</th>
+                <th>Payment Status</th>
                 <th>Description</th>
-                <th>Status</th>
+
                 <th>Created</th>
-                <th></th>
                 <th></th>
             </tr>
             </thead>
@@ -252,19 +164,16 @@
                     <td><?= $request->id ?></td>
                     <td><?= $request->emp_id ?></td>
                     <td><?= $request->worker_id ?></td>
-                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
+<!--                    <td><a href="--><?php //=ROOT?><!--/admin/employeracc&id=--><?php //= $request->emp_id ?><!--">--><?php //= $request->emp_name ?><!--</a></td>-->
                     <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
                     <td><?= $request->title ?></td>
-                    <td><?= $request->budget ?></td>
-                    <td><?= $request->city ?></td>
-                    <td><?= $request->description ?></td>
-                    <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
+                    <td><?= $request->budget*10 ?></td>
+                    <td><?= $request->type ?></td>
+                    <td class="status-<?= strtolower($request->payment_stat) ?>"><?= $request->payment_stat ?></td>
+                    <td><?= $request->review_status ?></td>
+
                     <td><?= $request->created ?></td>
-                    <td>
-                        <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
-                            <i class="bx bxs-edit"></i>
-                        </a>
-                    </td>
+
                     <td>
                         <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
                     </td>
@@ -279,28 +188,12 @@
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
     <p>Are you sure you want to delete this item?</p>
     <form id="deleteForm" method="post">
-        <button type="submit" class="yes-button" name="delete">Yes</button>
+        <button type="submit" class="yes-button">Yes</button>
         <button type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
     </form>
 </div>
 
 
-<div class="popup-v" id="edit">
-    <h2>Update Ticket</h2>
-    <form action="<?= ROOT ?>/admin/emprequests" method="POST">
-        <h4>Title : </h4>
-        <input style="margin-top: 10px" name="title" type="text" placeholder="Enter Ticket Title" required>
-        <h4>Description : </h4>
-        <input style="margin-top: 10px" name="description" type="text" placeholder="Enter Ticket Body" required>
-        <h4>Budget : </h4>
-        <input style="margin-top: 10px" name="budget" type="text" placeholder="budget" required>
-        <input type="hidden" name="id">
-        <div class="btns">
-            <button style="border-radius: 20px" type="button" onclick="closee()">Cancel</button>
-            <button style="border-radius: 20px" type="submit" value="Update" name="update" onclick="closee()">Update</button>
-        </div>
-    </form>
-</div>
 
 
 <script>
@@ -314,7 +207,7 @@
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[5].innerText.toLowerCase();
+            const title = row.cells[4].innerText.toLowerCase();
 
             if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
                 row.style.display = '';
@@ -338,21 +231,6 @@
     }
 
 
-    function opene(title, description, budget, id) {
-        // Populate title and description input fields in the edit popup
-        document.querySelector('#edit input[name="title"]').value = title;
-        document.querySelector('#edit input[name="description"]').value = description;
-        document.querySelector('#edit input[name="budget"]').value = budget;
-        document.querySelector('#edit input[name="id"]').value = id;
-
-        // Show the edit popup
-        document.querySelector('#edit').style.display = 'block';
-    }
-
-    function closee() {
-        // Hide the edit popup
-        document.querySelector('#edit').style.display = 'none';
-    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>

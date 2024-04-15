@@ -47,6 +47,13 @@
                 <span class="tooltip">Worker Requests</span>
             </li>
             <li>
+                <a href="<?= ROOT ?>/admin/accrequests">
+                    <i class="bx bxs-hand-right "></i>
+                    <span class="link_name">Accepted Requests</span>
+                </a>
+                <span class="tooltip">Accepted Requests</span>
+            </li>
+            <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
                     <i class="bx bxs-group"></i>
                     <span class="link_name">Admin Crew</span>

@@ -93,41 +93,68 @@
         .view-profile-button:hover {
             background-color: #297fb8;
         }
+
     </style>
     <title>Document</title>
 </head>
 
 <body>
 
-    <?php include 'employernav.php' ?>
-    <?php include 'empfilter.php' ?>
-    <div class="set-margin" id="set-marginid">
-        <?php
-        if (is_array($data)) {
-            foreach ($data as $item) {
-        ?>
-                <div class="post-container">
-                    <div class="profile-container2">
-                        <div class="picture">
-                            <!-- <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt=""> -->
+<?php include 'employernav.php' ?>
+<?php include 'empfilter.php' ?>
+
+<div class="set-margin" id="set-marginid">
+    <div>
+        <h2 style="text-align: center">Announcements</h2>
+    </div>
+    <div style="position: relative;">
+        <input type="text" id="searchInput" placeholder="Search..." style="width: 15%; background-color: lightgray; border-radius: 20px; margin-left: 30%; margin-top: 40px; padding-left: 40px;">
+        <i class="bx bx-search" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #777;"></i>
+    </div>
+    <?php
+    if (is_array($data)) {
+        foreach ($data as $item) {
+            ?>
+            <div style="background-color: lightsalmon; border-radius: 20px" class="post-container">
+                <div class="profile-container2">
+                    <div class="picture">
+                        <!-- <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt=""> -->
+                    </div>
+                    <div class="index">
+                        <div class="profile-name" style="margin-top: 40px"><?php echo $item->title ?></div>
+                        <div class="profile-type"><?php echo $item->body ?></div>
+                        <div class="budget">Posted: <?php echo $item->created ?></div>
+                        <div class="location">
+                            <!-- <?php echo $item->city ?> -->
+<!--                            <i class="bx bxs-map icon"></i>-->
                         </div>
-                        <div class="index">
-                            <div class="profile-name"><?php echo $item->title ?></div>
-                            <div class="profile-type"><?php echo $item->body ?></div>
-                            <div class="budget">Posted: <?php echo $item->created ?></div>
-                            <div class="location">
-                                <!-- <?php echo $item->city ?> -->
-                                <i class="bx bxs-map icon"></i>
-                            </div>
-                            <a href="#" class="view-profile-button">View</a>
-                        </div>
+                        <a href="#" class="view-profile-button" style="border-radius: 20px; background-color: indigo">Admin</a>
                     </div>
                 </div>
-        <?php
-            }
+            </div>
+            <?php
         }
-        ?>
-    </div>
+    }
+    ?>
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const posts = document.querySelectorAll('.post-container');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        posts.forEach(post => {
+            const title = post.querySelector('.profile-name').textContent.toLowerCase();
+            const description = post.querySelector('.profile-type').textContent.toLowerCase();
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                post.style.display = 'flex';
+            } else {
+                post.style.display = 'none';
+            }
+        });
+    });
+</script>
 
 </body>
 

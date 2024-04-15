@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Reports Page</title>
+    <title>Reports</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
@@ -266,9 +266,9 @@
 
     ?>
 
-    <div class="report-widgets">
-        <div class="report-widget" onclick="openPopup('Population Statistics', 'No of Employers: <?= $rep1->employers?>\n\nNo of Workers(Unverified): <?= $rep1->workersunveri?>\n\nNo of Workers(Verified): <?= $rep1->workersveri?>\n\nNo of Crew Members: <?= $rep1->crew?>\n\nWorker Categories\n\n<?=$categoryparsedString?>\n\n\nDate: <?= date("m-d-y")?>')">
-            <i class="bi bi-person large-icon"></i>
+    <div style="display: flex; flex-direction: column">
+        <div style="background-color: darkblue; " class="report-widget" onclick="openPopup('Population Statistics', 'No of Employers: <?= $rep1->employers?>\n\nNo of Workers(Unverified): <?= $rep1->workersunveri?>\n\nNo of Workers(Verified): <?= $rep1->workersveri?>\n\nNo of Crew Members: <?= $rep1->crew?>\n\nWorker Categories\n\n<?=$categoryparsedString?>\n\n\nDate: <?= date("m-d-y")?>')">
+            <i class="bx bx-male large-icon"></i>
             <a href="#">Population Statistics</a>
             <div class="widget-content">
                 <p>User Statistic Basics</p>
@@ -276,21 +276,26 @@
             </div>
         </div>
 
-        <!-- Include other report widgets as needed -->
 
         <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
-            <i class="bi bi-file-earmark-text large-icon"></i>
+            <i class="bx bxs-flag-alt large-icon"></i>
             <a href="#">Requests</a>
             <div class="widget-content">
                 <p>Request Statistics Basics</p>
                 <p><?= date("m-d-y")?></p>
             </div>
         </div>
+    </div>
+
+
+    <div class="report-widgets">
+
+
+        <!-- Include other report widgets as needed -->
 
 
 
-
-        <div class="report-widget" onclick="openPopup3()">
+        <div style="background-color: green" class="report-widget" onclick="openPopup3()">
             <i class="bx bx-dollar large-icon"></i>
             <a href="#">Finances </a>
             <div class="widget-content">
@@ -299,8 +304,15 @@
             </div>
         </div>
 
+
+    </div>
+
+
+    <div class="report-widgets">
+
+
         <?php
-//        var_dump($rep3->emplocation);
+        //        var_dump($rep3->emplocation);
         $empparsedString = '';
 
         foreach ($rep3->emplocation as $key => $value) {
@@ -315,7 +327,7 @@
         ?>
 
         <div class="report-widget" onclick="openPopup('User Demographics', 'Employer\n\n<?=$empparsedString?>Worker\n\n<?=$workparsedString?>Date: <?= date("m-d-y")?>')">
-            <i class="bi bi-file-earmark large-icon"></i>
+            <i class="bx bxs-location-plus large-icon"></i>
             <a href="#">Demographics</a>
             <div class="widget-content">
                 <p>User demographics by location</p>
@@ -324,7 +336,7 @@
         </div>
 
         <div class="report-widget" onclick="openPopup2()">
-            <i class="bi bi-file-earmark large-icon"></i>
+            <i class="bx bxs-hand large-icon"></i>
             <a href="#">Tickets</a>
             <div class="widget-content">
                 <p>User Tickets last 30 days</p>
@@ -332,6 +344,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 <!-- Popup -->
@@ -441,7 +454,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($rep4->last30empreqpays as $pay): ?>
+            <?php foreach ($rep4->last30workreqpays as $pay): ?>
                 <tr>
                     <td><?= $pay->req_id ?></td>
                     <td><?= $pay->title ?></td>
@@ -454,6 +467,7 @@
         </table>
         <br>
         <h3>Employer Request Payments: <?=$rep4->empreqcount?></h3>
+        <h3>Employer Request Payments: <?=$rep4->workreqcount?></h3>
 <!--        <h3>Non-Archived Employer Tickets: --><?php //=$rep5->empnonarchived?><!--</h3>-->
 <!--        <h3>Archived Worker Tickets: --><?php //=$rep5->workarchived?><!--</h3>-->
 <!--        <h3>Non-Archived Worker Tickets: --><?php //=$rep5->worknonarchived?><!--</h3>-->

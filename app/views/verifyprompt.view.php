@@ -124,10 +124,22 @@
                 transform: translateY(-10px);
             }
         }
+
+        /* Add CSS for the image */
+        .corner-image {
+            position: absolute;
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            width: 300px; /* Adjust as needed */
+            height: auto; /* Adjust as needed */
+            z-index: 1; /* Ensure it's above the background icon */
+        }
     </style>
 </head>
 
 <body>
+<!-- Image added here -->
+<img src="<?=ROOT?>/assets/images/logoe2.png" alt="Corner Image" class="corner-image">
 <i class="fas fa-envelope background-icon"></i>
 <div class="verification-container">
     <div class="envelope-icon"><i class="fas fa-envelope-open-text"></i></div>

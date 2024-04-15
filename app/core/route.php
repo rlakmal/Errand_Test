@@ -35,6 +35,7 @@ route('employer/workerprof', 'employer/Workerprofview@index');
 route('employer/dashboard', 'employer/Dashboard@index');
 
 route('employer/myjob', 'employer/Myjob@index');
+route('employer/paynotify', 'employer/PayNotifyOne@index');
 route('employer/postedjobsrequest', 'employer/PostedjobsRequest@index');
 route('employer/myworkerreq', 'employer/RequestByME@index');
 route('employer/profile', 'employer/EmployerProfile@index');
@@ -90,7 +91,9 @@ route('admin/workerprof', 'admin/WorkerProf@index');
 route('admin/message', 'admin/Message@index');
 route('admin/emprequests', 'admin/EmpRequests@index');
 route('admin/workrequests', 'admin/WorkRequests@index');
+route('admin/accrequests', 'admin/AccRequests@index');
 route('admin/viewjob', 'admin/ViewJob@index');
+route('admin/editemployeracc', 'admin/EditEmployerAcc@index');
 
 
 

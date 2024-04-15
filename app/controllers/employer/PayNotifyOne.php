@@ -5,6 +5,7 @@ class PayNotifyOne extends Controller
     public function index($a = '', $b = '', $c = '')
     {
 
+        var_dump("Mogger!!!");
         $request = new AcceptedRequest();
         // echo "this is a about controller";
         if($_SESSION["USER"]->status == "employer"){
@@ -32,6 +33,7 @@ class PayNotifyOne extends Controller
 
                 if (($local_md5sig === $md5sig) AND ($status_code == 2) ){
                     $qdata["payment_stat"] = "paid";
+//                    $qdata["review_status"] = "Completed";
                 } else if(($local_md5sig === $md5sig) AND ($status_code == -2)){
                     $qdata["payment_stat"] = "failed";
 
