@@ -34,6 +34,7 @@ class RecievedJob extends Controller
                 unset($_POST['id']);
                 unset($_POST['Accept']);
                 //show($_POST);
+
                 $_POST['payment_stat'] = "unpaid";
                 $_POST["type"] = "employer";
 
