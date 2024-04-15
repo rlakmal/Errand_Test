@@ -62,6 +62,7 @@ class ReviewRequest extends Controller
                 $id = $_SESSION['USER']->id;
 
             }
+
             $ratingnreview = new Ratings;
             $arr['emp_id'] = $id;
             $result = $ratingnreview->where($arr);
@@ -115,7 +116,6 @@ class ReviewRequest extends Controller
             );
 
             echo json_encode($output);
-
         }
     }
 }
