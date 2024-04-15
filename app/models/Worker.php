@@ -15,7 +15,15 @@ class Worker
 		'name',
 		'city',
 		'email',
-        "verified"
+        "verified",
+		"address",
+		"dob",
+		"skills",
+		"expierience",
+		"profile_image",
+		"certificate_image",
+		"status",
+		
 
 
 	];

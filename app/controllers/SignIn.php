@@ -16,13 +16,13 @@ class SignIn extends Controller
         if (isset($_POST['signUp'])) {
 
             if ($user->validate($_POST)) {
-                show($_POST);
+                //show($_POST);
 
                 unset($_POST['re-password']);
                 unset($_POST['signUp']);
                 $_POST['status'] = 'employer';
                 $_POST['profile_image'] = 'prof.png';
-                show($_POST);
+                //show($_POST);
 
 
                 $user->insert($_POST);

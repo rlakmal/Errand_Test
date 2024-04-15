@@ -8,16 +8,20 @@ class Workerprofview extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $worker = new WorkerServices;
+            $worker_details = new Worker;
             $request = new EmployerReqWorker;
             $id = $_GET['id'];
             // show($id);
             $arr['emp_id'] = $id;
-            $result = $this->getData($arr, $worker);
-            $data['data'] = $result;
+            $foundworker = $worker->first($arr);
+            $worker_id = $foundworker->worker_id;
+            $worker_name = $foundworker->name;
+            $data = $this->create($worker_details, $worker_id);
+            //show($data);
 
-            if (!empty($data['data'])) {
-                $worker_name = $data['data'][0]->name;
-            }
+            // if (!empty($data['data'])) {
+            //     $worker_name = $data['data'][0]->name;
+            // }
             if (isset($_POST['reqWorker'])) {
                 unset($_POST['reqWorker']);
                 $emp_id = $_SESSION['USER']->id;
@@ -35,9 +39,10 @@ class Workerprofview extends Controller
         }
     }
 
-    private function getData($arr, $worker)
+    private function create($worker_details, $worker_id)
     {
-        $result = $worker->where($arr, 'created');
+        $arr['id'] = $worker_id;
+        $result = $worker_details->where($arr, 'created');
         return $result;
     }
 }

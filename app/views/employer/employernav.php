@@ -39,6 +39,7 @@
 </head>
 
 <body>
+
 <div class="homenavbar">
     <header>
         <div class="logo">Errand</div>
@@ -82,6 +83,7 @@
         </div>
         <label for="nav_check" class="hamburger"></label>
 
+        <div id="google_translate_element_sinhala" class="google-translate-element"></div>
 
     </header>
 </div>
@@ -134,8 +136,9 @@
 
 <div id="overlay" class="overlay"></div>
 
+<script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
 <!-- Google Translate Script -->
-<script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>
+<!--    <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>-->
 
 <script>
     function googleTranslateElementInit() {
