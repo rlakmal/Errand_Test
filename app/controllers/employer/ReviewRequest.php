@@ -115,6 +115,7 @@ class ReviewRequest extends Controller
             );
 
             echo json_encode($output);
+
         }
     }
 }
