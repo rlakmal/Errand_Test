@@ -221,195 +221,195 @@
 </head>
 
 <body>
-    <?php include 'employernav2.php' ?>
-    <?php include 'myjobsidebar.php' ?>
-    <section id="main" class="main">
-        <h2>Review your Jobs</h2>
-        <table class="my_table">
-            <thead>
-                <tr class="t_head">
-                    <th>No</th>
-                    <th class="th_one">Worker Name</th>
-                    <th>JOb Title</th>
-                    <th>Work Budget</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
+<?php include 'employernav2.php' ?>
+<?php include 'myjobsidebar.php' ?>
+<section id="main" class="main">
+    <h2>Review your Jobs</h2>
+    <table class="my_table">
+        <thead>
+        <tr class="t_head">
+            <th>No</th>
+            <th class="th_one">Worker Name</th>
+            <th>JOb Title</th>
+            <th>Work Budget</th>
+            <th>Status</th>
+        </tr>
+        </thead>
 
-            <?php
-            $no = 0;
-            if (is_array($data)) {
-                foreach ($data as $item) {
-                    $no++;
+        <?php
+        $no = 0;
+        if (is_array($data)) {
+            foreach ($data as $item) {
+                $no++;
 
-            ?>
+                ?>
 
 
-                    <tbody>
-                        <tr>
-                            <td><?php echo $no ?></td>
-                            <td><?php echo $item->worker_name ?></td>
-                            <td><?php echo $item->title ?></td>
-                            <td>Rs <?php echo $item->budget ?>.00</td>
-                            <?php if ($item->review_status == "Mark As Completed") {
-                            ?>
-                                <td><button onclick="markAsCompleted(<?php echo $item->id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
-                                                                                                            echo "review_btn";
-                                                                                                        }
-                                                                                                        ?>"><?php echo $item->review_status ?></button></td>
-                            <?php
-                            } else {
-                            ?>
-                                <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>)">Review</button>
-
-                                <?php
+                <tbody>
+                <tr>
+                    <td><?php echo $no ?></td>
+                    <td><?php echo $item->worker_name ?></td>
+                    <td><?php echo $item->title ?></td>
+                    <td>Rs <?php echo $item->budget ?>.00</td>
+                    <?php if ($item->review_status == "Mark As Completed") {
+                        ?>
+                        <td><button onclick="markAsCompleted(<?php echo $item->id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
+                                echo "review_btn";
                             }
-                                ?>
-                        </tr>
+                            ?>"><?php echo $item->review_status ?></button></td>
+                        <?php
+                    } else {
+                    ?>
+                    <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>)">Review</button>
+
+                        <?php
+                        }
+                        ?>
+                </tr>
 
 
-                    </tbody>
+                </tbody>
 
 
 
-            <?php
-                }
+                <?php
             }
+        }
 
-            ?>
-        </table>
+        ?>
+    </table>
 
-        <div id="review_modal">
-            <div class="rating-modal-content">
-                <div class="rating-modal-header">
-                    <h5 class="modal-title">Submit Review</h5>
-                    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="review_modal">
+        <div class="rating-modal-content">
+            <div class="rating-modal-header">
+                <h5 class="modal-title">Submit Review</h5>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-center mt-2 mb-4">
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                </h4>
+                <div class="rating-form-group">
+                    <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
                 </div>
-                <div class="modal-body">
-                    <h4 class="text-center mt-2 mb-4">
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-                    </h4>
-                    <div class="rating-form-group">
-                        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
-                    </div>
-                    <div class="rating-form-group">
-                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
-                    </div>
-                    <div class=" text-center mt-4">
-                        <button type="button" class="btn-primary" id="save_review">Submit</button>
-                    </div>
+                <div class="rating-form-group">
+                    <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+                </div>
+                <div class=" text-center mt-4">
+                    <button type="button" class="btn-primary" id="save_review">Submit</button>
                 </div>
             </div>
         </div>
+    </div>
 
 
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    <script>
-        function markAsCompleted(id) {
+<script>
+    function markAsCompleted(id) {
 
-            var confirmAction = confirm("Are you sure you want to mark this job as completed?");
-            console.log(id);
-            if (confirmAction) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        alert(xhttp.responseText);
-                        location.reload();
-                    }
-                };
-                xhttp.open("GET", "<?= ROOT ?>/employer/markascompleted?id=" + id, true);
-                xhttp.send();
-            }
-
-
-
-        }
-    </script>
-
-    <script>
-        function openModal(worker_id) {
-            document.getElementById('review_modal').style.display = 'block';
-            $('#save_review').data('worker_id', worker_id);
+        var confirmAction = confirm("Are you sure you want to mark this job as completed?");
+        console.log(id);
+        if (confirmAction) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    alert(xhttp.responseText);
+                    location.reload();
+                }
+            };
+            xhttp.open("GET", "<?= ROOT ?>/employer/markascompleted?id=" + id, true);
+            xhttp.send();
         }
 
 
-        function closeModal() {
-            document.getElementById('review_modal').style.display = 'none';
+
+    }
+</script>
+
+<script>
+    function openModal(worker_id) {
+        document.getElementById('review_modal').style.display = 'block';
+        $('#save_review').data('worker_id', worker_id);
+    }
+
+
+    function closeModal() {
+        document.getElementById('review_modal').style.display = 'none';
+    }
+
+    var rating_data = 0;
+
+    $(document).on('mouseenter', '.submit_star', function() {
+
+        var rating = $(this).data('rating');
+        console.log(rating);
+
+        reset_background();
+
+        for (var count = 1; count <= rating; count++) {
+            $('#submit_star_' + count).removeClass('star-light').addClass('text-warning');
         }
 
-        var rating_data = 0;
+    });
 
-        $(document).on('mouseenter', '.submit_star', function() {
-
-            var rating = $(this).data('rating');
-            console.log(rating);
-
-            reset_background();
-
-            for (var count = 1; count <= rating; count++) {
-                $('#submit_star_' + count).removeClass('star-light').addClass('text-warning');
-            }
-
-        });
-
-        // when mouse leave remove colors
-        $(document).on('mouseleave', '.submit_star', function() {
-            reset_background();
-            for (var count = 1; count <= rating_data; count++) {
-                $('#submit_star_' + count).removeClass('star-light').addClass('text-warning');
-            }
-        });
-
-        // click on the star then store the rating
-        $(document).on('click', '.submit_star', function() {
-            rating_data = $(this).data('rating');
-            console.log(rating_data);
-        });
-
-        // function to reset background
-        function reset_background() {
-            for (var count = 1; count <= 5; count++) {
-                $('#submit_star_' + count).addClass('star-light').removeClass('text-warning');
-            }
+    // when mouse leave remove colors
+    $(document).on('mouseleave', '.submit_star', function() {
+        reset_background();
+        for (var count = 1; count <= rating_data; count++) {
+            $('#submit_star_' + count).removeClass('star-light').addClass('text-warning');
         }
+    });
 
-        $('#save_review').click(function() {
-            var worker_id = $(this).data('worker_id');
-            var user_name = $('#user_name').val();
-            var user_review = $('#user_review').val();
-            console.log(user_name);
-            console.log(user_review);
-            console.log(worker_id);
+    // click on the star then store the rating
+    $(document).on('click', '.submit_star', function() {
+        rating_data = $(this).data('rating');
+        console.log(rating_data);
+    });
 
-            if (user_name == '' || user_review == '') {
-                alert("Please Fill Both Fields");
-                return false;
-            } else {
-                $.ajax({
-                    url: "<?= ROOT ?>/employer/ratingsreviews",
-                    method: "POST",
-                    data: {
-                        worker_id: worker_id,
-                        rating_data: rating_data,
-                        user_name: user_name,
-                        user_review: user_review
-                    },
-                    success: function(data) {
-                        closeModal();
-                        // load_rating_data();
-                        console.log(data);
-                        alert(data);
-                    }
-                });
-            }
-        });
-    </script>
+    // function to reset background
+    function reset_background() {
+        for (var count = 1; count <= 5; count++) {
+            $('#submit_star_' + count).addClass('star-light').removeClass('text-warning');
+        }
+    }
+
+    $('#save_review').click(function() {
+        var worker_id = $(this).data('worker_id');
+        var user_name = $('#user_name').val();
+        var user_review = $('#user_review').val();
+        console.log(user_name);
+        console.log(user_review);
+        console.log(worker_id);
+
+        if (user_name == '' || user_review == '') {
+            alert("Please Fill Both Fields");
+            return false;
+        } else {
+            $.ajax({
+                url: "<?= ROOT ?>/employer/ratingsreviews",
+                method: "POST",
+                data: {
+                    worker_id: worker_id,
+                    rating_data: rating_data,
+                    user_name: user_name,
+                    user_review: user_review
+                },
+                success: function(data) {
+                    closeModal();
+                    // load_rating_data();
+                    console.log(data);
+                    alert(data);
+                }
+            });
+        }
+    });
+</script>
 </body>
 
 </html>
