@@ -33,9 +33,17 @@ class ReviewRequest extends Controller
     public function handleRating($a = '', $b = '', $c = '')
     {
         $ratingnreview = new Ratings;
+        $accepted_jobs = new AcceptedJobs;
         if (isset($_POST["rating_data"])) {
-
-            $_POST['emp_id'] = $_SESSION['USER']->id;
+            $worker_id = $_POST['worker_id'];
+            $id = $_POST['id'];
+            $updateData = [
+                'review_status' => 'Rated',
+            ];
+            $accepted_jobs->update($id, $updateData, 'id');
+            $_POST['emp_id'] = $worker_id;
+            unset($_POST['worker_id']);
+            unset($_POST['id']);
             show($_POST);
             $ratingnreview->insert($_POST);
             echo "Your Review & Rating Successfully Submitted";

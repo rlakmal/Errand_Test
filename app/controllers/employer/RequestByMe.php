@@ -33,7 +33,7 @@ class RequestByMe extends Controller
 
             // echo "this is a about controller";
             if (isset($_POST['pop-accept-btn'])) {
-                show($_POST);
+                //show($_POST);
                 $id = $_POST['id'];
                 $updateData = [
                     'status' => 'Accepted',
@@ -50,7 +50,7 @@ class RequestByMe extends Controller
 
 
                 $accepted_jobs->insert($_POST);
-                //redirect('employer/myworkerreq');
+                redirect('employer/myworkerreq');
             }
             $this->view('employer/myworkerreq', $data);
         }
