@@ -29,7 +29,6 @@ class RecievedJob extends Controller
                 $id = $_POST['id'];
                 //show($_POST);
 
-
                 $updateData = ['status' => 'Accepted'];
                 $recieved->update($id, $updateData, 'id');;
                 unset($_POST['id']);
