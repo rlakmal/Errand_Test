@@ -46,9 +46,6 @@ route('employer/acceptedreq', 'employer/AcceptedRequest@index');
 route('employer/viewjob', 'employer/ViewJob@index');
 route('employer/reviewreq', 'employer/ReviewRequest@index');
 
-// AJAX
-route('employer/view_request', 'employer/RequestByME@viewRequest');
-route('employer/count_request', 'employer/Myjob@countRequest');
 
 // AJAX
 route('employer/view_request', 'employer/RequestByME@viewRequest');
