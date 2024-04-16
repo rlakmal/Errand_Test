@@ -57,7 +57,7 @@
         }
 
         .after_reiew {
-            background: #9b3001;
+            background: #ff4646;
             border: #f16a2d;
             padding: 8px;
             border-radius: 20px;
@@ -142,16 +142,18 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
+            background-color: #164271;
+            border: #f16a2d;
+            padding: 8px;
+            border-radius: 20px;
+            color: white;
+            width: 70%;
             cursor: pointer;
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
+
         }
 
         .progress-label-left {
@@ -258,13 +260,17 @@
                             }
                             ?>"><?php echo $item->review_status ?></button></td>
                         <?php
-                    } else {
-                    ?>
-                    <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>)">Review</button>
+                    } else if ($item->review_status == "Completed") {
+                        ?>
+                        <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>, <?php echo $item->id ?>)">Review</button>
 
                         <?php
-                        }
+                    } else {
                         ?>
+                        <td><button class="after_reiew"><?php echo $item->review_status ?></button></td>
+                        <?php
+                    }
+                    ?>
                 </tr>
 
 
@@ -333,11 +339,11 @@
 </script>
 
 <script>
-    function openModal(worker_id) {
+    function openModal(worker_id, id) {
         document.getElementById('review_modal').style.display = 'block';
         $('#save_review').data('worker_id', worker_id);
+        $('#save_review').data('id', id);
     }
-
 
     function closeModal() {
         document.getElementById('review_modal').style.display = 'none';
@@ -346,7 +352,6 @@
     var rating_data = 0;
 
     $(document).on('mouseenter', '.submit_star', function() {
-
         var rating = $(this).data('rating');
         console.log(rating);
 
@@ -355,7 +360,6 @@
         for (var count = 1; count <= rating; count++) {
             $('#submit_star_' + count).removeClass('star-light').addClass('text-warning');
         }
-
     });
 
     // when mouse leave remove colors
@@ -381,6 +385,7 @@
 
     $('#save_review').click(function() {
         var worker_id = $(this).data('worker_id');
+        var id = $(this).data('id');
         var user_name = $('#user_name').val();
         var user_review = $('#user_review').val();
         console.log(user_name);
@@ -396,13 +401,13 @@
                 method: "POST",
                 data: {
                     worker_id: worker_id,
+                    id: id,
                     rating_data: rating_data,
                     user_name: user_name,
                     user_review: user_review
                 },
                 success: function(data) {
                     closeModal();
-                    // load_rating_data();
                     console.log(data);
                     alert(data);
                 }

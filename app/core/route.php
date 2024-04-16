@@ -57,6 +57,8 @@ route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
 route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
+route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
+
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
@@ -75,6 +77,8 @@ route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
 
+// AJAX
+route('worker/workerprofilerating', 'worker/WorkerProfile@WorkerProfileRating');
 /*---------------------------------------------------------------------
     admin routes
 --------------------------------------------------------------------- */
