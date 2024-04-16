@@ -21,6 +21,7 @@ class PostedjobsRequest extends Controller
                 $_POST['payment_stat'] = "unpaid";
                 $_POST['type'] = "worker";
                 //show($_POST);
+
                 $accepted_jobs->insert($_POST);
 
                 redirect('employer/postedjobsrequest');

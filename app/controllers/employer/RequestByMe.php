@@ -48,6 +48,7 @@ class RequestByMe extends Controller
                 $_POST['payment_stat'] = "unpaid";
                 $_POST['type'] = "employer";
 
+
                 $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
             }

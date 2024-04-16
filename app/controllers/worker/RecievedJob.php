@@ -29,6 +29,7 @@ class RecievedJob extends Controller
                 $id = $_POST['id'];
                 //show($_POST);
 
+
                 $updateData = ['status' => 'Accepted'];
                 $recieved->update($id, $updateData, 'id');;
                 unset($_POST['id']);
@@ -37,6 +38,7 @@ class RecievedJob extends Controller
 
                 $_POST['payment_stat'] = "unpaid";
                 $_POST["type"] = "employer";
+
 
                 $accepted_jobs->insert($_POST);
 
