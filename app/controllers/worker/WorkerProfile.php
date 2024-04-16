@@ -10,6 +10,7 @@ class WorkerProfile extends Controller
             $worker = new Worker;
             $emp_id = $_SESSION['USER']->id;
             $arr['emp_id'] = $emp_id;
+
             $foundworker = $workerdet->first($arr);
             $worker_id = $foundworker->worker_id;
 
