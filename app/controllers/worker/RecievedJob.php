@@ -28,13 +28,16 @@ class RecievedJob extends Controller
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
                 //show($_POST);
+
                 $updateData = ['status' => 'Accepted'];
                 $recieved->update($id, $updateData, 'id');;
                 unset($_POST['id']);
                 unset($_POST['Accept']);
                 //show($_POST);
+
                 $_POST['payment_stat'] = "unpaid";
                 $_POST["type"] = "employer";
+
                 $accepted_jobs->insert($_POST);
 
                 redirect('worker/acceptedjobs');
