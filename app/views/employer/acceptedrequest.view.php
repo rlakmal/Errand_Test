@@ -101,7 +101,7 @@
                     <td><?php echo $item->worker_name ?></td>
                     <td><?php echo $item->title ?></td>
                     <td>Rs <?php echo $item->budget ?>.00</td>
-                    <td><button onclick="paymentGateway(<?php echo $item->id ?>);" class="<?php if ($item->payment_stat == "Make Payment") {
+                    <td><button onclick="paymentGateway(<?php echo $item->id ?>);" class="<?php if ($item->payment_stat == "unpaid") {
                             echo "before_pay";
                         } else {
                             echo "after_pay";
