@@ -32,7 +32,7 @@
                             <div class="location"><?php echo $item->city ?></div>
 
                         </div>
-                        <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">View Profile</button></a>
+                        <a href="<?= ROOT ?>/worker/viewworker?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">View Profile</button></a>
 
                     </div>
                 </div>

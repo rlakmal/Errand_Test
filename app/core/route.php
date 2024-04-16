@@ -57,6 +57,7 @@ route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
 route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
+route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
