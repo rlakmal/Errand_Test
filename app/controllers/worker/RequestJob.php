@@ -43,6 +43,7 @@ class RequestJob extends Controller
         $newdata['status'] = "Pending";
         //show($newdata);
 
+
         $newreq->insert($newdata);
         redirect('worker/requestjob?id=' . $data['id']);
     }
