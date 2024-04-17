@@ -4,12 +4,18 @@
 <head>
     <title>Painter Profile</title>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
+
+    <script>
+
+    </script>
 </head>
 
 <body>
 
     <?php include 'workernav.php' ?>
-    <?php include 'workersidebar.php' ?>
+    <?php include 'workerfilter.php' ?>
+
+
     <?php
     if ($data) {
         foreach ($data as $item) {
@@ -53,19 +59,20 @@
                         <h3>
                             Request Other Budget
                         </h3>
-                        <form method="POST">
-                            <input name="newbudget" type="text" name="bargain" value='' class="edit-gen">
-                            <input type="hidden" name="id" value="<?php echo $item->id ?>">
 
-                            <div class="job_images">
-                                <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="">
-                                <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="">
-                            </div>
+                        <input name="newbudget" type="text" value='' class="newbudget edit-gen">
+
+                        <input type="hidden" name="id" value="<?php echo $item->id ?>">
+
+                        <div class="job_images">
+                            <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="">
+                            <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="index_bottom">
-                    <button type="submit" name="Rquest" value="Request" class="close-button">Request</button>
-                    </form>
+                    <button type="button" name="Rquest" value="Request" class="close-button" onclick="markAsCompleted(<?php echo $item->id ?>)">Request</button>
+
                     <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
                 </div>
             </div>
@@ -77,5 +84,35 @@
 
     ?>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function markAsCompleted(id) {
+        var budget = $(event.target).closest('.main-container4').find('.newbudget').val();
+        console.log(budget);
+        console.log(id);
+        if (!confirm('Are you sure want to Request this Job?')) {
+            return; // If user cancels, do nothing
+        }
+        $.ajax({
+            url: '<?= ROOT ?>/worker/workerrequestjob',
+            type: 'POST',
+            data: {
+                id: id,
+                newbudget: budget,
+                Rquest: 'Request'
+            },
+            success: function(response) {
+                alert(response);
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                alert("An error occurred: " + error);
+            }
+        });
+    }
+</script>
+
+
+
 
 </html>
