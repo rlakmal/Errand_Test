@@ -113,21 +113,22 @@
         }
 
         .bttns {
-            position: relative;
-            top: -12%;
-            float: right;
-            width: 33%;
             height: 0px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            margin-top: -16px;
         }
     </style>
 </head>
 
 <body>
     <?php include 'workernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'workersidebar.php' ?>
     <div class="set_margin">
 
         <?php
@@ -154,43 +155,50 @@
                                 <div class="profile-ratings"><?php echo $item->created ?></div>
                                 <div class="profile-type"><?php echo $item->title ?></div>
                                 <div class="budget"><?php echo $item->budget ?> /= per day</div>
-                                <div class="location"><?php echo $item->city ?></div>
+
                                 <div class="status"><?php echo remain_Time($timeRemaining, $item->status); ?></div>
                             </div>
-                            <?php
-                            // Display buttons only if time has not expired
-                            if ($item->status == 'Pending') {
-                            ?>
-                                <div class="bttns">
-                                    <button type="submit" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)" class="request-profile-button">Request Budget</button>
-                                    <form class="form" method="POST">
-                                        <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                                        <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
-                                        <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
-                                        <input type="hidden" name="title" value="<?php echo $item->title ?>">
-                                        <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
-                                        <input type="hidden" name="budget" value="<?php echo $item->budget ?>">
-                                        <button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button>
-                                        <button type="submit" name="Reject" value="Reject" class="view-profile-button">Reject</button>
-                                    </form>
-
-
+                            <div class="bottom-index">
+                                <div class="location">
+                                    <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
                                 </div>
-                            <?php
-                            } else {
-                            ?>
-                                <a><button class="<?php if ($item->status == 'Accepted') {
-                                                        echo "greenbutton";
-                                                    } elseif ($item->status == 'Rejected' || $item->status == 'Expired') {
-                                                        echo "redbutton";
-                                                    } elseif ($item->status == 'Requested') {
-                                                        echo "orangebutton";
-                                                    }
+                                <div class="buton_bar">
+                                    <?php
+                                    // Display buttons only if time has not expired
+                                    if ($item->status == 'Pending') {
+                                    ?>
+                                        <div class="bttns">
+                                            <button type="submit" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)" class="request-profile-button">Request Budget</button>
+                                            <form class="form" method="POST">
+                                                <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                                <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
+                                                <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
+                                                <input type="hidden" name="title" value="<?php echo $item->title ?>">
+                                                <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
+                                                <input type="hidden" name="budget" value="<?php echo $item->budget ?>">
+                                                <button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button>
+                                                <button type="submit" name="Reject" value="Reject" class="view-profile-button">Reject</button>
+                                            </form>
 
-                                                    ?>"><?php echo $item->status ?></button></a>
-                            <?php
-                            }
-                            ?>
+
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a><button class="<?php if ($item->status == 'Accepted') {
+                                                                echo "greenbutton";
+                                                            } elseif ($item->status == 'Rejected' || $item->status == 'Expired') {
+                                                                echo "redbutton";
+                                                            } elseif ($item->status == 'Requested') {
+                                                                echo "orangebutton";
+                                                            }
+
+                                                            ?>"><?php echo $item->status ?></button></a>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         <?php
                     }
                         ?>

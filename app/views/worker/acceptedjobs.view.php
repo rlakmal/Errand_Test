@@ -92,7 +92,7 @@
 
 <body>
     <?php include 'workernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'workersidebar.php' ?>
     <?php
     if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
         for ($i = 0; $i < count($data['data']); $i++) {
