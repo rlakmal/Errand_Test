@@ -381,6 +381,37 @@
         opacity: 0;
       }
     }
+
+    .cube:nth-child(6) {
+      -webkit-animation-delay: 10s;
+      animation-delay: 10s;
+      left: 50vw;
+      top: 10vh;
+    }
+
+    @-webkit-keyframes cube {
+      from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cube {
+      from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
