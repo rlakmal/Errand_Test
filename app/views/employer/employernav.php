@@ -85,10 +85,10 @@
                 </a>
 
                 <a href="<?= ROOT ?>/employer/notifications">
-                    <li><i class="bx bxs-bell icon" id="over" data-value="" style="z-index:-99 !important;font-size:32px;color:white;margin:0.5rem 0.4rem !important;"></i></li>
+                    <li><i class="bx bxs-bell icon" id="over" data-value="<?php echo $count_active; ?>" style="z-index:-99 !important;font-size:32px;color:white;margin:0.5rem 0.4rem !important;"></i></li>
                 </a>
 
-                <div class="round" id="bell-count" data-value=""><span><?php echo $count_active; ?></span></div>
+                <div class="round" id="bell-count" data-value=""><span></span></div>
 
 
 
@@ -179,86 +179,20 @@
                     var newData = JSON.parse(res);
                     var count = newData.count;
 
-                    // Update the data-value attribute and text inside the bell icon
-                    //$('#over').attr('data-value', count).text(count);
-
                     if (count > 0) {
-                        // If count is greater than 0, display the round badge
                         $('#bell-count').attr('data-value', count).find('span').text(count);
                         $('#bell-count').show(); // Show the round badge
                     } else {
-                        // If count is 0 or empty, hide the round badge
                         $('#bell-count').hide();
                     }
                 },
                 error: function(xhr, status, error) {
+                    console.error("Error:", error);
                     // Handle error if needed
                 }
             });
         });
     </script>
-
-
-    <!-- <script>
-        $(document).ready(function() {
-            var ids = new Array();
-            console.log(ids);
-            $('#over').on('click', function() {
-                $('#list').toggle();
-            });
-
-            //Message with Ellipsis
-            $('div.msg').each(function() {
-                var len = $(this).text().trim(" ").split(" ");
-                if (len.length > 12) {
-                    var add_elip = $(this).text().trim().substring(0, 65) + "…";
-                    $(this).text(add_elip);
-                }
-
-            });
-
-
-            $("#bell-count").on('click', function(e) {
-                e.preventDefault();
-
-                let belvalue = $('#bell-count').attr('data-value');
-                console.log(belvalue);
-
-                if (belvalue == '') {
-
-                    console.log("inactive");
-                } else {
-                    $(".round").css('display', 'none');
-                    $("#list").css('display', 'block');
-
-                    // $('.message').each(function(){
-                    // var i = $(this).attr("data-id");
-                    // ids.push(i);
-
-                    // });
-                    //Ajax
-                    $('.message').click(function(e) {
-                        e.preventDefault();
-                        var id = $(this).attr('data-id');
-                        console.log(id);
-                        // $.ajax({
-                        //     url: 'deactive.php',
-                        //     type: 'POST',
-                        //     data: {
-                        //         "id": id,
-                        //     },
-                        //     success: function(data) {
-
-                        //         console.log(data);
-                        //         location.reload();
-                        //     }
-                        // });
-                    });
-                }
-            });
-        });
-    </script> -->
-
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({

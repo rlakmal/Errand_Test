@@ -50,6 +50,7 @@ class RequestJob extends Controller
     {
         $job = new EmpPost;
         $newreq = new WorkeRrequestJobs;
+        $newNotify = new JobNotify;
         if (isset($_POST['Rquest'])) {
             try {
                 $id = $_POST['id'];
@@ -79,7 +80,12 @@ class RequestJob extends Controller
                 $newdata['worker_id'] = $worker_id;
                 $newdata['emp_name'] = $results[0]->name;
                 $newdata['status'] = "Pending";
-
+                $message = "Job have new Job request from";
+                $array['message'] = $message;
+                $array['emp_id'] = $results[0]->emp_id;
+                $array['notification_name'] = $worker_name;
+                $array['active'] = 1;
+                $newNotify->insert($array);
                 $newreq->insert($newdata);
 
                 $output = "Job Requested Successfully To {$newdata['emp_name']}";
