@@ -63,172 +63,172 @@
 </head>
 
 <body>
-<?php include 'employernav.php' ?>
-<?php include 'empfilter.php' ?>
+    <?php include 'employernav.php' ?>
+    <?php include 'empfilter.php' ?>
 
-
-<?php
-if (is_array($data)) {
-//show($data);
-foreach ($data as $item) {
-
-?>
-
-<div class="main-container4">
-    <div class="profile-container3">
-
-        <!-- <a><button class="close-button">Edit profile</button></a> -->
-
-        <div class="container-left">
-            <div class="picture">
-                <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="placeholder" id="workerprofile_image_placeholder">
-            </div>
-
-
-            <div class="row">
-                <div class="review_percent">
-                    <h1 class="text-warning ">
-                        <b><span id="average_rating">0.0</span> / 5</b>
-                    </h1>
-                    <div>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                    </div>
-                    <h3><span id="total_review">0</span> Review</h3>
-                </div>
-
-                <div class="review-bar">
-                    <div class="one-bar">
-                        <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
-                        <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
-                        <div class="progress">
-                            <div class="progress-bar" id="five_star_progress"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="one-bar">
-                        <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
-                        <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
-                        <div class="progress">
-                            <div class="progress-bar" id="four_star_progress"></div>
-                        </div>
-                    </div>
-
-                    <div class="one-bar">
-                        <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
-                        <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
-                        <div class="progress">
-                            <div class="progress-bar" id="three_star_progress"></div>
-                        </div>
-                    </div>
-                    <div class="one-bar">
-                        <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
-                        <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
-                        <div class="progress">
-                            <div class="progress-bar" id="two_star_progress"></div>
-                        </div>
-                    </div>
-                    <div class="one-bar">
-                        <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
-                        <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
-                        <div class="progress">
-                            <div class="progress-bar" id="one_star_progress"></div>
-                        </div>
-                    </div>
-
-                    <!-- Repeat the structure for other star ratings -->
-
-
-                </div>
-            </div>
-
-            <div class="picture">
-                <img class="image1" src="<?= ROOT ?>/assets/images/worker/certifiImages/<?php echo $item->certificate_image ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder">
-            </div>
-            <div class="ctag">
-                View GS Certificate
-            </div>
-
-            <button onclick="openRequest()" class="close-button">Request Worker</button>
-
-        </div>
-
-
-        <div class="pro_container-right">
-
-
-            <div class="tags">
-                <h2 class="info">Personal Information</h2>
-            </div>
-
-            <h3>
-                Full Name
-            </h3>
-            <input type="hidden" id="worker_id" name="id" value="<?php echo $item->id ?>">
-            <input type="text" name="fullname" value="<?php echo $item->name ?>" placeholder="Empty Full Name" class="edit-gen" readonly>
-            <h3>
-                City
-            </h3>
-            <input type="text" name="city" value="<?php echo $item->city ?> " class="edit-gen" readonly>
-            <h3>
-                Profession
-            </h3>
-            <input type="text" name="profession" value='<?php echo $item->category ?>' class="edit-gen" readonly>
-            <h3>
-                Address
-            </h3>
-            <input type="text" name="address" value="<?php echo $item->address ?>" class="edit-gen" readonly>
-            <h3>
-                Date of Birth
-            </h3>
-            <input type="text" name="birthday" value='<?php echo $item->dob ?>' class="edit-gen" readonly>
-
-            <h3>
-                Skills
-            </h3>
-            <input type="text" name="skills" value="<?php echo $item->skills ?>" class="edit-gen-skill" readonly>
-            <h3>
-                Expierience
-            </h3>
-            <input type="text" name="expierience" value="<?php echo $item->expierience ?>" class="edit-gen-skill" readonly>
-
-        </div>
-        <div class="icon">
-            <a href="<?= ROOT ?>/employer/services"><i class='bx bxs-x-circle'></i></a>
-        </div>
-    </div>
 
     <?php
+    if (is_array($data)) {
+        //show($data);
+        foreach ($data as $item) {
 
-    }
-    }
     ?>
-    <div class="popup-view">
-        <form method="POST">
-            <h2>Send Job Request</h2>
-            <h4>Job Title : </h4>
-            <input name="title" type="text" placeholder="Enter Tiltle of the Job">
-            <h4>Budget : </h4>
-            <input name="budget" type="text" placeholder="Enter your Budget">
-            <h4>Location : </h4>
-            <input name="city" type="text" placeholder="Select Location">
-            <h4>Description : </h4>
-            <input name="description" type="text" placeholder="Enter your problem">
-            <div class="btns">
-                <button type="button" class="cancelR-btn" onclick="closeRequest()">Cancel</button>
-                <button name="reqWorker" type="submit" value="POST" class="close-btn" onclick="closeRequest()">Submit </button>
-            </div>
-        </form>
-    </div>
-    <div id="overlay2" class="overlay"></div>
 
-    <div id="myModal" class="modal">
-        <img class="modal-content" id="modalImage">
-    </div>
+            <div class="main-container4">
+                <div class="profile-container3">
+
+                    <!-- <a><button class="close-button">Edit profile</button></a> -->
+
+                    <div class="container-left">
+                        <div class="picture">
+                            <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="placeholder" id="workerprofile_image_placeholder">
+                        </div>
+
+
+                        <div class="row">
+                            <div class="review_percent">
+                                <h1 class="text-warning ">
+                                    <b><span id="average_rating">0.0</span> / 5</b>
+                                </h1>
+                                <div>
+                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                </div>
+                                <h3><span id="total_review">0</span> Review</h3>
+                            </div>
+
+                            <div class="review-bar">
+                                <div class="one-bar">
+                                    <div class="progress-label-left"><b>5</b> <i class="fas fa-star text-warning"></i></div>
+                                    <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="five_star_progress"></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="one-bar">
+                                    <div class="progress-label-left"><b>4</b> <i class="fas fa-star text-warning"></i></div>
+                                    <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="four_star_progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="one-bar">
+                                    <div class="progress-label-left"><b>3</b> <i class="fas fa-star text-warning"></i></div>
+                                    <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="three_star_progress"></div>
+                                    </div>
+                                </div>
+                                <div class="one-bar">
+                                    <div class="progress-label-left"><b>2</b> <i class="fas fa-star text-warning"></i></div>
+                                    <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="two_star_progress"></div>
+                                    </div>
+                                </div>
+                                <div class="one-bar">
+                                    <div class="progress-label-left"><b>1</b> <i class="fas fa-star text-warning"></i></div>
+                                    <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="one_star_progress"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Repeat the structure for other star ratings -->
+
+
+                            </div>
+                        </div>
+
+                        <div class="picture">
+                            <img class="image1" src="<?= ROOT ?>/assets/images/worker/certifiImages/<?php echo $item->certificate_image ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder">
+                        </div>
+                        <div class="ctag">
+                            View GS Certificate
+                        </div>
+
+                        <button onclick="openRequest()" class="close-button">Request Worker</button>
+
+                    </div>
+
+
+                    <div class="pro_container-right">
+
+
+                        <div class="tags">
+                            <h2 class="info">Personal Information</h2>
+                        </div>
+
+                        <h3>
+                            Full Name
+                        </h3>
+                        <input type="hidden" id="worker_id" name="id" value="<?php echo $item->id ?>">
+                        <input type="text" name="fullname" value="<?php echo $item->name ?>" placeholder="Empty Full Name" class="edit-gen" readonly>
+                        <h3>
+                            City
+                        </h3>
+                        <input type="text" name="city" value="<?php echo $item->city ?> " class="edit-gen" readonly>
+                        <h3>
+                            Profession
+                        </h3>
+                        <input type="text" name="profession" value='<?php echo $item->category ?>' class="edit-gen" readonly>
+                        <h3>
+                            Address
+                        </h3>
+                        <input type="text" name="address" value="<?php echo $item->address ?>" class="edit-gen" readonly>
+                        <h3>
+                            Date of Birth
+                        </h3>
+                        <input type="text" name="birthday" value='<?php echo $item->dob ?>' class="edit-gen" readonly>
+
+                        <h3>
+                            Skills
+                        </h3>
+                        <input type="text" name="skills" value="<?php echo $item->skills ?>" class="edit-gen-skill" readonly>
+                        <h3>
+                            Expierience
+                        </h3>
+                        <input type="text" name="expierience" value="<?php echo $item->expierience ?>" class="edit-gen-skill" readonly>
+
+                    </div>
+                    <div class="icon">
+                        <a href="<?= ROOT ?>/employer/services"><i class='bx bxs-x-circle'></i></a>
+                    </div>
+                </div>
+
+        <?php
+
+        }
+    }
+        ?>
+        <div class="popup-view">
+            <form method="POST">
+                <h2>Send Job Request</h2>
+                <h4>Job Title : </h4>
+                <input name="title" type="text" placeholder="Enter Tiltle of the Job">
+                <h4>Budget : </h4>
+                <input name="budget" type="text" placeholder="Enter your Budget">
+                <h4>Location : </h4>
+                <input name="city" type="text" placeholder="Select Location">
+                <h4>Description : </h4>
+                <input name="description" type="text" placeholder="Enter your problem">
+                <div class="btns">
+                    <button type="button" class="cancelR-btn" onclick="cancelRequest()">Cancel</button>
+                    <button name="reqWorker" type="submit" value="POST" class="close-btn" onclick="closeRequest()">Submit </button>
+                </div>
+            </form>
+        </div>
+        <div id="overlay2" class="overlay"></div>
+
+        <div id="myModal" class="modal">
+            <img class="modal-content" id="modalImage">
+        </div>
 </body>
 <script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
 
