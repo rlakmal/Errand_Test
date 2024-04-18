@@ -605,6 +605,19 @@
           <span class="details">Confirm Password</span>
           <input name="re-password" type="text" placeholder="Confirm Password" required />
         </div>
+        <div class="input-box">
+          <span class="details">E-mail Adddress</span>
+          <input name="email" type="email" placeholder="Your email" required />
+        </div>
+        <div class="input-box">
+          <span class="details">Password</span>
+          <input name="password" type="text" placeholder="Password" required />
+        </div>
+
+        <div class="input-box">
+          <span class="details">Confirm Password</span>
+          <input name="re-password" type="text" placeholder="Confirm Password" required />
+        </div>
       </div>
 
 
