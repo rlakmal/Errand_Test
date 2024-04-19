@@ -61,7 +61,7 @@
                         <a href="<?= ROOT ?>/worker/services">Services</a>
                     </li>
                     <li>
-                        <a href="<?= ROOT ?>/worker/">Job Map</a>
+                        <a href="<?= ROOT ?>/worker/viewjobmap">Job Map</a>
                     </li>
                 </ul>
             </nav>

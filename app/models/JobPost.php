@@ -16,6 +16,7 @@ class JobPost
 		'budget',
 		'city',
 		'job_image',
-		'job_image1'
+		'job_image1',
+		'category',
 	];
 }
