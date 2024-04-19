@@ -57,6 +57,25 @@
             font-size: 1rem !important;
             padding: 0 !important;
         }
+
+        .department {
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 25px;
+            width: 80%;
+            position: relative;
+            left: 9%;
+            background: #d5dfe7d5;
+            border-radius: 20px;
+            border-style: solid;
+            border: #000;
+            outline-width: 1px;
+            padding: 10px 30px;
+            margin-bottom: 2%;
+            transition: all 0.3s ease;
+            color: var(--dark);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -132,6 +151,30 @@
             <input type="hidden" id="location" name="location">
             <h4>City : </h4>
             <input name="city" type="text" placeholder="Enter your city">
+
+            <h4>Select Category</h4>
+            <select name="category" class="department" required>
+                <option value="All">All</option>
+                <option value="Technicians">Technicians</option>
+                <option value="AC Repairs">AC Repairs</option>
+                <option value="CCTV">CCTV</option>
+                <option value="Constructions">Constructions</option>
+                <option value="Electricians">Electricians</option>
+                <option value="Electronic Repairs">Electronic Repairs</option>
+                <option value="Glass & Aluminium">Glass & Aluminium</option>
+                <option value="Iron Works">Iron Works</option>
+                <option value="Masonry">Masonry</option>
+                <option value="Odd Jobs">Odd Jobs</option>
+                <option value="Pest Controllers">Pest Controllers</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Wood Works">Wood Works</option>
+                <option value="Garden">Garden</option>
+                <option value="Painting">Painting</option>
+                <option value="Roofing">Roofing</option>
+                <option value="Cleaning">Cleaning</option>
+
+            </select>
+
             <h4>Description : </h4>
             <input name="description" type="text" placeholder="Enter your description">
             <div class="postjobimages">
