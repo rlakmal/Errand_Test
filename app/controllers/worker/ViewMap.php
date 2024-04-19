@@ -18,9 +18,9 @@ class ViewMap extends Controller
         $arr['emp_id'] = $id;
         $result = $worker_category->first($arr);
         $category = $result->category;
-
+        $check['category'] = $category;
         $post = new JobPost();
-        $locations = $post->findAll();
+        $locations = $post->where($check);
         $coordinates = array();
         foreach ($locations as $location) {
             // Check if the location field exists and is not empty
@@ -30,7 +30,7 @@ class ViewMap extends Controller
                 $coordinates[] = array(
                     "latitude" => $coords[0],
                     "longitude" => $coords[1],
-                    "job_id"=> $job_id,
+                    "job_id" => $job_id,
                 );
             }
         }
