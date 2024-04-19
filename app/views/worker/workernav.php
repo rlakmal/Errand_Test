@@ -60,6 +60,9 @@
                     <li>
                         <a href="<?= ROOT ?>/worker/services">Services</a>
                     </li>
+                    <li>
+                        <a href="<?= ROOT ?>/worker/">Job Map</a>
+                    </li>
                 </ul>
             </nav>
             <div class="icons">

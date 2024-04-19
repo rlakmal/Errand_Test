@@ -1,37 +1,22 @@
 CREATE VIEW emp_post AS
-    SELECT
+    SELECT 
     job.id as id,
     employer.id as emp_id,
-    SELECT
-    SELECT 
     job.jobTitle as title,
     job.city as city,
     job.budget as budget,
     job.created as job_created,
     job.description as description,
     job.address as address,
+    job.job_image as job_image,
+    job.job_image1 as job_image1,
+    job.category as category,
     employer.name as name,
     employer.profile_image as profile_image
-    employer.name as name,
-    employer.id as emp_id,
-    employer.profile_image as profile_image,
-    job.id as job_id
-    job.description as description,
-    job.address as address,
-    employer.name as name,
-    employer.profile_image as profile_image
->>>>>>> a97cef1 (update my job)
-=======
->>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
-=======
-    job.description as description,
-    job.address as address,
-    employer.name as name,
-    employer.profile_image as profile_image
->>>>>>> a97cef1 (update my job)
     FROM job INNER JOIN employer
     ON job.emp_id = employer.id
     ORDER BY job.created;
+
 
 
 
@@ -79,30 +64,11 @@ CREATE VIEW Ticket_Employer AS
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
-
->>>>>>> 87f1f1a (updated)
-=======
->>>>>>> 349ef30 (crew member login)
-=======
     ON ticket.user = employer.id
->>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
-=======
->>>>>>> 20cdef3 (workerhome)
-=======
     worker.id as worker_id
-=======
     worker.id as worker_id,
     worker.created as created
->>>>>>> 4f1e905 (employer req worker)
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status
-
->>>>>>> 87f1f1a (updated)
-=======
->>>>>>> 349ef30 (crew member login)
-=======
     ON ticket.user = employer.id
->>>>>>> 7caa7cd (Worker, Employer ticket front back incomplete UI RE)
-=======
->>>>>>> 20cdef3 (workerhome)
