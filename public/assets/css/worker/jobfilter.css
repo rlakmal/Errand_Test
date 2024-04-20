@@ -85,27 +85,29 @@ label {
   }
 
   .select-container .search-container {
-    opacity: 0;
+    opacity: 0.5;
+    display: none;
   }
 
   .select-container.open .search-container {
     opacity: 1;
+    display: flex;
   }
 
   .select-container label {
-    opacity: 0;
+    display: none;
   }
 
   .select-container.open label {
-    opacity: 1;
+    display: block;
   }
 
   .select-container select {
-    opacity: 0;
+    display: none;
   }
 
   .select-container.open select {
     width: 90%;
-    opacity: 1;
+    display: block;
   }
 }

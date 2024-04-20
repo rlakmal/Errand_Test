@@ -41,6 +41,24 @@
             font-size: 1rem !important;
             padding: 0 !important;
         }
+
+        @media only screen and (max-width: 768px) {
+
+            /* Show Services and Job Map links in profile menu */
+            #profile-menu a[href*="/worker/services"],
+            #profile-menu a[href*="/worker/viewjobmap"] {
+                display: block;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+
+            /* Hide Services and Job Map links in profile menu */
+            #profile-menu a[href*="/worker/services"],
+            #profile-menu a[href*="/worker/viewjobmap"] {
+                display: none;
+            }
+        }
     </style>
 
 </head>
@@ -81,6 +99,8 @@
                     </a>
                     <div class="profile-menu" id="profile-menu">
                         <a href="<?= ROOT ?>/worker/home">Home</a>
+                        <a href="<?= ROOT ?>/worker/services">Services</a>
+                        <a href="<?= ROOT ?>/worker/viewjobmap">Job Map</a>
                         <a href="">Dashboard</a>
                         <a href="<?= ROOT ?>/worker/myjobs">My Jobs</a>
                         <a href="<?= ROOT ?>/worker/messages">Message</a>
