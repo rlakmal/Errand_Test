@@ -26,6 +26,8 @@ body {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   flex-direction: row;
+  top: 75px;
+  left: 10%;
 }
 
 .pro_container-right {
@@ -212,11 +214,14 @@ body {
     justify-content: center;
     flex-direction: column;
   }
-
+  .info {
+    min-width: 230px;
+    font-size: 16px;
+  }
   .profile-container3 {
     height: 80%;
     display: flex;
-    width: 100%;
+    width: 94%;
     margin-left: 0;
     flex-direction: column;
   }
@@ -226,7 +231,7 @@ body {
   }
 
   .container-left {
-    height: 478px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -235,10 +240,12 @@ body {
 
   .pro_container-right {
     display: flex;
-    height: 550px;
+    height: 688px;
     width: 100%;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
   }
 
   .index_img {

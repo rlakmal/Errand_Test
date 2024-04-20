@@ -283,7 +283,6 @@ body {
   }
 
   .container-left {
-    height: 478px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -292,7 +291,6 @@ body {
 
   .pro_container-right {
     display: flex;
-    height: 550px;
     width: 100%;
     flex-direction: column;
     flex-wrap: nowrap;
