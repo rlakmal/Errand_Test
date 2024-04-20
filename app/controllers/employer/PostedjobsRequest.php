@@ -32,7 +32,7 @@ class PostedjobsRequest extends Controller
                 $id = $_POST['id'];
                 $updateData = ['status' => 'Rejected'];
                 $worker_req_jobs->update($id, $updateData, 'id');;
-                //$this->sendNotification($_POST['worker_id'], $_POST['title'], 'Rejected');
+                $this->sendNotification($_POST['worker_id'], $_POST['title'], 'Rejected');
                 redirect('employer/postedjobsrequest');
             }
 

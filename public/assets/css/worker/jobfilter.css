@@ -58,3 +58,54 @@ label {
   color: white;
   padding-bottom: 30px;
 }
+.logo_details {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.logo_details i {
+  color: white;
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo_details {
+    display: flex;
+  }
+
+  .select-container {
+    max-width: 78px;
+  }
+
+  .select-container.open {
+    z-index: 1;
+    min-width: 280px;
+  }
+
+  .select-container .search-container {
+    opacity: 0;
+  }
+
+  .select-container.open .search-container {
+    opacity: 1;
+  }
+
+  .select-container label {
+    opacity: 0;
+  }
+
+  .select-container.open label {
+    opacity: 1;
+  }
+
+  .select-container select {
+    opacity: 0;
+  }
+
+  .select-container.open select {
+    width: 90%;
+    opacity: 1;
+  }
+}

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobfilter.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Category and Location Select</title>
 </head>
+
 <body>
 
     <div class="select-container">
+        <div class="logo_details">
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
         <div class="search-container">
             <input type="text" id="search" placeholder="Search...">
             <button>Search</button>
         </div>
-   
-  
+
+
         <label for="category">Category</label>
         <select id="category">
             <option value="Technicians">All</option>
@@ -45,11 +52,32 @@
             <option value="Kadawatha">Galle</option>
             <option value="Kadawatha">Homagama</option>
             <option value="Kadawatha">Kirulapana</option>
-           
+
         </select>
-        
-        
+
+
     </div>
-    
+    <script>
+        window.onload = function() {
+            const sidebar = document.querySelector(".select-container");
+            const closeBtn = document.querySelector("#btn");
+            const main = document.querySelector(".main");
+
+            closeBtn.addEventListener("click", function() {
+                sidebar.classList.toggle("open");
+                main.classList.toggle("open");
+                menuBtnChange();
+            });
+
+            function menuBtnChange() {
+                if (sidebar.classList.contains("open")) {
+                    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                } else {
+                    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+                }
+            }
+        };
+    </script>
 </body>
+
 </html>

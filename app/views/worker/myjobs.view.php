@@ -3,6 +3,7 @@
 
 <head>
     <title>Painter Profile</title>
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css"> -->
     <style>
         table {
             margin: 2%;
@@ -134,15 +135,30 @@
         }
 
         .acceptbutton {
-            background-color: #0db344;
+            background-color: #393b5e;
             /* border: none; */
-            border: solid 1px #067908;
+            border: solid 1px #393b5e;
             border-radius: 18px;
             color: #ffffff;
             font-weight: bold;
             width: 100px;
             height: 30px;
             font-weight: 300;
+        }
+
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 650px) {
+            td {
+                display: block;
+            }
+
+            th {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -152,58 +168,59 @@
     <?php include 'workersidebar.php' ?>
     <section id="main" class="main">
         <h2>Your Request to Jobs</h2>
-        <table class="my_table">
-            <thead>
-                <tr class="t_head">
-                    <th>No</th>
-                    <th class="th_one">Worker Name</th>
-                    <th>JOb Title</th>
-                    <th>Work Budget</th>
-                    <th>City</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
+        <div class="table-container">
+            <table class="my_table">
+                <thead>
+                    <tr class="t_head">
+                        <th>No</th>
+                        <th class="th_one">Worker Name</th>
+                        <th>JOb Title</th>
+                        <th>Work Budget</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
 
-            <?php
-            $no = 0;
-            if (is_array($data)) {
-                foreach ($data as $item) {
-                    $no++;
+                <?php
+                $no = 0;
+                if (is_array($data)) {
+                    foreach ($data as $item) {
+                        $no++;
 
-            ?>
-
-
-                    <tbody>
-                        <tr>
-                            <td><?php echo $no ?></td>
-                            <td><?php echo $item->emp_name ?></td>
-                            <td><?php echo $item->title ?></td>
-                            <td>Rs <?php echo $item->newbudget ?>.00</td>
-                            <td><?php echo $item->city ?></td>
-                            <td><?php echo $item->description ?></td>
-                            <td><button class="<?php if ($item->status == "Pending") {
-                                                    echo "pendingbutton";
-                                                } elseif ($item->status == "Accepted") {
-                                                    echo "acceptbutton";
-                                                } else {
-                                                    echo "rejectbutton";
-                                                }
-                                                ?>"><?php echo $item->status ?></button></td>
-
-                        </tr>
-
-                    </tbody>
+                ?>
 
 
+                        <tbody>
+                            <tr>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $item->emp_name ?></td>
+                                <td><?php echo $item->title ?></td>
+                                <td>Rs <?php echo $item->newbudget ?>.00</td>
+                                <td><?php echo $item->city ?></td>
+                                <td><?php echo $item->description ?></td>
+                                <td><button class="<?php if ($item->status == "Pending") {
+                                                        echo "pendingbutton";
+                                                    } elseif ($item->status == "Accepted") {
+                                                        echo "acceptbutton";
+                                                    } else {
+                                                        echo "rejectbutton";
+                                                    }
+                                                    ?>"><?php echo $item->status ?></button></td>
 
-            <?php
+                            </tr>
+
+                        </tbody>
+
+
+
+                <?php
+                    }
                 }
-            }
 
-            ?>
-        </table>
-
+                ?>
+            </table>
+        </div>
     </section>
 </body>
 
