@@ -80,7 +80,7 @@ class RequestJob extends Controller
                 $newdata['worker_id'] = $worker_id;
                 $newdata['emp_name'] = $results[0]->name;
                 $newdata['status'] = "Pending";
-                $message = "Job have new Job request from";
+                $message = "Job have new Job request from {$worker_name}";
                 $array['message'] = $message;
                 $array['emp_id'] = $results[0]->emp_id;
                 $array['notification_name'] = $worker_name;

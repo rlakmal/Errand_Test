@@ -9,7 +9,6 @@
 
     <title>Document</title>
 </head>
-
 <body>
     <div class="sidebar">
         <div class="logo_details">
