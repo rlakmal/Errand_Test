@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
     <style>
         /* Add your new CSS styles here */
+        /* Add your new CSS styles here */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
@@ -103,6 +104,17 @@
 
         .newicons.clicked i {
             color: #f4f4f4
+        }
+
+        @media only screen and (max-width: 768px) {
+            .profile-container2 {
+                max-width: 99%;
+            }
+
+            .index {
+                margin-left: 0;
+                padding-left: 0;
+            }
         }
     </style>
 

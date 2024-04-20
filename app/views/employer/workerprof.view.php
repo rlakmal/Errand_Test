@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
 
     <style>
-        .profile-container3 {
-            top: 75px;
-            left: 100px;
-        }
-
+      
         .homenavbar {
             width: 100%;
             position: fixed;
