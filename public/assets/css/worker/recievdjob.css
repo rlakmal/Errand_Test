@@ -184,13 +184,16 @@ form .view-profile-button {
   border-radius: 20px;
 }
 form .edit-profile-button {
-  background-color: rgb(5 167 0);
+  background-color: rgb(213, 108, 28);
   color: rgb(255, 255, 255);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   text-align: center;
   border-radius: 20px;
+}
+form .edit-profile-button:hover {
+  background-color: #212336;
 }
 .request-profile-button {
   background-color: rgb(213, 108, 28);
@@ -200,6 +203,9 @@ form .edit-profile-button {
   cursor: pointer;
   text-align: center;
   border-radius: 20px;
+}
+.request-profile-button:hover {
+  background-color: #212336;
 }
 .popup-view {
   position: absolute;
