@@ -57,20 +57,19 @@
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
-
-
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
-                            <div class="location">
-                                <?php echo $item->city ?>
-                                <i class="bx bxs-map icon"></i>
-                            </div>
-
 
                         </div>
-                        <a href="<?= ROOT ?>/employer/viewjob?id=<?php echo $item->id ?>"><button class="view-profile-button" id="request-button">View</button></a>
+                        <div class="bottom-index">
+                            <div class="location">
+                                <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
+                            </div>
+                            <div class="buton_bar">
+                                <a href="<?= ROOT ?>/employer/viewjob?id=<?php echo $item->id ?>"><button class="view-profile-button" id="request-button">View</button></a>
+                            </div>
+                            <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
-                        <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
-
+                        </div>
                     </div>
                 </div>
         <?php
