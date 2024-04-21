@@ -4,9 +4,10 @@
 <head>
     <title>Painter Profile</title>
 
+
     <style>
         table {
-            margin: 2%;
+            margin: 3%;
             margin-left: 3%;
             width: 94%;
             border: 3px solid #bbbbbb;
@@ -89,11 +90,6 @@
             font-weight: bold;
             color: #009879;
         }
-
-
-
-
-
         .acceptbutton {
             background-color: #393b5e;
             /* border: none; */
@@ -137,7 +133,7 @@
                         <th class="th_one">Worker Name</th>
                         <th>JOb Title</th>
                         <th>Work Budget</th>
-                        <th>Charges</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
 
