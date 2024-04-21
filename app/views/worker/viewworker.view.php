@@ -65,10 +65,6 @@
 <body>
   <?php include 'workernav.php' ?>
   <?php include 'workerfilter.php' ?>
-
-
-
-
   <div class="main-container4">
     <?php
     if (is_array($data)) {
