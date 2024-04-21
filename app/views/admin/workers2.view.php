@@ -23,28 +23,12 @@
             overflow-x: scroll;
         }
 
-        .form {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            padding: 10px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .icon {
-            font-size: 24px;
-        }
 
         .table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            z-index: -9999;
         }
 
         .table th, .table td {
@@ -129,25 +113,27 @@
             <select class="form-group" name="location">
                 <!-- Add more locations as needed -->
             </select>
-            <input class="form-group" type="text" placeholder="Search...">
+            <input class="form-group" type="text" id="searchInput" placeholder="Search..." onkeyup="search()">
             <i class='bx bx-search icon'></i>
         </div>
     </form>
-    <table class="table">
+    <table class="table" id="workersTable">
         <thead>
         <tr>
-            <th class="ordId">Worker Name</th>
-            <th class="desc">Category</th>
-            <th class="stth">Worker ID</th>
-            <th class="cost">Contact</th>
-            <th class="verified">Verified</th>
+            <th></th>
+            <th class="ordId">WORKER NAME</th>
+            <th class="desc">CATEGORY</th>
+            <th class="stth">WORKER ID</th>
+            <th class="cost">USERNAME</th>
+            <th class="verified">VERIFIED</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
+        <?php $index = 1; ?>
         <?php foreach ($data as $worker) : ?>
             <tr>
-<!--                <td>--><?php //= $index + 1 ?><!--</td>-->
+                <td><?= $index ?></td>
                 <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
                 <td><?= $worker->category ?></td>
                 <td><?= $worker->id ?></td>
@@ -167,6 +153,7 @@
                     </a>
                 </td>
             </tr>
+            <?php $index++; ?>
         <?php endforeach; ?>
         </tbody>
     </table>
@@ -174,6 +161,32 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/1/1.0.7/iconify-icon.min.js"></script>
 <script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+
+<script>
+    function search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("workersTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            tdName = tr[i].getElementsByTagName("td")[1]; // Worker Name
+            tdId = tr[i].getElementsByTagName("td")[3]; // Worker ID
+            if (tdName || tdId) {
+                txtValueName = tdName.textContent || tdName.innerText;
+                txtValueId = tdId.textContent || tdId.innerText;
+                if (txtValueName.toUpperCase().indexOf(filter) > -1 || txtValueId.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </body>
 
 </html>

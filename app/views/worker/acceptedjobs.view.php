@@ -3,6 +3,7 @@
 
 <head>
     <title>Painter Profile</title>
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -92,7 +93,7 @@
 
 <body>
     <?php include 'workernav.php' ?>
-    <?php include 'jobnav.php' ?>
+    <?php include 'workersidebar.php' ?>
     <?php
     if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
         for ($i = 0; $i < count($data['data']); $i++) {

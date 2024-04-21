@@ -52,8 +52,10 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">42</div>
-                        <div class="cardName">Verfied Workers</div>
+                        <div class="numbers"><?=$faccep?></div>
+                        <div class="cardName">Accepted Requests</div>
+                        <small class="text-muted">Last 14 days</small>
+
                     </div>
 
                     <div class="iconBx verifiedWorkers">
@@ -92,76 +94,82 @@
             <div class="details">
                 <div class="recentWorkers">
                     <div class="cardHeader">
-                        <h2>Recent Workers</h2>
+                        <h2>Recently Accepted Requests</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Price</td>
+                                <td>Title</td>
+                                <td>ID</td>
                                 <td>Payment</td>
-                                <td>Status</td>
+                                <td>Payment Status</td>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
+
+                        <?php foreach ($data["eightacc"] as $acc):?>
 
                             <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
+                                <td><?=$acc->title?></td>
+                                <td><?=$acc->id?></td>
+                                <td><?=$acc->budget*0.05?></td>
+                                <td><span class="status delivered"><?=$acc->payment_stat?></span></td>
                             </tr>
 
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
+                        <?php endforeach;?>
 
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+<!--                            <tr>-->
+<!--                                <td>Dell Laptop</td>-->
+<!--                                <td>$110</td>-->
+<!--                                <td>Due</td>-->
+<!--                                <td><span class="status pending">Pending</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Apple Watch</td>-->
+<!--                                <td>$1200</td>-->
+<!--                                <td>Paid</td>-->
+<!--                                <td><span class="status return">Return</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Addidas Shoes</td>-->
+<!--                                <td>$620</td>-->
+<!--                                <td>Due</td>-->
+<!--                                <td><span class="status inProgress">In Progress</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Star Refrigerator</td>-->
+<!--                                <td>$1200</td>-->
+<!--                                <td>Paid</td>-->
+<!--                                <td><span class="status delivered">Delivered</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Dell Laptop</td>-->
+<!--                                <td>$110</td>-->
+<!--                                <td>Due</td>-->
+<!--                                <td><span class="status pending">Pending</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Apple Watch</td>-->
+<!--                                <td>$1200</td>-->
+<!--                                <td>Paid</td>-->
+<!--                                <td><span class="status return">Return</span></td>-->
+<!--                            </tr>-->
+<!---->
+<!--                            <tr>-->
+<!--                                <td>Addidas Shoes</td>-->
+<!--                                <td>$620</td>-->
+<!--                                <td>Due</td>-->
+<!--                                <td><span class="status inProgress">In Progress</span></td>-->
+<!--                            </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -169,81 +177,87 @@
                 <!-- ================= New Customers ================ -->
                 <div class="recentCustomers">
                     <div class="cardHeader">
-                        <h2>Recent Customers</h2>
+                        <h2>Recent Registrations</h2>
                     </div>
 
                     <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
+                        <?php foreach ($data["eight"] as $reg):?>
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td width="60px">
+                                    <div class="imgBx"><img src="<?= ROOT ?>/assets/images/profileImages/<?=$reg->profile_image?>" alt=""></div>
+                                </td>
+                                <td>
+                                    <h4><?=$reg->name?> <br> <span><?=$reg->status?></span></h4>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
+                        <?php endforeach;?>
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="<?= ROOT ?>/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>Amit <br> <span>India</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>David <br> <span>Italy</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>Amit <br> <span>India</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>David <br> <span>Italy</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>Amit <br> <span>India</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer01.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>David <br> <span>Italy</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!---->
+<!--                        <tr>-->
+<!--                            <td width="60px">-->
+<!--                                <div class="imgBx"><img src="--><?php //= ROOT ?><!--/assets/tempory_images_for_crewmember/customer02.jpg" alt=""></div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <h4>Amit <br> <span>India</span></h4>-->
+<!--                            </td>-->
+<!--                        </tr>-->
                     </table>
                 </div>
             </div>
@@ -256,7 +270,7 @@
                 </div>
 
                 <div class="chart-card" style="width: 50%">
-                    <h2 class="chart-title">Job Requests</h2>
+                    <h2 class="chart-title">Tickets</h2>
                     <div id="area-chart"></div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ class SignIn2 extends Controller
         // sign up validation
         if (isset($_POST['signUp'])) {
 
-            if ($user->validate($_POST)) {
+            if ($user->validate($_POST) && $user->formData($_POST)) {
 
                 $qdata["email"] = $_POST["email"];
 
@@ -51,6 +51,12 @@ class SignIn2 extends Controller
                 }
 
 
+            } else{
+                $data['errors'] = array_merge($user->errors, $user->errors2);
+                $data['loginData'] = $_POST;
+
+                // show($data);
+                $this->view('signin', $data);
             }
         }
 

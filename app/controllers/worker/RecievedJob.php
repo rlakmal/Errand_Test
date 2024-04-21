@@ -22,18 +22,24 @@ class RecievedJob extends Controller
                 $updateData = [
                     'status' => 'Rejected',
                 ];
-                $recieved->update($id, $updateData, 'id');;
+                $recieved->update($id, $updateData, 'id');
+                $this->sendNotification($_POST['emp_id'], $_POST['title'], 'Rejected');
                 redirect('worker/recievedjobs');
             }
             if (isset($_POST['Accept'])) {
                 $id = $_POST['id'];
-                //show($_POST);
+                show($_POST);
+
                 $updateData = ['status' => 'Accepted'];
-                $recieved->update($id, $updateData, 'id');;
+                $recieved->update($id, $updateData, 'id');
+                $this->sendNotification($_POST['emp_id'], $_POST['title'], 'Accepted');
                 unset($_POST['id']);
                 unset($_POST['Accept']);
                 //show($_POST);
-                $_POST['payment_stat'] = "Make Payment";
+
+                $_POST['payment_stat'] = "Pay Now";
+                $_POST["type"] = "employer";
+
                 $accepted_jobs->insert($_POST);
 
                 redirect('worker/acceptedjobs');
@@ -47,7 +53,6 @@ class RecievedJob extends Controller
                 unset($_POST['city']);
                 unset($_POST['description']);
                 unset($_POST['emp_name']);
-                unset($_POST['worker_name']);
                 unset($_POST['status']);
                 unset($_POST['created']);
                 unset($_POST['ReqBudget']);
@@ -90,5 +95,16 @@ class RecievedJob extends Controller
                 $this->view('worker/recievedjobs');
             }
         }
+    }
+    public function sendNotification($emp_id, $title, $status)
+    {
+        $notification = new JobNotify;
+        $worker_name = $_SESSION['USER']->name;
+        $arr['emp_id'] = $emp_id;
+        $arr['message'] = "Your Request to " . $worker_name . " has been " . $status;
+        $arr['notification_name'] = $worker_name;
+        $arr['active'] = 1;
+        //show($arr);
+        $notification->insert($arr);
     }
 }

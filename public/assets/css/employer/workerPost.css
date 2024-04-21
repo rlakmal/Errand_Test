@@ -3,12 +3,14 @@ body {
   background-color: #f6f1ff;
 }
 .profile-container2 {
+  display: flex;
   background-color: #ffffff;
-  width: 800px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 900px;
+  box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
   padding: 20px;
   height: 150px;
   border-radius: 20px;
+  flex-direction: row;
 }
 .main-container2 :hover {
   box-shadow: 0 3px 9px 2px rgba(64, 60, 67, 0.24);
@@ -23,7 +25,10 @@ body {
 }
 
 .picture .image {
-  max-width: 80px;
+  border-radius: 50%;
+  /* max-width: 80px; */
+  width: 75px;
+  height: 75px;
 }
 
 .profile-name {
@@ -50,9 +55,13 @@ body {
 }
 .location {
   float: right;
-  font-size: 16px; /* Adjust the font size to make it readable */
-  color: black;
-  margin-top: -100px;
+  font-size: 14px;
+}
+.buton_bar {
+  display: flex;
+  height: 94px;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .view-profile-button {
   margin-top: -40px;
@@ -66,8 +75,13 @@ body {
   text-align: center;
 }
 .index {
-  margin-top: -90px;
-  margin-left: 150px;
+  margin-top: -12px;
+  display: flex;
+  flex-grow: 1;
+  margin-left: 35px;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 132px;
 }
 .homenavbar {
   width: 100%;
@@ -83,4 +97,24 @@ body {
 }
 .set-margin {
   margin-top: 92px;
+}
+.bottom-index {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media only screen and (max-width: 768px) {
+  .profile-container2 {
+    width: 90%;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

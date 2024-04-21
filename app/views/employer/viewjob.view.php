@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -76,9 +76,9 @@
                         </h3>
                         <div type="text" name="city" value="" class="edit-gen" readonly><?php echo $item->city ?></div>
                         <h3>
-                            Address
+                            Category
                         </h3>
-                        <div type="text" name="address" value="" class="edit-gen" readonly><?php echo $item->address ?></div>
+                        <div type="text" name="category" value="" class="edit-gen" readonly><?php echo $item->category ?></div>
                         <h3>
                             Budget
                         </h3>

@@ -19,7 +19,7 @@
         if (is_array($data)) {
 
             foreach ($data as $item) {
-                // show($item);
+                //show($item);
                 // තණකොළ කැපීමට සේවකයෙකු අවශ්‍යයි
                 date_default_timezone_set('Asia/Kolkata');
                 $date1 = new DateTime($item->job_created);
@@ -48,7 +48,7 @@
 
                 // echo $times_ago;;
         ?>
-                <div class="post-container">
+                <div class="post-container" id="myData">
                     <div class="profile-container2">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
@@ -57,20 +57,19 @@
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
-
-
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
-                            <div class="location">
-                                <?php echo $item->city ?>
-                                <i class="bx bxs-map icon"></i>
-                            </div>
-
 
                         </div>
-                        <a href="<?= ROOT ?>/employer/viewjob?id=<?php echo $item->id ?>"><button class="view-profile-button" id="request-button">View</button></a>
+                        <div class="bottom-index">
+                            <div class="location">
+                                <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
+                            </div>
+                            <div class="buton_bar">
+                                <a href="<?= ROOT ?>/employer/viewjob?id=<?php echo $item->id ?>"><button class="view-profile-button" id="request-button">View</button></a>
+                            </div>
+                            <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
 
-                        <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
-
+                        </div>
                     </div>
                 </div>
         <?php
@@ -78,6 +77,26 @@
         }
         ?>
     </div>
+
+    <script>
+        function searchTable() {
+            var input, filter, data, items, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            data = document.getElementById("set-marginid");
+            items = data.getElementsByClassName("post-container");
+
+            for (i = 0; i < items.length; i++) {
+                txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 
 </body>
 

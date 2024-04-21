@@ -18,10 +18,9 @@
 }
 
 input[type="text"] {
-  width: 200px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
 }
 
 button {
@@ -58,4 +57,56 @@ select option {
 label {
   color: white;
   padding-bottom: 30px;
+}
+.logo_details {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.logo_details i {
+  color: white;
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo_details {
+    display: flex;
+  }
+
+  .select-container {
+    max-width: 78px;
+  }
+
+  .select-container.open {
+    z-index: 1;
+    min-width: 280px;
+  }
+
+  .select-container .search-container {
+    display: none;
+  }
+
+  .select-container.open .search-container {
+    opacity: 1;
+    display: flex;
+  }
+
+  .select-container label {
+    display: none;
+  }
+
+  .select-container.open label {
+    display: block;
+  }
+
+  .select-container select {
+    display: none;
+  }
+
+  .select-container.open select {
+    width: 90%;
+    display: block;
+  }
 }

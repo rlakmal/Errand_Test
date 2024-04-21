@@ -22,18 +22,22 @@
                 <div class="main-container2">
                     <div class="profile-container2">
                         <div class="picture">
-                            <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt="">
+                            <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="">
                         </div>
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-type"><?php echo $item->category ?></div>
                             <div class="profile-ratings">Ratings: 4.9</div>
                             <div class="job-count">Jobs Completed: 50+</div>
-                            <div class="location"><?php echo $item->city ?></div>
-
                         </div>
-                        <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">View Profile</button></a>
-
+                        <div class="bottom-index">
+                            <div class="location">
+                                <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
+                            </div>
+                            <div class="buton_bar">
+                                <a href="<?= ROOT ?>/worker/viewworker?id=<?php echo $item->emp_id ?>"><button class="view-profile-button">View Profile</button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
         <?php

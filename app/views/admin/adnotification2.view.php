@@ -9,24 +9,146 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef;
+            color: #333;
+        }
+
+        .main {
+            margin: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #555;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .form {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            color: #666;
+        }
+
+        .icon {
+            font-size: 20px;
+            color: #666;
+            margin-left: -40px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .table th {
+            background-color: #3498db;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .edit-icon {
+            text-align: center;
+        }
+
+        .edit-btn {
+            color: #3498db;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover {
+            color: #2980b9;
+        }
+
+        /* Added styles for filter buttons */
+        .filter-btns {
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            background-color: #ccc;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .filter-btn.active {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
-<!-- Script for customer-orders.js is commented out as it is not provided -->
 <!-- Sidebar -->
 <?php include 'sidebar.php' ?>
 <!-- Navigation bar -->
 <?php include 'navigationbar.php' ?>
-<!-- Scripts -->
-<!--<script src="--><?php //= ROOT ?><!--/assets/js/script-bar.js"></script>-->
 
 <!-- content  -->
 <section id="main" class="main">
     <h2>Announcements</h2>
 
+    <!-- Filter Buttons -->
+    <div class="filter-btns">
+        <button class="filter-btn" id="workerBtn">Worker</button>
+        <button class="filter-btn" id="employerBtn">Employer</button>
+    </div>
+
     <form>
         <div class="form">
-            <input class="form-group" type="text" placeholder="Search...">
+            <input class="form-group" type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">
         </div>
@@ -46,13 +168,13 @@
             <th></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
         <?php
         if (is_array($data)) {
             $i = 1;
             foreach ($data as $item) {
                 ?>
-                <tr>
+                <tr data-worker="<?php echo $item->worker; ?>" data-employer="<?php echo $item->employer; ?>">
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $item->id; ?></td>
                     <td><?php echo $item->title; ?></td>
@@ -62,7 +184,7 @@
                     <td><?php echo $item->created;  unset($item->created); ?></td>
                     <td class="edit-icon">
                         <a href="#" class="edit-btn" data-order="<?= htmlspecialchars(json_encode($item)); ?>">
-                            <i class="bx bxs-edit-alt"></i>
+                            <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
                         </a>
                     </td>
                     <td>
@@ -123,15 +245,59 @@
 
 <div id="overlay" class="overlay"></div>
 
-<!--<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>-->
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<!--<script src="--><?php //= ROOT ?><!--/assets/js/admin/notify.js"></script>-->
-
 <script>
     let overlay = document.getElementById("overlay");
     let popupReport = document.querySelector(".popup-report");
     let popupView = document.querySelector(".popup-view");
     let editButtons = document.querySelectorAll('.edit-btn');
+    let tableBody = document.getElementById('tableBody');
+    let workerBtn = document.getElementById('workerBtn');
+    let employerBtn = document.getElementById('employerBtn');
+
+    // Filter buttons functionality
+    workerBtn.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            filterItems('worker', false);
+        } else {
+            toggleFilter(this);
+            filterItems('worker', true);
+        }
+    });
+
+    employerBtn.addEventListener('click', function() {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            filterItems('employer', false);
+        } else {
+            toggleFilter(this);
+            filterItems('employer', true);
+        }
+    });
+
+    function toggleFilter(btn) {
+        // Remove 'active' class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(function(button) {
+            button.classList.remove('active');
+        });
+        // Add 'active' class to the clicked button
+        btn.classList.add('active');
+    }
+
+    function filterItems(filterType, isActive) {
+        Array.from(tableBody.children).forEach(function(row) {
+            let dataAttr = row.getAttribute('data-' + filterType);
+            if (isActive) {
+                if (dataAttr === "1") {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
 
     editButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -142,10 +308,7 @@
     });
 
     function openView(itemData) {
-
-        console.log("kariya")
         dataBindtoForm(itemData);
-
         popupView.classList.add("open-popup-view");
         overlay.classList.add("overlay-active");
     }
@@ -173,6 +336,21 @@
         document.querySelector('.popup-view input[name="worker"]').checked = data.worker;
         document.querySelector('.popup-view input[name="employer"]').checked = data.employer;
     }
+
+    // Search functionality
+    let searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', function() {
+        let searchText = searchInput.value.toLowerCase();
+        Array.from(tableBody.children).forEach(function(row) {
+            let id = row.children[1].textContent.trim().toLowerCase();
+            let title = row.children[2].textContent.trim().toLowerCase();
+            if (id.includes(searchText) || title.includes(searchText)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
 </script>
 </body>
 

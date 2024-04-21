@@ -5,7 +5,8 @@ class PayNotifyOne extends Controller
     public function index($a = '', $b = '', $c = '')
     {
 
-        $request = new EmployerReqWorker();
+        var_dump("Mogger!!!");
+        $request = new AcceptedRequest();
         // echo "this is a about controller";
         if($_SESSION["USER"]->status == "employer"){
             if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -31,16 +32,17 @@ class PayNotifyOne extends Controller
                 );
 
                 if (($local_md5sig === $md5sig) AND ($status_code == 2) ){
-                    $qdata["paid"] = "paid";
+                    $qdata["payment_stat"] = "paid";
+//                    $qdata["review_status"] = "Completed";
                 } else if(($local_md5sig === $md5sig) AND ($status_code == -2)){
-                    $qdata["paid"] = "failed";
+                    $qdata["payment_stat"] = "failed";
 
                 }else if(($local_md5sig === $md5sig) AND ($status_code == 0)) {
-                    $qdata["paid"] = "pending";
+                    $qdata["payment_stat"] = "pending";
                 }else if(($local_md5sig === $md5sig) AND ($status_code == -3)) {
-                    $qdata["paid"] = "chargedback";
+                    $qdata["payment_stat"] = "chargedback";
                 }else if(($local_md5sig === $md5sig) AND ($status_code == 1)) {
-                    $qdata["paid"] = "unpaid";
+                    $qdata["payment_stat"] = "unpaid";
                 }
 
                 $request->update(intval($order_id), $qdata);

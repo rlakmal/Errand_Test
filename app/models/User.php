@@ -20,6 +20,7 @@ class User
 		'profile_image',
 	];
 
+
 	public function validate($data)
 	{
 		$this->errors = [];
@@ -81,33 +82,34 @@ class User
 
 	public function formData($data)
 	{
-		$this->errors = [];
+        $this->errors2 = [];
 
-		// show($data);
+
+        // show($data);
 		// is empty email 
 		if (empty($data['email'])) {
 
-			$errors['flag'] = true;
-			$errors['email'] = "Email is Required";
+			$this->errors2['flag'] = true;
+            $this->errors2['email'] = "Email is Required";
 		}
 
 		// email validation
 		if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-			$errors['flag'] = true;
-			$errors['email'] = "Email is not Valid";
+            $this->errors2['flag'] = true;
+            $this->errors2['email'] = "Email is not Valid";
 		}
 
 		// is empty password 
 		if (empty($data['password'])) {
-			$errors['flag'] = true;
-			$errors['password'] = "password is Required";
+            $this->errors2['flag'] = true;
+            $this->errors2['password'] = "password is Required";
 		}
 
-		if (empty($errors)) {
+		if (empty($this->errors2)) {
 			return true;
 		} else {
-			$errors['password1'] = $data['password'];
-			$errors['email1'] = $data['email'];
+            $this->errors2['password1'] = $data['password'];
+            $this->errors2['email1'] = $data['email'];
 
 			return false;
 		}

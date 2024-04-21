@@ -46,17 +46,58 @@
       position: absolute;
       border-radius: 20px;
     }
+
+      .popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 40px; /* Increase padding for a bigger popup */
+          border-radius: 20px; /* Add curved edges */
+          z-index: 1000;
+          display: none;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+          animation: popup-animation 0.5s ease forwards; /* Add animation */
+      }
+
+      .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          display: none;
+      }
+
+      /* Animation keyframes */
+      @keyframes popup-animation {
+          0% { transform: scale(0.5); opacity: 0; }
+          100% { transform: scale(1); opacity: 1; }
+      }
+
+      .popup img {
+          position: absolute;
+          top: -20px;
+          right: -20px;
+          width: 100px; /* Adjust size of the image */
+          height: 50px; /* Adjust size of the image */
+          border-radius: 50%; /* Make the image round */
+          border: 2px solid #fff; /* Add border for contrast */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+      }
+
   </style>
 
   <div class="main-container4">
     <div class="profile-container3">
       <a href="<?= ROOT ?>/admin/employers"><button class="close-button">Close</button></a>
-        <form action='<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>'  method='post'>
-            <input type="submit" class="archive-button archive" value="Delete" name="Delete"/>
+        <button style="border-radius: 20px; background-color: red" class="close-button" id="delete-button">Delete</button>
 
-        </form>
 
-      <div class="picture">
+        <div class="picture">
         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="Image">
       </div>
       <div class="picture">
@@ -90,6 +131,30 @@
       </div>
 
     </div>
+
+      <div class="popup" id="popup">
+          <img src="<?=ROOT?>/assets/images/logoe.png" alt="Image" /> <!-- Add your image here -->
+          <h2>Are you sure you want to delete?</h2>
+          <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>">
+              <input style="margin-top: 5px; border-radius: 20px" type="submit" class="archive-button archive" value="Yes, Delete" name="Delete">
+          </form>
+          <button style="background-color: #1eea07; border-radius: 20px" class="archive-button archive" id="cancel-delete">No, Cancel</button>
+      </div>
 </body>
+
+<script>
+    // Function to display popup when delete button is clicked
+    document.getElementById('delete-button').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('popup-overlay').style.display = 'block';
+    });
+
+    // Function to close popup when cancel button is clicked
+    document.getElementById('cancel-delete').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('popup-overlay').style.display = 'none';
+    });
+
+</script>
 
 </html>

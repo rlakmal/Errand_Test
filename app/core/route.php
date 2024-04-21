@@ -35,6 +35,7 @@ route('employer/workerprof', 'employer/Workerprofview@index');
 route('employer/dashboard', 'employer/Dashboard@index');
 
 route('employer/myjob', 'employer/Myjob@index');
+route('employer/paynotify', 'employer/PayNotifyOne@index');
 route('employer/postedjobsrequest', 'employer/PostedjobsRequest@index');
 route('employer/myworkerreq', 'employer/RequestByME@index');
 route('employer/profile', 'employer/EmployerProfile@index');
@@ -43,12 +44,22 @@ route('employer/notifications', 'employer/EmpNotification@index');
 route('employer/tickets', 'employer/Tickets@index');
 route('employer/acceptedreq', 'employer/AcceptedRequest@index');
 route('employer/viewjob', 'employer/ViewJob@index');
+route('employer/reviewreq', 'employer/ReviewRequest@index');
+
 
 // AJAX
 route('employer/view_request', 'employer/RequestByME@viewRequest');
 route('employer/count_request', 'employer/Myjob@countRequest');
 
+route('employer/paymentgate', 'employer/AcceptedRequest@paymentConfig');
+route('employer/paidstatus', 'employer/AcceptedRequest@updatePayStatus');
+route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
+route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
+route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
+route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
+route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
+route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 
 /*---------------------------------------------------------------------
     worker routes
@@ -66,7 +77,13 @@ route('worker/acceptedjobs', 'worker/AcceptedJobs@index');
 route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
-
+route('worker/editprofile', 'worker/EditProfile@index');
+route('worker/viewjobmap', 'worker/ViewMap@index');
+// AJAX
+route('worker/workerprofilerating', 'worker/WorkerProfile@WorkerProfileRating');
+route('worker/workerrequestjob', 'worker/RequestJob@insertRequest');
+route('worker/notifyjobcount', 'worker/WorkerNotification@eJobNotify');
+route('worker/fetchlocations', 'worker/ViewMap@SendLocations');
 /*---------------------------------------------------------------------
     admin routes
 --------------------------------------------------------------------- */
@@ -85,6 +102,10 @@ route('admin/workerprof', 'admin/WorkerProf@index');
 route('admin/message', 'admin/Message@index');
 route('admin/emprequests', 'admin/EmpRequests@index');
 route('admin/workrequests', 'admin/WorkRequests@index');
+route('admin/accrequests', 'admin/AccRequests@index');
+route('admin/viewjob', 'admin/ViewJob@index');
+route('admin/editemployeracc', 'admin/EditEmployerAcc@index');
+
 
 
 /*---------------------------------------------------------------------
