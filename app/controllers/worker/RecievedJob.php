@@ -37,7 +37,7 @@ class RecievedJob extends Controller
                 unset($_POST['Accept']);
                 //show($_POST);
 
-                $_POST['payment_stat'] = "unpaid";
+                $_POST['payment_stat'] = "Pay Now";
                 $_POST["type"] = "employer";
 
                 $accepted_jobs->insert($_POST);

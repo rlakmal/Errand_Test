@@ -6,11 +6,9 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/workerprofile.css">
+  <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/viewworkerprofile.css">
 
   <style>
-  
-
     .homenavbar {
       width: 100%;
       position: fixed;
@@ -67,15 +65,12 @@
 <body>
   <?php include 'workernav.php' ?>
   <?php include 'workerfilter.php' ?>
+  <div class="main-container4">
+    <?php
+    if (is_array($data)) {
+      foreach ($data as $item) {
 
-
-  <?php
-  if (is_array($data)) {
-    foreach ($data as $item) {
-
-  ?>
-
-      <div class="main-container4">
+    ?>
         <div class="profile-container3">
 
           <!-- <a><button class="close-button">Edit profile</button></a> -->
@@ -193,13 +188,50 @@
             <a href="<?= ROOT ?>/worker/services"><i class='bx bxs-x-circle'></i></a>
           </div>
         </div>
+
     <?php
+      }
     }
-  }
     ?>
+    <div class="review-container">
+      <div class="tags">
+        <h2 class="info">Reviews</h2>
+      </div>
+      <?php
+      if (is_array($results)) {
+        foreach ($results as $item) {
+      ?>
+          <div class="review_info">
+            <h2><?php echo $item->user_name ?></h2>
+            <div class="review_star">
+              <?php
+              for ($i = 1; $i <= 5; $i++) {
+                if ($item->rating_data >= $i) {
+              ?>
+                  <i class="fas fa-star text-warning"></i>
+                <?php
+                } else {
+                ?>
+                  <i class="fas fa-star star-light"></i>
+              <?php
+                }
+              }
+              ?>
+            </div>
+            <p><?php echo $item->user_review ?></p>
+          </div>
+      <?php
+        }
+      }
+      ?>
+    </div>
+
+
+
     <div id="myModal" class="modal">
       <img class="modal-content" id="modalImage">
     </div>
+  </div>
 </body>
 <script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
 
@@ -335,7 +367,7 @@
             html += '</div>';
           }
 
-          $('#review_content').html(html);
+
         }
       }
     })

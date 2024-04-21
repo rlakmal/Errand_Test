@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobpopup.css">
 
     <style>
-      
         .homenavbar {
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 10;
+        }
+
+        .profile-container3 {
+            top: 75px;
+            left: 10%;
         }
 
         .close-button {
@@ -55,6 +59,39 @@
             max-height: 80%;
             object-fit: contain;
         }
+
+        .review-container {
+            display: flex;
+            margin-top: 1%;
+            position: relative;
+            padding: 15px;
+            background-color: #ffffff;
+            width: 75%;
+            height: 50%;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            flex-direction: column;
+            top: 75px;
+            left: 10%;
+        }
+
+        .review_info {
+            border: 1px solid #e8e8e8;
+            margin: 15px;
+            margin-left: 115px;
+            padding: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .review-container {
+                height: 80%;
+                display: flex;
+                width: 94%;
+                margin-left: 0;
+                flex-direction: column;
+                left: 10%;
+            }
+        }
     </style>
 </head>
 
@@ -62,15 +99,13 @@
     <?php include 'employernav.php' ?>
     <?php include 'empfilter.php' ?>
 
+    <div class="main-container4">
+        <?php
+        if (is_array($data)) {
+            //show($data);
+            foreach ($data as $item) {
 
-    <?php
-    if (is_array($data)) {
-        //show($data);
-        foreach ($data as $item) {
-
-    ?>
-
-            <div class="main-container4">
+        ?>
                 <div class="profile-container3">
 
                     <!-- <a><button class="close-button">Edit profile</button></a> -->
@@ -200,9 +235,42 @@
 
         <?php
 
+            }
         }
-    }
         ?>
+
+        <div class="review-container">
+            <div class="tags">
+                <h2 class="info">Reviews</h2>
+            </div>
+            <?php
+            if (is_array($results)) {
+                foreach ($results as $item) {
+            ?>
+                    <div class="review_info">
+                        <h2><?php echo $item->user_name ?></h2>
+                        <div class="review_star">
+                            <?php
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($item->rating_data >= $i) {
+                            ?>
+                                    <i class="fas fa-star text-warning"></i>
+                                <?php
+                                } else {
+                                ?>
+                                    <i class="fas fa-star star-light"></i>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                        <p><?php echo $item->user_review ?></p>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
         <div class="popup-view">
             <form method="POST">
                 <h2>Send Job Request</h2>
@@ -225,6 +293,7 @@
         <div id="myModal" class="modal">
             <img class="modal-content" id="modalImage">
         </div>
+    </div>
 </body>
 <script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
 
