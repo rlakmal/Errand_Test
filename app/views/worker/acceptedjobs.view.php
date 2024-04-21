@@ -3,90 +3,72 @@
 
 <head>
     <title>Painter Profile</title>
-    
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+        table {
+            margin: 3%;
+            margin-left: 3%;
+            width: 94%;
+            border: 3px solid #bbbbbb;
+            border-radius: 6px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .my_table {
+            left: 10%;
 
         }
 
-        .profile-container2 {
-            background-color: #ffffff;
-            max-width: 80%;
-            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            height: 150px;
+        .t_head {
+            height: 73px;
+            border: 1px solid black;
+        }
+
+        .th_one {
+            border: 23px;
+        }
+
+        .before_pay {
+            background: #f16a2d;
+            border: #f16a2d;
+            padding: 8px;
             border-radius: 20px;
-        }
-
-        .picture .image {
-            max-width: 50px;
-            border-radius: 50%;
-        }
-
-        .profile-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #000;
-            font-family: 'Lato', sans-serif;
-            margin: 10px 0;
-        }
-
-        .profile-type {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            font-family: 'Lato', sans-serif;
-            margin: 10px 0;
-        }
-
-        .profile-ratings {
-            font-size: 16px;
-            color: #666;
-
-        }
-
-        .budget {
-            font-size: 18px;
-            color: black;
-        }
-
-        .location {
-            float: right;
-            font-size: 16px;
-            /* Adjust the font size to make it readable */
-            color: black;
-            margin-top: -100px;
-        }
-
-        .view-profile-button {
-            margin-top: -5%;
-            float: right;
-            background-color: rgb(255, 117, 117);
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
+            color: white;
             cursor: pointer;
-            display: block;
-            text-align: center;
+            width: 70%;
+
+        }
+
+        .after_pay {
+            background-color: #423d4e;
+            border: #f16a2d;
+            padding: 8px;
             border-radius: 20px;
+            color: white;
+            width: 70%;
+
         }
 
-        .index {
-            margin-top: -50px;
-            margin-left: 60px;
+        .before_pay:hover {
+            background: #2a3441;
         }
 
-        .post-container2 {
-            margin-top: 20px;
-            margin-left: 450px;
-        }
-
-        .status {
-            color: red;
-            padding-left: 350px;
-            margin-top: -20px;
+        .scrollable-table {
+            overflow: auto;
+            max-height: 700px;
         }
     </style>
 </head>
@@ -94,12 +76,55 @@
 <body>
     <?php include 'workernav.php' ?>
     <?php include 'workersidebar.php' ?>
-    <?php
-    if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
-        for ($i = 0; $i < count($data['data']); $i++) {
-            $item = $data['data'][$i];
-            $image = $images['images'][$i];
-    ?>
+    <section id="main" class="main">
+        <h2>Accepted Job Requests</h2>
+        <div class="scrollable-table">
+            <table class="my_table">
+                <thead>
+                    <tr class="t_head">
+                        <th>No</th>
+                        <th class="th_one">Worker Name</th>
+                        <th>JOb Title</th>
+                        <th>Work Budget</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <?php
+                $no = 0;
+                if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
+                    for ($i = 0; $i < count($data['data']); $i++) {
+                        $item = $data['data'][$i];
+                        $image = $images['images'][$i];
+                        $no++;
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $item->emp_name ?></td>
+                                <td><?php echo $item->title ?></td>
+                                <td>Rs <?php echo $item->budget ?> /= per day</td>
+                                <td><button class="">Accepted</button></td>
+                            </tr>
+
+                        </tbody>
+
+                <?php
+                    }
+                }
+
+                ?>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- <?php
+            if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
+                for ($i = 0; $i < count($data['data']); $i++) {
+                    $item = $data['data'][$i];
+                    $image = $images['images'][$i];
+            ?>
 
             <div class="post-container2">
                 <div class="profile-container2">
@@ -118,9 +143,9 @@
             </div>
 
     <?php
-        }
-    }
-    ?>
+                }
+            }
+    ?> -->
 </body>
 
 </html>
