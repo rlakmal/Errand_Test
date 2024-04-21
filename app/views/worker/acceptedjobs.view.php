@@ -4,7 +4,6 @@
 <head>
     <title>Painter Profile</title>
 
-
     <style>
         table {
             margin: 3%;
@@ -43,7 +42,6 @@
         }
 
 
-
         table.table {
             border-collapse: collapse;
             margin: 0px 0;
@@ -53,7 +51,6 @@
             border-radius: 12px;
             padding-right: 15px;
         }
-
         table thead tr {
             background-color: #f4f7fc;
             color: #191919;
@@ -125,6 +122,7 @@
     <?php include 'workersidebar.php' ?>
     <section id="main" class="main">
         <h2>Accepted Job Request</h2>
+
         <div class="scrollable-table">
             <table class="my_table">
                 <thead>
@@ -139,8 +137,10 @@
 
                 <?php
                 $no = 0;
+
                 if (is_array($data)) {
                     foreach ($data as $item) {
+
                         $no++;
                 ?>
                         <tbody>
@@ -149,7 +149,10 @@
                                 <td><?php echo $item->emp_name ?></td>
                                 <td><?php echo $item->title ?></td>
                                 <td>Rs <?php echo $item->budget ?> /= per day</td>
+
                                 <td><a href="<?= ROOT ?>/worker/viewemprofile?id=<?php echo $item->emp_id ?>"><button class="acceptbutton">Employer Details</button></a></td>
+
+
                             </tr>
 
                         </tbody>
