@@ -18,6 +18,11 @@
             z-index: 10;
         }
 
+        .profile-container3 {
+            top: 75px;
+            left: 10%;
+        }
+
         .close-button {
             margin-top: 10px;
             float: right;
@@ -73,6 +78,7 @@
         .review_info {
             border: 1px solid #e8e8e8;
             margin: 15px;
+            margin-left: 115px;
             padding: 10px;
         }
 
