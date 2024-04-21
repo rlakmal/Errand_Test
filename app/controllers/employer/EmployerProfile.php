@@ -7,15 +7,20 @@ class EmployerProfile extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
-
             $user = new User;
+            $reviews = new Ratings;
 
             $use_id = $_SESSION['USER']->id;
-
+            $arr['emp_id'] = $use_id;
             $data = $this->create($user, $use_id);
+            $findreviews = $reviews->where($arr, 'id');
             //show($data);
-
-            $this->view('employer/profile', $data);
+            $viewData = [
+                'results' => $findreviews,
+                'data' => $data
+            ];
+            //show($viewData);
+            $this->view('employer/profile', $viewData);
         } else {
             redirect('home');
         }
