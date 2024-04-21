@@ -82,6 +82,12 @@
             padding: 10px;
         }
 
+        #map {
+            height: 300px;
+            width: 85%;
+            margin-left: 6%;
+        }
+
         @media only screen and (max-width: 600px) {
             .review-container {
                 height: 80%;
@@ -96,7 +102,7 @@
 </head>
 
 <body>
-    <?php include 'employernav.php' ?>
+    <?php include 'employernav2.php' ?>
     <?php include 'empfilter.php' ?>
 
     <div class="main-container4">
@@ -278,8 +284,11 @@
                 <input name="title" type="text" placeholder="Enter Tiltle of the Job">
                 <h4>Budget : </h4>
                 <input name="budget" type="text" placeholder="Enter your Budget">
-                <h4>Location : </h4>
+                <h4>City : </h4>
                 <input name="city" type="text" placeholder="Select Location">
+                <h4>Select Your Location : </h4>
+                <div id="map"></div>
+                <input type="hidden" id="location" name="location">
                 <h4>Description : </h4>
                 <input name="description" type="text" placeholder="Enter your problem">
                 <div class="btns">
@@ -294,146 +303,191 @@
             <img class="modal-content" id="modalImage">
         </div>
     </div>
-</body>
-<script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
+    <script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6GOvTVdWC3aNfI8Jg4gOkyk74hiOB0RE&libraries=places&callback=initMap"></script>
 
-<script>
-    const images = document.querySelectorAll('.image1');
-    const modalImage = document.getElementById('modalImage');
+    <script>
+        let map, marker;
 
-    function openModal(src) {
-        modalImage.src = src;
-        document.getElementById('myModal').style.display = 'flex';
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: 6.871802506297455,
+                    lng: 79.9266435985261
+                },
+                zoom: 7.8
+            });
 
-    }
+            marker = new google.maps.Marker({
+                position: {
+                    lat: 6.871802506297455,
+                    lng: 79.9266435985261
+                },
+                map: map,
+                draggable: true
+            });
 
-    function closeModal() {
-        document.getElementById('myModal').style.display = 'none';
-
-    }
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('myModal')) {
-            closeModal();
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
+            });
         }
-    };
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
-        $(".rating-bar").each(function() {
-            var rating = $(this).data("rating");
-            var progressBar = $(this).find(".progress-bar");
-            var totalReview = $(this).find(".total-review");
 
-            $(this).on("click", function() {
-                var userRating = rating;
+        function placeMarker(location) {
+            marker.setPosition(location);
+            document.getElementById("location").value = `${location.lat()}, ${location.lng()}`;
+        }
 
-                // Update the total reviews and progress bar
-                var currentReviews = parseInt(totalReview.text());
-                totalReview.text(currentReviews + 1);
+        function openReport() {
+            document.getElementById("map").style.display = "block";
+            initMap();
+        }
 
-                var newWidth = (currentReviews + 1) * (100 / userRating) + "%";
-                progressBar.width(newWidth);
+        function closeReport() {
+            document.getElementById("map").style.display = "none";
+        }
+
+        google.maps.event.addDomListener(window, "load", initMap);
+    </script>
+    <script>
+        const images = document.querySelectorAll('.image1');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImage.src = src;
+            document.getElementById('myModal').style.display = 'flex';
+
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $(".rating-bar").each(function() {
+                var rating = $(this).data("rating");
+                var progressBar = $(this).find(".progress-bar");
+                var totalReview = $(this).find(".total-review");
+
+                $(this).on("click", function() {
+                    var userRating = rating;
+
+                    // Update the total reviews and progress bar
+                    var currentReviews = parseInt(totalReview.text());
+                    totalReview.text(currentReviews + 1);
+
+                    var newWidth = (currentReviews + 1) * (100 / userRating) + "%";
+                    progressBar.width(newWidth);
+                });
             });
         });
-    });
 
-    load_rating_data();
+        load_rating_data();
 
-    function load_rating_data() {
-        var id = $('#worker_id').val();
-        console.log(id);
-        $.ajax({
-            url: "<?= ROOT ?>/employer/fetchworkerratingsreviews",
-            method: "POST",
-            data: {
-                id: id,
+        function load_rating_data() {
+            var id = $('#worker_id').val();
+            console.log(id);
+            $.ajax({
+                url: "<?= ROOT ?>/employer/fetchworkerratingsreviews",
+                method: "POST",
+                data: {
+                    id: id,
 
-            },
-            dataType: "JSON",
-            success: function(data) {
-                console.log(data);
-                $('#average_rating').text(data.average_rating);
-                $('#total_review').text(data.total_review);
+                },
+                dataType: "JSON",
+                success: function(data) {
+                    console.log(data);
+                    $('#average_rating').text(data.average_rating);
+                    $('#total_review').text(data.total_review);
 
-                var count_star = 0;
+                    var count_star = 0;
 
-                $('.main_star').each(function() {
-                    count_star++;
-                    if (Math.ceil(data.average_rating) >= count_star) {
-                        $(this).addClass('text-warning');
-                        $(this).addClass('star-light');
-                    }
-                });
+                    $('.main_star').each(function() {
+                        count_star++;
+                        if (Math.ceil(data.average_rating) >= count_star) {
+                            $(this).addClass('text-warning');
+                            $(this).addClass('star-light');
+                        }
+                    });
 
-                $('#total_five_star_review').text(data.five_star_review);
+                    $('#total_five_star_review').text(data.five_star_review);
 
-                $('#total_four_star_review').text(data.four_star_review);
+                    $('#total_four_star_review').text(data.four_star_review);
 
-                $('#total_three_star_review').text(data.three_star_review);
+                    $('#total_three_star_review').text(data.three_star_review);
 
-                $('#total_two_star_review').text(data.two_star_review);
+                    $('#total_two_star_review').text(data.two_star_review);
 
-                $('#total_one_star_review').text(data.one_star_review);
+                    $('#total_one_star_review').text(data.one_star_review);
 
-                $('#five_star_progress').css('width', (data.five_star_review / data.total_review) * 100 + '%');
+                    $('#five_star_progress').css('width', (data.five_star_review / data.total_review) * 100 + '%');
 
-                $('#four_star_progress').css('width', (data.four_star_review / data.total_review) * 100 + '%');
+                    $('#four_star_progress').css('width', (data.four_star_review / data.total_review) * 100 + '%');
 
-                $('#three_star_progress').css('width', (data.three_star_review / data.total_review) * 100 + '%');
+                    $('#three_star_progress').css('width', (data.three_star_review / data.total_review) * 100 + '%');
 
-                $('#two_star_progress').css('width', (data.two_star_review / data.total_review) * 100 + '%');
+                    $('#two_star_progress').css('width', (data.two_star_review / data.total_review) * 100 + '%');
 
-                $('#one_star_progress').css('width', (data.one_star_review / data.total_review) * 100 + '%');
+                    $('#one_star_progress').css('width', (data.one_star_review / data.total_review) * 100 + '%');
 
-                if (data.review_data.length > 0) {
-                    var html = '';
+                    if (data.review_data.length > 0) {
+                        var html = '';
 
-                    for (var count = 0; count < data.review_data.length; count++) {
-                        html += '<div class="row mb-3">';
+                        for (var count = 0; count < data.review_data.length; count++) {
+                            html += '<div class="row mb-3">';
 
-                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">' + data.review_data[count].user_name.charAt(0) + '</h3></div></div>';
+                            html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">' + data.review_data[count].user_name.charAt(0) + '</h3></div></div>';
 
-                        html += '<div class="col-sm-11">';
+                            html += '<div class="col-sm-11">';
 
-                        html += '<div class="card">';
+                            html += '<div class="card">';
 
-                        html += '<div class="card-header"><b>' + data.review_data[count].user_name + '</b></div>';
+                            html += '<div class="card-header"><b>' + data.review_data[count].user_name + '</b></div>';
 
-                        html += '<div class="card-body">';
+                            html += '<div class="card-body">';
 
-                        for (var star = 1; star <= 5; star++) {
-                            var class_name = '';
+                            for (var star = 1; star <= 5; star++) {
+                                var class_name = '';
 
-                            if (data.review_data[count].rating >= star) {
-                                class_name = 'text-warning';
-                            } else {
-                                class_name = 'star-light';
+                                if (data.review_data[count].rating >= star) {
+                                    class_name = 'text-warning';
+                                } else {
+                                    class_name = 'star-light';
+                                }
+
+                                html += '<i class="fas fa-star ' + class_name + ' mr-1"></i>';
                             }
 
-                            html += '<i class="fas fa-star ' + class_name + ' mr-1"></i>';
+                            html += '<br />';
+
+                            html += data.review_data[count].user_review;
+
+                            html += '</div>';
+
+                            html += '<div class="card-footer text-right">On ' + data.review_data[count].datetime + '</div>';
+
+                            html += '</div>';
+
+                            html += '</div>';
+
+                            html += '</div>';
                         }
 
-                        html += '<br />';
-
-                        html += data.review_data[count].user_review;
-
-                        html += '</div>';
-
-                        html += '<div class="card-footer text-right">On ' + data.review_data[count].datetime + '</div>';
-
-                        html += '</div>';
-
-                        html += '</div>';
-
-                        html += '</div>';
+                        $('#review_content').html(html);
                     }
-
-                    $('#review_content').html(html);
                 }
-            }
-        })
-    }
-</script>
+            })
+        }
+    </script>
+</body>
+
+
 
 </html>

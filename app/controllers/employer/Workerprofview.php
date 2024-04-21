@@ -40,6 +40,7 @@ class Workerprofview extends Controller
                 $_POST['status'] = "Pending";
                 $_POST['time_remain'] = time();
                 $request->insert($_POST);
+                //show($_POST);
                 $message = "You have a new request from " . $emp_name;
                 $this->sendNotification($wkr_id, $message, $emp_name);
             }

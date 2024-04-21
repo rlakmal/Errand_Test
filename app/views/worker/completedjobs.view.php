@@ -1,117 +1,171 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Painter Profile</title>
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-    
+        table {
+            margin: 2%;
+            margin-left: 3%;
+            width: 94%;
+            border: 3px solid #bbbbbb;
+            border-radius: 6px;
         }
-        .profile-container2 {
-            background-color: #ffffff;
-            width: 900px;
-            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            height: 150px;
-            border-radius: 20px;
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
         }
-        .picture .image { 
-           max-width: 40px;
+
+        th {
+            background-color: #f2f2f2;
         }
-        
-        .profile-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #000;
-            font-family: 'Lato', sans-serif;
-            margin: 10px 0;
+
+        tr:hover {
+            background-color: #f5f5f5;
         }
-        .profile-type {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            font-family: 'Lato', sans-serif;
-            margin: 10px 0;
+
+        .my_table {
+            left: 10%;
+
         }
-        .profile-ratings {
-            font-size: 16px;
-            color: #666;
-            
+
+        .t_head {
+            height: 73px;
+            border: 1px solid black;
         }
-        .budget {
-            font-size: 18px;
-            color: black;
+
+        .th_one {
+            border: 23px;
         }
-        .location {
-            float: right;
-            font-size: 16px; /* Adjust the font size to make it readable */
-            color: black;
-            margin-top: -100px;
+
+
+
+        table.table {
+            border-collapse: collapse;
+            margin: 0px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            width: 100%;
+            border-radius: 12px;
+            padding-right: 15px;
         }
-        .view-profile-button {
-            margin-top: -40px;
-            float: right;
-            background-color: rgb(255, 117, 117);
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
+
+        table thead tr {
+            background-color: #f4f7fc;
+            color: #191919;
+            text-align: justify;
+            border-radius: 12px;
+        }
+
+        table th,
+        table td {
+            padding: 12px 30px 12px 20px;
+            width: -1px;
+            background-color: #e7e9ff;
+        }
+
+        table tr,
+        table td {
+            background: #ffffff;
+        }
+
+        table tbody tr {
+            border-top: 1px solid #cdcdcd;
+            height: 60px;
+        }
+
+        table tbody tr:nth-of-type(even) {
+            background-color: #191919;
+        }
+
+        table tbody tr:last-of-type {
+            border-top: 2px solid #bcc2ce;
+        }
+
+        table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+
+
+
+
+
+        .acceptbutton {
+            background-color: #393b5e;
+            /* border: none; */
+            border: solid 1px #393b5e;
+            border-radius: 18px;
+            color: #ffffff;
+            font-weight: bold;
+            width: 130px;
+            height: 30px;
+            font-weight: 300;
             cursor: pointer;
-            display: block;
-            text-align: center;
-            border-radius: 20px;
         }
-        .request-profile-button {
-            margin-top: -38px;
-            margin-left: 650px;
-            background-color: rgb(143, 249, 189);
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            display: block;
-            text-align: center;
-            border-radius: 20px;
+
+        .scrollable-table {
+            max-height: 600px;
+            overflow-y: auto;
         }
-        .index{
-            margin-top: -50px;
-            margin-left: 60px;
-        }
-        .post-container2{
-            margin-top: 20px;
-            margin-left: 450px;
-        }
-        .status{
-            color: red;
-            padding-left: 350px;
-            margin-top: -20px;
+
+        @media (max-width: 650px) {
+            td {
+                display: block;
+            }
+
+            th {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
-<?php include 'workernav.php'?>
-<?php include 'jobnav.php'?>
-    <div class="post-container2">
-        <div class="profile-container2">
-            <div class="picture">
-                <img class="image" src="<?=ROOT?>/assets/images/employer/profile.jpg" alt="">
-            </div>
-            <div class="index">
-                <div class="profile-name">Shehan ferando</div>
-                <div class="profile-ratings">3 hrs ago</div>
-                <div class="profile-type">Need an Electrician</div>            
-                <div class="budget">RS 4000/= per day</div>
-                <div class="location">Gampaha</div>
-                
-            </div>
-            <a></a><button class="view-profile-button">Completed</button></a>
-            <a></a><button class="request-profile-button">Rate Worker</button></a>
-            
+    <?php include 'workernav.php' ?>
+    <?php include 'workersidebar.php' ?>
+    <section id="main" class="main">
+        <h2>Accepted Job Request</h2>
+        <div class="scrollable-table">
+            <table class="my_table">
+                <thead>
+                    <tr class="t_head">
+                        <th>No</th>
+                        <th class="th_one">Worker Name</th>
+                        <th>JOb Title</th>
+                        <th>Work Budget</th>
+                        <th>Charges</th>
+                    </tr>
+                </thead>
+
+                <?php
+                $no = 0;
+                if (is_array($data)) {
+                    foreach ($data as $item) {
+                        $no++;
+                ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $item->emp_name ?></td>
+                                <td><?php echo $item->title ?></td>
+                                <td>Rs <?php echo $item->budget ?> /= per day</td>
+                                <td><button class="acceptbutton">Rate Employer</button></td>
+                            </tr>
+
+                        </tbody>
+
+                <?php
+                    }
+                }
+
+                ?>
+            </table>
         </div>
-    </div>
+    </section>
 </body>
 
 </html>

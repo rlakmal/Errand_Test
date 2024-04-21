@@ -227,10 +227,9 @@ body {
   .review-container {
     height: 80%;
     display: flex;
-    width: 94%;
+    width: 100%;
     margin-left: 0;
     flex-direction: column;
-    left: 10%;
   }
   .close-button {
     align-items: center;
