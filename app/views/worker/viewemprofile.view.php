@@ -7,12 +7,46 @@
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/workerprof.css"> -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <style>
+        .homenavbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
 
+        .main-container4 {
+            margin: 18%;
+            margin-top: 4%;
+        }
+
+        .icon i {
+            float: right;
+            font-size: 27px;
+            color: red;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .main-container4 {
+                margin-top: 19%;
+            }
+
+            .review-container {
+                height: 80%;
+                display: flex;
+
+                margin-left: 0;
+                flex-direction: column;
+
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <?php include 'employernav.php' ?>
-    <!-- <?php include 'requestpopup.php' ?> -->
+    <?php include 'workernav.php' ?>
+    <?php include 'workersidebar.php' ?>
 
     <div class="main-container4">
         <div class="profile-container3">
@@ -25,9 +59,9 @@
                     <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="profile_image_placeholder">
 
                 </div>
-                <div class="form-upload">
+                <!-- <div class="form-upload">
                     <a href="<?= ROOT ?>/employer/editprofile"><button class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
-                </div>
+                </div> -->
 
                 <div class="row">
                     <div class="review_percent">
@@ -95,7 +129,7 @@
             <div class="pro_container-right">
                 <div class="tags">
                     <h2 class="info">Personal Information</h2>
-                    <a href="<?= ROOT ?>/employer/editprofile"><i class="bx bxs-edit-alt icon"></i></a>
+                    <!-- <a href="<?= ROOT ?>/employer/editprofile"><i class="bx bxs-edit-alt icon"></i></a> -->
                 </div>
 
                 <h3>
@@ -121,6 +155,9 @@
                     Date of Birth
                 </h3>
                 <input type="text" name="birthday" value="<?php echo $data['newData']['dob']; ?>" class="edit-gen" placeholder="Empty Date of Birth" readonly>
+            </div>
+            <div class="icon">
+                <a href="<?= ROOT ?>/worker/acceptedjobs"><i class='bx bxs-x-circle'></i></a>
             </div>
         </div>
         <div class="review-container">
