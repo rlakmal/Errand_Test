@@ -203,6 +203,25 @@ body {
   font-weight: bold;
   font-size: 17px;
 }
+.review-container {
+  display: flex;
+  margin-top: 1%;
+  position: relative;
+  padding: 15px;
+  background-color: #ffffff;
+  width: 75%;
+  height: 50%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  flex-direction: column;
+  top: 75px;
+  left: 10%;
+}
+.review_info {
+  border: 1px solid #e8e8e8;
+  margin: 15px;
+  padding: 10px;
+}
 
 @media only screen and (max-width: 600px) {
   .main-container4 {
@@ -224,6 +243,14 @@ body {
     width: 94%;
     margin-left: 0;
     flex-direction: column;
+  }
+  .review-container {
+    height: 80%;
+    display: flex;
+    width: 94%;
+    margin-left: 0;
+    flex-direction: column;
+    left: 10%;
   }
 
   .close-button {
