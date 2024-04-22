@@ -486,6 +486,7 @@
 
                         // get that data using local variable when to use futures
                         chatBoxData = Jsondata
+
                         selectChatId = Jsondata.chat[0].chat_id
                         //console.log(selectChatId);
                         Jsondata.chatMsgs.forEach(element => {
@@ -509,13 +510,14 @@
                 }
             })
         }
-        socket = new WebSocket(`ws://localhost:8080?userId=${userID}`);
+        socket = new WebSocket('ws://localhost:8080?userId=${userID}');
         loadWithTime = 0;
 
         function loadMessage(chatMsg, userId) {
             console.log(chatMsg);
             console.log(userId);
             console.log(chatMsg.user_id);
+
 
             var dateTime = new Date(chatMsg.time);
             console.log(formatTime(dateTime));
@@ -586,6 +588,98 @@
             // }, delay);
 
         }
+        document.onkeyup = enter;
+
+        function enter(e) {
+            if (e.which == 13) emptycheck();
+        }
+
+        function emptycheck() {
+            var text = document.getElementById("message-input").value;
+
+            if (text == "") {
+                return;
+            } else {
+                document.getElementById("message-input").value = "";
+                send(text);
+            }
+        }
+
+
+        function send(query) {
+            //console.log(chatBoxData);
+
+            var currentDate = new Date();
+
+            socket.send(JSON.stringify({
+                'chat_id': chatBoxData.chat[0].chat_id,
+                'msg': query,
+                'user_id': chatBoxData.log_user,
+                'date': formatDate(currentDate),
+                'time': formatTime(currentDate)
+            }));
+
+            sendMessage(query, formatDate(currentDate), formatTime(currentDate));
+        }
+        sendTimedisplay = true;
+
+        function sendMessage(query, formattedDate, formattedTime) {
+
+            var div = document.createElement("div");
+            var p = document.createElement("p");
+            p.style.background = "black";
+            p.style.color = "white";
+            p.style.padding = "10px";
+            p.style.marginBottom = "10px";
+            p.style.borderRadius = "5px";
+            p.style.display = "inline-block";
+            p.style.maxWidth = "70%";
+            p.style.fontSize = "13px";
+            p.style.lineHeight = "20px";
+            p.innerHTML = query + "<br> <small> <em>" + formattedTime + "</em></small>";
+
+            // p.style.float = "right";
+            div.style.color = "white";
+            div.style.fontSize = "14px";
+
+
+            // if (reciveTimedisplay && sendTimedisplay) {
+
+            //     div.innerHTML = formattedDate;
+            //     div.style.maxWidth = "100%";
+            //     div.style.textAlign = "center";
+
+            //     sendTimedisplay = false;
+            // }
+
+
+            document.getElementById("chat-body").appendChild(div);
+            document.getElementById("chat-body").appendChild(p);
+
+
+            let data = {
+                'msg': query,
+                'chat_id': chatBoxData.chat[0].chat_id,
+                'user_id': chatBoxData.log_user,
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "<?= ROOT ?>/employer/saveMsg",
+                data: data,
+                cache: false,
+                success: function(res) {
+                    data = JSON.parse(res)
+                },
+                error: function(xhr, status, error) {
+                    // return xhr;
+                }
+            });
+
+
+        }
+
+        reciveTimedisplay = true;
 
         function formatDate(currentDate) {
             //formatted date ("Jan 28, 2024")
