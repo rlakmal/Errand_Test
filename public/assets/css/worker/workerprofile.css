@@ -26,6 +26,8 @@ body {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   flex-direction: row;
+  top: 75px;
+  left: 10%;
 }
 
 .pro_container-right {
