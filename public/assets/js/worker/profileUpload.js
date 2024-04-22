@@ -1,3 +1,4 @@
+
 const dropArea = document.querySelector(".form-drag-area");
 const browseButton = document.querySelector(".form-upload");
 let inputPath = document.querySelector("#workerprofile_image");
@@ -41,8 +42,8 @@ function showImage() {
     fileReader.onload = () => {
       let fileUrl = fileReader.result;
       document
-        .querySelector("#workerprofile_image_placeholder")
-        .setAttribute("src", fileUrl);
+          .querySelector("#workerprofile_image_placeholder")
+          .setAttribute("src", fileUrl);
     };
 
     fileReader.readAsDataURL(file);

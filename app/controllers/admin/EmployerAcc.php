@@ -44,6 +44,11 @@ class EmployerAcc extends Controller
         $newData['address'] = $result->address;
         $newData['dob'] = $result->dob;
         $newData['profile_image'] = $result->profile_image;
+        $newData["email"] = $result->email;
+        $newData["created"] = $result->created;
+        $newData["verified"] = $result->verified;
+
+
         $data['newData'] = $newData;
 
         return $data;

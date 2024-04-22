@@ -1,0 +1,140 @@
+body {
+  font-family: Tahoma, Verdana, sans-serif;
+  background-color: lightcyan;
+}
+.homenavbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.select-container {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 10;
+}
+.edit-gen {
+  width: 75%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #000;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+}
+
+.main-container4 {
+  display: flex;
+  border-radius: 40px;
+  margin: 5%;
+  margin-left: 27%;
+  width: 65%;
+  padding: 41px;
+  background-color: lightblue;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); */
+  border: 1px solid #b5b5b5;
+}
+
+.profile-container3 {
+  display: flex;
+  margin: 0%;
+  position: relative;
+  width: 98%;
+  height: min-content;
+  border-radius: 20px;
+  /* box-shadow: 0 2px 9px 2px rgba(64, 60, 67, 0.24); */
+}
+
+.container-left {
+  display: flex;
+  position: relative;
+  background: transparent;
+  background: aliceblue;
+  width: 45%;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  border: 0.5px solid rgb(219, 219, 219);
+  /* box-shadow: 0 2px 4px 1px rgba(57, 66, 67, 0.24); */
+}
+
+.container-right {
+  left: 10%;
+  top: -10%;
+  position: relative;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+.image {
+  margin-top: -19%;
+  width: 165px;
+  border-radius: 50%;
+  height: 165px;
+}
+.rates {
+  max-width: 365px;
+  border-radius: 13px;
+}
+.title-line {
+  margin: 60px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.index_bottom {
+  position: relative;
+  display: flex;
+  margin: 8px;
+  width: 95%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.job_images {
+  position: relative;
+  display: flex;
+  text-align: right;
+}
+.jobimage {
+  max-width: 38%;
+}
+.jobimage2 {
+  max-width: 38%;
+}
+.jobimage1 {
+  max-width: 48%;
+  margin-right: 20px;
+  text-align: right;
+}
+.category {
+  color: rgb(112, 114, 116);
+  margin-top: -24%;
+}
+.emp-name {
+  margin-top: -20%;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container4 {
+    height: 100%;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20%;
+    max-width: 200%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile-container3 {
+    height: 80%;
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+}

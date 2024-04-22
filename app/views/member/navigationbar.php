@@ -1,14 +1,51 @@
     <!-- Navigation Bar -->
-    <section class="home-section" id="navbar">
-        <nav>
-            <div class="nav-icons">
-                <a href="#" class="nav-link">
-                    <i class='bx bxs-bell-ring icon'></i>
-                    <span class="bell-notification">5</span>
-                </a>
-                <a href="#" class="nav-link">
+
+    <style>
+        .logo-admin{
+            width: 20%;
+            font-size: 30px;
+            margin-left: 5%;
+        }
+
+        .logo-admin img{
+            display: flex;
+            position: relative;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .nav-link2{
+            margin-right: 35px;
+            font-size: 20px;
+            color: #191919;
+            position: relative;
+        }
+        nav .nav-link2 .icon {
+            font-size: 25px;
+            color: #ffffff;
+            margin-right: 0px;
+            align-self: center;
+        }
+    </style>
+
+    <section class="home-section" id="navbar" style="height: fit-content">
+        <nav style="background: #0c5fcd;  display: flex; height: fit-content;padding: 15px; margin-left: auto; position: fixed" >
+            <div class ="logo-admin"><a href="<?= ROOT ?>/member/home"><img src="<?=ROOT?>/assets/images/logoe3.png"></a></div>
+            <div style="position: relative; right: -65%">
+                <img style="height: 50px; border-radius: 50%" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION["USER"]->profile_image  ?>">
+            </div>
+            <div   class="nav-icons" style="right: -67%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
+
+
+
+                <a href="#" class="nav-link2">
                     <i class='bx bxs-chat icon'></i>
-                    <span class="chat-notification">8</span>
+<!--                    <span class="chat-notification">8</span>-->
+                </a>
+
+                <a href="<?=ROOT?>/member/account" class="nav-link2" >
+                    <i class='bx bxs-user icon'></i>
+                    <!--                    <span class="bell-notification">5</span>-->
                 </a>
 
                 <!-- <a href="#" class="nav-link-profile">

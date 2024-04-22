@@ -13,10 +13,11 @@
         .table-container {
             max-height: 80vh; /* Set the maximum height for the container (80% of the viewport height) */
             overflow-y: scroll;
+            overflow-x: scroll;
         }
 
         table {
-            width: 100%;
+            width: 150%;
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -129,8 +130,8 @@
 <?php include 'navigationbar.php' ?>
 
 <!-- content -->
-<section id="main" class="main">
-    <h2>Worker Requests</h2>
+<section id="main" class="main" style="margin-top: 15px">
+    <h2 style="background: white">Worker Requests</h2>
     <div class="form">
         <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
         <i class='bx bx-search icon'></i>

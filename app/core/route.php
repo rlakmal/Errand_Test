@@ -58,6 +58,8 @@ route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
 route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
+
+
 route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 
@@ -78,6 +80,7 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
+
 route('worker/viewjobmap', 'worker/ViewMap@index');
 route('worker/viewemprofile', 'worker/ViewEmployerProfile@index');
 // AJAX
@@ -106,6 +109,11 @@ route('admin/workrequests', 'admin/WorkRequests@index');
 route('admin/accrequests', 'admin/AccRequests@index');
 route('admin/viewjob', 'admin/ViewJob@index');
 route('admin/editemployeracc', 'admin/EditEmployerAcc@index');
+route('admin/editworkerprof', 'admin/EditWorkerProf@index');
+
+
+route('admin/fetchworkerratingsreviews', 'admin/WorkerProf@fetchWorkerRating');
+route('member/fetchratingsreviews', 'member/EmployerAcc@fetchRating');
 
 
 
@@ -120,3 +128,12 @@ route('member/ticket', 'member/MemTicket@index');
 route('member/workers', 'member/WorkersList@index');
 route('member/verification', 'member/Verification@index');
 route('member/verification2', 'member/Verification2@index');
+route('member/employers', 'member/EmployersList@index');
+route('member/employeracc', 'member/EmployerAcc@index');
+route('member/account', 'member/Account@index');
+
+
+
+
+route('member/fetchworkerratingsreviews', 'member/Verification2@fetchWorkerRating');
+route('member/fetchratingsreviews', 'member/EmployerAcc@fetchRating');

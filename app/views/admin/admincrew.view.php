@@ -5,7 +5,7 @@
     <title>Sidebar</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,12 +21,12 @@
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <!-- content  -->
-<section id="main" class="main">
+<section id="main" class="main" style="margin-top: 15px">
 
-    <h2>Crew Members details</h2>
+    <h2 style="background: white">Crew Members details</h2>
 
-    <form>
-        <div class="form">
+    <form style="background: white">
+        <div class="form" >
             <input id="searchInput" class="form-group" type="text" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Registration">
@@ -39,6 +39,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th></th>
             <th></th>
             <th class="ordId">Member ID</th>
             <th class="stth">Name</th>
@@ -56,6 +57,11 @@
                 ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
+                    <td>
+                        <div style="position: relative">
+                            <img style="height: 50px; border-radius: 50%" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image ?>">
+                        </div>
+                    </td>
                     <td><?php echo $item->id; ?></td>
                     <td><?php echo $item->name; ?></td>
                     <td><?php echo $item->email; ?></td>
@@ -70,10 +76,10 @@
                             <input type="hidden" name="id" value="<?php echo $item->id; ?>">
                             <button name="active" value="valid" class="
                                 <?php if ($item->active) {
-                                echo "is_active";
+                                echo "is_active_btn";
                             } else {
-                                echo "is_deactive";
-                            } ?> ">
+                                echo "is_deactive_btn";
+                            } ?>">
                                 <?php if ($item->active) {
                                     echo "Delete";
                                 } else {

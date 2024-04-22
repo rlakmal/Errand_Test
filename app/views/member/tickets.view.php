@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
     <title>Job Posts</title>
     <style>
+
+        /*body{*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*}*/
         .archived {
             color: red;
         }
@@ -73,50 +78,56 @@
 <?php include 'sidebar.php' ?>
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
-<!-- Title -->
-<h2 style="margin-top: 15px; text-align: center;">Tickets</h2>
+<div style="margin-top: 5%; position: relative; flex-direction: column">
 
-<!-- Search Bar -->
-<div class="search-container">
-    <input type="text" class="search-input" id="searchInput" placeholder="Search...">
-</div>
+    <div style="position: fixed; width: 100%; height: fit-content">
+        <h2 style="margin-top: 50px; text-align: center;">Tickets</h2>
 
-<!-- Add Filter Buttons -->
-<div style="text-align: center; margin-bottom: 20px;">
-    <button class="filter-button archived" onclick="filterItems(true)">Show Archived</button>
-    <button class="filter-button unarchived" onclick="filterItems(false)">Show Unarchived</button>
-</div>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+        </div>
 
-<div class="set-margin" id="set-marginid">
-    <?php
-    if (is_array($data)) {
-        foreach ($data as $item) {
-            ?>
-            <div class="post-container" style="padding-bottom: 5px">
-                <div class="profile-container2" style="padding-bottom: 5px justify-content: flex-start">
-                    <div>
-                        <div class="profile-name"><?php echo $item->title ?></div>
-                        <div class="profile-ratings"><?php echo $item->created ?></div>
-                        <div class="profile-type"><?php echo $item->description ?></div>
-                        <div class="budget <?php echo $item->archived ? 'archived' : 'not-archived' ?>">
-                            <?php echo $item->archived ? 'Archived' : 'Not Archived' ?>
+        <!-- Add Filter Buttons -->
+        <div style="text-align: center; margin-bottom: 60px; ">
+            <button class="filter-button archived" onclick="filterItems(true)">Show Archived</button>
+            <button class="filter-button unarchived" onclick="filterItems(false)">Show Unarchived</button>
+        </div>
+    </div>
+    <!-- Title -->
+
+
+    <div class="set-margin" id="set-marginid" style="position: fixed; height: 60%; margin-top: 10%; justify-content: center; overflow-y: scroll; width: 100%">
+        <?php
+        if (is_array($data)) {
+            foreach ($data as $item) {
+                ?>
+                <div class="post-container" style="padding-bottom: 5px">
+                    <div class="profile-container2" style="padding-bottom: 5px justify-content: flex-start">
+                        <div>
+                            <div class="profile-name"><?php echo $item->title ?></div>
+                            <div class="profile-ratings"><?php echo $item->created ?></div>
+                            <div class="profile-type"><?php echo $item->description ?></div>
+                            <div class="budget <?php echo $item->archived ? 'archived' : 'not-archived' ?>">
+                                <?php echo $item->archived ? 'Archived' : 'Not Archived' ?>
+                            </div>
+                            <div class="location"> User ID:
+                                <?php echo $item->user ?> <?php echo $item->status ?>
+                                <i class="bx bxs-map icon"></i>
+                            </div><br>
+                            <div class="location"> Ticket ID:
+                                <?php echo $item->ticket_id ?>
+                                <i class="bx bxs-map icon"></i>
+                            </div>
                         </div>
-                        <div class="location"> User ID:
-                            <?php echo $item->user ?> <?php echo $item->status ?>
-                            <i class="bx bxs-map icon"></i>
-                        </div><br>
-                        <div class="location"> Ticket ID:
-                            <?php echo $item->ticket_id ?>
-                            <i class="bx bxs-map icon"></i>
-                        </div>
+                        <a href="<?=ROOT?>/member/ticket?id=<?=$item->ticket_id?>"><button class="view-profile-button" style="padding-bottom: 5px" id="request-button">View</button></a>
                     </div>
-                    <a href="<?=ROOT?>/member/ticket?id=<?=$item->ticket_id?>"><button class="view-profile-button" style="padding-bottom: 5px" id="request-button">View</button></a>
                 </div>
-            </div>
-            <?php
+                <?php
+            }
         }
-    }
-    ?>
+        ?>
+    </div>
 </div>
 
 <script>

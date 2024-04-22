@@ -73,6 +73,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
+  margin-top: 15px;
   }
   
   .cardBox .card {
@@ -84,6 +85,8 @@ body {
     justify-content: space-between;
     cursor: pointer;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 15px;
+
   }
   
   .cardBox .card .numbers {

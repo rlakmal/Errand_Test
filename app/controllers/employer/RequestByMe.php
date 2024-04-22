@@ -45,6 +45,10 @@ class RequestByMe extends Controller
                 $_POST['budget'] = $_POST['newbudget'];
                 unset($_POST['newbudget']);
                 //show($_POST);
+
+//                $_POST['payment_stat'] = "unpaid";
+//                $_POST['type'] = "employer";
+
                 $_POST['emp_name'] = $_SESSION['USER']->name;
                 $_POST['payment_stat'] = "Pay Now";
                 $_POST['type'] = "employer";
