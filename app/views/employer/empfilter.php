@@ -7,133 +7,16 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobfilter.css">
     <title>Category and Location Select</title>
     <style>
-        .carousel {
-            position: absolute;
-            height: 76%;
-            width: 100%;
-            top: 107px;
-            left: 1%;
-            padding-top: 5px;
-            /* background-color: #bababa; */
-            border-radius: 2rem;
-            display: flex;
-            overflow: hidden;
-            grid-template-rows: auto 1fr;
-            padding-bottom: 2rem;
-            transition: 0.8s ease-in-out;
-            margin-top: 1.8%;
-            flex-direction: column;
-        }
 
-        .slideimage {
-            width: 90%;
-            grid-row: 1 / 2;
-            grid-column: 1 / 2;
-            opacity: 0;
-            border-radius: 1%;
-            margin-left: 2%;
-            transition: opacity 0.5s linear, transform 1.2s ease-in-out;
-        }
-
-
-
-        .img-1 {
-            transform: translate(50px, 0px);
-            max-height: 75%;
-        }
-
-        .img-2 {
-            transform: translate(50px, 0px);
-            max-height: 75%;
-        }
-
-        .img-3 {
-            transform: translate(50px, 0px);
-            max-height: 75%;
-            /* transform: scale(0.3) rotate(-20deg); */
-        }
-
-        .img-4 {
-            transform: translate(50px, 0px);
-            max-height: 75%;
-            /* transform: scale(0.4, 0.5); */
-        }
-
-        .images-wrapper {
-            width: 100%;
-            height: 77%;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            align-items: start;
-            justify-content: center;
-            border-radius: 10%;
-            margin-left: 2%;
-        }
-
-        .slideimage.show {
-            opacity: 1;
-            transform: none;
-        }
-
-        .text-slider {
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: 1%;
-            /* background-color: red; */
-        }
-
-        .text-wrap {
-            max-height: 2.2rem;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-
-        .text-group {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            transform: translateY(0);
-            transition: 0.5s;
-        }
-
-        .text-group h2 {
-            line-height: 2.2rem;
-            font-weight: 600;
-            font-size: 1.6rem;
-        }
-
-        .bullets {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bullets span {
-            display: block;
-            width: 0.5rem;
-            height: 0.5rem;
-            margin: 0 0.25rem;
-            border-radius: 50%;
-            background-color: #aaaa;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .bullets span.active {
-            background-color: #000000;
-            width: 1.1rem;
-            border-radius: 1rem;
-        }
     </style>
 </head>
 
 <body>
 
 <div class="select-container">
+    <div class="logo_details">
+        <i class="bx bx-menu" id="btn"></i>
+    </div>
     <div class="search-container">
         <input type="text" class="search-box" id="search" placeholder="Search..." oninput="searchTable()">
         <button type="submit" id="search-button">Search</button>
@@ -160,9 +43,9 @@
                     <h2>Hire skillfull Workers</h2>
                     <h2>View ratings and comments </h2>
                     <!-- <span>
-                                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                            </span> -->
+                            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        </span> -->
 
                 </div>
             </div>
@@ -178,40 +61,62 @@
 
 
     <!-- <label for="category">Category</label>
-    <select id="category">
-        <option value="Technicians">All</option>
-        <option value="Technicians">Technicians</option>
-        <option value="AC Repairs">AC Repairs</option>
-        <option value="CCTV">CCTV</option>
-        <option value="Constructions">Constructions</option>
-        <option value="Electricians">Electricians</option>
-        <option value="Electronic Repairs">Electronic Repairs</option>
-        <option value="Glass & Aluminium">Glass & Aluminium</option>
-        <option value="Iron Works">Iron Works</option>
-        <option value="Masonry">Masonry</option>
-        <option value="Odd Jobs">Odd Jobs</option>
-        <option value="Pest Controllers">Pest Controllers</option>
-        <option value="Plumbing">Plumbing</option>
-        <option value="Wood Works">Wood Works</option>
-    </select>
+<select id="category">
+    <option value="Technicians">All</option>
+    <option value="Technicians">Technicians</option>
+    <option value="AC Repairs">AC Repairs</option>
+    <option value="CCTV">CCTV</option>
+    <option value="Constructions">Constructions</option>
+    <option value="Electricians">Electricians</option>
+    <option value="Electronic Repairs">Electronic Repairs</option>
+    <option value="Glass & Aluminium">Glass & Aluminium</option>
+    <option value="Iron Works">Iron Works</option>
+    <option value="Masonry">Masonry</option>
+    <option value="Odd Jobs">Odd Jobs</option>
+    <option value="Pest Controllers">Pest Controllers</option>
+    <option value="Plumbing">Plumbing</option>
+    <option value="Wood Works">Wood Works</option>
+</select>
 
-    <label for="location">Location</label>
-    <select id="location">
-        <option value="Colombo">All</option>
-        <option value="Colombo">Colombo</option>
-        <option value="Kandy">Kandy</option>
-        <option value="Gampaha">Gampaha</option>
-        <option value="Negombo">Negombo</option>
-        <option value="Kadawatha">Kiribathgoda</option>
-        <option value="Kadawatha">kaluthara</option>
-        <option value="Kadawatha">Galle</option>
-        <option value="Kadawatha">Homagama</option>
-        <option value="Kadawatha">Kirulapana</option>
+<label for="location">Location</label>
+<select id="location">
+    <option value="Colombo">All</option>
+    <option value="Colombo">Colombo</option>
+    <option value="Kandy">Kandy</option>
+    <option value="Gampaha">Gampaha</option>
+    <option value="Negombo">Negombo</option>
+    <option value="Kadawatha">Kiribathgoda</option>
+    <option value="Kadawatha">kaluthara</option>
+    <option value="Kadawatha">Galle</option>
+    <option value="Kadawatha">Homagama</option>
+    <option value="Kadawatha">Kirulapana</option>
 
-    </select> -->
+</select> -->
 
 
 </div>
+<script>
+    window.onload = function() {
+        const sidebar = document.querySelector(".select-container");
+        const closeBtn = document.querySelector("#btn");
+        const main = document.querySelector(".main");
+
+        closeBtn.addEventListener("click", function() {
+            sidebar.classList.toggle("open");
+            main.classList.toggle("open");
+            menuBtnChange();
+        });
+
+        function menuBtnChange() {
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            }
+        }
+    };
+</script>
+
 <script>
     const inputs = document.querySelectorAll(".input-field");
     const toggle_btn = document.querySelectorAll(".toggle");
