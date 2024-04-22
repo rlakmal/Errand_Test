@@ -11,7 +11,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBNAME', 'my_project_db7');
 
 
-
     define('DBUSER', 'root');
     define('DBPASS', '');
     define('DBDRIVER', '');
