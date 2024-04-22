@@ -63,6 +63,7 @@ route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
 route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
 
+
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
