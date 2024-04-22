@@ -104,9 +104,20 @@
         .newicons.clicked i {
             color: #f4f4f4
         }
+
+        @media only screen and (max-width: 768px) {
+            .profile-container2 {
+                max-width: 99%;
+            }
+
+            .index {
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
     </style>
 
-    </style>
+
     <title>Document</title>
 </head>
 
