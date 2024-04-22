@@ -174,6 +174,21 @@ class ReviewRequest extends Controller
 
         return $chatMsg;
     }
-}
+    public function save_data($a = '', $b = '', $c = '')
+    {
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
 
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+                $chatData = new ChatData();
+                $chatData->insert($_POST);
+            } else {
+
+                redirect("404");
+            }
+        } else {
+            redirect("404");
+        }
+    }
 }
