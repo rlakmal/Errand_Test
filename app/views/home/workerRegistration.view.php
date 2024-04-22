@@ -74,6 +74,9 @@
             <option value="Pest Controllers">Pest Controllers</option>
             <option value="Plumbing">Plumbing</option>
             <option value="Wood Works">Wood Works</option>
+            <option value="Garden">Garden</option>
+            <option value="Painting">Painting</option>
+            <option value="Roofing">Roofing</option>
           </select>
         </div>
 
