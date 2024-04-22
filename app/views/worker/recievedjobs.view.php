@@ -32,7 +32,7 @@
                                 <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $image ?>" alt="placeholder">
                             </div>
                             <div class="index">
-                                <div class="profile-name"><?php echo $item->emp_name ?></div>
+                                <a href="<?= ROOT ?>/worker/viewemprofile?id=<?php echo $item->emp_id ?>" class="profile-name"><?php echo $item->emp_name ?></a>
                                 <div class="profile-ratings"><?php echo $item->created ?></div>
                                 <div class="profile-type"><?php echo $item->title ?></div>
                                 <div class="budget"><?php echo $item->budget ?> /= per day</div>
@@ -53,6 +53,7 @@
                                             <form class="form" method="POST">
                                                 <input type="hidden" name="id" value="<?php echo $item->id ?>">
                                                 <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
+                                                <input type="hidden" name="emp_name" value="<?php echo $item->emp_name ?>">
                                                 <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
                                                 <input type="hidden" name="title" value="<?php echo $item->title ?>">
                                                 <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">

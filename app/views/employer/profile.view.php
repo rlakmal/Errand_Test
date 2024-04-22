@@ -91,38 +91,6 @@
 
 
         </div>
-        <div class="review-container">
-            <div class="tags">
-                <h2 class="info">Reviews</h2>
-            </div>
-            <?php
-            if (is_array($results)) {
-                foreach ($results as $item) {
-            ?>
-                    <div class="review_info">
-                        <h2><?php echo $item->user_name ?></h2>
-                        <div class="review_star">
-                            <?php
-                            for ($i = 1; $i <= 5; $i++) {
-                                if ($item->rating_data >= $i) {
-                            ?>
-                                    <i class="fas fa-star text-warning"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="fas fa-star star-light"></i>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                        <p><?php echo $item->user_review ?></p>
-                    </div>
-            <?php
-                }
-            }
-            ?>
-        </div>
 
         <div class="pro_container-right">
             <div class="tags">
