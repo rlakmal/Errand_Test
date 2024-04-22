@@ -81,6 +81,7 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
+route('worker/ongoingjobs', 'worker/OngoingJobs@index');
 
 route('worker/viewjobmap', 'worker/ViewMap@index');
 route('worker/viewemprofile', 'worker/ViewEmployerProfile@index');
