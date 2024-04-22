@@ -45,9 +45,9 @@ class RequestByMe extends Controller
                 $_POST['budget'] = $_POST['newbudget'];
                 unset($_POST['newbudget']);
                 //show($_POST);
-                $_POST['payment_stat'] = "unpaid";
+                $_POST['emp_name'] = $_SESSION['USER']->name;
+                $_POST['payment_stat'] = "Pay Now";
                 $_POST['type'] = "employer";
-
 
                 $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
@@ -59,9 +59,8 @@ class RequestByMe extends Controller
     public function viewRequest($a = '', $b = '', $c = '')
     {
 
-        // redirect("employer/view_request");
+
         $newbgt = new Bargainbgt;
-        //show($_POST);
         $id = $_POST['id'];
         $arr['id'] = $id;
         $bargain = $newbgt->first($arr);
