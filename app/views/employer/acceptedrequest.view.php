@@ -55,7 +55,7 @@
         }
 
         .after_pay {
-            background-color: #4fbb07;
+            background-color: #423d4e;
             border: #f16a2d;
             padding: 8px;
             border-radius: 20px;
@@ -67,6 +67,11 @@
         .before_pay:hover {
             background: #2a3441;
         }
+
+        .scrollable-table {
+            overflow: auto;
+            max-height: 700px;
+        }
     </style>
 </head>
 
@@ -75,51 +80,52 @@
 <?php include 'myjobsidebar.php' ?>
 <section id="main" class="main">
     <h2>Accepted Request to Your Jobs</h2>
-    <table class="my_table">
-        <thead>
-        <tr class="t_head">
-            <th>No</th>
-            <th class="th_one">Worker Name</th>
-            <th>JOb Title</th>
-            <th>Work Budget</th>
-            <th>Charges</th>
-        </tr>
-        </thead>
+    <div class="scrollable-table">
+        <table class="my_table">
+            <thead>
+            <tr class="t_head">
+                <th>No</th>
+                <th class="th_one">Worker Name</th>
+                <th>JOb Title</th>
+                <th>Work Budget</th>
+                <th>Charges</th>
+            </tr>
+            </thead>
 
-        <?php
-        $no = 0;
-        if (is_array($data)) {
-            foreach ($data as $item) {
-                $no++;
+            <?php
+            $no = 0;
+            if (is_array($data)) {
+                foreach ($data as $item) {
+                    $no++;
 
-                ?>
-
-
-                <tbody>
-                <tr>
-                    <td><?php echo $no ?></td>
-                    <td><?php echo $item->worker_name ?></td>
-                    <td><?php echo $item->title ?></td>
-                    <td>Rs <?php echo $item->budget ?>.00</td>
-                    <td><button onclick="paymentGateway(<?php echo $item->id ?>);" class="<?php if ($item->payment_stat == "unpaid") {
-                            echo "before_pay";
-                        } else {
-                            echo "after_pay";
-                        }
-                        ?>"><?php echo $item->payment_stat ?></button></td>
-                </tr>
-
-                </tbody>
+                    ?>
 
 
+                    <tbody>
+                    <tr>
+                        <td><?php echo $no ?></td>
+                        <td><?php echo $item->worker_name ?></td>
+                        <td><?php echo $item->title ?></td>
+                        <td>Rs <?php echo $item->budget ?>.00</td>
+                        <td><button onclick="paymentGateway(<?php echo $item->id ?>);" class="<?php if ($item->payment_stat == "Pay Now") {
+                                echo "before_pay";
+                            } else {
+                                echo "after_pay";
+                            }
+                            ?>"><?php echo $item->payment_stat ?></button></td>
+                    </tr>
 
-                <?php
+                    </tbody>
+
+
+
+                    <?php
+                }
             }
-        }
 
-        ?>
-    </table>
-
+            ?>
+        </table>
+    </div>
 </section>
 <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 <script>

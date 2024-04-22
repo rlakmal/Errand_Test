@@ -12,7 +12,7 @@ class AcceptedRequest extends Controller
             $results = $accepted_jobs->where($arr);
             $data['data'] = $results;
             //show($data);
-            $this->view('employer/acceptedrequest2', $data);
+            $this->view('employer/acceptedrequest', $data);
         }
     }
     public function paymentConfig($a = '', $b = '', $c = '')
