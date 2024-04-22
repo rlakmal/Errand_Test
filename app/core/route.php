@@ -62,7 +62,7 @@ route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorker
 
 route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
-
+route('employer/chatbox', 'employer/ReviewRequest@chat_data');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
