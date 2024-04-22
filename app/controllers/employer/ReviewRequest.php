@@ -124,4 +124,54 @@ class ReviewRequest extends Controller
             echo json_encode($output);
         }
     }
+
+    public function chat_data($a = '', $b = '', $c = '')
+    {
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
+            try {
+                $chatData = new ChatData();
+                $chat = new Chat();
+                $toId = $_POST['to_id'];
+                $fromId = $_SESSION['USER']->id;
+                $userarr['from_id'] = $fromId;
+                $userarr['to_id'] = $toId;
+                $chatId = $chat->where($userarr, 'chat_id');
+
+                if ((empty($chatId))) {
+
+                    // insert the chat conversation
+                    $arr = [];
+                    $arr['from_id'] = $fromId;
+                    $arr['to_id'] = $toId;
+
+                    $chat->insert($arr);
+
+                    // Again check session user chat conversation & get the ID
+                    $chatId = $chat->where($arr);
+                }
+                $chatMsgs = $this->chatbox($chatId[0]->chat_id);
+
+                $chatAllData['chat'] = $chatId;
+                $chatAllData['chatMsgs'] = $chatMsgs;
+                $chatAllData['log_user'] = $toId;
+                //$chatAllData['empImage'] = $empData->emp_image;
+
+                echo json_encode($chatAllData);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        } else {
+            redirect("404");
+        }
+    }
+    private function chatbox($chat_id)
+    {
+        $arr['chat_id'] = $chat_id;
+
+        $chatData = new ChatData();
+        $chatMsg = $chatData->where($arr, 'chat_id');
+
+        return $chatMsg;
+    }
 }
