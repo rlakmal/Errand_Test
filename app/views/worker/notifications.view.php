@@ -7,7 +7,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/emphome.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/jobPost.css">
-
     <style>
         /* Add your new CSS styles here */
         body {
@@ -23,18 +22,20 @@
 
         .post-container {
             display: flex;
-            border: 1px solid #ddd;
             margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+
         }
 
         .profile-container2 {
             flex: 1;
             display: flex;
             align-items: center;
+            background-color: #ffffff;
+            max-width: 70%;
+            box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+            height: 150px;
+            border-radius: 20px;
+
         }
 
         .picture img {
@@ -92,70 +93,152 @@
         }
 
         .view-profile-button:hover {
-            background-color: #297fb8;
+            color: #297fb8;
         }
 
+        .newicons i {
+            color: #3498db;
+            /* Default color */
+        }
+
+        .newicons.clicked i {
+            color: #f4f4f4
+        }
+
+        #searchInput {
+            width: 15%;
+            background-color: lightgray;
+            border-radius: 20px;
+            margin-left: 30%;
+            margin-top: 40px;
+            padding-left: 40px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .profile-container2 {
+                max-width: 99%;
+            }
+
+            .index {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            #searchInput {
+                width: 60%;
+                margin-left: 30%;
+            }
+        }
     </style>
+
+
     <title>Document</title>
 </head>
 
 <body>
+    <?php include 'workernav.php' ?>
+    <?php include 'workerfilter.php' ?>
 
-<?php include 'workernav.php' ?>
-<?php include 'workerfilter.php' ?>
-
-<div class="set-margin" id="set-marginid">
-    <div>
-        <h2 style="text-align: center">Announcements</h2>
-    </div>
-    <div style="position: relative;">
-        <input type="text" id="searchInput" placeholder="Search..." style="width: 15%; background-color: lightgray; border-radius: 20px; margin-left: 30%; margin-top: 40px; padding-left: 40px;">
-        <i class="bx bx-search" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #777;"></i>
-    </div>
-    <?php
-    if (is_array($data)) {
-        foreach ($data as $item) {
-            ?>
-            <div style="background-color: lightsalmon; border-radius: 20px" class="post-container">
-                <div class="profile-container2">
-                    <div class="picture">
-                        <!-- <img class="image" src="<?= ROOT ?>/assets/images/employer/profile.jpg" alt=""> -->
-                    </div>
-                    <div class="index">
-                        <div class="profile-name" style="margin-top: 40px"><?php echo $item->title ?></div>
-                        <div class="profile-type"><?php echo $item->body ?></div>
-                        <div class="budget">Posted: <?php echo $item->created ?></div>
-                        <div class="location">
-                            <!-- <?php echo $item->city ?> -->
-                            <!--                            <i class="bx bxs-map icon"></i>-->
+    <div class="set-margin" id="set-marginid">
+        <div>
+            <h2 style="text-align: center">Notifications</h2>
+        </div>
+        <div style="position: relative;">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+        <?php
+        if (is_array($data)) {
+            foreach ($data as $item) {
+        ?>
+                <div style="border-radius: 20px" class="post-container">
+                    <div class="profile-container2">
+                        <div class="index" data-post-id="<?php echo $item->n_id ?>">
+                            <div class="profile-name" style="margin-top: 40px"><?php echo $item->notification_name ?></div>
+                            <div class="profile-type"><?php echo $item->message ?></div>
                         </div>
-                        <a href="#" class="view-profile-button" style="border-radius: 20px; background-color: indigo">Admin</a>
+                        <div class="<?php if ($item->active == 1) {
+                                        echo 'newicons';
+                                    } else {
+                                        echo 'newicons clicked';
+                                    } ?>">
+                            <div><i class='bx bxs-circle'></i></div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php
-        }
-    }
-    ?>
-</div>
-
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const posts = document.querySelectorAll('.post-container');
-
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        posts.forEach(post => {
-            const title = post.querySelector('.profile-name').textContent.toLowerCase();
-            const description = post.querySelector('.profile-type').textContent.toLowerCase();
-            if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                post.style.display = 'flex';
-            } else {
-                post.style.display = 'none';
+        <?php
             }
+        }
+        ?>
+        <?php
+        if (is_array($results)) {
+            foreach ($results as $item) {
+        ?>
+                <div style="border-radius: 20px" class="post-container">
+                    <div class="profile-container2">
+                        <div class="index">
+                            <div class="profile-name" style="margin-top: 40px">System</div>
+                            <div class="profile-type">Posted: <?php echo $item->body ?></div>
+                            <!-- <a href="#" class="view-profile-button" style="border-radius: 20px; background-color: indigo">Admin</a> -->
+                        </div>
+                        <div class="bottom_index">
+                            <div></div>
+
+                        </div>
+                    </div>
+                </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.post-container').click(function() {
+                var postId = $(this).find('.index').data('post-id');
+                console.log('Post ID:', postId);
+                $.ajax({
+                    url: "<?= ROOT ?>/employer/notifyupdate",
+                    method: 'POST',
+                    data: {
+                        n_id: postId
+                    },
+                    success: function(response) {
+                        // Add the 'clicked' class to change icon color
+                        $('.newicons').addClass('clicked');
+                        // Reload the page
+                        location.reload();
+                        // Handle success response if needed
+                        console.log('Notification read successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error response if needed
+                        console.error('Error deactivating post:', error);
+                    }
+                });
+            });
         });
-    });
-</script>
+    </script>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const posts = document.querySelectorAll('.post-container');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            posts.forEach(post => {
+                const title = post.querySelector('.profile-name').textContent.toLowerCase();
+                const description = post.querySelector('.profile-type').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    post.style.display = 'flex';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 

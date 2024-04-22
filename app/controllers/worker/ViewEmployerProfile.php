@@ -1,16 +1,16 @@
 <?php
 
-class EmployerProfile extends Controller
+class ViewEmployerProfile extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
-        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
+        if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
             $user = new User;
             $reviews = new Ratings;
 
-            $use_id = $_SESSION['USER']->id;
+            $use_id = $_GET['id'];
             $arr['emp_id'] = $use_id;
             $data = $this->create($user, $use_id);
             $findreviews = $reviews->where($arr, 'id');
@@ -20,7 +20,7 @@ class EmployerProfile extends Controller
                 'data' => $data
             ];
             //show($viewData);
-            $this->view('employer/profile', $viewData);
+            $this->view('worker/viewemprofile', $viewData);
         } else {
             redirect('home');
         }

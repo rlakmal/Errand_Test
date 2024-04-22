@@ -25,13 +25,15 @@ body {
   border-radius: 30px;
   position: relative;
 }
+.request-button :hover {
+  background: #191b34;
+}
 .view-button {
   width: 99px;
   background: #f2762c;
   border-radius: 30px;
   position: relative;
 }
-.view-button:hover {
-  background: black;
-  background-color: white;
+.request-button:hover {
+  background-color: rgb(32, 35, 55);
 }

@@ -8,13 +8,19 @@ class WorkerProfile extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
             $workerdet = new WorkerServices;
             $worker = new Worker;
+            $reviews = new Ratings;
+
             $emp_id = $_SESSION['USER']->id;
             $arr['emp_id'] = $emp_id;
             $foundworker = $workerdet->first($arr);
             $worker_id = $foundworker->worker_id;
-
+            $findreviews = $reviews->where($arr, 'id');
             $data = $this->create($worker, $worker_id);
-            $this->view('worker/workerprofile', $data);
+            $viewData = [
+                'results' => $findreviews,
+                'data' => $data
+            ];
+            $this->view('worker/workerprofile', $viewData);
         }
     }
     private function create($worker, $worker_id)

@@ -59,6 +59,10 @@ route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
 route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
 
+
+route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
+route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
+
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
@@ -71,14 +75,19 @@ route('worker/messages', 'worker/Messages@index');
 route('worker/myjobs', 'worker/Myjobs@index');
 route('worker/tickets', 'worker/tickets@index');
 route('worker/recievedjobs', 'worker/RecievedJob@index');
-route('worker/acceptedjobs', 'worker/AcceptedJobs@index');
+route('worker/acceptedjobs', 'worker/AcceptedworkerJobs@index');
 route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
 
+route('worker/viewjobmap', 'worker/ViewMap@index');
+route('worker/viewemprofile', 'worker/ViewEmployerProfile@index');
 // AJAX
 route('worker/workerprofilerating', 'worker/WorkerProfile@WorkerProfileRating');
+route('worker/workerrequestjob', 'worker/RequestJob@insertRequest');
+route('worker/notifyjobcount', 'worker/WorkerNotification@eJobNotify');
+route('worker/fetchlocations', 'worker/ViewMap@SendLocations');
 /*---------------------------------------------------------------------
     admin routes
 --------------------------------------------------------------------- */
