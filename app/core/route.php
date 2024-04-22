@@ -83,11 +83,12 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
-
+route('worker/viewjobmap', 'worker/ViewMap@index');
 // AJAX
 route('worker/workerprofilerating', 'worker/WorkerProfile@WorkerProfileRating');
 route('worker/workerrequestjob', 'worker/RequestJob@insertRequest');
 route('worker/notifyjobcount', 'worker/WorkerNotification@eJobNotify');
+route('worker/fetchlocations', 'worker/ViewMap@SendLocations');
 /*---------------------------------------------------------------------
     admin routes
 --------------------------------------------------------------------- */
