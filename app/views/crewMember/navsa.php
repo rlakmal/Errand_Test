@@ -31,15 +31,6 @@
             border-radius: 15px;
         }
 
-        body {
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
-        }
-
         .containerStu {
             max-width: 700px;
             width: 100%;
