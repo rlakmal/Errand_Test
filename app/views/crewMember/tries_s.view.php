@@ -464,23 +464,8 @@
         opacity: 0;
       }
     }
-  </style>
-</head>
 
-<body>
 
-  <!-- Your HTML content here -->
-
-</body>
-
-</html>
-
-<!-- * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
 
     body {
       display: flex;
@@ -551,4 +536,14 @@
       font-size: 15px;
       transition: all 0.3s ease-in;
       border-bottom-width: 2px;
-    } -->
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Your HTML content here -->
+
+</body>
+
+</html>
