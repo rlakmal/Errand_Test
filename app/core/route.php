@@ -87,6 +87,7 @@ route('worker/editprofile', 'worker/EditProfile@index');
 // AJAX
 route('worker/workerprofilerating', 'worker/WorkerProfile@WorkerProfileRating');
 route('worker/workerrequestjob', 'worker/RequestJob@insertRequest');
+route('worker/notifyjobcount', 'worker/WorkerNotification@eJobNotify');
 /*---------------------------------------------------------------------
     admin routes
 --------------------------------------------------------------------- */
