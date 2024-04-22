@@ -4,126 +4,7 @@
 <head>
     <title>Painter Profile</title>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/recievdjob.css">
-    <style>
-        .popup-view {
-            position: absolute;
-            height: fit-content;
-            width: 35%;
-            background: #ffffff;
-            margin-top: -3%;
-            margin-bottom: 3%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
-            visibility: hidden;
-            transition: transform 0.5s, top 0.5s;
-            justify-content: center;
-        }
 
-        .open-popup-view {
-            position: fixed;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 101;
-        }
-
-        .popup-view h2 {
-            text-align: center;
-            padding-top: 2%;
-            padding-bottom: 4%;
-            margin: 4px;
-            font-weight: bold;
-        }
-
-        .popup-view h4 {
-            text-align: left;
-            padding-left: 10%;
-            padding-bottom: 2%;
-        }
-
-        .popup-view input {
-            position: relative;
-            left: 9%;
-            /* min-width: 500px; */
-            width: 80%;
-            background: #d5dfe7d5;
-            border-radius: 20px;
-            border-style: solid;
-            border: #000;
-            outline-width: 1px;
-            padding: 10px 30px;
-            margin-bottom: 2%;
-            transition: all 0.3s ease;
-            color: var(--dark);
-            font-size: 17px;
-        }
-
-        .popup-report .btns,
-        .popup-view .btns {
-            position: relative;
-            left: 40%;
-            width: 50%;
-            height: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .popup-report .close-btn,
-        .popup-view .close-btn,
-        .cancelR-btn {
-            position: absolute;
-            right: 1%;
-            font-size: 16px;
-            color: var(--red);
-            cursor: pointer;
-            padding: 5px 15px;
-            border-radius: 6px;
-            color: white;
-            border: none;
-            background-color: orangered;
-
-        }
-
-        .popup-report .cancelR-btn,
-        .cancelR-btn {
-            right: 28%;
-            color: white;
-            background-color: orangered;
-        }
-
-        .overlay {
-            position: fixed;
-            opacity: 0;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-        }
-
-        .overlay-active {
-            opacity: 1;
-            pointer-events: all;
-            z-index: 100;
-        }
-
-        .bttns {
-            height: 0px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-        }
-
-        .sidebar {
-            margin-top: -16px;
-        }
-    </style>
 </head>
 
 <body>
@@ -176,8 +57,8 @@
                                                 <input type="hidden" name="title" value="<?php echo $item->title ?>">
                                                 <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
                                                 <input type="hidden" name="budget" value="<?php echo $item->budget ?>">
-                                                <button type="submit" name="Accept" value="Accept" class="edit-profile-button">Accept</button>
-                                                <button type="submit" name="Reject" value="Reject" class="view-profile-button">Reject</button>
+                                                <button type="submit" name="Accept" value="Accept" class="edit-profile-button" onclick="return confirm('Are you sure you want to accept this?');">Accept</button>
+                                                <button type="submit" name="Reject" value="Reject" class="view-profile-button" onclick="return confirm('Are you sure you want to reject this?');">Reject</button>
                                             </form>
 
 
