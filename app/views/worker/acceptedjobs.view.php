@@ -6,7 +6,7 @@
 
     <style>
         table {
-            margin: 2%;
+            margin: 3%;
             margin-left: 3%;
             width: 94%;
             border: 3px solid #bbbbbb;
@@ -42,7 +42,6 @@
         }
 
 
-
         table.table {
             border-collapse: collapse;
             margin: 0px 0;
@@ -52,7 +51,6 @@
             border-radius: 12px;
             padding-right: 15px;
         }
-
         table thead tr {
             background-color: #f4f7fc;
             color: #191919;
@@ -89,11 +87,6 @@
             font-weight: bold;
             color: #009879;
         }
-
-
-
-
-
         .acceptbutton {
             background-color: #393b5e;
             /* border: none; */
@@ -125,55 +118,61 @@
 </head>
 
 <body>
-    <?php include 'workernav.php' ?>
-    <?php include 'workersidebar.php' ?>
-    <section id="main" class="main">
-        <h2>Accepted Job Request</h2>
-        <div class="scrollable-table">
-            <table class="my_table">
-                <thead>
-                    <tr class="t_head">
-                        <th>No</th>
-                        <th class="th_one">Worker Name</th>
-                        <th>JOb Title</th>
-                        <th>Work Budget</th>
-                        <th>Charges</th>
+<?php include 'workernav.php' ?>
+<?php include 'workersidebar.php' ?>
+<section id="main" class="main">
+    <h2>Accepted Job Request</h2>
+
+    <div class="scrollable-table">
+        <table class="my_table">
+            <thead>
+            <tr class="t_head">
+                <th>No</th>
+                <th class="th_one">Worker Name</th>
+                <th>JOb Title</th>
+                <th>Work Budget</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <?php
+            $no = 0;
+
+            if (is_array($data)) {
+                foreach ($data as $item) {
+
+                    $no++;
+                    ?>
+                    <tbody>
+                    <tr>
+                        <td><?php echo $no ?></td>
+                        <td><?php echo $item->emp_name ?></td>
+                        <td><?php echo $item->title ?></td>
+                        <td>Rs <?php echo $item->budget ?> /= per day</td>
+
+                        <td><a href="<?= ROOT ?>/worker/viewemprofile?id=<?php echo $item->emp_id ?>"><button class="acceptbutton">Employer Details</button></a></td>
+
+
                     </tr>
-                </thead>
 
-                <?php
-                $no = 0;
-                if (is_array($data)) {
-                    foreach ($data as $item) {
-                        $no++;
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><?php echo $no ?></td>
-                                <td><?php echo $item->emp_name ?></td>
-                                <td><?php echo $item->title ?></td>
-                                <td>Rs <?php echo $item->budget ?> /= per day</td>
-                                <td><a href="<?= ROOT ?>/worker/viewemprofile?id=<?php echo $item->emp_id ?>"><button class="acceptbutton">Employer Details</button></a></td>
-                            </tr>
+                    </tbody>
 
-                        </tbody>
-
-                <?php
-                    }
+                    <?php
                 }
+            }
 
-                ?>
-            </table>
-        </div>
-    </section>
-
-
-    <!-- <?php
-            if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
-                for ($i = 0; $i < count($data['data']); $i++) {
-                    $item = $data['data'][$i];
-                    $image = $images['images'][$i];
             ?>
+        </table>
+    </div>
+</section>
+
+
+<!-- <?php
+if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
+    for ($i = 0; $i < count($data['data']); $i++) {
+        $item = $data['data'][$i];
+        $image = $images['images'][$i];
+        ?>
 
             <div class="post-container2">
                 <div class="profile-container2">
@@ -192,9 +191,9 @@
             </div>
 
     <?php
-                }
-            }
-    ?> -->
+    }
+}
+?> -->
 </body>
 
 </html>
