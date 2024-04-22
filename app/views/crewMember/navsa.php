@@ -50,6 +50,33 @@
             justify-content: space-between;
             margin: 10px 0 12px 0;
         }
+
+        form .user-details .input-box,
+        form .parent-details .input-box {
+            margin-bottom: 10px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        .user-details .input-box .details,
+        .parent-details .input-box .details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input,
+        select,
+        .parent-details .input-box input {
+            width: 100%;
+            height: 45px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 15px;
+            transition: all 0.3s ease-in;
+            border-bottom-width: 2px;
+        }
     </style>
 </head>
 <script>
