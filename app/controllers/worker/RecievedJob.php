@@ -40,6 +40,7 @@ class RecievedJob extends Controller
                 $_POST['payment_stat'] = "Pay Now";
                 $_POST["type"] = "employer";
 
+
                 $accepted_jobs->insert($_POST);
 
                 redirect('worker/acceptedjobs');

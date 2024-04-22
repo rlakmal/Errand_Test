@@ -21,7 +21,7 @@
 <style>
     body {
         font-family: "Arial", sans-serif;
-        background-color: #f4f4f4;
+        background-color: lightgoldenrodyellow;
     }
 
     .main-container4 {
@@ -30,8 +30,8 @@
         margin: 10%;
         margin-top: 2%;
         width: 80%;
-        height: 100%;
-        background: #f3f3f3;
+        height: fit-content;
+        background: goldenrod;
         flex-direction: column;
         align-content: center;
         justify-content: center;
@@ -43,9 +43,9 @@
         margin: 1%;
         position: relative;
         padding: 15px;
-        background-color: #ffffff;
+        background-color: lightgoldenrodyellow;
         width: 98%;
-        height: 578px;
+        height: fit-content;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
         border-radius: 20px;
     }
@@ -53,14 +53,16 @@
     .pro_container-right {
         position: relative;
         display: flex;
-        width: 155%;
-        line-height: 28px;
+        width: 175%;
+        /*line-height: 28px;*/
         flex-direction: column;
+        height: fit-content;
         left: 0%;
         justify-content: center;
-        background: #eeeeee;
+        background: white;
         padding: 35px;
         border: 1px solid #d8d0d0;
+        border-radius: 20px;
     }
 
     .info {
@@ -78,6 +80,9 @@
         font-size: 16px;
         border: none;
         outline: none;
+        margin-left: 5%;
+        border-radius: 20px;
+        background: lightgray;
     }
 
     .picture .image {
@@ -93,13 +98,13 @@
     .container-left {
         display: flex;
         position: relative;
-        width: 100%;
+        width: 90%;
         flex-wrap: nowrap;
         flex-direction: column;
         justify-content: center;
         /* align-content: center; */
         align-items: center;
-        background: #ffffff;
+        background: lightgoldenrodyellow;
         border-radius: 28px;
     }
 
@@ -127,11 +132,14 @@
     }
 
     .close-button {
-        font-size: 28px;
-        background: white;
+        font-size: 25px;
+        background: orange;
         border: none;
         cursor: pointer;
-        color: #ff7f00;
+        color: white;
+        height: 40px;
+        width: 100px;
+        border-radius: 15px;
     }
 
     .tags {
@@ -212,9 +220,24 @@
         margin: 2%;
     }
 
+    .container-left-parent {
+        display: flex;
+        position: relative;
+        width: 100%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        /* align-content: center; */
+        align-items: center;
+        background: #ffece2;
+        border-radius: 28px;
+        box-shadow: 2px 2px 2px 2px rgb(255 136 66 / 32%);
+        /*height: 100%;*/
+    }
+
     @media only screen and (max-width: 600px) {
         .main-container4 {
-            height: 100%;
+            height: fit-content;
             display: flex;
             margin-left: 40px;
             margin-top: 20%;
@@ -224,7 +247,7 @@
         }
 
         .profile-container3 {
-            height: 80%;
+            height: fit-content;
             display: flex;
             width: 100%;
             margin-left: 0;
@@ -233,10 +256,13 @@
 
         .close-button {
             align-items: center;
+            height: 30px;
+            width: 80px;
+            background: orange;
         }
 
         .container-left {
-            height: 478px;
+            height: fit-content;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -246,10 +272,11 @@
 
         .pro_container-right {
             display: flex;
-            height: 550px;
+            height: fit-content;
             width: 100%;
             flex-direction: column;
             flex-wrap: nowrap;
+            padding: 30px;
         }
 
         .index_img {
@@ -277,8 +304,8 @@
 
     .popup {
         position: fixed;
-        top: 50%;
-        left: 50%;
+        top: 40%;
+        left: 40%;
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 40px; /* Increase padding for a bigger popup */
@@ -335,11 +362,15 @@
 <div class="main-container4">
     <div class="profile-container3">
 
-        <a href="<?= ROOT ?>/admin/employers"><button style="width: 100px; background-color: orange;height: 40px; color: white; border-radius: 20px">Close</button></a>
-        <div>
-            <button style="width: 100px; background-color: red;height: 40px; color: white; border-radius: 20px" id="delete-button">Delete</button>
+        <div style="flex-direction: column">
+            <a href="<?= ROOT ?>/admin/employers"><button style="width: 100px; cursor: pointer; background-color: orange;height: 40px; color: white; border-radius: 20px; border-color: bisque">Close</button></a>
+            <div>
+                <button style="width: 100px; background-color: red;height: 40px; cursor: pointer; color: white; border-radius: 20px; border-color: darkred; margin-top: 15px" id="delete-button">Delete</button>
 
+            </div>
         </div>
+
+
         <div class="container-left">
 
 
@@ -348,7 +379,7 @@
 
             </div>
             <div class="form-upload">
-                <a href="<?= ROOT ?>/employer/editprofile"><button class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
+                <a href="<?= ROOT ?>/admin/editemployeracc?id=<?= $data['newData']['id'] ?>"><button class="close-button"><i class="bx bxs-edit-alt icon"></i></button></a>
             </div>
 
             <div class="row">
@@ -363,7 +394,7 @@
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                     </div>
-                    <h3><span id="total_review">0</span> Review</h3>
+                    <h3><span id="total_review">0</span> Reviews</h3>
                 </div>
 
                 <div class="review-bar">
@@ -415,9 +446,19 @@
         </div>
 
         <div class="pro_container-right">
+            <h3>ID: <?= $data["newData"]["id"]?></h3>
+            <?php if ($data["newData"]["verified"]) :?>
+            <h3 style="color: #1eea07">
+                Email Verified <i class='bx bxs-flag-alt'></i>
+            </h3>
+            <?php else:?>
+            <h3 style="color: red">
+                Email Not Verified <i class='bx bxs-flag-alt'></i>
+            </h3>
+            <?php endif;?>
             <div class="tags">
-                <h2 class="info">Personal Information</h2>
-                <a href="<?= ROOT ?>/admin/editemployeracc?id=<?= $data['newData']['id'] ?>"><i class="bx bxs-edit-alt icon"></i></a>
+                <h2 class="info">Employer Details</h2>
+<!--                <a href="--><?php //= ROOT ?><!--/admin/editemployeracc?id=--><?php //= $data['newData']['id'] ?><!--"><i class="bx bxs-edit-alt icon"></i></a>-->
             </div>
 
             <h3>
@@ -425,6 +466,10 @@
             </h3>
             <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['name']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
 
+            <h3>
+                User Name
+            </h3>
+            <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['email']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
 
             <h3>
                 NIC Number
@@ -443,6 +488,10 @@
                 Date of Birth
             </h3>
             <input type="text" name="birthday" value="<?php echo $data['newData']['dob']; ?>" class="edit-gen" placeholder="Empty Date of Birth" readonly>
+            <h3>
+                Registered
+            </h3>
+            <input type="text" name="birthday" value="<?php echo $data['newData']['created']; ?>" class="edit-gen" placeholder="Empty Date of Birth" readonly>
         </div>
     </div>
 
@@ -482,7 +531,7 @@
 
     function load_rating_data(id) {
         $.ajax({
-            url: "<?= ROOT ?>/employer/fetchratingsreviews",
+            url: "<?= ROOT ?>/admin/fetchratingsreviews",
             method: "POST",
             data: {
                 action: 'load_data',

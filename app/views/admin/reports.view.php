@@ -253,97 +253,111 @@
 
 
 <!-- content  -->
-<section id="main" class="main">
+<section  id="main" class="main" style="overflow-y: scroll; max-height: 90vh; margin-top: 15px">
     <h2>Reports</h2>
 
-    <?php
-    //        var_dump($rep3->emplocation);
-    $categoryparsedString = '';
+   <div style="overflow-y: scroll;">
+       <h2 style="text-align: center">User</h2>
 
-    foreach ($rep1->category as $key => $value) {
-        $categoryparsedString .= $key . ': ' . $value . "\\n\\n";
-    }
+       <div class="report-widgets">
 
-    ?>
+           <?php
+           //        var_dump($rep3->emplocation);
+           $categoryparsedString = '';
 
-    <div style="display: flex; flex-direction: column">
-        <div style="background-color: darkblue; " class="report-widget" onclick="openPopup('Population Statistics', 'No of Employers: <?= $rep1->employers?>\n\nNo of Workers(Unverified): <?= $rep1->workersunveri?>\n\nNo of Workers(Verified): <?= $rep1->workersveri?>\n\nNo of Crew Members: <?= $rep1->crew?>\n\nWorker Categories\n\n<?=$categoryparsedString?>\n\n\nDate: <?= date("m-d-y")?>')">
-            <i class="bx bx-male large-icon"></i>
-            <a href="#">Population Statistics</a>
-            <div class="widget-content">
-                <p>User Statistic Basics</p>
-                <p><?= date("m-d-y")?></p>
-            </div>
-        </div>
+           foreach ($rep1->category as $key => $value) {
+               $categoryparsedString .= $key . ': ' . $value . "\\n\\n";
+           }
+
+           ?>
 
 
-        <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
-            <i class="bx bxs-flag-alt large-icon"></i>
-            <a href="#">Requests</a>
-            <div class="widget-content">
-                <p>Request Statistics Basics</p>
-                <p><?= date("m-d-y")?></p>
-            </div>
-        </div>
-    </div>
+           <div style="background-color: darkblue; " class="report-widget" onclick="openPopup('Population Statistics', 'No of Employers: <?= $rep1->employers?>\n\nNo of Workers(Unverified): <?= $rep1->workersunveri?>\n\nNo of Workers(Verified): <?= $rep1->workersveri?>\n\nNo of Crew Members: <?= $rep1->crew?>\n\nWorker Categories\n\n<?=$categoryparsedString?>\n\n\nDate: <?= date("m-d-y")?>')">
+               <i class="bx bx-male large-icon"></i>
+               <a href="#">Population Statistics</a>
+               <div class="widget-content">
+                   <p>User Statistic Basics</p>
+                   <p><?= date("m-d-y")?></p>
+               </div>
+           </div>
+
+           <?php
+           //        var_dump($rep3->emplocation);
+           $empparsedString = '';
+
+           foreach ($rep3->emplocation as $key => $value) {
+               $empparsedString .= $key . ': ' . $value . "\\n\\n";
+           }
+           $workparsedString = '';
+
+           foreach ($rep3->worklocation as $key => $value) {
+               $workparsedString .= $key . ': ' . $value . "\\n\\n";
+           }
+
+           ?>
+
+           <div class="report-widget" onclick="openPopup('User Demographics', 'Employer\n\n<?=$empparsedString?>Worker\n\n<?=$workparsedString?>Date: <?= date("m-d-y")?>')">
+               <i class="bx bxs-location-plus large-icon"></i>
+               <a href="#">Demographics</a>
+               <div class="widget-content">
+                   <p>User demographics by location</p>
+                   <p><?= date("m-d-y")?></p>
+               </div>
+           </div>
 
 
-    <div class="report-widgets">
+
+       </div>
+
+       <h2 style="text-align: center">Business</h2>
 
 
-        <!-- Include other report widgets as needed -->
+
+       <div class="report-widgets">
+
+
+           <!-- Include other report widgets as needed -->
+
+           <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
+               <i class="bx bxs-flag-alt large-icon"></i>
+               <a href="#">Requests</a>
+               <div class="widget-content">
+                   <p>Request Statistics Basics</p>
+                   <p><?= date("m-d-y")?></p>
+               </div>
+           </div>
+
+           <div style="background-color: green" class="report-widget" onclick="openPopup3()">
+               <i class="bx bx-dollar large-icon"></i>
+               <a href="#">Finances </a>
+               <div class="widget-content">
+                   <p>Last 30 days</p>
+                   <p><?= date("m-d-y")?></p>
+               </div>
+           </div>
+
+
+       </div>
+
+       <h2 style="text-align: center">Support</h2>
+
+
+       <div class="report-widgets">
 
 
 
-        <div style="background-color: green" class="report-widget" onclick="openPopup3()">
-            <i class="bx bx-dollar large-icon"></i>
-            <a href="#">Finances </a>
-            <div class="widget-content">
-                <p>Last 30 days</p>
-                <p><?= date("m-d-y")?></p>
-            </div>
-        </div>
+           <div class="report-widget" onclick="openPopup2()">
+               <i class="bx bxs-hand large-icon"></i>
+               <a href="#">Tickets</a>
+               <div class="widget-content">
+                   <p>User Tickets last 30 days</p>
+                   <p><?= date("m-d-y")?></p>
+               </div>
+           </div>
+       </div>
+   </div>
 
 
-    </div>
-
-
-    <div class="report-widgets">
-
-
-        <?php
-        //        var_dump($rep3->emplocation);
-        $empparsedString = '';
-
-        foreach ($rep3->emplocation as $key => $value) {
-            $empparsedString .= $key . ': ' . $value . "\\n\\n";
-        }
-        $workparsedString = '';
-
-        foreach ($rep3->worklocation as $key => $value) {
-            $workparsedString .= $key . ': ' . $value . "\\n\\n";
-        }
-
-        ?>
-
-        <div class="report-widget" onclick="openPopup('User Demographics', 'Employer\n\n<?=$empparsedString?>Worker\n\n<?=$workparsedString?>Date: <?= date("m-d-y")?>')">
-            <i class="bx bxs-location-plus large-icon"></i>
-            <a href="#">Demographics</a>
-            <div class="widget-content">
-                <p>User demographics by location</p>
-                <p><?= date("m-d-y")?></p>
-            </div>
-        </div>
-
-        <div class="report-widget" onclick="openPopup2()">
-            <i class="bx bxs-hand large-icon"></i>
-            <a href="#">Tickets</a>
-            <div class="widget-content">
-                <p>User Tickets last 30 days</p>
-                <p><?= date("m-d-y")?></p>
-            </div>
-        </div>
-    </div>
 
 </section>
 

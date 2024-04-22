@@ -146,42 +146,45 @@
             <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search...">
         </div>
     </form>
-    <table class="table">
-        <thead>
-        <tr>
-            <th class="ordId">ID</th>
-            <th class="ordId">Worker Name</th>
-            <th class="desc">Category</th>
-            <th class="stth">Username</th>
-            <th class="stth">Location</th>
-            <th class="cost">Verified</th>
-            <th class="verified">Profile</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($data as $worker) : ?>
+    <div style="scroll-behavior: auto">
+        <table class="table" style="scroll-behavior: auto">
+            <thead>
             <tr>
-                <td><?= $worker->id ?></td>
-                <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
-                <td><?= $worker->category ?></td>
-                <td><?= $worker->email ?></td>
-                <td><?= $worker->city ?></td>
-                <td class="verified-widget">
-                    <?php if ($worker->verified) : ?>
-                        <i class="bx bx-check-circle verified-icon"></i>
-                        <span>Verified</span>
-                    <?php else : ?>
-                        <i class="bx bx-x-circle not-verified-icon"></i>
-                        <span>Not Verified</span>
-                    <?php endif; ?>
-                </td>
-                <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->id ?>">
-                        <span class="link_name"><i class="fas fa-user icon"></i></span>
-                    </a></td>
+                <th class="ordId">ID</th>
+                <th class="ordId">Worker Name</th>
+                <th class="desc">Category</th>
+                <th class="stth">Username</th>
+                <th class="stth">Location</th>
+                <th class="cost">Verified</th>
+                <th class="verified">Profile</th>
             </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($data as $worker) : ?>
+                <tr>
+                    <td><?= $worker->id ?></td>
+                    <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
+                    <td><?= $worker->category ?></td>
+                    <td><?= $worker->email ?></td>
+                    <td><?= $worker->city ?></td>
+                    <td class="verified-widget">
+                        <?php if ($worker->verified) : ?>
+                            <i class="bx bx-check-circle verified-icon"></i>
+                            <span>Verified</span>
+                        <?php else : ?>
+                            <i class="bx bx-x-circle not-verified-icon"></i>
+                            <span>Not Verified</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->id ?>">
+                            <span class="link_name"><i class="fas fa-user icon"></i></span>
+                        </a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
 </section>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
