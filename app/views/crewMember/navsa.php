@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Your Webpage</title>
+    <style>
+        body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+    }
+
+    .containerStu {
+      max-width: 700px;
+      width: 100%;
+      background: #ececec;
+      padding: 25px 30px;
+      border-radius: 15px;
+    }
+    </style>
 </head>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
