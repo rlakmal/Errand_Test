@@ -35,6 +35,63 @@
             z-index: 9999;
             /* Ensure it's above other elements */
         }
+
+        .round {
+            width: 27px;
+            /* height: 20px; */
+            border-radius: 50%;
+            position: relative;
+            background: red;
+            display: inline-block;
+            padding: 0.3rem 0.2rem !important;
+            /* margin: 0.3rem 0.2rem !important; */
+            left: -18px;
+            /* top: 10px; */
+            z-index: 99 !important;
+        }
+
+        .round>span {
+            color: white;
+            display: block;
+            text-align: center;
+            font-size: 1rem !important;
+            padding: 0 !important;
+        }
+
+        .department {
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 25px;
+            width: 80%;
+            position: relative;
+            left: 9%;
+            background: #d5dfe7d5;
+            border-radius: 20px;
+            border-style: solid;
+            border: #000;
+            outline-width: 1px;
+            padding: 10px 30px;
+            margin-bottom: 2%;
+            transition: all 0.3s ease;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            /* Show Services and Job Map links in profile menu */
+            #profile-menu a[href*="/employer/services"] {
+                display: block;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+
+            /* Hide Services and Job Map links in profile menu */
+            #profile-menu a[href*="/employer/services"] {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -61,18 +118,24 @@
             <a href="<?= ROOT ?>/employer/message">
                 <i class="bx bxs-chat icon"></i>
             </a>
+
             <a href="<?= ROOT ?>/employer/notifications">
-                <i class="bx bxs-bell icon"></i>
+                <li><i class="bx bxs-bell icon" id="over" data-value="<?php echo $count_active; ?>" style="z-index:-99 !important;font-size:32px;color:white;margin:0.5rem 0.4rem !important;"></i></li>
             </a>
+
+            <div class="round" id="bell-count" data-value=""><span></span></div>
+
+
+
             <div class="profile-dropdown" id="profile-dropdown">
                 <a href="#">
                     <i class="bx bxs-user icon"></i>
                 </a>
                 <div class="profile-menu" id="profile-menu">
                     <a href="<?= ROOT ?>/employer/home">Home</a>
-                    <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
                     <a href="<?= ROOT ?>/employer/dashboard">Dashboard</a>
-
+                    <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
+                    <a href="<?= ROOT ?>/employer/services">Services</a>
                     <a class="bttn" onclick="openReport()">Post Job</a>
                     <a href="<?= ROOT ?>/employer/message">Message</a>
                     <a href="<?= ROOT ?>/employer/profile">Profile</a>
@@ -104,6 +167,30 @@
         <input type="hidden" id="location" name="location">
         <h4>City : </h4>
         <input name="city" type="text" placeholder="Enter your city">
+
+        <h4>Select Category</h4>
+        <select name="category" class="department" required>
+            <option value="All">All</option>
+            <option value="Technicians">Technicians</option>
+            <option value="AC Repairs">AC Repairs</option>
+            <option value="CCTV">CCTV</option>
+            <option value="Constructions">Constructions</option>
+            <option value="Electricians">Electricians</option>
+            <option value="Electronic Repairs">Electronic Repairs</option>
+            <option value="Glass & Aluminium">Glass & Aluminium</option>
+            <option value="Iron Works">Iron Works</option>
+            <option value="Masonry">Masonry</option>
+            <option value="Odd Jobs">Odd Jobs</option>
+            <option value="Pest Controllers">Pest Controllers</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Wood Works">Wood Works</option>
+            <option value="Garden">Garden</option>
+            <option value="Painting">Painting</option>
+            <option value="Roofing">Roofing</option>
+            <option value="Cleaning">Cleaning</option>
+
+        </select>
+
         <h4>Description : </h4>
         <input name="description" type="text" placeholder="Enter your description">
         <div class="postjobimages">
@@ -139,7 +226,32 @@
 <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
 <!-- Google Translate Script -->
 <!--    <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "<?= ROOT ?>/employer/notifycount",
+            cache: false,
+            success: function(res) {
+                console.log("Response:", res);
+                var newData = JSON.parse(res);
+                var count = newData.count;
 
+                if (count > 0) {
+                    $('#bell-count').attr('data-value', count).find('span').text(count);
+                    $('#bell-count').show(); // Show the round badge
+                } else {
+                    $('#bell-count').hide();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+                // Handle error if needed
+            }
+        });
+    });
+</script>
 <script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
