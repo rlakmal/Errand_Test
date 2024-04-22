@@ -150,14 +150,13 @@
   }
 
   .homenavbar nav ul {
-    display: flex;
-    flex-direction: column;
-    background-color: #f16a2d;
-    padding: 10px;
+    display: none;
+    /* flex-direction: row;
+    justify-content: center;
+    align-items: center; */
   }
 
   .homenavbar nav ul li a {
-    width: auto;
     margin: 5px 0;
     padding: 10px 15px;
   }
