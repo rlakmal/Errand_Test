@@ -62,6 +62,8 @@ route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
 route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
+route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
+route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 
 
 /*---------------------------------------------------------------------
