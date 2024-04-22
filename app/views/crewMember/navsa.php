@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="styles.css">
     <title>Your Webpage</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+        }
+
+        .containerStu {
+            max-width: 700px;
+            width: 100%;
+            background: #ececec;
+            padding: 25px 30px;
+            border-radius: 15px;
+        }
+
         body {
             display: flex;
             height: 100vh;
