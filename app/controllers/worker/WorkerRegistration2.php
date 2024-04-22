@@ -37,10 +37,10 @@ class WorkerRegistration2 extends Controller
 
                 $_POST['category'] = $temp_category;
                 $_POST['gender'] = $temp_gender;
-                unset($_POST['name']);
+//                unset($_POST['name']);
                 unset($_POST['nic']);
-                unset($_POST['address']);
-                unset($_POST['dob']);
+//                unset($_POST['address']);
+//                unset($_POST['dob']);
                 unset($_POST['password']);
 
                 $worker->insert($_POST);

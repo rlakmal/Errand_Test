@@ -23,7 +23,7 @@
     <div class="container">
 
         <!-- Header -->
-        <?php include 'header.php' ?>
+        <?php include 'navigationbar.php' ?>
 
         <!-- Sidebar -->
         <?php include 'sidebar.php' ?>
@@ -263,7 +263,7 @@
             </div>
 
 
-            <div class="charts">
+            <div class="charts" style="flex-direction: column; width: 100%">
                 <div class="chart-card" style="width: 50%">
                     <h2 class="chart-title">Registered Users</h2>
                     <div id="bar-chart"></div>

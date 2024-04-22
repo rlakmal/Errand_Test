@@ -22,9 +22,9 @@
         <li>
             <a href="<?= ROOT ?>/member/employers">
                 <i class="bx bxs-user-detail"></i>
-                <span class="link_name">Users</span>
+                <span class="link_name">Employers</span>
             </a>
-            <span class="tooltip">Users</span>
+            <span class="tooltip">Employers</span>
         </li>
         <!--            <li>-->
         <!--                <a href="--><?php //= ROOT ?><!--/admin/admincrew">-->
@@ -46,6 +46,13 @@
                 <span class="link_name">Tickets</span>
             </a>
             <span class="tooltip">Tickets</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class="bx bxs-user-circle"></i>
+                <span class="link_name">Profile</span>
+            </a>
+            <span class="tooltip">Profile</span>
         </li>
         <!--            <li>-->
         <!--                <a href="#">-->

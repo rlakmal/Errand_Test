@@ -363,11 +363,11 @@
     <div class="profile-container3">
 
         <div style="flex-direction: column">
-            <a href="<?= ROOT ?>/admin/employers"><button style="width: 100px; cursor: pointer; background-color: orange;height: 40px; color: white; border-radius: 20px; border-color: bisque">Close</button></a>
-            <div>
-                <button style="width: 100px; background-color: red;height: 40px; cursor: pointer; color: white; border-radius: 20px; border-color: darkred; margin-top: 15px" id="delete-button">Delete</button>
-
-            </div>
+            <a href="<?= ROOT ?>/member/employers"><button style="width: 100px; cursor: pointer; background-color: orange;height: 40px; color: white; border-radius: 20px; border-color: bisque">Close</button></a>
+<!--            <div>-->
+<!--                <button style="width: 100px; background-color: red;height: 40px; cursor: pointer; color: white; border-radius: 20px; border-color: darkred; margin-top: 15px" id="delete-button">Delete</button>-->
+<!---->
+<!--            </div>-->
         </div>
 
 
@@ -531,7 +531,7 @@
 
     function load_rating_data(id) {
         $.ajax({
-            url: "<?= ROOT ?>/admin/fetchratingsreviews",
+            url: "<?= ROOT ?>/member/fetchratingsreviews",
             method: "POST",
             data: {
                 action: 'load_data',

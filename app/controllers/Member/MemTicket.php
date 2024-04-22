@@ -12,6 +12,9 @@ class MemTicket extends Controller
         $note = new Note;
         $ticket = new Ticket;
         $user = new User;
+        $member = new CrewMember();
+
+
         $username = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
         if ($username != 'User' && $_SESSION['USER']->status == 'member') {
@@ -24,10 +27,10 @@ class MemTicket extends Controller
                 $qdata["id"] = $data["ticket"]->user;
                 $data["user"] = $user->first($qdata);
 
-                $qdata["ticket_no"] = $_GET["id"];
+                $qdata["ticket_id"] = $_GET["id"];
 
                 unset($qdata["id"]);
-                $data["notes"] = $note->where($qdata);
+                $data["notes"] = $ticketnote->where($qdata, "note_id");
 
 
                 $this->view('member/ticket', $data);
@@ -48,8 +51,14 @@ class MemTicket extends Controller
                 }
                 $data["ticket_no"] = $_GET["id"];
                 $data["body"] = $_POST["body"];
-                $data["mem_id"] = $_SESSION["USER"]->id;
-                $data["mem_name"] = $_SESSION["USER"]->name;
+
+                unset($qdata);
+                $qdata["emp_id"] = $_SESSION["USER"]->id;
+
+                $da_member = $member->first($qdata);
+
+                $data["mem_id"] = $da_member->id;
+//                $data["mem_name"] = $_SESSION["USER"]->name;
 
                 $note->insert($data);
                 redirect("member/ticket?id=".$_GET["id"]);

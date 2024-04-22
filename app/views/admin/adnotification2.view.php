@@ -5,7 +5,7 @@
     <title>Sidebar</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,15 +36,17 @@
             margin-bottom: 20px;
         }
 
-        .form-group {
-            width: 300px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
-            font-size: 16px;
-            margin-right: 10px;
-            color: #666;
-        }
+        /*.form-group {*/
+        /*    width: 300px;*/
+        /*    padding: 10px;*/
+        /*    border: 1px solid #ccc;*/
+        /*    border-radius: 20px;*/
+        /*    font-size: 12px;*/
+        /*    margin-right: 10px;*/
+        /*    color: #666;*/
+        /*    margin-top: 20px;*/
+        /*    align-content: center;*/
+        /*}*/
 
         .icon {
             font-size: 20px;
@@ -57,7 +59,7 @@
             border: none;
             background-color: #3498db;
             color: #fff;
-            border-radius: 0 5px 5px 0;
+            border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-size: 16px;
@@ -66,13 +68,28 @@
         .btn:hover {
             background-color: #2980b9;
         }
+        .btn2 {
+            padding: 10px 20px;
+            border: none;
+            background-color: red;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 12px;
+            align-self: center;
+        }
+
+        .btn2:hover {
+            background-color: darkred;
+        }
 
         .table {
             width: 100%;
             border-collapse: collapse;
             border-spacing: 0;
             background-color: #fff;
-            border-radius: 8px;
+            border-radius: 40px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -81,14 +98,16 @@
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            font-size: 16px;
+            font-size: 12px;
             color: #555;
+            border-radius: 10px;
+
         }
 
         .table th {
             background-color: #3498db;
             color: #fff;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -138,7 +157,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>Announcements</h2>
+    <h2 style="background: #eef">Announcements</h2>
 
     <!-- Filter Buttons -->
     <div class="filter-btns">
@@ -147,7 +166,7 @@
     </div>
 
     <form>
-        <div class="form">
+        <div class="form" style="padding: 15px">
             <input class="form-group" type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">
@@ -163,9 +182,9 @@
             <th class="desc">Body</th>
             <th class="desc">Worker</th>
             <th class="desc">Employer</th>
-            <th class="desc">Created</th>
-            <th></th>
-            <th></th>
+            <th class="desc">Posted</th>
+<!--            <th></th>-->
+<!--            <th></th>-->
         </tr>
         </thead>
         <tbody id="tableBody">
@@ -188,9 +207,9 @@
                         </a>
                     </td>
                     <td>
-                        <form method="POST">
+                        <form style="background: white; align-content: center; align-self: center; align-items: center; padding: 0 0 0 0 " method="POST">
                             <input type="hidden" name="id" value="<?php echo $item->id; ?>">
-                            <button name="active" value="valid" class="is_active">
+                            <button name="active" value="valid" class="btn2">
                                 Delete
                             </button>
                         </form>
@@ -224,9 +243,9 @@
 </div>
 
 <!-- update members -->
-<div class="popup-view">
+<div class="popup-view" style="outline-color: #0c5fcd; border-color: #0c5fcd">
     <h2>Update Announcement</h2>
-    <form method="POST">
+    <form method="POST" style="outline-color: #0c5fcd; border-color: #0c5fcd">
         <h4>Title: </h4>
         <input name="title" type="text" placeholder="Enter Title">
         <h4>Body: </h4>

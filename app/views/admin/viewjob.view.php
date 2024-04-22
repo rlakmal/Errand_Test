@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/job.css">
 
     <title>viewjob</title>
     <style>
@@ -46,6 +44,19 @@
             max-height: 70%;
             object-fit: contain;
         }
+
+        .edit-gen2 {
+            width: 150%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            background: lightcyan;
+            margin: 15px;
+
+        }
+
     </style>
 </head>
 
@@ -65,44 +76,52 @@ if ($data) {
                 <div class="container-left">
 
                     <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="">
-                    <h3 class="category">
-                        Category
-                    </h3>
+<!--                    <h3 class="category">-->
+<!--                        Category-->
+<!--                    </h3>-->
                     <h3 class="emp-name">
                         <?php echo $item->name  ?>
                     </h3>
 
-                    <img class="rates" src="<?= ROOT ?>/assets/images/worker/rates.png" alt="">
+                    <a style="font-size: 40px" href="<?= ROOT ?>/admin/employeracc&id=<?= $item->emp_id ?>"><i class="bx bxs-user-detail"></i></a>
+
+<!--                    <img class="rates" src="--><?php //= ROOT ?><!--/assets/images/worker/rates.png" alt="">-->
 
                 </div>
 
                 <div class="container-right">
+                    <h3>ID: <?php echo $item->id ?></h3>
                     <div type="text" name="fullname" value="" class="title-line" readonly><?php echo $item->title  ?></div>
                     <h3>
                         Location
                     </h3>
-                    <div type="text" name="city" value="" class="edit-gen" readonly><?php echo $item->city ?></div>
+                    <input type="text" name="city" value="<?php echo $item->city ?>" class="edit-gen2" readonly>
                     <h3>
                         Address
                     </h3>
-                    <div type="text" name="address" value="" class="edit-gen" readonly><?php echo $item->address ?></div>
+                    <input type="text" name="address" value="<?php echo $item->address ?>" class="edit-gen2" readonly>
                     <h3>
                         Budget
                     </h3>
-                    <div type="text" name="budget" value='' class="edit-gen" readonly>Rs <?php echo $item->budget ?> Per Day</div>
+                    <input type="text" name="budget" value='Rs <?php echo $item->budget ?> Per Day' class="edit-gen2" readonly>
                     <h3>
                         Description
                     </h3>
-                    <div type="text" name="description" value='' class="edit-gen" readonly><?php echo $item->description ?></div>
+                    <input type="text" name="description" value='<?php echo $item->description ?>' class="edit-gen2" readonly>
+
+                    <h3>
+                        Created
+                    </h3>
+                    <input type="text" name="description" value='<?php echo $item->job_created ?>' class="edit-gen2" readonly>
                     <div class="job_images">
                         <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="" onclick="openModal(this.src,0)">
                         <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="" onclick="openModal(this.src,1)">
                     </div>
 
-                </div>
+                </input>
             </div>
             <div class="index_bottom">
-                <a href="<?= ROOT ?>/admin/jobs"><button style="background-color: orange; color: white; height: 40px; width: 100px; border-radius: 20px" class="close-button">Back</button></a>
+                <a href="<?= ROOT ?>/admin/jobs"><button style="background-color: darkblue; color: white; height: 40px; width: 100px; border-radius: 20px; cursor: pointer" class="close-button">Back</button></a>
             </div>
         </div>
 

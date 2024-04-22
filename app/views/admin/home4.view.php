@@ -63,6 +63,47 @@
                 width: 60%; /* Adjust the completed jobs percentage accordingly */
             }
         }
+
+        .charts-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; /* Adjust as needed */
+            margin-top: 20px;
+            width: 100vw;
+        }
+
+        .chart-container {
+            width: 50%; /* Adjust the width as needed */
+            height: 600px; /* Adjust the height as needed */
+            position: relative;
+            margin-top: 50px;
+            box-shadow: 10px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            background: #e6e6e6;
+            border-radius: 15px;
+            margin-right: 200px;
+
+        }
+
+        .chart-container h2{
+            border-radius: 40px;
+            background-color: #ffe6ff;
+        }
+        .chart-container :hover{
+            background: lightgrey;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .charts-row {
+                flex-direction: column;
+            }
+
+            .chart-container {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 
@@ -75,10 +116,10 @@
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <!-- Content -->
-<section id="main" class="main nue">
-    <h2>Administrator Home</h2>
-    <div class="insights">
-        <div class="income">
+<section id="main" class="main" style="margin-top: 15px; overflow-y: scroll; height: fit-content;">
+    <h2 style="position:fixed; width: 100%">Administrator Home</h2>
+    <div class="insights"  style="margin-top: 55px">
+        <div class="income" style="width: 25vw">
             <div class="middle">
                 <h1>Total Income</h1>
                 <span class="material-symbols-sharp">stacked_line_chart</span>
@@ -89,7 +130,7 @@
         <!-- END OF Income -->
 
         <div class="posted-jobs">
-            <div class="middle">
+            <div class="middle" style="width: 25vw">
                 <h1>Posted Jobs</h1>
                 <span class="material-symbols-sharp">analytics</span>
             </div>
@@ -98,7 +139,7 @@
         </div>
         <!-- END OF SALES -->
 
-        <div class="completed-jobs">
+        <div class="completed-jobs" style="width: 25vw">
             <div class="middle">
                 <h1>Job Acceptances</h1>
                 <span class="material-symbols-sharp">bar_chart</span>
@@ -108,7 +149,7 @@
         </div>
         <!-- END OF Expenses -->
 
-        <div class="adminCrew">
+        <div class="adminCrew" style="width: 25vw">
             <div class="middle">
                 <h1>Crew Members</h1>
                 <span class="material-symbols-sharp">groups</span>
@@ -116,6 +157,7 @@
             <h1><?=count($data["members"])?></h1>
             <small class="text-muted">Currently</small>
         </div>
+    </div>
 
         <?php
         $categories = array_unique(array_column($workers, 'category'));
@@ -167,26 +209,36 @@
         ];
         ?>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
-            <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
-            <h2>User Registration</h2>
+        <div  style="flex-direction: column; display: flex; overflow-y: scroll; width: 100% ; position: relative; height: 800px">
+            <div class="charts-row">
+                <div class="chart-container" style="width: 40%;">
+                    <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
+                    <h2>Employer Request Payments</h2>
+                </div>
+
+                <div class="chart-container" style="width: 40%;">
+                    <canvas id="registeredUsersChart" style="width: 100%; height: 100%;"></canvas>
+                    <h2>User Registration</h2>
+                </div>
+            </div>
+
+            <div class="charts-row" style="margin-bottom: 300px">
+                <div class="chart-container" style="width: 40%;">
+                    <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
+                    <h2>Categories of Worker</h2>
+                </div>
+
+                <div class="chart-container" style="width: 40%;">
+                    <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
+                    <h2>Job Locations</h2>
+                </div>
+            </div>
+
         </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 85%; height: 600px;">
-            <canvas id="jobDistributionChart" style="width: 100%; height: 100%;"></canvas>
-            <h2>Categories of Worker</h2>
-        </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
-            <canvas id="thirdChart" style="width: 100%; height: 100%;"></canvas>
-            <h2>Employer Request Payments</h2>
-        </div>
 
-        <div class="chart-container" style="margin-top: 50px; margin-left: 50px; width: 90%; height: 600px;">
-            <canvas id="fourthChart" style="width: 100%; height: 100%;"></canvas>
-            <h2>Fourth Chart</h2>
-        </div>
-    </div>
+
 </section>
 
 <!-- POPUP -->
@@ -195,13 +247,13 @@
 </div>
 
 <style>
-    .chart-container {
-        width: 1200px;
-        height: 600px;
-        float: left;
-        margin-top: 50px;
-        margin-right: 50px;
-    }
+    /*.chart-container {*/
+    /*    width: 1200px;*/
+    /*    height: 600px;*/
+    /*    float: left;*/
+    /*    margin-top: 50px;*/
+    /*    margin-right: 50px;*/
+    /*}*/
 
     .stats {
         display: flex;

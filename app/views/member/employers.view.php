@@ -93,7 +93,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>Registered Employers</h2>
+    <h2>REGISTERED EMPLOYERS</h2>
     <form>
         <div class="form">
             <input class="form-group" type="text" placeholder="Search...">
@@ -122,7 +122,7 @@
                     <td><?= $employer->email ?></td>
 
                     <td class="edit-view-profile">
-                        <a href="<?= ROOT ?>/admin/employeracc&id=<?= $employer->id ?>">
+                        <a href="<?= ROOT ?>/member/employeracc&id=<?= $employer->id ?>">
                             <i class="bx bxs-user-detail"></i>
                         </a>
                     </td>
