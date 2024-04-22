@@ -58,6 +58,8 @@
                             if ($item->status == 'Pending') {
 
                                 ?>
+
+
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $item->id ?>">
                                     <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
@@ -65,11 +67,11 @@
                                     <input type="hidden" name="title" value="<?php echo $item->title ?>">
                                     <input type="hidden" name="newbudget" value="<?php echo $item->newbudget ?>">
                                     <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
-                                    <button type="submit" name="Accept" value="Accept" class="view-profile-button">Accept</button>
-                                    <button type="submit" name="Reject" value="Reject" class="edit-profile-button">Reject</button>
-                                    <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
-                                </form>
+                                    <button type="submit" name="Accept" value="Accept" class="view-profile-button" onclick="return confirm('Are you sure you want to accept this?');">Accept</button>
+                                    <button type="submit" name="Reject" value="Reject" class="edit-profile-button" onclick="return confirm('Are you sure you want to reject this?');">Reject</button>
 
+                                </form>
+                                <a href="<?= ROOT ?>/employer/workerprof?id=<?php echo $item->worker_id ?>"><button class="worker-profile-button">Worker Profile</button></a>
                                 <?php
                             } else {
                                 ?>
