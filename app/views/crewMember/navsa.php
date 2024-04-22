@@ -8,21 +8,48 @@
     <title>Your Webpage</title>
     <style>
         body {
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
-    }
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+        }
 
-    .containerStu {
-      max-width: 700px;
-      width: 100%;
-      background: #ececec;
-      padding: 25px 30px;
-      border-radius: 15px;
-    }
+        .containerStu {
+            max-width: 700px;
+            width: 100%;
+            background: #ececec;
+            padding: 25px 30px;
+            border-radius: 15px;
+        }
+
+        .containerStu .title {
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 13px;
+            position: relative;
+            /* float: left; */
+        }
+
+        .containerStu .back {
+            float: right;
+            text-decoration: none;
+        }
+
+        .containerStu .back a {
+            text-decoration: none;
+        }
+
+        /* student form details  */
+
+        .containerStu form .user-details,
+        .containerStu form .parent-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 10px 0 12px 0;
+        }
     </style>
 </head>
 <script>
