@@ -7,6 +7,12 @@
 
 
     <style>
+        #map {
+            height: 300px;
+            width: 85%;
+            margin-left: 6%;
+        }
+
         table {
             margin: 2%;
             margin-left: 3%;
@@ -92,10 +98,6 @@
             color: #009879;
         }
 
-
-
-
-
         .acceptbutton {
             background-color: #393b5e;
             /* border: none; */
@@ -112,6 +114,49 @@
         .scrollable-table {
             max-height: 600px;
             overflow-y: auto;
+        }
+
+        .popup-view {
+            position: absolute;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 29%;
+            background: #ffffff;
+            margin-top: 0%;
+            margin-bottom: 0%;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 0 1px #cc1a00, 0 0 0 4px #fbcfc6;
+            visibility: hidden;
+            transition: transform 0.5s, top 0.5s;
+            justify-content: center;
+        }
+
+        .open-popup-view {
+            position: fixed;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 101;
+        }
+
+        .overlay-active {
+            opacity: 1;
+            pointer-events: all;
+            z-index: 100;
+        }
+
+        .map-btn i {
+            font-size: 30px;
+            color: #393b5e;
+        }
+
+        .map-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
         }
 
         @media (max-width: 650px) {
@@ -161,9 +206,11 @@
                                 <td> <button class="chat-btn" id="toggle-chat-btn" onclick="toggleChat('<?php echo $item->emp_id ?>')">
                                         <i class="bx bx-message-rounded-dots bx-flashing-hover chat-icon" id="chat-msg"></i>
                                     </button></td>
-                                <td> <button class="map-btn" id="viewlocation" onclick="togglemap('<?php echo $item->location ?>')">
+                                <td>
+                                    <button class="map-btn" id="viewlocation" onclick="openRequest('<?php echo $item->location ?>')">
                                         <i class='bx bxs-map'></i>
-                                    </button></td>
+                                    </button>
+                                </td>
                             </tr>
 
                         </tbody>
@@ -176,6 +223,59 @@
             </table>
         </div>
     </section>
+    <div class="popup-view">
+        <form method="POST">
+            <h2>Job Location</h2>
+            <div id="map"></div>
+            <div class="btns">
+                <button type="button" class="cancelR-btn" onclick="cancelRequest()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div id="overlay2" class="overlay"></div>
+    <div id="map"></div>
+    <script>
+        let popupRequest = document.querySelector(".popup-view");
+        let overlay2 = document.getElementById("overlay2");
+
+        function openRequest(location) {
+            console.log(location);
+            popupRequest.classList.add("open-popup-view");
+            overlay2.classList.add("overlay-active");
+            var coordinates = location.split(',');
+            var latitude = parseFloat(coordinates[0]);
+            var longitude = parseFloat(coordinates[1]);
+            console.log(latitude);
+            console.log(longitude);
+            initMap(latitude, longitude);
+        }
+
+        function cancelRequest() {
+            popupRequest.classList.remove("open-popup-view");
+            overlay2.classList.remove("overlay-active");
+        }
+
+        function initMap(latitude, longitude) {
+            var jobLocation = {
+                lat: latitude,
+                lng: longitude
+            };
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: jobLocation,
+            });
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: latitude,
+                    lng: longitude
+                },
+                map: map,
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6GOvTVdWC3aNfI8Jg4gOkyk74hiOB0RE&libraries=places&callback=initMap"></script>
+
+
     <div class="chat-popup" id="chat-popup">
         <div class="chat-container">
             <div class="chat-header">
