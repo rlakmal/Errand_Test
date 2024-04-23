@@ -323,14 +323,14 @@
     <div class="chat-popup" id="chat-popup">
         <div class="chat-container">
             <div class="chat-header">
-                <!-- <span class="close-btn" onclick="toggleChat()">×</span> -->
+                <span class="close-btn" onclick="toggleChat()">×</span>
 
                 <!-- 👋 Hi, message us with any questions. We're happy to help! -->
 
                 <div class="main-content">
-                    <img class="userImg" src="" alt="" />
+                    <img class="userImg" src="<?= ROOT ?>/assets/images/worker/profileImages/profile.jpg" alt="" />
                     <div class="user">
-                        <p id="header-user">Chat with us</p>
+                        <p id="header-user"><?php echo $item->worker_name ?></p>
                         <div class="user-status hide">
                             <div class="status" id="status-c" style="background: rgb(0, 238, 0)"></div>
                             <p id="typing" class="user-online">Offline</p>
@@ -338,7 +338,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="logo" src="" alt="" />
+
             </div>
             <div class="chat-body" id="chat-body"></div>
             <div class="chat-input">
@@ -446,12 +446,10 @@
                     try {
 
                         Jsondata = JSON.parse(res)
-                        //console.log(Jsondata);
+                        console.log(Jsondata);
                         // Add employee image
-                        // var imageUrl = <?= ROOT ?> / uploads / profile_img / $ {
-                        //     Jsondata.empImage
-                        // };
-                        // userImge.setAttribute("src", imageUrl);
+                        var imageUrl = "<?= ROOT ?>/assets/images/worker/profileImages/" + Jsondata.empImage;
+                        userImge.setAttribute("src", imageUrl);
 
                         // User is first time chat with Company then display msg
                         if ((Jsondata == null || Jsondata.chatMsgs == false)) {
@@ -468,7 +466,7 @@
                             p.style.fontSize = "13px";
                             p.style.lineHeight = "20px";
                             p.style.maxWidth = "70%";
-                            p.innerHTML = "👋 Hi, message us with any questions. We're happy to help! 😀";
+                            p.innerHTML = "👋 Hi,😀";
 
                             p.style.alignSelf = "flex-start";
                             p.style.flexDirection = "column";

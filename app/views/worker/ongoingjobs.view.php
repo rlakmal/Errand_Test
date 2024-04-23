@@ -140,6 +140,7 @@
                         <th>JOb Title</th>
                         <th>Work Budget</th>
                         <th>Chat</th>
+                        <th>Location</th>
                     </tr>
                 </thead>
 
@@ -148,7 +149,7 @@
                 if (is_array($data)) {
                     foreach ($data as $item) {
                         $no++;
-                        //show($item);
+                        // show($item);
 
                 ?>
                         <tbody>
@@ -159,6 +160,9 @@
                                 <td>Rs <?php echo $item->budget ?> /= per day</td>
                                 <td> <button class="chat-btn" id="toggle-chat-btn" onclick="toggleChat('<?php echo $item->emp_id ?>')">
                                         <i class="bx bx-message-rounded-dots bx-flashing-hover chat-icon" id="chat-msg"></i>
+                                    </button></td>
+                                <td> <button class="map-btn" id="viewlocation" onclick="togglemap('<?php echo $item->location ?>')">
+                                        <i class='bx bxs-map'></i>
                                     </button></td>
                             </tr>
 
@@ -175,14 +179,14 @@
     <div class="chat-popup" id="chat-popup">
         <div class="chat-container">
             <div class="chat-header">
-                <!-- <span class="close-btn" onclick="toggleChat()">×</span> -->
+                <span class="close-btn" onclick="toggleChat()">×</span>
 
                 <!-- 👋 Hi, message us with any questions. We're happy to help! -->
 
                 <div class="main-content">
-                    <img class="userImg" src="" alt="" />
+                    <img class="userImg" src="<?= ROOT ?>/assets/images/profileImages/prof.jpg" alt="" />
                     <div class="user">
-                        <p id="header-user">Chat with us</p>
+                        <p id="header-user"><?php echo $item->emp_name ?></p>
                         <div class="user-status hide">
                             <div class="status" id="status-c" style="background: rgb(0, 238, 0)"></div>
                             <p id="typing" class="user-online">Offline</p>
@@ -190,7 +194,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="logo" src="" alt="" />
+
             </div>
             <div class="chat-body" id="chat-body"></div>
             <div class="chat-input">
@@ -298,11 +302,8 @@
 
                         Jsondata = JSON.parse(res)
                         //console.log(Jsondata);
-                        // Add employee image
-                        // var imageUrl = <?= ROOT ?> / uploads / profile_img / $ {
-                        //     Jsondata.empImage
-                        // };
-                        // userImge.setAttribute("src", imageUrl);
+                        var imageUrl = "<?= ROOT ?>/assets/images/profileImages/" + Jsondata.empImage;
+                        userImge.setAttribute("src", imageUrl);
 
                         // User is first time chat with Company then display msg
                         if ((Jsondata == null || Jsondata.chatMsgs == false)) {

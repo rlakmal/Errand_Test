@@ -9,7 +9,7 @@
 
 <body>
     <?php include 'workernav.php' ?>
-    <?php include 'workersidebar.php' ?>
+    <?php include 'workersidebar.php' ?> -->
     <div class="set_margin">
 
         <?php
@@ -17,6 +17,7 @@
         if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
             for ($i = 0; $i < count($data['data']); $i++) {
                 $item = $data['data'][$i];
+                //show($item);
                 $image = $images['images'][$i];
                 // Fixed 3-day countdown
                 $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
@@ -58,6 +59,7 @@
                                                 <input type="hidden" name="title" value="<?php echo $item->title ?>">
                                                 <input type="hidden" name="worker_name" value="<?php echo $item->worker_name ?>">
                                                 <input type="hidden" name="budget" value="<?php echo $item->budget ?>">
+                                                <input type="hidden" name="location" value="<?php echo $item->location ?>">
                                                 <button type="submit" name="Accept" value="Accept" class="edit-profile-button" onclick="return confirm('Are you sure you want to accept this?');">Accept</button>
                                                 <button type="submit" name="Reject" value="Reject" class="view-profile-button" onclick="return confirm('Are you sure you want to reject this?');">Reject</button>
                                             </form>
