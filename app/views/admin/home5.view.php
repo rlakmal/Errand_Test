@@ -129,7 +129,7 @@
 <!-- Sidebar -->
 <?php include 'sidebar.php' ?>
 <!-- Navigation bar -->
-<?php include 'navigationbar.php' ?>
+<?php include 'navigationbar3.php' ?>
 <!-- Scripts -->
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
