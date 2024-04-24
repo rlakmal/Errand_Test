@@ -27,7 +27,7 @@ class SignIn extends Controller
 
                 $user->insert($_POST);
 
-                //redirect('home/signin');
+                redirect('home/signin');
             }
         }
 
@@ -72,7 +72,6 @@ class SignIn extends Controller
                         redirect('admin/home');
                     } else if ($row->status == 'crew_member') {
                         redirect('member/home');
-
                     }
                 } else {
                     $data['errors'] = "";

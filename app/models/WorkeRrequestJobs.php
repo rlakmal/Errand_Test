@@ -15,7 +15,8 @@ class WorkeRrequestJobs
         'description',
         'emp_name',
         'worker_name',
-        'status'
+        'status',
+        'location',
 
     ];
 

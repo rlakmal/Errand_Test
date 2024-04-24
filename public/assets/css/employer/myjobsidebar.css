@@ -307,7 +307,7 @@ body {
 /* Sidebar */
 
 /* Navigation Bar */
-nav {
+/* nav {
   background: #f16a2d;
   height: 64px;
   padding: 0 20px;
@@ -318,7 +318,7 @@ nav {
   z-index: 1;
   position: sticky;
   width: 100%;
-}
+} */
 nav .nav-link {
   position: relative;
   margin-right: 25px;
