@@ -11,7 +11,7 @@ class EmployersList extends Controller
             $qdata["status"] = "employer";
             $data["data"] = $employer->where($qdata);
 
-            $this->view('admin/employers', $data);
+            $this->view('admin/employers2', $data);
         } else {
             redirect('home');
         }

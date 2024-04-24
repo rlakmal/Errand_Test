@@ -11,10 +11,10 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: lightcyan;
             margin: 0;
             padding: 0;
-            overflow-y: auto; /* Make the body scrollable */
+            overflow-y: hidden; /* Make the body scrollable */
         }
 
         .main {
@@ -28,6 +28,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            background: lightcyan;
         }
 
         .form-group {
@@ -49,23 +50,31 @@
         }
 
         .table th, .table td {
-            border: 1px solid #ddd;
+            border-right: 1px #ddd;
             padding: 8px;
             text-align: left;
+            background: white;
+            height: fit-content;
         }
 
+        .table tr{
+            height: 70px;
+
+        }
         .table th {
-            background-color: #3498db;
-            color: #fff;
+            background-color: lightcyan;
+            color: black;
             border-radius: 10px; /* Adding curve to table headers */
         }
 
         .table tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: white;
+            transition: transform 0.3s;
         }
 
         .table tr:hover {
             background-color: #e5e5e5;
+            transform: scale(1.01);
         }
 
         .edit-view-profile a {
@@ -85,6 +94,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            background: white;
         }
 
         .verified-icon {
@@ -120,8 +130,8 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>Registered Workers</h2>
-    <form>
+    <h2 style="background: lightcyan">Registered Workers</h2>
+    <form style="background: lightcyan">
         <div class="form">
             <!-- Category Selector -->
             <select class="form-group" name="category">
@@ -143,111 +153,136 @@
             </select>
             <!-- Search bar -->
             <input id="searchInput2" class="form-group" type="text" placeholder="Search Location...">
-            <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search...">
+            <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search by Name or ID">
         </div>
     </form>
-    <table class="table">
-        <thead>
-        <tr>
-            <th class="ordId">ID</th>
-            <th class="ordId">Worker Name</th>
-            <th class="desc">Category</th>
-            <th class="stth">Username</th>
-            <th class="stth">Location</th>
-            <th class="cost">Verified</th>
-            <th class="verified">Profile</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($data as $worker) : ?>
+    <div style="overflow-y: scroll; height: 700px">
+
+        <table class="table" >
+            <thead>
             <tr>
-                <td><?= $worker->id ?></td>
-                <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
-                <td><?= $worker->category ?></td>
-                <td><?= $worker->email ?></td>
-                <td><?= $worker->city ?></td>
-                <td class="verified-widget">
-                    <?php if ($worker->verified) : ?>
-                        <i class="bx bx-check-circle verified-icon"></i>
-                        <span>Verified</span>
-                    <?php else : ?>
-                        <i class="bx bx-x-circle not-verified-icon"></i>
-                        <span>Not Verified</span>
-                    <?php endif; ?>
-                </td>
-                <td class="edit-view-profile"><a href="<?= ROOT ?>/member/verification2&id=<?= $worker->id ?>">
-                        <span class="link_name"><i class="fas fa-user icon"></i></span>
-                    </a></td>
+                <th class="ordId">ID</th>
+                <th class="ordId"></th>
+                <th class="ordId">Worker Name</th>
+                <th class="desc">Category</th>
+                <th class="stth">Username</th>
+                <th class="stth">Location</th>
+                <th class="cost">Verified</th>
+                <th class="verified">Profile</th>
             </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody >
+            <?php foreach ($data as $worker) : ?>
+                <tr>
+                    <td><?= $worker->id ?></td>
+                    <td>
+                        <div style="position: relative">
+                            <!--                            --><?php //var_dump($worker)?>
+                            <img style="height: 50px; border-radius: 50%; width: 50px" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $worker->profile_image ?>">
+                        </div>
+                    </td>
+                    <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
+                    <td><?= $worker->category ?></td>
+                    <td><?= $worker->email ?></td>
+                    <td><?= $worker->city ?></td>
+                    <td class="verified-widget">
+                        <?php if ($worker->verified) : ?>
+                            <i class="bx bx-check-circle verified-icon"></i>
+                            <span>Verified</span>
+                        <?php else : ?>
+                            <i class="bx bx-x-circle not-verified-icon"></i>
+                            <span>Not Verified</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/member/verification2&id=<?= $worker->id ?>">
+                            <span class="link_name"><i class="fas fa-user icon"></i></span>
+                        </a></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
 </section>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
 <script>
-    // Get select elements
-    let categorySelect = document.querySelector('select[name="category"]');
-    let tableRows = document.querySelectorAll('.table tbody tr');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get select element
+        let categorySelect = document.querySelector('select[name="category"]');
+        let tableRows = document.querySelectorAll('.table tbody tr');
 
-    // Add event listener to category select
-    categorySelect.addEventListener('change', function() {
-        let selectedCategory = categorySelect.value;
+        // Add event listener to category select
+        categorySelect.addEventListener('change', function() {
+            let selectedCategory = categorySelect.value;
 
-        // Loop through all table rows
-        tableRows.forEach(function(row) {
-            let categoryCell = row.querySelector('td:nth-child(3)').textContent;
+            // Loop through all table rows
+            tableRows.forEach(function(row) {
+                let categoryCell = row.querySelector('td:nth-child(4)').textContent; // Adjusted index for category cell
 
-            // Check if selected category is "All Categories" or matches row's category
-            if (selectedCategory === 'all' || categoryCell === selectedCategory) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
+                // Check if selected category is "All Categories" or matches row's category
+                if (selectedCategory === 'all' || categoryCell === selectedCategory) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Get input elements
+        let searchInput = document.getElementById('searchInput');
+        let searchInput2 = document.getElementById('searchInput2');
+
+        // Add event listener for searchInput
+        searchInput.addEventListener('input', function() {
+            let searchText = searchInput.value.trim(); // Trimmed whitespace
+            let isNumeric = /^\d+$/.test(searchText); // Check if input is numeric
+
+            // Loop through all table rows
+            tableRows.forEach(function(row) {
+                let id = row.querySelector('td:nth-child(1)').textContent.toLowerCase(); // Adjusted index for ID cell
+                let name = row.querySelector('td:nth-child(3)').textContent.toLowerCase(); // Adjusted index for name cell
+
+                // Check if input is numeric
+                if (isNumeric) {
+                    // Check if search text matches ID
+                    if (id.includes(searchText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                } else {
+                    // Check if search text matches name
+                    if (name.includes(searchText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Add event listener for searchInput2
+        searchInput2.addEventListener('input', function() {
+            let searchText2 = searchInput2.value.trim().toLowerCase(); // Trimmed whitespace
+
+            // Loop through all table rows
+            tableRows.forEach(function(row) {
+                let location = row.querySelector('td:nth-child(6)').textContent.toLowerCase(); // Adjusted index for location cell
+
+                // Check if search text matches location
+                if (location.includes(searchText2)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
     });
 
-    // Get input elements
-    let searchInput = document.getElementById('searchInput');
-    let searchInput2 = document.getElementById('searchInput2');
 
-    // Add event listener for searchInput
-    searchInput.addEventListener('input', function() {
-        let searchText = searchInput.value.toLowerCase();
-        let rows = document.querySelectorAll('.table tbody tr');
-
-        // Loop through all table rows
-        rows.forEach(function(row) {
-            let username = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
-            let id = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
-
-            // Check if search text matches username or ID
-            if (username.includes(searchText) || id.includes(searchText)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
-
-    // Add event listener for searchInput2
-    searchInput2.addEventListener('input', function() {
-        let searchText2 = searchInput2.value.toLowerCase();
-        let rows = document.querySelectorAll('.table tbody tr');
-
-        // Loop through all table rows
-        rows.forEach(function(row) {
-            let location = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
-
-            // Check if search text matches location
-            if (location.includes(searchText2)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
 </script>
 </body>
 

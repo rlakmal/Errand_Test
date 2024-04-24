@@ -6,146 +6,12 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard2.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/notification.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #eef;
-            color: #333;
-        }
 
-        .main {
-            margin: 20px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #555;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .form {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        /*.form-group {*/
-        /*    width: 300px;*/
-        /*    padding: 10px;*/
-        /*    border: 1px solid #ccc;*/
-        /*    border-radius: 20px;*/
-        /*    font-size: 12px;*/
-        /*    margin-right: 10px;*/
-        /*    color: #666;*/
-        /*    margin-top: 20px;*/
-        /*    align-content: center;*/
-        /*}*/
-
-        .icon {
-            font-size: 20px;
-            color: #666;
-            margin-left: -40px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            background-color: #3498db;
-            color: #fff;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 16px;
-        }
-
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        .btn2 {
-            padding: 10px 20px;
-            border: none;
-            background-color: red;
-            color: #fff;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 12px;
-            align-self: center;
-        }
-
-        .btn2:hover {
-            background-color: darkred;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            background-color: #fff;
-            border-radius: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .table th,
-        .table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            font-size: 12px;
-            color: #555;
-            border-radius: 10px;
-
-        }
-
-        .table th {
-            background-color: #3498db;
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .edit-icon {
-            text-align: center;
-        }
-
-        .edit-btn {
-            color: #3498db;
-            cursor: pointer;
-        }
-
-        .edit-btn:hover {
-            color: #2980b9;
-        }
-
-        /* Added styles for filter buttons */
-        .filter-btns {
-            margin-bottom: 20px;
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            border: none;
-            background-color: #ccc;
-            color: #333;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-
-        .filter-btn.active {
-            background-color: #3498db;
-            color: #fff;
-        }
     </style>
 </head>
 
@@ -165,8 +31,8 @@
         <button class="filter-btn" id="employerBtn">Employer</button>
     </div>
 
-    <form>
-        <div class="form" style="padding: 15px">
+    <form style="background: #eef">
+        <div class="form" style="padding: 15px; background: #eef">
             <input class="form-group" type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">

@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/workerprofile.css">
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/employer/jobpopup.css">-->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/admin/style-bar.css">
 
 
 

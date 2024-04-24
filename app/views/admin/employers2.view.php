@@ -130,29 +130,12 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: lightcyan">Registered Workers</h2>
+    <h2 style="background: lightcyan">Registered Employers</h2>
     <form style="background: lightcyan">
         <div class="form">
             <!-- Category Selector -->
-            <select class="form-group" name="category">
-                <option value="all">All Categories</option>
-                <option value="Technicians">Technicians</option>
-                <option value="AC Repairs">AC Repairs</option>
-                <option value="CCTV">CCTV</option>
-                <option value="Constructions">Constructions</option>
-                <option value="Electricians">Electricians</option>
-                <option value="Electronic Repairs">Electronic Repairs</option>
-                <option value="Glass & Aluminium">Glass & Aluminium</option>
-                <option value="Iron Works">Iron Works</option>
-                <option value="Masonry">Masonry</option>
-                <option value="Odd Jobs">Odd Jobs</option>
-                <option value="Pest Controllers">Pest Controllers</option>
-                <option value="Plumbing">Plumbing</option>
-                <option value="Wood Works">Wood Works</option>
-                <!-- Add more categories as needed -->
-            </select>
+
             <!-- Search bar -->
-            <input id="searchInput2" class="form-group" type="text" placeholder="Search Location...">
             <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search by Name or ID">
         </div>
     </form>
@@ -164,41 +147,28 @@
                 <th class="ordId"></th>
                 <th class="ordId">ID</th>
                 <th class="ordId"></th>
-                <th class="ordId">Worker Name</th>
-                <th class="desc">Category</th>
+                <th class="ordId">Employer Name</th>
                 <th class="stth">Username</th>
-                <th class="stth">Location</th>
-                <th class="cost">Verified</th>
                 <th class="verified">Profile</th>
             </tr>
             </thead>
 
             <tbody >
             <?php $index = 0;
-            foreach ($data as $worker) : $index = $index + 1?>
+            foreach ($data as $employer) : $index = $index + 1?>
                 <tr>
-                    <td><?= $index ?></td>
-                    <td><?= $worker->id ?></td>
+                    <td><?= $index?></td>
+                    <td><?= $employer->id ?></td>
                     <td>
                         <div style="position: relative">
-<!--                            --><?php //var_dump($worker)?>
-                            <img style="height: 50px; border-radius: 50%; width: 50px" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $worker->profile_image ?>">
+                            <!--                            --><?php //var_dump($worker)?>
+                            <img style="height: 50px; border-radius: 50%; width: 50px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $employer->profile_image ?>">
                         </div>
                     </td>
-                    <td><a href="#" class="worker-link"><?= $worker->name ?></a></td>
-                    <td><?= $worker->category ?></td>
-                    <td><?= $worker->email ?></td>
-                    <td><?= $worker->city ?></td>
-                    <td class="verified-widget">
-                        <?php if ($worker->verified) : ?>
-                            <i class="bx bx-check-circle verified-icon"></i>
-                            <span>Verified</span>
-                        <?php else : ?>
-                            <i class="bx bx-x-circle not-verified-icon"></i>
-                            <span>Not Verified</span>
-                        <?php endif; ?>
-                    </td>
-                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->id ?>">
+                    <td><a href="#" class="worker-link"><?= $employer->name ?></a></td>
+                    <td><?= $employer->email ?></td>
+
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/employeracc&id=<?= $employer->id ?>">
                             <span class="link_name"><i class="fas fa-user icon"></i></span>
                         </a></td>
                 </tr>
@@ -214,29 +184,11 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Get select element
-        let categorySelect = document.querySelector('select[name="category"]');
         let tableRows = document.querySelectorAll('.table tbody tr');
 
-        // Add event listener to category select
-        categorySelect.addEventListener('change', function() {
-            let selectedCategory = categorySelect.value;
-
-            // Loop through all table rows
-            tableRows.forEach(function(row) {
-                let categoryCell = row.querySelector('td:nth-child(4)').textContent; // Adjusted index for category cell
-
-                // Check if selected category is "All Categories" or matches row's category
-                if (selectedCategory === 'all' || categoryCell === selectedCategory) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
 
         // Get input elements
         let searchInput = document.getElementById('searchInput');
-        let searchInput2 = document.getElementById('searchInput2');
 
         // Add event listener for searchInput
         searchInput.addEventListener('input', function() {
@@ -245,8 +197,8 @@
 
             // Loop through all table rows
             tableRows.forEach(function(row) {
-                let id = row.querySelector('td:nth-child(1)').textContent.toLowerCase(); // Adjusted index for ID cell
-                let name = row.querySelector('td:nth-child(3)').textContent.toLowerCase(); // Adjusted index for name cell
+                let id = row.querySelector('td:nth-child(2)').textContent.toLowerCase(); // Adjusted index for ID cell
+                let name = row.querySelector('td:nth-child(4)').textContent.toLowerCase(); // Adjusted index for name cell
 
                 // Check if input is numeric
                 if (isNumeric) {
@@ -268,21 +220,7 @@
         });
 
         // Add event listener for searchInput2
-        searchInput2.addEventListener('input', function() {
-            let searchText2 = searchInput2.value.trim().toLowerCase(); // Trimmed whitespace
 
-            // Loop through all table rows
-            tableRows.forEach(function(row) {
-                let location = row.querySelector('td:nth-child(6)').textContent.toLowerCase(); // Adjusted index for location cell
-
-                // Check if search text matches location
-                if (location.includes(searchText2)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
     });
 
 </script>

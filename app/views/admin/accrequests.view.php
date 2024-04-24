@@ -6,120 +6,12 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/request.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .table-container {
-            max-height: 80vh; /* Set the maximum height for the container (80% of the viewport height) */
-            overflow-y: scroll;
-            overflow-x: scroll;
-        }
 
-        table {
-            width: 130%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .status-pending {
-            color: #007bff;
-        }
-
-        .status-paid {
-            color: #28a745;
-        }
-
-        .status-canceled {
-            color: #dc3545;
-        }
-
-        .status-chargedback {
-            color: #ffc107;
-        }
-
-        .status-unpaid {
-            color: #6c757d;
-        }
-
-        .delete-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            z-index: 9999;
-            display: none;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .popup button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .popup button.yes-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-        }
-
-        .popup button.no-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-        }
-
-        .popup img {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
 
 
     </style>
@@ -147,7 +39,7 @@
                 <th>ID</th>
                 <th>Employer ID</th>
                 <th>Worker ID</th>
-<!--                <th>Employer</th>-->
+                <th>Employer</th>
                 <th>Worker</th>
                 <th>Title</th>
                 <th>Payment</th>
@@ -165,7 +57,7 @@
                     <td><?= $request->id ?></td>
                     <td><?= $request->emp_id ?></td>
                     <td><?= $request->worker_id ?></td>
-<!--                    <td><a href="--><?php //=ROOT?><!--/admin/employeracc&id=--><?php //= $request->emp_id ?><!--">--><?php //= $request->emp_name ?><!--</a></td>-->
+                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
                     <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
                     <td><?= $request->title ?></td>
                     <td><?= $request->budget*10 ?></td>
