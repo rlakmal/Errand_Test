@@ -86,6 +86,86 @@
     .user-details .input-box select:focus {
       border-color: #373538;
     }
+    
+    form .stugender-details .gender-title {
+      font-size: 16px;
+      display: flex;
+      width: 15%;
+      float: left;
+      font-weight: 500;
+      margin-right: 10px;
+      /* background: red; */
+    }
+
+    form .stugender-details .category {
+      display: flex;
+      width: 30%;
+      justify-content: space-between;
+      margin: 5px 0;
+      margin-right: 5px;
+
+      /* background: red; */
+    }
+
+    .stugender-details .category label {
+      display: flex;
+      align-items: center;
+      margin-right: 1%;
+    }
+    form .stugender-details .category .dot {
+      height: 18px;
+      width: 18px;
+      background: #d9d9d9;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 5px solid transparent;
+      transition: all 0.3s ease-in;
+    }
+
+    #dot-1:checked ~ .category label .one,
+    #dot-2:checked ~ .category label .two {
+      border-color: #d9d9d9;
+      background: #373538;
+    }
+
+    form input[type="radio"] {
+      display: none;
+    }
+
+    /* submit button */
+
+    form .button {
+      height: 45px;
+      cursor: pointer;
+      /* margin: 45px 0; */
+    }
+
+    form .button input {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(135deg, #ffffff, rgb(242, 102, 46));
+      outline: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      border: none;
+      border-radius: 10px;
+      transition: all 1s ease-in;
+    }
+    form .button input:hover {
+      /* background: linear-gradient(-135deg, #71b7e6, #9b59b6); */
+      background: #000000;
+      transition: all 0.3s ease-in;
+    }
+
+    form .response {
+      color: rgb(9, 167, 9);
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      /* margin-left: 10px; */
+    }
     </style>
 </head>
 <body>
