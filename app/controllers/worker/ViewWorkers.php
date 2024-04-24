@@ -1,3 +1,4 @@
+
 <?php
 
 class ViewWorkers extends Controller
@@ -6,6 +7,7 @@ class ViewWorkers extends Controller
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
+
             $reviews = new Ratings;
             $worker = new WorkerServices;
             $worker_details = new Worker;
@@ -17,6 +19,7 @@ class ViewWorkers extends Controller
             $worker_id = $foundworker->worker_id;
             $worker_name = $foundworker->name;
             $data = $this->create($worker_details, $worker_id);
+
             $findreviews = $reviews->where($arr, 'id');
             $viewData = [
                 'results' => $findreviews,

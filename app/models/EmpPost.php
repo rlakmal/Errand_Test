@@ -19,5 +19,6 @@ class EmpPost
         'city',
         'address',
         'name',
+        'location',
     ];
 }

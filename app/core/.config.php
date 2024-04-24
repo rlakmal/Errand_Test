@@ -8,7 +8,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
     define('DBHOST', 'localhost:3306');
 
-    define('DBNAME', 'my_project_db7');
+
+    define('DBNAME', 'project_db8');
+
 
     define('DBUSER', 'root');
     define('DBPASS', '');

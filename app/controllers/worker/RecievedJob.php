@@ -108,3 +108,4 @@ class RecievedJob extends Controller
         $notification->insert($arr);
     }
 }
+
