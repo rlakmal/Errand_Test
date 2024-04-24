@@ -255,6 +255,110 @@
 
 </section>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sample data for charts
+        var registeredUsersData = {
+            labels: <?= json_encode($months) ?>,
+            datasets: [{
+                label: 'Employers',
+                data: <?= json_encode(array_values($employerData)) ?>,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            },
+                {
+                    label: 'Workers',
+                    data: <?= json_encode(array_values($workerData)) ?>,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        var jobDistributionData = {
+            labels: <?= json_encode(array_keys($categoryCounts)) ?>,
+            datasets: [{
+                label: 'Workers Distribution',
+                data: <?= json_encode(array_values($categoryCounts)) ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        var thirdChartData = <?= json_encode($thirdChartData) ?>;
+
+        // Data for fourth chart
+        var fourthChartData = {
+            labels: <?= json_encode(array_keys($data["joblocationcounts"])) ?>, // Use array keys as labels
+            datasets: [{
+                label: 'Job Location Counts',
+                data: <?= json_encode(array_values($data["joblocationcounts"])) ?>, // Use array values as data
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Initialize and render charts
+        var registeredUsersChart = new Chart(document.getElementById('registeredUsersChart').getContext('2d'), {
+            type: 'bar',
+            data: registeredUsersData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var jobDistributionChart = new Chart(document.getElementById('jobDistributionChart').getContext('2d'), {
+            type: 'doughnut',
+            data: jobDistributionData
+        });
+
+        var thirdChart = new Chart(document.getElementById('thirdChart').getContext('2d'), {
+            type: 'line',
+            data: thirdChartData
+        });
+
+        var fourthChart = new Chart(document.getElementById('fourthChart').getContext('2d'), {
+            type: 'bar',
+            data: fourthChartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Add other chart initializations here
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+
 
 <body>
 
