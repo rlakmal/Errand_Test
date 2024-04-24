@@ -63,6 +63,7 @@ route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorker
 route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 route('employer/chatbox', 'employer/ReviewRequest@chat_data');
+route('employer/saveMsg', 'employer/ReviewRequest@save_data');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
@@ -80,6 +81,7 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
+route('worker/ongoingjobs', 'worker/OngoingJobs@index');
 
 route('worker/viewjobmap', 'worker/ViewMap@index');
 route('worker/viewemprofile', 'worker/ViewEmployerProfile@index');

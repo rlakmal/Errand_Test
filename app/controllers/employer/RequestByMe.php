@@ -40,18 +40,22 @@ class RequestByMe extends Controller
                     'budget' => $_POST['newbudget'],
                 ];
                 $myrequests->update($id, $updateData, 'id');
+                $array['id'] = $id;
+                $data_location = $myrequests->where($arr);
+                $datal = $data_location[0]->location;
                 unset($_POST['id']);
                 unset($_POST['pop-accept-btn']);
                 $_POST['budget'] = $_POST['newbudget'];
                 unset($_POST['newbudget']);
                 //show($_POST);
 
-//                $_POST['payment_stat'] = "unpaid";
-//                $_POST['type'] = "employer";
+                //                $_POST['payment_stat'] = "unpaid";
+                //                $_POST['type'] = "employer";
 
                 $_POST['emp_name'] = $_SESSION['USER']->name;
                 $_POST['payment_stat'] = "Pay Now";
                 $_POST['type'] = "employer";
+                $_POST['location'] = $datal;
 
                 $accepted_jobs->insert($_POST);
                 redirect('employer/myworkerreq');
