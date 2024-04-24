@@ -112,7 +112,234 @@
         justify-content: center;
       }
       
+      .formbg {
+          margin: 0px auto;
+          width: 100%;
+          max-width: 448px;
+          background: white;
+          border-radius: 4px;
+          box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+      }
+      span {
+          display: block;
+          font-size: 20px;
+          line-height: 28px;
+          color: #1a1f36;
+      }
+      label {
+          margin-bottom: 10px;
+      }
+      .reset-pass a,label {
+          font-size: 14px;
+          font-weight: 600;
+          display: block;
+      }
+      .reset-pass > a {
+          text-align: right;
+          margin-bottom: 10px;
+      }
+      .grid--50-50 {
+          display: grid;
+          grid-template-columns: 50% 50%;
+          align-items: center;
+      }
       
+      .field input {
+          font-size: 16px;
+          line-height: 28px;
+          padding: 8px 16px;
+          width: 100%;
+          min-height: 44px;
+          border: unset;
+          border-radius: 4px;
+          outline-color: rgba(232, 147, 0, 0.801);
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+      }
+      
+      input[type="submit"] {
+          background-color: rgb(196, 113, 18);
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                      rgb(230, 162, 3) 0px 0px 0px 1px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                      rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+          color: #d3b015;
+          font-weight: 600;
+          cursor: pointer;
+      }
+      .field-checkbox input {
+          width: 20px;
+          height: 15px;
+          margin-right: 5px; 
+          box-shadow: unset;
+          min-height: unset;
+      }
+      .field-checkbox label {
+          display: flex;
+          align-items: center;
+          margin: 0;
+      }
+      a.ssolink {
+          display: block;
+          text-align: center;
+          font-weight: 600;
+      }
+      .footer-link span {
+          font-size: 14px;
+          text-align: center;
+      }
+      .listing a {
+          color: #697386;
+          font-weight: 600;
+          margin: 0 10px;
+      }
+      
+      .animationRightLeft {
+        animation: animationRightLeft 2s ease-in-out infinite;
+      }
+      .animationLeftRight {
+        animation: animationLeftRight 2s ease-in-out infinite;
+      }
+      .tans3s {
+        animation: animationLeftRight 3s ease-in-out infinite;
+      }
+      .tans4s {
+        animation: animationLeftRight 4s ease-in-out infinite;
+      }
+      
+      @keyframes animationLeftRight {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(1000px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      } 
+      
+      @keyframes animationRightLeft {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(-1000px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      } 
+      form .stugender-details .gender-title {
+  font-size: 22px;
+  display: flex;
+  width: 15%;
+  float: left;
+  font-weight: ;
+  margin-right: 10px;
+  /* background: red; */
+}
+form .stugender-details .gender{
+    font-size: medium;
+}
+
+form .stugender-details .category {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  margin: 5px 0;
+  margin-right: 5px;
+
+  /* background: red; */
+}
+
+.stugender-details .category label {
+  display: flex;
+  align-items: center;
+  margin-right: 1%;
+}
+form .stugender-details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease-in;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two {
+  border-color: #d9d9d9;
+  background: #373538;
+}
+
+form .stugender-details .category {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin: 5px 0;
+    margin-right: 5px;
+  
+    /* background: red; */
+  }
+  
+  .stugender-details .category label {
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
+  }
+  form .stugender-details .category .dot {
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
+    transition: all 0.3s ease-in;
+  }
+  
+  #dot-1:checked ~ .category label .one,
+  #dot-2:checked ~ .category label .two {
+    border-color: #d9d9d9;
+    background: #373538;
+  }
+  
+  form input[type="radio"] {
+    display: none;
+  }
+
+  .button {
+    display: inline-flex;
+   margin-left: 35%;
+   margin-bottom: 10%;
+  }
+  
+  .button input[type="submit"] {
+    background-color: #ff8c00; /* Orange color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.8); /* Glowing effect */
+  }
+  
+  .button input[type="submit"]:hover {
+    background-color: #ffaa00; /* Lighter shade of orange on hover */
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.8); /* Increase glow on hover */
+  }
+  
   
 </style>
 </head>
