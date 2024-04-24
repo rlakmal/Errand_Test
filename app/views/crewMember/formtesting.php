@@ -377,7 +377,147 @@ form .stugender-details .category {
             <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
           </div>
         </div>
-      
+      </div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Register as Worker</a></h1>
+        </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15">Sign in to your account</span>
+              <form method="POST">
+                <div>
+                  <h3>
+            
+                    Personal Information
+                  </h3><br>
+                </div>
+                <div class="field padding-bottom--24">
+                  <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input name="name" type="text" placeholder="Your Full Name" required />
+                  </div>
+            <br>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">NIC Number</span>
+                    <input name="nic" type="text" placeholder="Your NIC Number" required />
+                  </div><br>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">Address</span>
+                    <input name="address" type="text" placeholder="Your Address" required />
+                  </div>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">City</span>
+                    <input name="city" type="text" placeholder="Your City" required />
+                  </div>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">Select Category</span>
+                    <select name="category+" id="department" required>
+            
+                      <option value="Technicians">All</option>
+                      <option value="Technicians">Technicians</option>
+                      <option value="AC Repairs">AC Repairs</option>
+                      <option value="CCTV">CCTV</option>
+                      <option value="Constructions">Constructions</option>
+                      <option value="Electricians">Electricians</option>
+                      <option value="Electronic Repairs">Electronic Repairs</option>
+                      <option value="Glass & Aluminium">Glass & Aluminium</option>
+                      <option value="Iron Works">Iron Works</option>
+                      <option value="Masonry">Masonry</option>
+                      <option value="Odd Jobs">Odd Jobs</option>
+                      <option value="Pest Controllers">Pest Controllers</option>
+                      <option value="Plumbing">Plumbing</option>
+                      <option value="Wood Works">Wood Works</option>
+                    </select>
+                  </div>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">Date of Birth</span>
+                    <input name="dob" type="date" placeholder="Garment email" required />
+                  </div>
+            
+                </div>
+            
+                <div class="stugender-details">
+                    <span class="gender-title">Gender</span><br>
+                    <input type="radio" name="gender" id="dot-1" checked="male" >
+                    <input type="radio" name="gender" id="dot-2" checked="female" >
+                   
+                    <div class="category">
+                      <label for="dot-1">
+                        <span class="dot one" value="male"></span>
+                        <span class="gender">Male</span>
+                      </label>
+              
+                      <label for="dot-2">
+                        <span class="dot two" value="female"></span>
+                        <span class="gender">Female</span>
+                      </label>
+                    </div>
+                  </div>
+            
+                <div><br>
+                  <h3>
+            
+                    Login Credintials
+                  </h3>
+                </div><br>
+                <div class="parent-details">
+            
+                  <!-- <div class="input-box">
+                    <span class="details">Parent with relationship</span>
+                    <select name="department" id="department" required>
+                      <option value="Mother">
+                        Mother
+                      </option>
+                      <option value="Father">Father</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div> -->
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">E-mail Adddress</span>
+                    <input name="email" type="email" placeholder="Your email" required />
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <span class="details">Password</span>
+                    <input name="password" type="text" placeholder="Password" required />
+                  </div>
+            
+                  <div class="field padding-bottom--24">
+                    <span class="details">Confirm Password</span>
+                    <input name="re-password" type="text" placeholder="Confirm Password" required />
+                  </div>
+                </div>
+            
+            
+                
+                
+              </form>
+                
+
+                </div>
+                <div class="button">
+                  <input type="submit" name="submit" value="Submit">
+                </div>
+                
+              </form>
+            </div>
+          </div>
+          <div class="footer-link padding-top--24">
+            
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+              <span><a href="#">© ERRAND</a></span>
+              <span><a href="#">Contact</a></span>
+              <span><a href="#">Privacy & terms</a></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
