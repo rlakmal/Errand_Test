@@ -9,6 +9,7 @@
 
     <title>Document</title>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo_details">
@@ -41,6 +42,13 @@
                 <a href="<?= ROOT ?>/worker/acceptedjobs">
                     <i class="bx bxs-user-detail"></i>
                     <span class="link_name">Accepted Requests</span>
+                </a>
+                <span class="tooltip">Accepted Requests</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/worker/ongoingjobs">
+                    <i class="bx bxs-user-detail"></i>
+                    <span class="link_name">Ongoing Jobs</span>
                 </a>
                 <span class="tooltip">Accepted Requests</span>
             </li>

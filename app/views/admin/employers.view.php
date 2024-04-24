@@ -93,7 +93,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>REGISTERED EMPLOYERS</h2>
+    <h2>Registered Employers</h2>
     <form>
         <div class="form">
             <input class="form-group" type="text" placeholder="Search...">

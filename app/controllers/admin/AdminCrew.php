@@ -28,6 +28,14 @@ class AdminCrew extends Controller
             }
 
             if (isset($_POST['member'])) {
+                $udata = $_POST;
+                unset($udata["member"]);
+                $id = $udata["emp_id"];
+                unset($udata["id"]);
+                unset($udata["emp_id"]);
+
+                $user->update($id,$udata);
+
                 $this->handleMemberUpdate($member, $_POST);
             }
 
@@ -50,6 +58,9 @@ class AdminCrew extends Controller
         $password = $_POST['password'];
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $postData['password'] = $hash;
+        $postData['profile_image'] = 'prof.png';
+
+
         $member->insert($postData);
         redirect('admin/admincrew');
     }
@@ -57,13 +68,22 @@ class AdminCrew extends Controller
     private function handleUserRegistration($postData, $user)
     {
 
+        $qdata["email"] = $postData["email"];
+        $exists = $user->first($qdata);
+        if($exists){
+            redirect('admin/admincrew');
+        }
+
         unset($postData['memberRegister']);
         unset($postData['active']);
         $postData['status'] = 'member';
         $password = $_POST['password'];
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $postData['password'] = $hash;
+        $postData['profile_image'] = 'prof.png';
+
         $user->insert($postData);
+
     }
 
     private function unsetFields(&$data)

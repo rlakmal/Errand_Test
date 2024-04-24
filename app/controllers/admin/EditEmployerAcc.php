@@ -9,7 +9,7 @@ class EditEmployerAcc extends Controller
             $user = new User;
             $use_id = $_GET["id"];
             // edit for get Data
-            $result =  $this->getProfileData($user, $use_id);
+            $result =  $this->create($user, $use_id);
 
 
             if (isset($_POST['edit'])) {
@@ -24,7 +24,8 @@ class EditEmployerAcc extends Controller
                 //show($_POST);
                 $this->uploadImage($_FILES['profile_image']['tmp_name'], $profile_image_name, '/assets/images/profileImages/');
 
-                $this->UpdateProfile($user, $use_id, $_POST);
+                $user->update($use_id, $_POST);
+                redirect("admin/employeracc?id=".$use_id);
             }
 
             $this->view('admin/editemployeracc', $result);
@@ -35,18 +36,21 @@ class EditEmployerAcc extends Controller
 
 
     // get profile data for bind to the tags
-    private function getProfileData($user, $use_id)
+    private function create($user, $use_id)
     {
         $arr['id'] = $use_id;
 
         $result = $user->first($arr);
 
+        $newData['id'] = $result->id;
         $newData['name'] = $result->name;
         $newData['nic'] = $result->nic;
         $newData['city'] = $result->city;
         $newData['address'] = $result->address;
         $newData['dob'] = $result->dob;
         $newData['profile_image'] = $result->profile_image;
+        $newData['email'] = $result->email;
+
 
         $data['newData'] = $newData;
 
@@ -54,11 +58,6 @@ class EditEmployerAcc extends Controller
     }
 
     // update profile data
-    private function UpdateProfile($user, $use_id, $data)
-    {
-        $user->update($use_id, $data, 'id');
-        redirect('admin/employeracc?id='.$use_id);
-    }
 
     public function uploadImage($img, $img_name, $location)
     {

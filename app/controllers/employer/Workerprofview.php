@@ -10,15 +10,19 @@ class Workerprofview extends Controller
             $worker = new WorkerServices;
             $worker_details = new Worker;
             $request = new EmployerReqWorker;
-
-
+            $reviews = new Ratings;
             $id = $_GET['id'];
             // show($id);
             $arr['emp_id'] = $id;
             $foundworker = $worker->first($arr);
+            $findreviews = $reviews->where($arr, 'id');
             $worker_id = $foundworker->worker_id;
             $worker_name = $foundworker->name;
             $data = $this->create($worker_details, $worker_id);
+            $viewData = [
+                'results' => $findreviews,
+                'data' => $data
+            ];
             //show($data);
 
             // if (!empty($data['data'])) {
@@ -36,10 +40,11 @@ class Workerprofview extends Controller
                 $_POST['status'] = "Pending";
                 $_POST['time_remain'] = time();
                 $request->insert($_POST);
+                //show($_POST);
                 $message = "You have a new request from " . $emp_name;
                 $this->sendNotification($wkr_id, $message, $emp_name);
             }
-            $this->view('employer/workerprof', $data);
+            $this->view('employer/workerprof', $viewData);
         }
     }
     public function sendNotification($worker_id, $message, $emp_name)

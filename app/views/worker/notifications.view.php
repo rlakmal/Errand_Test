@@ -105,6 +105,15 @@
             color: #f4f4f4
         }
 
+        #searchInput {
+            width: 15%;
+            background-color: lightgray;
+            border-radius: 20px;
+            margin-left: 30%;
+            margin-top: 40px;
+            padding-left: 40px;
+        }
+
         @media only screen and (max-width: 768px) {
             .profile-container2 {
                 max-width: 99%;
@@ -113,6 +122,11 @@
             .index {
                 margin-left: 0;
                 padding-left: 0;
+            }
+
+            #searchInput {
+                width: 60%;
+                margin-left: 30%;
             }
         }
     </style>
@@ -130,8 +144,7 @@
             <h2 style="text-align: center">Notifications</h2>
         </div>
         <div style="position: relative;">
-            <input type="text" id="searchInput" placeholder="Search..." style="width: 15%; background-color: lightgray; border-radius: 20px; margin-left: 30%; margin-top: 40px; padding-left: 40px;">
-            <i class="bx bx-search" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #777;"></i>
+            <input type="text" id="searchInput" placeholder="Search...">
         </div>
         <?php
         if (is_array($data)) {
@@ -141,7 +154,7 @@
                     <div class="profile-container2">
                         <div class="index" data-post-id="<?php echo $item->n_id ?>">
                             <div class="profile-name" style="margin-top: 40px"><?php echo $item->notification_name ?></div>
-                            <div class=".profile-type"><?php echo $item->message ?></div>
+                            <div class="profile-type"><?php echo $item->message ?></div>
                         </div>
                         <div class="<?php if ($item->active == 1) {
                                         echo 'newicons';
@@ -165,7 +178,7 @@
                     <div class="profile-container2">
                         <div class="index">
                             <div class="profile-name" style="margin-top: 40px">System</div>
-                            <div class=".profile-type">Posted: <?php echo $item->body ?></div>
+                            <div class="profile-type">Posted: <?php echo $item->body ?></div>
                             <!-- <a href="#" class="view-profile-button" style="border-radius: 20px; background-color: indigo">Admin</a> -->
                         </div>
                         <div class="bottom_index">

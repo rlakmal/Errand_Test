@@ -13,5 +13,7 @@ class WorkerServices
         'category',
         'city',
         'worker_id',
+        'profile_image',
+        'created',
     ];
 }

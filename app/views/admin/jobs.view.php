@@ -80,7 +80,7 @@
         .budget {
             font-weight: bold;
             color: #009688; /* Custom color for budget */
-            font-size: 20px; /* Increased font size */
+            font-size: 17px; /* Increased font size */
         }
 
         .location {

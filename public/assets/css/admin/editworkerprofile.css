@@ -1,0 +1,319 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: lightcyan;
+}
+
+.main-container4 {
+  display: flex;
+  border-radius: 40px;
+  /* margin: 10%;
+    margin: 2%; */
+  width: 80%;
+  height: 100%;
+  background: lightcyan;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.profile-container3 {
+  display: flex;
+  margin-top: 1%;
+  position: relative;
+  padding: 15px;
+  background-color: lightblue;
+  width: 75%;
+  height: 50%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  flex-direction: row;
+}
+
+.pro_container-right {
+  top: 25%;
+  position: relative;
+  display: flex;
+  width: 100%;
+  line-height: 28px;
+  flex-direction: column;
+  left: 0%;
+  justify-content: center;
+  background: lightskyblue;
+  padding: 36px;
+  border: 1px solid #d8d0d0;
+  border-radius: 20px;
+}
+
+.info {
+  margin: 10px;
+  display: flex;
+  margin-left: -7%;
+  color: #4d5151;
+  /* margin-right: 3%; */
+  justify-content: center;
+}
+
+.pro_container-right input {
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: lightcyan;
+}
+
+.picture .image {
+  width: 165px;
+  border-radius: 50%;
+  height: 160px;
+}
+
+.picture .rates {
+  max-width: 400px;
+}
+
+.container-left {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
+  background: #ffffff;
+  border-radius: 28px;
+}
+
+.edit-gen {
+  width: 75%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #3e3e3e;
+  font-family: "Lato", sans-serif;
+  margin: 15px ;
+  border: 2px solid #e7e7e7;
+  padding: 10px;
+}
+
+.view-profile-button {
+  float: right;
+  background-color: #ff7f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-top: -40px;
+}
+
+.close-button {
+  margin-top: 8px;
+  border-radius: 20px;
+  background-color: darkblue;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.tags {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 25px;
+}
+
+.tags i {
+  font-size: 28px;
+  color: #ff7f00;
+}
+
+.progress-label-left {
+  float: left;
+  margin-right: 0.5em;
+  line-height: 1em;
+}
+
+.progress-label-right {
+  float: right;
+  margin-left: 0.3em;
+  line-height: 1em;
+}
+
+.text-warning {
+  color: #ffc107;
+}
+
+.star-light {
+  color: #e9ecef;
+}
+
+.progress {
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #ffc107;
+  /* Set your desired progress bar color */
+  text-align: center;
+  line-height: 20px;
+  color: #000;
+  /* Set your desired text color */
+  font-weight: bold;
+  transition: width 0.3s ease-in-out;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review_percent {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.review-bar {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin: 33px;
+}
+
+.one-bar {
+  margin: 2%;
+}
+
+.form-upload {
+  /* margin-top: -30px; */
+  /* margin-left: 250px; */
+  cursor: pointer;
+  /* width: 110px; */
+  height: 24px;
+  background-color: #f16a2d;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+.form-upload1 {
+  cursor: pointer;
+  height: 19px;
+  background-color: #141312;
+  color: white;
+  border-radius: 20px;
+  font-size: 19px;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.index_img {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}
+
+.form-drag-area1 {
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+}
+
+.picture .image1 {
+  width: 70px;
+  height: 70px;
+}
+
+.bottum_index {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.ctag {
+  margin-top: 8px;
+  color: #eb0000;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.upload-gs {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container4 {
+    height: 100%;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20%;
+    max-width: 200%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile-container3 {
+    height: 80%;
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  .close-button {
+    align-items: center;
+  }
+
+  .container-left {
+    height: 478px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .pro_container-right {
+    display: flex;
+    height: 550px;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .index_img {
+    display: flex;
+  }
+
+  .picture .rates {
+    display: flex;
+    margin-left: 1%;
+    width: 284px;
+    flex-direction: column;
+  }
+
+  .bottum_index {
+    display: flex;
+    justify-content: center;
+  }
+}

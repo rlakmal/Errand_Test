@@ -1,0 +1,236 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: lightpink;
+}
+
+.main-container4 {
+  display: flex;
+  border-radius: 40px;
+  margin: 10%;
+  margin-top: 7%;
+  width: 80%;
+  height: fit-content;
+  background: lightpink;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+
+}
+
+/*.homenavbar {*/
+/*  width: 100%;*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  z-index: 10;*/
+/*}*/
+/*.profile-container2 {*/
+/*  background-color: #ffffff;*/
+/*  width: auto;*/
+/*  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);*/
+/*  padding: 20px;*/
+/*  height: auto;*/
+/*  position: absolute;*/
+/*  border-radius: 20px;*/
+/*}*/
+.picture .image {
+  width: 165px;
+  border-radius: 50%;
+  height: 160px;
+}
+/*.picture .rates {*/
+/*  max-width: 400px;*/
+/*}*/
+
+.edit-gen {
+  width: 75%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #3e3e3e;
+  font-family: "Lato", sans-serif;
+  margin: 10px 0;
+  margin-left: 15px;
+  border: 2px solid #e7e7e7;
+  border-radius: 20px;
+  padding: 10px;
+  background: lightgray;
+
+}
+/*.profile-type {*/
+/*  font-size: 20px;*/
+/*  font-weight: 300;*/
+/*  color: #000;*/
+/*  font-family: "Lato", sans-serif;*/
+/*  margin: 10px 0;*/
+/*}*/
+
+/*.job-count {*/
+/*  font-size: 20px;*/
+/*  color: #000000;*/
+/*  font-weight: 300;*/
+/*  font-family: "Lato", sans-serif;*/
+/*}*/
+/*.location {*/
+/*  font-size: 20px; !* Adjust the font size to make it readable *!*/
+/*  color: black;*/
+/*  font-weight: 300;*/
+/*  font-family: "Lato", sans-serif;*/
+/*}*/
+/*.view-profile-button {*/
+/*  float: right;*/
+/*  background-color: #ff7f00;*/
+/*  color: #fff;*/
+/*  padding: 10px 20px;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
+/*  display: block;*/
+/*  text-align: center;*/
+/*  margin-top: -40px;*/
+/*}*/
+/*.index {*/
+/*  margin-top: -400px;*/
+/*  margin-left: 500px;*/
+/*}*/
+/*.index_edit {*/
+/*  margin-top: -400px;*/
+/*  margin-left: 500px;*/
+/*}*/
+.main-container3 {
+  margin-left: 400px;
+  min-width: 900px;
+  max-width: 500px;
+  margin-top: 120px;
+  margin-bottom: 10px;
+}
+
+
+.index_edit input {
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  border: 01px solid gray;
+  min-width: 400px;
+}
+
+/* input:focus {
+ outline: none !important;
+
+} */
+
+/*.edit-gen-skill {*/
+/*  height: 150px;*/
+/*}*/
+
+/*.select-container {*/
+/*  position: fixed;*/
+/*  top: 80px;*/
+/*  left: 0;*/
+/*  z-index: 10;*/
+/*}*/
+/*.gsc {*/
+/*  margin-left: 20px;*/
+/*}*/
+.close-button {
+  width: 171px;
+  top: 10px;
+  right: 10px;
+  border-radius: 20px;
+  background-color: darkmagenta;
+  color: #fff;
+  padding: 10px 20px;
+  border: 2px;
+  cursor: pointer;
+  border-color: rebeccapurple;
+}
+.container-left {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
+  background: #ffece2;
+  border-radius: 28px;
+  box-shadow: 2px 2px 2px 2px rgb(255 136 66 / 32%);
+  /*height: 100%;*/
+}
+
+.bottum_index {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.info {
+  margin: 10px;
+  display: flex;
+  margin-left: -7%;
+  color: #4d5151;
+  /* margin-right: 3%; */
+  justify-content: center;
+}
+
+.container-right-parent{
+
+  display: flex;
+  position: relative;
+  width: 160%;
+  height: max-content;
+  border-radius: 15px;
+  background: lightcoral;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  justify-content: center;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.container-right {
+  position: relative;
+  display: flex;
+  width: 160%;
+  line-height: 28px;
+  flex-direction: column;
+  left: 5%;
+  justify-content: center;
+}
+
+
+.profile-container3 {
+  display: flex;
+  margin: 1%;
+  position: relative;
+  padding: 15px;
+  background-color: #ffffff;
+  width: 98%;
+  height: fit-content;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+}
+
+.form-upload {
+  /* margin-top: -30px; */
+  /* margin-left: 250px; */
+  cursor: pointer;
+  /* width: 110px; */
+  height: 32px;
+  background-color: darkmagenta;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+}
+
+.index_img {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}

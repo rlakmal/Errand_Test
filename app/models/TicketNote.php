@@ -15,7 +15,10 @@ class TicketNote
         "archived",
         "note_id",
         "ticket_id",
-        "created"
+        "created",
+        "mem_name",
+        "image",
+        "mem_id"
 
     ];
 }
