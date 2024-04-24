@@ -106,6 +106,135 @@
 
     </style>
 </head>
+<!-- Sidebar -->
+<?php include 'sidebar.php' ?>
+<!-- Navigation bar -->
+<?php include 'navigationbar.php' ?>
+<!-- Scripts -->
+<script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+
+<!-- Content -->
+<section id="main" class="main">
+    <h2 class="topic">Administrator Home</h2>
+    <div class="insights">
+        <div class="income">
+            <div class="middle">
+                <h1>Total Income</h1>
+                <span class="material-symbols-sharp">stacked_line_chart</span>
+            </div>
+            <h1>Rs.<?=$data["sum"]?>/=</h1>
+            <small class="text-muted">Last 7 days</small>
+        </div>
+        <!-- END OF Income -->
+
+        <div class="posted-jobs">
+            <div class="middle">
+                <h1>Posted Jobs</h1>
+                <span class="material-symbols-sharp">analytics</span>
+            </div>
+            <h1><?=$data["jobs30"]?></h1>
+            <small class="text-muted">Last 30 days</small>
+        </div>
+        <!-- END OF SALES -->
+
+        <div class="completed-jobs">
+            <div class="middle">
+                <h1>Job Acceptances</h1>
+                <span class="material-symbols-sharp">bar_chart</span>
+            </div>
+            <h1><?=$data["req30"]?></h1>
+            <small class="text-muted">Last 30 days</small>
+        </div>
+        <!-- END OF Expenses -->
+
+        <div class="adminCrew">
+            <div class="middle">
+                <h1>Crew Members</h1>
+                <span class="material-symbols-sharp">groups</span>
+            </div>
+            <h1><?=count($data["members"])?></h1>
+            <small class="text-muted">Currently</small>
+        </div>
+    </div>
+
+        <?php
+        $categories = array_unique(array_column($workers, 'category'));
+        $categoryCounts = array_count_values(array_column($workers, 'category'));
+
+        // Sample data for registered users bar chart
+        $months = [];
+        $employerData = [];
+        $workerData = [];
+
+        // Assuming $users have user objects, each with ->created(datetime)
+        foreach ($users as $user) {
+            $createdMonth = date('F', strtotime($user->created));
+            $userType = ($user->status == 'employer') ? 'Employer' : 'Worker';
+
+            if (!in_array($createdMonth, $months)) {
+                $months[] = $createdMonth;
+            }
+
+            if (!isset($employerData[$createdMonth])) {
+                $employerData[$createdMonth] = 0;
+            }
+
+            if (!isset($workerData[$createdMonth])) {
+                $workerData[$createdMonth] = 0;
+            }
+
+            if ($userType == 'Employer') {
+                $employerData[$createdMonth]++;
+            } elseif ($userType == 'Worker') {
+                $workerData[$createdMonth]++;
+            }
+        }
+        ?>
+
+        <?php
+        // Update thirdChartData with data from empreqpaysums
+        $thirdChartData = [
+            'labels' => array_keys($data["empreqpaysums"]),
+            'datasets' => [
+                [
+                    'label' => 'Amount',
+                    'data' => array_values($data["empreqpaysums"]),
+                    'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
+                    'borderColor' => 'rgba(255, 99, 132, 1)',
+                    'borderWidth' => 1
+                ]
+            ]
+        ];
+        ?>
+
+        <!-- style="flex-direction: column; display: flex; overflow-y: scroll; width: 100% ; position: relative; -->
+        <div class="charts" >
+                <div class="chart-container">
+                    <canvas id="thirdChart"></canvas>
+                    <h2>Employer Request Payments</h2>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="registeredUsersChart"></canvas>
+                    <h2>User Registration</h2>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="jobDistributionChart" style="display: block; box-sizing: border-box; height: 270px; width: 270px; margin: -5px 0 0px 100px;"></canvas>
+                    <h2 style="margin-top: 10px">Categories of Worker</h2>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="fourthChart"></canvas>
+                    <h2>Job Locations</h2>
+                </div>
+        </div>
+
+
+
+
+</section>
+
 
 <body>
 
