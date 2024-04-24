@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        
         .nue {
             overflow-y: scroll;
         }
@@ -34,6 +35,7 @@
             border-radius: 10px;
             animation: fillAnimationVerified 2s ease-in;
         }
+        
 
         .filling-bar-completed {
             position: absolute;
@@ -93,6 +95,24 @@
             background: lightgrey;
             cursor: pointer;
         }
+        .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .stat-box {
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
 
         @media screen and (max-width: 768px) {
             .charts-row {
