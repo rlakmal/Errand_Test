@@ -21,6 +21,7 @@ input[type="text"] {
   padding: 10px;
   border: 1px solid #ffffff;
   border-radius: 25px;
+  width: 100%;
 }
 
 button {
@@ -28,13 +29,13 @@ button {
   background-color: #ff904b;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   margin-left: 10px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #f7b893;
+  background-color: #26264c;
 }
 
 /* Style for labels and select elements */
@@ -48,6 +49,7 @@ select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  border-radius: 30px;
 }
 
 /* Style for option elements in the select */
@@ -56,7 +58,7 @@ select option {
 }
 label {
   color: white;
-  padding-bottom: 30px;
+  padding-bottom: 19px;
 }
 .logo_details {
   display: none;
@@ -68,6 +70,13 @@ label {
 .logo_details i {
   color: white;
   font-size: 28px;
+}
+.filter-container {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 17px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -119,7 +119,7 @@
     </div>
     <script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
 
-    <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
+    <!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -147,23 +147,23 @@
         });
     </script>
     <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,si'
-            }, 'google_translate_element_sinhala');
-            // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
-        }
+        // function googleTranslateElementInit() {
+        //     new google.translate.TranslateElement({
+        //         pageLanguage: 'en',
+        //         includedLanguages: 'en,si'
+        //     }, 'google_translate_element_sinhala');
+        //     // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
+        // }
 
-        function toggleLanguageSinhala() {
-            var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
-            if (select.value === 'en') {
-                select.value = 'si';
-            } else {
-                select.value = 'en';
-            }
-            select.dispatchEvent(new Event('change'));
-        }
+        // function toggleLanguageSinhala() {
+        //     var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+        //     if (select.value === 'en') {
+        //         select.value = 'si';
+        //     } else {
+        //         select.value = 'en';
+        //     }
+        //     select.dispatchEvent(new Event('change'));
+        // }
 
         // function toggleLanguageTamil() {
         //     var select = document.querySelector('#google_translate_element_tamil .goog-te-combo');

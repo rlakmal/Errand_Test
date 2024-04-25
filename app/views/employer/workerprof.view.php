@@ -278,7 +278,7 @@
             ?>
         </div>
         <div class="popup-view">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <h2>Send Job Request</h2>
                 <h4>Job Title : </h4>
                 <input name="title" type="text" placeholder="Enter Tiltle of the Job">
@@ -291,6 +291,27 @@
                 <input type="hidden" id="location" name="location">
                 <h4>Description : </h4>
                 <input name="description" type="text" placeholder="Enter your problem">
+                <div class="postjobimages">
+                    <div class="form-drag-area">
+
+                        <div class="form-upload">
+                            <input type="file" id="job_image" style="display: none;" name="job_image">
+                            <div class="jobpicture">
+                                <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/job.png" alt="placeholder" id="job_image_placeholder">
+                            </div>
+                            Choose Image
+                        </div>
+                    </div>
+                    <div class="form-drag-area1">
+                        <div class="jobpicture">
+
+                        </div>
+                        <div class="form-upload1">
+                            <input type="file" id="job_image1" style="display: none;" name="job_image1">
+                            <img class="jobimage" src="<?= ROOT ?>/assets/images/jobimages/job.png" alt="placeholder" id="job_image1_placeholder">
+                        </div>
+                    </div>
+                </div>
                 <div class="btns">
                     <button type="button" class="cancelR-btn" onclick="cancelRequest()">Cancel</button>
                     <button name="reqWorker" type="submit" value="POST" class="close-btn" onclick="closeRequest()">Submit </button>
@@ -303,6 +324,7 @@
             <img class="modal-content" id="modalImage">
         </div>
     </div>
+    <script src="<?= ROOT ?>/assets/js/employer/jobimageUpload.js"></script>
     <script src="<?= ROOT ?>/assets/js/employer/requestjob.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6GOvTVdWC3aNfI8Jg4gOkyk74hiOB0RE&libraries=places&callback=initMap"></script>
 
