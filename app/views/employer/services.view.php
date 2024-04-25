@@ -48,7 +48,24 @@
             }
         }
         ?>
+        <script>
+            function searchTable() {
+                var input, filter, data, items, i, txtValue;
+                input = document.getElementById("search");
+                filter = input.value.toUpperCase();
+                data = document.getElementById("set-marginid");
+                items = data.getElementsByClassName("main-container2");
 
+                for (i = 0; i < items.length; i++) {
+                    txtValue = items[i].textContent || items[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
 
 
 </body>

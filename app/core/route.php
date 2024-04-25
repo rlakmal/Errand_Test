@@ -6,6 +6,8 @@ route('home', 'Home@index');
 route('home/payment', 'Payment@index');
 
 route('home/signin', 'SignIn@index');
+route('home/forgetpwd', 'ForgotPwd@index');
+route('home/resetpasswrd', 'ResetPwd@index');
 route('home/signin2', 'SignIn2@index');
 route('home/signout', 'SignOut@index');
 route('home/workerreg', 'worker/WorkerRegistration@index');

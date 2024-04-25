@@ -322,7 +322,7 @@ form .edit-profile-button:hover {
 }
 
 .sidebar {
-  margin-top: -16px;
+  margin-top: 80px;
 }
 @media (max-width: 768px) {
   .homenavbar header {
