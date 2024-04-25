@@ -15,5 +15,6 @@ class WorkerServices
         'worker_id',
         'profile_image',
         'created',
+        'avg_rating'
     ];
 }

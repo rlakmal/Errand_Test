@@ -15,7 +15,7 @@ class Worker
 		'name',
 		'city',
 		'email',
-        "verified",
+		"verified",
 		"address",
 		"dob",
 		"skills",
@@ -23,7 +23,8 @@ class Worker
 		"profile_image",
 		"certificate_image",
 		"status",
-		
+		"avg_rating",
+
 
 
 	];

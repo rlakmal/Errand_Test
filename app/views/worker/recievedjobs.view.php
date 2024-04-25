@@ -4,12 +4,44 @@
 <head>
     <title>Painter Profile</title>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/recievdjob.css">
+    <style>
+        .jobimage1 {
+            width: 60px;
+            display: flex;
+            margin-left: 10px;
+        }
 
+        .image-dive {
+            display: flex;
+            width: 17%;
+            height: 100%;
+            align-items: flex-end;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .modal-content {
+            min-width: 50%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body>
     <?php include 'workernav.php' ?>
-    <?php include 'workersidebar.php' ?> -->
+    <?php include 'workersidebar.php' ?>
     <div class="set_margin">
 
         <?php
@@ -17,7 +49,7 @@
         if (isset($data['data']) && is_array($data['data']) && count($data['data']) > 0) {
             for ($i = 0; $i < count($data['data']); $i++) {
                 $item = $data['data'][$i];
-                //show($item);
+                // show($item);
                 $image = $images['images'][$i];
                 // Fixed 3-day countdown
                 $expirationDate = $item->time_remain + (3 * 24 * 60 * 60); // 3 days in seconds
@@ -37,8 +69,13 @@
                                 <div class="profile-ratings"><?php echo $item->created ?></div>
                                 <div class="profile-type"><?php echo $item->title ?></div>
                                 <div class="budget"><?php echo $item->budget ?> /= per day</div>
-
                                 <div class="status"><?php echo remain_Time($timeRemaining, $item->status); ?></div>
+
+                            </div>
+                            <div class="image-dive">
+                                <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="" onclick="openModal(this.src,0)">
+                                <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="" onclick="openModal(this.src,1)">
+
                             </div>
                             <div class="bottom-index">
                                 <div class="location">
@@ -87,6 +124,9 @@
                     }
                         ?>
                         </div>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <img class="modal-content" id="modalImage">
                     </div>
                     <!-- <script>
                         setInterval(function() {
@@ -188,6 +228,57 @@
                     document.querySelector('.popup-view input[name="worker_name"]').value = data.worker_name;
                     document.querySelector('.popup-view input[name="status"]').value = data.status;
                 }
+            </script>
+
+            <script>
+                let currentIndex = 0;
+                const images = document.querySelectorAll('.jobimage1');
+                console.log(currentIndex);
+                const modalImage = document.getElementById('modalImage');
+
+                function openModal(src, index) {
+                    currentIndex = index;
+                    modalImage.src = src;
+                    document.getElementById('myModal').style.display = 'flex';
+                    document.addEventListener('keydown', handleKeyPress);
+                }
+
+                function closeModal() {
+                    document.getElementById('myModal').style.display = 'none';
+                    document.removeEventListener('keydown', handleKeyPress);
+                }
+
+                function handleKeyPress(event) {
+                    switch (event.key) {
+                        case 'ArrowRight':
+                            showNextImage();
+                            break;
+                        case 'ArrowLeft':
+                            showPreviousImage();
+                            break;
+                        case 'Escape':
+                            closeModal();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                function showNextImage() {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    modalImage.src = images[currentIndex].src;
+                }
+
+                function showPreviousImage() {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    modalImage.src = images[currentIndex].src;
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == document.getElementById('myModal')) {
+                        closeModal();
+                    }
+                };
             </script>
     </div>
 

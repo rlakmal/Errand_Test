@@ -13,7 +13,7 @@ body {
   margin: 20px auto;
   border-radius: 20px;
   flex-direction: row;
-  height: 175px;
+  height: 200px;
 }
 .picture {
   margin-right: 20px;
@@ -116,8 +116,6 @@ body {
 }
 .status {
   color: red;
-  padding-left: 28%;
-  margin-top: -2.7%;
 }
 .homenavbar {
   width: 100%;
@@ -322,7 +320,7 @@ form .edit-profile-button:hover {
 }
 
 .sidebar {
-  margin-top: 80px;
+  margin-top: -12px;
 }
 @media (max-width: 768px) {
   .homenavbar header {
@@ -338,11 +336,11 @@ form .edit-profile-button:hover {
     align-items: center;
   }
   .profile-container2 {
-    width: 332px;
+    width: 320px;
     float: inline-end;
     flex-direction: column;
     text-align: center;
-    height: 400px;
+    height: 430px;
   }
 
   .picture {
@@ -365,10 +363,13 @@ form .edit-profile-button:hover {
   }
 
   .status {
-    margin-left: -85px;
+    margin-left: -30px;
   }
   .request-profile-button {
     width: 109px;
     font-size: 8px;
+  }
+  .image-dive {
+    margin-left: -100px;
   }
 }

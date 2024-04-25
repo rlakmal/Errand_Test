@@ -82,23 +82,38 @@
     </div>
     <script>
         function searchTable() {
-            var input, filter, data, items, i, txtValue, category, location;
+            var category, location;
+            category = document.getElementById("category").value.toUpperCase();
+            location = document.getElementById("location").value.toUpperCase();
+
+            var matchingItems = document.getElementsByClassName("post-container");
+
+            for (var i = 0; i < matchingItems.length; i++) {
+                var txtValue = matchingItems[i].textContent || matchingItems[i].innerText;
+                var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
+                var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
+
+                if (categoryMatch && locationMatch) {
+                    matchingItems[i].style.display = "";
+                } else {
+                    matchingItems[i].style.display = "none";
+                }
+            }
+        }
+
+
+        function searchInput() {
+            var input, filter, data, items, i, txtValue;
             input = document.getElementById("search");
             filter = input.value.toUpperCase();
             data = document.getElementById("set-marginid");
             items = data.getElementsByClassName("post-container");
-            category = document.getElementById("category").value.toUpperCase();
-            console.log(category);
-            location = document.getElementById("location").value.toUpperCase();
 
             for (i = 0; i < items.length; i++) {
                 txtValue = items[i].textContent || items[i].innerText;
-                var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
-                var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
-                var textMatch = txtValue.toUpperCase().indexOf(filter) > -1;
-
-                if (categoryMatch) {
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     items[i].style.display = "";
+
                 } else {
                     items[i].style.display = "none";
                 }

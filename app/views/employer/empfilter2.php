@@ -49,8 +49,8 @@
         </select>
 
 
-        <label for="location">Location</label>
-        <select id="location">
+        <label for="locationdata">Location</label>
+        <select id="locationdata">
             <option value="All">All</option>
             <option value="Colombo">Colombo</option>
             <option value="Kandy">Kandy</option>
