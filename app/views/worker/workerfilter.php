@@ -17,14 +17,14 @@
             <i class="bx bx-menu" id="btn"></i>
         </div>
         <div class="search-container">
-            <input type="text" id="search" placeholder="Search...">
-            <button>Search</button>
+            <input type="text" class="search-box" id="search" placeholder="Search...">
+            <button type="submit" id="search-button" onclick="searchTable()">Search</button>
         </div>
 
 
         <label for="category">Category</label>
         <select id="category">
-            <option value="Technicians">All</option>
+            <option value="All">All</option>
             <option value="Technicians">Technicians</option>
             <option value="AC Repairs">AC Repairs</option>
             <option value="CCTV">CCTV</option>
@@ -38,11 +38,17 @@
             <option value="Pest Controllers">Pest Controllers</option>
             <option value="Plumbing">Plumbing</option>
             <option value="Wood Works">Wood Works</option>
+            <option value="Garden">Garden</option>
+            <option value="Painting">Painting</option>
+            <option value="Roofing">Roofing</option>
+            <option value="Cleaning">Cleaning</option>
+
         </select>
+
 
         <label for="location">Location</label>
         <select id="location">
-            <option value="Colombo">All</option>
+            <option value="All">All</option>
             <option value="Colombo">Colombo</option>
             <option value="Kandy">Kandy</option>
             <option value="Gampaha">Gampaha</option>

@@ -86,4 +86,8 @@ class SignIn extends Controller
             // echo "Invalid Sign-In";
         }
     }
+    public function forgetPswwd($a = '', $b = '', $c = '')
+    {
+        $this->view('forget-password');
+    }
 }

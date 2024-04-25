@@ -104,27 +104,27 @@
 
 </body>
 
-<script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script>
+<!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script> -->
 
 
 <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,si'
-        }, 'google_translate_element_sinhala');
-        // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
-    }
+    // function googleTranslateElementInit() {
+    //     new google.translate.TranslateElement({
+    //         pageLanguage: 'en',
+    //         includedLanguages: 'en,si'
+    //     }, 'google_translate_element_sinhala');
+    //     // new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ta' }, 'google_translate_element_tamil');
+    // }
 
-    function toggleLanguageSinhala() {
-        var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
-        if (select.value === 'en') {
-            select.value = 'si';
-        } else {
-            select.value = 'en';
-        }
-        select.dispatchEvent(new Event('change'));
-    }
+    // function toggleLanguageSinhala() {
+    //     var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+    //     if (select.value === 'en') {
+    //         select.value = 'si';
+    //     } else {
+    //         select.value = 'en';
+    //     }
+    //     select.dispatchEvent(new Event('change'));
+    // }
 
     // function toggleLanguageTamil() {
     //     var select = document.querySelector('#google_translate_element_tamil .goog-te-combo');
