@@ -4,6 +4,7 @@
 <head>
     <title>Painter Profile</title>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/requestjob.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <style>
         .modal {
@@ -23,6 +24,22 @@
             min-width: 50%;
             max-height: 70%;
             object-fit: contain;
+        }
+
+        .text-warning {
+            color: #ffc107;
+        }
+
+        .star-light {
+            color: #afb3b6;
+        }
+
+        .review_percent {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            align-items: center;
+            line-height: 2;
         }
     </style>
 </head>
@@ -44,14 +61,22 @@
                     <div class="container-left">
 
                         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="">
-                        <h3 class="category">
-                            Category
-                        </h3>
                         <h3 class="emp-name">
-                            <?php echo $item->name  ?>
+                            <a href="<?= ROOT ?>/worker/viewemprofile?id=<?php echo $item->emp_id ?>"><?php echo $item->name  ?></a>
                         </h3>
-
-                        <img class="rates" src="<?= ROOT ?>/assets/images/worker/rates.png" alt="">
+                        <div class="review_percent">
+                            <h1 class="text-warning ">
+                                <b><span id="average_rating">0.0</span> / 5</b>
+                            </h1>
+                            <div>
+                                <i class="fas fa-star star-light main_star"></i>
+                                <i class="fas fa-star star-light main_star"></i>
+                                <i class="fas fa-star star-light main_star"></i>
+                                <i class="fas fa-star star-light main_star"></i>
+                                <i class="fas fa-star star-light main_star"></i>
+                            </div>
+                            <h3><span id="total_review">0</span> Review</h3>
+                        </div>
 
                     </div>
 
@@ -60,6 +85,7 @@
                         <h3>
                             Location
                         </h3>
+                        <input type="hidden" id="emp_id" name="id" value="<?php echo $item->emp_id ?>">
                         <div type="text" name="city" value="" class="edit-gen" readonly><?php echo $item->city ?></div>
                         <h3>
                             Address
@@ -154,7 +180,8 @@
             }
         };
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?= ROOT ?>/assets/js/jquery-3.7.1.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script>
         function markAsCompleted(id) {
             var budget = $(event.target).closest('.main-container4').find('.newbudget').val();
@@ -179,6 +206,40 @@
                     alert("An error occurred: " + error);
                 }
             });
+        }
+    </script>
+    <script>
+        load_rating_data();
+
+        function load_rating_data() {
+            var id = $('#emp_id').val();
+            //console.log(id);
+            $.ajax({
+                url: "<?= ROOT ?>/employer/fetchrating",
+                method: "POST",
+                data: {
+                    id: id,
+
+                },
+                dataType: "JSON",
+                success: function(data) {
+                    console.log(data);
+                    $('#average_rating').text(data.average_rating);
+                    $('#total_review').text(data.total_review);
+
+                    var count_star = 0;
+
+                    $('.main_star').each(function() {
+                        count_star++;
+                        if (Math.ceil(data.average_rating) >= count_star) {
+                            $(this).addClass('text-warning');
+                            $(this).removeClass('star-light');
+                        }
+                    });
+                    console.log(count_star);
+                    console.log(Math.ceil(data.average_rating));
+                }
+            })
         }
     </script>
 

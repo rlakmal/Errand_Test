@@ -88,6 +88,14 @@
             margin-left: 6%;
         }
 
+        .text-warning {
+            color: #ffc107;
+        }
+
+        .star-light {
+            color: #e9ecef;
+        }
+
         @media only screen and (max-width: 600px) {
             .review-container {
                 height: 80%;
@@ -128,11 +136,11 @@
                                     <b><span id="average_rating">0.0</span> / 5</b>
                                 </h1>
                                 <div>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
                                 </div>
                                 <h3><span id="total_review">0</span> Review</h3>
                             </div>
@@ -390,7 +398,9 @@
             }
         };
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="<?= ROOT ?>/assets/js/jquery-3.7.1.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $(".rating-bar").each(function() {
@@ -435,9 +445,12 @@
                         count_star++;
                         if (Math.ceil(data.average_rating) >= count_star) {
                             $(this).addClass('text-warning');
-                            $(this).addClass('star-light');
+                            $(this).removeClass('star-light');
                         }
                     });
+                    console.log(count_star);
+                    console.log(Math.ceil(data.average_rating));
+
 
                     $('#total_five_star_review').text(data.five_star_review);
 
