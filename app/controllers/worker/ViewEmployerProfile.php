@@ -33,7 +33,7 @@ class ViewEmployerProfile extends Controller
         $arr['id'] = $use_id;
 
         $result = $user->first($arr);
-
+        $newData['emp_id'] = $use_id;
         $newData['name'] = $result->name;
         $newData['nic'] = $result->nic;
         $newData['city'] = $result->city;
