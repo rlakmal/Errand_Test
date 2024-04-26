@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: lightpink;
+  background-color: white;
 }
 
 .main-container4 {
@@ -10,7 +10,7 @@ body {
   margin-top: 7%;
   width: 80%;
   height: fit-content;
-  background: lightpink;
+  background: white;
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -135,12 +135,12 @@ body {
   top: 10px;
   right: 10px;
   border-radius: 20px;
-  background-color: darkmagenta;
+  background-color: #ff904b;
   color: #fff;
   padding: 10px 20px;
   border: 2px;
   cursor: pointer;
-  border-color: rebeccapurple;
+  border-color: #ff904b;
 }
 .container-left {
   display: flex;
@@ -180,7 +180,7 @@ body {
   width: 160%;
   height: max-content;
   border-radius: 15px;
-  background: lightcoral;
+  background: aliceblue;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   justify-content: center;
@@ -218,7 +218,7 @@ body {
   cursor: pointer;
   /* width: 110px; */
   height: 32px;
-  background-color: darkmagenta;
+  background-color: #ff904b;
   color: white;
   border-radius: 20px;
   font-size: 15px;

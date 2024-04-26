@@ -17,17 +17,23 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style.css">
+    <style>
+        body{
+            overflow-y: hidden;
+        }
+    </style>
     
 </head>
 <body>
     <div class="container">
 
         <!-- Header -->
+        <?php include 'sidebar.php' ?>
+        
         <?php include 'navigationbar.php' ?>
 
         <!-- Sidebar -->
-        <?php include 'sidebar.php' ?>
-        
+
         <!-- Sidebar -->
         <!-- <aside class="sidebar">
             <button id="menu-btn">Button</button>
@@ -35,7 +41,7 @@
         <!-- End of Sidebar -->
 
         <!-- Main Content -->
-        <main class="main">
+        <main class="main" style="overflow-y: scroll; height: 800px">
 
             <div class="cardBox">
 

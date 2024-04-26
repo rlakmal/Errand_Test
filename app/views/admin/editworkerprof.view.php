@@ -16,8 +16,9 @@
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+
+<?php include 'navigationbar.php' ?>
 
 <form method="POST" enctype="multipart/form-data">
 
@@ -30,7 +31,7 @@
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="workerprofile_image_placeholder">
                         </div>
-                        <div style="height: 30px; align-content: center; background: #00BFFF" class="form-upload">
+                        <div style="height: 30px; align-content: center; background: #ff7f00" class="form-upload">
                             <input type="file" id="workerprofile_image" style="display: none;" name="workerprofile_image">
                             Choose Image
                         </div>

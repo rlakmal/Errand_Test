@@ -46,19 +46,20 @@
 
 <body>
 
-    <?php include 'workernav.php' ?>
-    <?php include 'workerfilter.php' ?>
+<?php include 'workernav.php' ?>
+<?php include 'workerfilter.php' ?>
 
 
-    <?php
-    if ($data) {
-        foreach ($data as $item) {
-            //show($data);
-    ?>
+<?php
+if ($data) {
+    foreach ($data as $item) {
+        //show($data);
+        ?>
 
-            <div class="main-container4">
-                <div class="profile-container3">
-                    <div class="container-left">
+        <div class="main-container4">
+            <div class="profile-container3">
+                <div class="container-left">
+
 
                         <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="">
                         <h3 class="emp-name">
@@ -78,7 +79,9 @@
                             <h3><span id="total_review">0</span> Review</h3>
                         </div>
 
-                    </div>
+
+                </div>
+
 
                     <div class="container-right">
                         <div type="text" name="fullname" value="" class="title-line" readonly><?php echo $item->title  ?></div>
@@ -111,68 +114,75 @@
                             <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image  ?>" alt="" onclick="openModal(this.src,0)">
                             <img class="jobimage1" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $item->job_image1  ?>" alt="" onclick="openModal(this.src,1)">
                         </div>
-                    </div>
-                </div>
-                <div class="index_bottom">
-                    <button type="button" name="Rquest" value="Request" class="close-button" onclick="markAsCompleted(<?php echo $item->id ?>)">Request</button>
-
-                    <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
+       </div>
                 </div>
             </div>
+            <div class="index_bottom">
+                <button type="button" name="Rquest" value="Request" class="close-button" onclick="markAsCompleted(<?php echo $item->id ?>)">Request</button>
 
-    <?php
+                <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
+            </div>
+        </div>
 
+        <?php
+
+    }
+}
+
+?>
+<div id="myModal" class="modal">
+    <img class="modal-content" id="modalImage">
+</div>
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.jobimage1');
+    console.log(images);
+    console.log(currentIndex);
+    const modalImage = document.getElementById('modalImage');
+
+    function openModal(src, index) {
+        currentIndex = index;
+        modalImage.src = src;
+        document.getElementById('myModal').style.display = 'flex';
+        document.addEventListener('keydown', handleKeyPress);
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+        document.removeEventListener('keydown', handleKeyPress);
+    }
+
+    function handleKeyPress(event) {
+        switch (event.key) {
+            case 'ArrowRight':
+                showNextImage();
+                break;
+            case 'ArrowLeft':
+                showPreviousImage();
+                break;
+            case 'Escape':
+                closeModal();
+                break;
+            default:
+                break;
         }
     }
 
-    ?>
-    <div id="myModal" class="modal">
-        <img class="modal-content" id="modalImage">
-    </div>
-    <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.jobimage1');
-        console.log(images);
-        console.log(currentIndex);
-        const modalImage = document.getElementById('modalImage');
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        modalImage.src = images[currentIndex].src;
+    }
 
-        function openModal(src, index) {
-            currentIndex = index;
-            modalImage.src = src;
-            document.getElementById('myModal').style.display = 'flex';
-            document.addEventListener('keydown', handleKeyPress);
+    function showPreviousImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        modalImage.src = images[currentIndex].src;
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal')) {
+            closeModal();
         }
 
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-            document.removeEventListener('keydown', handleKeyPress);
-        }
-
-        function handleKeyPress(event) {
-            switch (event.key) {
-                case 'ArrowRight':
-                    showNextImage();
-                    break;
-                case 'ArrowLeft':
-                    showPreviousImage();
-                    break;
-                case 'Escape':
-                    closeModal();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        function showNextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            modalImage.src = images[currentIndex].src;
-        }
-
-        function showPreviousImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            modalImage.src = images[currentIndex].src;
-        }
 
         window.onclick = function(event) {
             if (event.target == document.getElementById('myModal')) {
@@ -242,6 +252,7 @@
             })
         }
     </script>
+
 
 </body>
 

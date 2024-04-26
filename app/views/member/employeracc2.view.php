@@ -378,9 +378,9 @@
                 <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="profile_image_placeholder">
 
             </div>
-            <div class="form-upload">
-                <a href="<?= ROOT ?>/admin/editemployeracc?id=<?= $data['newData']['id'] ?>"><button class="close-button"><i class="bx bxs-edit-alt icon"></i></button></a>
-            </div>
+<!--            <div class="form-upload">-->
+<!--                <a href="--><?php //= ROOT ?><!--/admin/editemployeracc?id=--><?php //= $data['newData']['id'] ?><!--"><button class="close-button"><i class="bx bxs-edit-alt icon"></i></button></a>-->
+<!--            </div>-->
 
             <div class="row">
                 <div class="review_percent">
