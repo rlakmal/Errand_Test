@@ -221,7 +221,7 @@
                         ?>
                         <?php if ($item->payment_stat == 'paid'): ?>
                             <span class="payment-status paid">Paid</span>
-                        <?php elseif ($item->payment_stat == 'unpaid'): ?>
+                        <?php elseif ($item->payment_stat == 'Pay Now'): ?>
                             <span class="payment-status unpaid">Not Paid</span>
                             <button class="before_pay" onclick="openPaymentPopup(<?php echo $item->budget * 0.1 ?>, '<?=$hash?>', <?=$item->id?>)">Make Payment</button>
                         <?php elseif ($item->payment_stat == 'cancelled'): ?>
@@ -233,6 +233,8 @@
                             <span class="payment-status pending">Pending</span>
                         <?php elseif ($item->payment_stat == 'failed'): ?>
                             <span class="payment-status failed">Failed</span>
+                            <button class="before_pay" onclick="openPaymentPopup(<?php echo $item->budget * 0.1 ?>, '<?=$hash?>', <?=$item->id?>)">Make Payment</button>
+
                         <?php else: ?>
                             <span class="payment-status">Unknown</span>
                         <?php endif; ?>

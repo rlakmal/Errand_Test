@@ -6,208 +6,11 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/request2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .table-container {
-            max-height: 80vh; /* Set the maximum height for the container (80% of the viewport height) */
-            overflow-y: scroll;
-            overflow-x: scroll;
-        }
-
-        table {
-            width: 150%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .status-requested {
-            color: #007bff;
-        }
-
-        .status-accepted {
-            color: #28a745;
-        }
-
-        .status-canceled {
-            color: #dc3545;
-        }
-
-        .status-rejected {
-            color: #ffc107;
-        }
-
-        .status-expired {
-            color: #6c757d;
-        }
-
-        .delete-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            z-index: 9999;
-            display: none;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .popup button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .popup button.yes-button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-        }
-
-        .popup button.no-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-        }
-
-        .popup img {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .popup-v {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 40px;
-            z-index: 9999;
-            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-            max-width: 90%;
-            animation: popup-show 0.5s ease forwards;
-            border: 3px solid red; /* Add red border */
-            width: 30%;
-        }
-
-        @keyframes popup-show {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .popup-v h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .popup-v form {
-            text-align: left;
-        }
-
-        .popup-v label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .popup-v input[type="text"] {
-            width: calc(100% - 20px);
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 16px;
-            background-color: lightgray;
-        }
-
-        .popup-v .btns {
-            display: flex;
-            justify-content: center;
-            border-radius: 20px;
-        }
-
-        .popup-v .btns button {
-            padding: 12px 24px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .popup-v .btns .cancelb {
-            background-color: #ccc;
-            color: #fff;
-        }
-
-        .popup-v .btns button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        /* Animation for hiding the popup */
-        @keyframes popup-hide {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-        }
 
 
     </style>
@@ -225,7 +28,12 @@
 <section id="main" class="main" style="margin-top: 15px">
     <h2 style="background: white">Employer Requests</h2>
     <div class="form">
-        <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
+        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by request ID or Title">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput2" style="width: 13%" class="form-group" type="text" placeholder="Search by Location">
+        <i class='bx bx-search icon'></i>
+        <input id="searchInput3" style="width: 17%" class="form-group" type="text" placeholder="Search by Employer ID or Name">
         <i class='bx bx-search icon'></i>
     </div>
     <div class="table-container">
@@ -306,6 +114,8 @@
 
 <script>
     const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
     const dataTable = document.getElementById('dataTable');
     const rows = dataTable.getElementsByTagName('tr');
 
@@ -324,6 +134,39 @@
             }
         }
     });
+
+    searchInput2.addEventListener('input', function() {
+        const searchString = searchInput2.value.toLowerCase().trim();
+        console.log("hoo ah")
+
+        for (let j = 0; j < rows.length; j++) {
+            const row1 = rows[j];
+            const city = row1.cells[7].innerText.toLowerCase();
+
+            if ( city.indexOf(searchString) > -1) {
+                row1.style.display = '';
+            } else {
+                row1.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput3.addEventListener('input', function() {
+        const searchString = searchInput3.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const id = row.cells[1].innerText.toLowerCase();
+            const name = row.cells[3].innerText.toLowerCase();
+
+            if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
 
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');

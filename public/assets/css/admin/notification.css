@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
+
+.main {
+    margin: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: white;
+}
+
+/*.form-group {*/
+/*    width: 300px;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 20px;*/
+/*    font-size: 12px;*/
+/*    margin-right: 10px;*/
+/*    color: #666;*/
+/*    margin-top: 20px;*/
+/*    align-content: center;*/
+/*}*/
+
+.icon {
+    font-size: 20px;
+    color: #666;
+    margin-left: -40px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+
+}
+
+.btn:hover {
+    background-color: darkred;
+}
+.btn2 {
+    padding: 10px 20px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px;
+    align-self: center;
+
+}
+
+.btn2:hover {
+    background-color: darkred;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    color: #555;
+    /*border-radius: 10p;*/
+
+}
+
+.table th {
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.edit-icon {
+    text-align: center;
+}
+
+.edit-btn {
+    color: #3498db;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #2980b9;
+}
+
+/* Added styles for filter buttons */
+.filter-btns {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    background-color: #ccc;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-right: 10px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+
+}
+
+.filter-btn.active {
+    background-color: orange;
+    color: #fff;
+}
