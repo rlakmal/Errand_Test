@@ -4,7 +4,7 @@
 <head>
     <title>Painter Profile</title>
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/workerprof.css"> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style-bar.css">
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/admin/dashboard.css">-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -14,14 +14,15 @@
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+
+<?php include 'navigationbar.php' ?>
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <style>
     body {
         font-family: "Arial", sans-serif;
-        background-color: lightgoldenrodyellow;
+        background-color: white;
     }
 
     .main-container4 {
@@ -31,7 +32,7 @@
         margin-top: 2%;
         width: 80%;
         height: fit-content;
-        background: goldenrod;
+        background: #f4f4f4;
         flex-direction: column;
         align-content: center;
         justify-content: center;
@@ -43,7 +44,7 @@
         margin: 1%;
         position: relative;
         padding: 15px;
-        background-color: lightgoldenrodyellow;
+        background-color: #f4f4f4;
         width: 98%;
         height: fit-content;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -104,7 +105,7 @@
         justify-content: center;
         /* align-content: center; */
         align-items: center;
-        background: lightgoldenrodyellow;
+        background: #f4f4f4;
         border-radius: 28px;
     }
 

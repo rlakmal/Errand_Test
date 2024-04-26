@@ -14,7 +14,7 @@
 
 <body>
     <?php include 'employernav.php' ?>
-    <?php include 'empfilter.php' ?>
+    <?php include 'empfilter2.php' ?>
     <div class="set-margin" id="set-marginid">
         <?php
         if (is_array($data)) {
@@ -30,7 +30,7 @@
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-type"><?php echo $item->category ?></div>
-                            <div class="profile-ratings">Ratings: 4.9</div>
+                            <div class="profile-ratings">Ratings  <?php echo $item->avg_rating ?></div>
                             <div class="job-count">Jobs Completed: 50+</div>
 
                         </div>
@@ -48,7 +48,48 @@
             }
         }
         ?>
+        <script>
+            function searchTable() {
+                var input, filter, data, items, i, txtValue, category, location;
+                data = document.getElementById("set-marginid");
+                items = data.getElementsByClassName("main-container2");
+                category = document.getElementById("category").value.toUpperCase();
+                console.log(category);
+                location = document.getElementById("locationdata").value.toUpperCase();
+                console.log(location);
 
+                for (i = 0; i < items.length; i++) {
+                    txtValue = items[i].textContent || items[i].innerText;
+                    var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
+                    var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
+                    console.log(categoryMatch);
+                    console.log(locationMatch);
+
+                    if (categoryMatch && locationMatch) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+
+            function searchInput() {
+                var input, filter, data, items, i, txtValue;
+                input = document.getElementById("search");
+                filter = input.value.toUpperCase();
+                data = document.getElementById("set-marginid");
+                items = data.getElementsByClassName("main-container2");
+
+                for (i = 0; i < items.length; i++) {
+                    txtValue = items[i].textContent || items[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
 
 
 </body>

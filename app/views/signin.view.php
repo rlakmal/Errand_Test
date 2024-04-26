@@ -63,7 +63,7 @@
                             <input type="submit" value="Sign In" class="sign-btn" name="signIn">
                             <p class="text">
                                 Forget your password or your login details?
-                                <a href="#" class="toggle-1">Get Help</a> Signing in
+                                <a href="<?= ROOT ?>/home/forgetpwd"> class="toggle-1">Get Help</a> Signing in
                             </p>
 
                         </div>

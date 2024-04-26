@@ -5,233 +5,13 @@
     <title>Reports</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/reports.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css"> <!-- Bootstrap Icons CDN -->
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            overflow-y: auto; /* Make the body scrollable */
-        }
 
-        .main {
-            padding: 20px;
-            width: calc(100% - 260px); /* Adjust based on your sidebar width */
-            overflow-x: scroll;
-        }
-
-        .report-widgets {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .report-widget {
-            position: relative; /* Add position relative to contain absolute positioned icon */
-            width: 300px; /* Set the width of each widget */
-            height: 200px; /* Set the height of each widget */
-            background-color: lightgray;
-            margin: 20px;
-            padding: 20px;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s; /* Add transition for transform property */
-            border-radius: 10px;
-            text-align: left; /* Align text to the left */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start; /* Align items to the left */
-            overflow-y: auto;
-        }
-
-        .report-widget:hover {
-            background-color: gray;
-            transform: scale(1.1); /* Enlarge the widget on hover */
-        }
-
-        .report-widget a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px; /* Increase font size for title */
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .widget-content {
-            font-size: 16px;
-            margin-top: 10px; /* Add margin for content */
-        }
-
-
-
-        /* Large icon styles */
-        .large-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 48px; /* Set the size of the large icon */
-            color: #fff; /* Set the color of the large icon */
-        }
-
-        /* Popup Styles */
-        #popup {
-            z-index: 9999;
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto; /* Make the popup scrollable */
-        }
-
-        #popup2 {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
-        }
-
-        #popup3 {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
-        }
-
-        .popup-content {
-            z-index: 9999;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 100%; /* Adjusted to 100% for A4 size */
-            width: 21cm; /* A4 width */
-            max-height: 80vh; /* Set a maximum height for the popup content */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
-            text-align: left;
-            transition: transform 0.3s; /* Add transition for transform property */
-            position: relative; /* Set position to relative for logo positioning */
-            overflow-y: auto; /* Make the popup content scrollable */
-        }
-
-        .popup-content h2 {
-            margin-bottom: 20px;
-        }
-
-        .popup-content button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .popup-content:hover {
-            transform: scale(1.1); /* Enlarge the popup on hover */
-        }
-
-        .popup-content2 {
-            z-index: 9999;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 100%; /* Adjusted to 100% for A4 size */
-            width: 21cm; /* A4 width */
-            max-height: 80vh; /* Set a maximum height for the popup content */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
-            text-align: left;
-            transition: transform 0.3s; /* Add transition for transform property */
-            position: relative; /* Set position to relative for logo positioning */
-            overflow-y: auto; /* Make the popup content scrollable */
-        }
-
-        .popup-content2 h2 {
-            margin-bottom: 20px;
-        }
-
-        .popup-content2 button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .popup-content2:hover {
-            transform: scale(1.1); /* Enlarge the popup on hover */
-        }
-
-        .popup-content3 {
-            z-index: 9999;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 100%; /* Adjusted to 100% for A4 size */
-            width: 21cm; /* A4 width */
-            max-height: 80vh; /* Set a maximum height for the popup content */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
-            text-align: left;
-            transition: transform 0.3s; /* Add transition for transform property */
-            position: relative; /* Set position to relative for logo positioning */
-            overflow-y: auto; /* Make the popup content scrollable */
-        }
-
-        .popup-content3 h2 {
-            margin-bottom: 20px;
-        }
-
-        .popup-content3 button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .popup-content3:hover {
-            transform: scale(1.1); /* Enlarge the popup on hover */
-        }
-
-        /* Logo Styles */
-        .logo {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            margin-top: 40px;
-            margin-right: 40px;
-            width: 100px; /* Adjust logo size as needed */
-            height: auto;
-        }
     </style>
 </head>
 
@@ -253,11 +33,11 @@
 
 
 <!-- content  -->
-<section  id="main" class="main" style="overflow-y: scroll; max-height: 90vh; margin-top: 15px">
+<section  id="main" class="main" style=" max-height: 90vh; margin-top: 15px">
     <h2>Reports</h2>
 
-   <div style="overflow-y: scroll;">
-       <h2 style="text-align: center">User</h2>
+   <div style="">
+       <h2 class = "titles" style="text-align: center">User</h2>
 
        <div class="report-widgets">
 
@@ -309,7 +89,7 @@
 
        </div>
 
-       <h2 style="text-align: center">Business</h2>
+       <h2 class = "titles" style="text-align: center">Business</h2>
 
 
 
@@ -339,7 +119,7 @@
 
        </div>
 
-       <h2 style="text-align: center">Support</h2>
+       <h2 class = "titles" style="text-align: center">Support</h2>
 
 
        <div class="report-widgets">
