@@ -16,6 +16,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: 100px;
+    margin-top: 40px;
 }
 
 .report-widget {
@@ -35,6 +37,8 @@ body {
     justify-content: center;
     align-items: flex-start; /* Align items to the left */
     overflow-y: auto;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .report-widget:hover {
@@ -219,4 +223,10 @@ body {
     margin-right: 40px;
     width: 100px; /* Adjust logo size as needed */
     height: auto;
+}
+
+.titles{
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+
 }

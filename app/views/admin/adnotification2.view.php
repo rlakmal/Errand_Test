@@ -23,7 +23,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #eef">Announcements</h2>
+    <h2 style="background:white">Announcements</h2>
 
     <!-- Filter Buttons -->
     <div class="filter-btns">
@@ -31,8 +31,8 @@
         <button class="filter-btn" id="employerBtn">Employer</button>
     </div>
 
-    <form style="background: #eef">
-        <div class="form" style="padding: 15px; background: #eef">
+    <form style="background: white">
+        <div class="form" style="padding: 15px; background: white">
             <input class="form-group" type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search icon'></i>
             <input class="btn" type="button" onclick="openReport()" value="New Announcement">
@@ -68,7 +68,7 @@
                     <td><?php echo $item->employer; ?></td>
                     <td><?php echo $item->created;  unset($item->created); ?></td>
                     <td class="edit-icon">
-                        <a href="#" class="edit-btn" data-order="<?= htmlspecialchars(json_encode($item)); ?>">
+                        <a href="#" style="color: #3b414d" class="edit-btn" data-order="<?= htmlspecialchars(json_encode($item)); ?>">
                             <i class="fas fa-edit"></i> <!-- Font Awesome edit icon -->
                         </a>
                     </td>

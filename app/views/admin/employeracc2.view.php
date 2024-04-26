@@ -14,14 +14,15 @@
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+
+<?php include 'navigationbar.php' ?>
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <style>
     body {
         font-family: "Arial", sans-serif;
-        background-color: lightgoldenrodyellow;
+        background-color: white;
     }
 
     .main-container4 {
@@ -31,7 +32,7 @@
         margin-top: 2%;
         width: 80%;
         height: fit-content;
-        background: goldenrod;
+        background: #f4f4f4;
         flex-direction: column;
         align-content: center;
         justify-content: center;
@@ -43,7 +44,7 @@
         margin: 1%;
         position: relative;
         padding: 15px;
-        background-color: lightgoldenrodyellow;
+        background-color: #f4f4f4;
         width: 98%;
         height: fit-content;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -104,7 +105,7 @@
         justify-content: center;
         /* align-content: center; */
         align-items: center;
-        background: lightgoldenrodyellow;
+        background: #f4f4f4;
         border-radius: 28px;
     }
 

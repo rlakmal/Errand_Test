@@ -76,3 +76,7 @@ CREATE VIEW employer_worker AS
     FROM employer INNER JOIN employer
     ON employer.email = employer.email
     WHERE employer.status = employer.status
+
+
+
+                    <td> <button class="chat-btn" id="toggle-chat-btn" onclick="toggleChat('<?php echo $worker->emp_id ?>')"><i class="bx bx-message-rounded-dots bx-flashing-hover chat-icon" id="chat-msg"></i></button></td>

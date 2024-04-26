@@ -29,7 +29,10 @@
 <section id="main" class="main" style="margin-top: 15px">
     <h2 style="background: white">Accepted Requests</h2>
     <div class="form">
-        <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
+        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search Request ID or Title">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput2" style="width: 13%;" class="form-group" type="text" placeholder="Search Type">
         <i class='bx bx-search icon'></i>
     </div>
     <div class="table-container">
@@ -42,10 +45,11 @@
                 <th>Employer</th>
                 <th>Worker</th>
                 <th>Title</th>
+                <th>Budget</th>
                 <th>Payment</th>
                 <th>Type</th>
                 <th>Payment Status</th>
-                <th>Description</th>
+                <th>Review Status</th>
 
                 <th>Created</th>
                 <th></th>
@@ -58,12 +62,13 @@
                     <td><?= $request->emp_id ?></td>
                     <td><?= $request->worker_id ?></td>
                     <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
-                    <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
+                    <td><a ><?= $request->worker_name ?></a></td>
                     <td><?= $request->title ?></td>
-                    <td><?= $request->budget*10 ?></td>
-                    <td><?= $request->type ?></td>
-                    <td class="status-<?= strtolower($request->payment_stat) ?>"><?= $request->payment_stat ?></td>
-                    <td><?= $request->review_status ?></td>
+                    <td><?= $request->budget?></td>
+                    <td><?= $request->budget*.1 ?></td>
+                    <td class="type-<?php echo ($request->type == "worker") ? "worker" : "employer"?>"><?= $request->type ?></td>
+                    <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= $request->payment_stat ?></td>
+                    <td ><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= $request->review_status ?></div></td>
 
                     <td><?= $request->created ?></td>
 
@@ -91,6 +96,7 @@
 
 <script>
     const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
     const dataTable = document.getElementById('dataTable');
     const rows = dataTable.getElementsByTagName('tr');
 
@@ -100,7 +106,7 @@
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[4].innerText.toLowerCase();
+            const title = row.cells[5].innerText.toLowerCase();
 
             if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
                 row.style.display = '';
@@ -110,6 +116,20 @@
         }
     });
 
+    searchInput2.addEventListener('input', function() {
+        const searchString = searchInput2.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const type = row.cells[7].innerText.toLowerCase();
+
+            if (type.indexOf(searchString) > -1 ) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');
         popup.style.display = 'block';

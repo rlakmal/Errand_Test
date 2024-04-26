@@ -28,7 +28,12 @@
 <section id="main" class="main" style="margin-top: 15px">
     <h2 style="background: white">Employer Requests</h2>
     <div class="form">
-        <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
+        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by request ID or Title">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput2" style="width: 13%" class="form-group" type="text" placeholder="Search by Location">
+        <i class='bx bx-search icon'></i>
+        <input id="searchInput3" style="width: 17%" class="form-group" type="text" placeholder="Search by Employer ID or Name">
         <i class='bx bx-search icon'></i>
     </div>
     <div class="table-container">
@@ -109,6 +114,8 @@
 
 <script>
     const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
     const dataTable = document.getElementById('dataTable');
     const rows = dataTable.getElementsByTagName('tr');
 
@@ -127,6 +134,39 @@
             }
         }
     });
+
+    searchInput2.addEventListener('input', function() {
+        const searchString = searchInput2.value.toLowerCase().trim();
+        console.log("hoo ah")
+
+        for (let j = 0; j < rows.length; j++) {
+            const row1 = rows[j];
+            const city = row1.cells[7].innerText.toLowerCase();
+
+            if ( city.indexOf(searchString) > -1) {
+                row1.style.display = '';
+            } else {
+                row1.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput3.addEventListener('input', function() {
+        const searchString = searchInput3.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const id = row.cells[1].innerText.toLowerCase();
+            const name = row.cells[3].innerText.toLowerCase();
+
+            if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
 
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');

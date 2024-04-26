@@ -26,11 +26,16 @@
 <section id="main" class="main" style="margin-top: 15px">
     <h2 style="background: white">Worker Requests</h2>
     <div class="form">
-        <input id="searchInput" style="width: 13%" class="form-group" type="text" placeholder="Search...">
+        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by Request ID or Title">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput2" style="width: 13%" class="form-group" type="text" placeholder="Search by Location">
+        <i class='bx bx-search icon'></i>
+        <input id="searchInput3" style="width: 17%" class="form-group" type="text" placeholder="Search by Worker ID or Name">
         <i class='bx bx-search icon'></i>
     </div>
     <div class="table-container">
-        <table>
+        <table id="dataTable">
             <thead>
             <tr>
                 <th>ID</th>
@@ -84,29 +89,84 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get the search input element
-        var searchInput = document.getElementById("searchInput");
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     // Get the search input element
+    //     var searchInput = document.getElementById("searchInput");
+    //
+    //     // Add event listener for input change
+    //     searchInput.addEventListener("input", function () {
+    //         var filter = searchInput.value.toUpperCase();
+    //         var tableRows = document.querySelectorAll("table tbody tr");
+    //
+    //         // Loop through all table rows and hide those that don't match the search query
+    //         tableRows.forEach(function (row) {
+    //             var idColumn = row.cells[0].textContent.toUpperCase();
+    //             var titleColumn = row.cells[5].textContent.toUpperCase();
+    //
+    //             // Show the row if the search query matches the ID or the title
+    //             if (idColumn.indexOf(filter) > -1 || titleColumn.indexOf(filter) > -1) {
+    //                 row.style.display = "";
+    //             } else {
+    //                 row.style.display = "none";
+    //             }
+    //         });
+    //     });
+    // });
 
-        // Add event listener for input change
-        searchInput.addEventListener("input", function () {
-            var filter = searchInput.value.toUpperCase();
-            var tableRows = document.querySelectorAll("table tbody tr");
+    const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
+    const dataTable = document.getElementById('dataTable');
+    const rows = dataTable.getElementsByTagName('tr');
 
-            // Loop through all table rows and hide those that don't match the search query
-            tableRows.forEach(function (row) {
-                var idColumn = row.cells[0].textContent.toUpperCase();
-                var titleColumn = row.cells[5].textContent.toUpperCase();
+    searchInput.addEventListener('input', function() {
+        const searchString = searchInput.value.toLowerCase().trim();
 
-                // Show the row if the search query matches the ID or the title
-                if (idColumn.indexOf(filter) > -1 || titleColumn.indexOf(filter) > -1) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        });
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const id = row.cells[0].innerText.toLowerCase();
+            const title = row.cells[5].innerText.toLowerCase();
+
+            if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
     });
+
+    searchInput2.addEventListener('input', function() {
+        const searchString = searchInput2.value.toLowerCase().trim();
+        console.log("hoo ah")
+
+        for (let j = 0; j < rows.length; j++) {
+            const row1 = rows[j];
+            const city = row1.cells[8].innerText.toLowerCase();
+
+            if ( city.indexOf(searchString) > -1) {
+                row1.style.display = '';
+            } else {
+                row1.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput3.addEventListener('input', function() {
+        const searchString = searchInput3.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const id = row.cells[2].innerText.toLowerCase();
+            const name = row.cells[4].innerText.toLowerCase();
+
+            if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
 
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');

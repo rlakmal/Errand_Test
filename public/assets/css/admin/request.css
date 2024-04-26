@@ -41,9 +41,34 @@ tr:hover {
 }
 
 .status-unpaid {
-    color: #6c757d;
+    color: red;
 }
 
+.type-employer{
+    color: lightblue;
+}
+
+.type-worker{
+    color: darkgreen;
+}
+
+.review-markas{
+  background: red;
+}
+
+.review-completed{
+    background: darkgreen;
+}
+
+.review-rated{
+    background: darkblue;
+}
+
+.review-completed, .review-markas, .review-rated{
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
 .delete-button {
     background-color: #dc3545;
     color: white;

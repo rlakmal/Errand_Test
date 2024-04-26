@@ -123,9 +123,13 @@ route('admin/editworkerprof', 'admin/EditWorkerProf@index');
 
 
 route('admin/fetchworkerratingsreviews', 'admin/WorkerProf@fetchWorkerRating');
-route('member/fetchratingsreviews', 'member/EmployerAcc@fetchRating');
+route('admin/fetchratingsreviews', 'admin/EmployerAcc@fetchRating');
 
+route('admin/workchatbox', 'admin/WorkersList2@chat_data');
+route('admin/worksaveMsg', 'admin/WorkersList2@save_data');
 
+route('admin/crewchatbox', 'admin/AdminCrew@chat_data');
+route('admin/crewsaveMsg', 'admin/AdminCrew@save_data');
 
 /*---------------------------------------------------------------------
     member routes

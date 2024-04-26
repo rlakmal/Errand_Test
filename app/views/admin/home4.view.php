@@ -27,10 +27,10 @@
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <!-- Content -->
-<section id="main" class="main" style="margin-top: 15px; overflow-y: scroll; height: fit-content;">
-    <h2 style="position:fixed; width: 100%">Administrator Home</h2>
-    <div class="insights"  style="margin-top: 55px">
-        <div class="income" style="width: 25vw">
+<section id="main" class="main" style="margin-top: 15px; height: fit-content;">
+    <h2 class="topic">Administrator Home</h2>
+    <div class="insights">
+        <div class="income">
             <div class="middle">
                 <h1>Total Income</h1>
                 <span class="material-symbols-sharp">stacked_line_chart</span>
@@ -41,7 +41,7 @@
         <!-- END OF Income -->
 
         <div class="posted-jobs">
-            <div class="middle" style="width: 25vw">
+            <div class="middle">
                 <h1>Posted Jobs</h1>
                 <span class="material-symbols-sharp">analytics</span>
             </div>
@@ -50,7 +50,7 @@
         </div>
         <!-- END OF SALES -->
 
-        <div class="completed-jobs" style="width: 25vw">
+        <div class="completed-jobs">
             <div class="middle">
                 <h1>Job Acceptances</h1>
                 <span class="material-symbols-sharp">bar_chart</span>
@@ -60,7 +60,7 @@
         </div>
         <!-- END OF Expenses -->
 
-        <div class="adminCrew" style="width: 25vw">
+        <div class="adminCrew">
             <div class="middle">
                 <h1>Crew Members</h1>
                 <span class="material-symbols-sharp">groups</span>

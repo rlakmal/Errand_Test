@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: lightcyan;
+            background-color: lightgrey;
             margin: 0;
             padding: 0;
             overflow-y: hidden; /* Make the body scrollable */
@@ -28,7 +28,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            background: lightcyan;
+            background: lightgrey;
         }
 
         .form-group {
@@ -62,9 +62,8 @@
 
         }
         .table th {
-            background-color: lightcyan;
+            background-color: lightgrey;
             color: black;
-            border-radius: 10px; /* Adding curve to table headers */
         }
 
         .table tr:nth-child(even) {
@@ -130,8 +129,8 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: lightcyan">Registered Employers</h2>
-    <form style="background: lightcyan">
+    <h2 style="background: lightgrey">Registered Employers</h2>
+    <form style="background: lightgrey">
         <div class="form">
             <!-- Category Selector -->
 

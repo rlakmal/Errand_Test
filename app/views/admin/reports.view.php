@@ -37,7 +37,7 @@
     <h2>Reports</h2>
 
    <div style="">
-       <h2 style="text-align: center">User</h2>
+       <h2 class = "titles" style="text-align: center">User</h2>
 
        <div class="report-widgets">
 
@@ -89,7 +89,7 @@
 
        </div>
 
-       <h2 style="text-align: center">Business</h2>
+       <h2 class = "titles" style="text-align: center">Business</h2>
 
 
 
@@ -119,7 +119,7 @@
 
        </div>
 
-       <h2 style="text-align: center">Support</h2>
+       <h2 class = "titles" style="text-align: center">Support</h2>
 
 
        <div class="report-widgets">

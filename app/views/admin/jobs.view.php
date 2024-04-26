@@ -38,6 +38,7 @@
             height: fit-content;
             flex-direction: row;
             transition: transform 0.3s;
+
         }
         .post-container :hover{
             transform: scale(1.01);
@@ -83,6 +84,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Keep box shadow consistent */
             background-color: #f9f9f9; /* Lighter background color */
             height: fit-content;
+            font-size: 20px;
         }
 
         .picture {
@@ -257,8 +259,8 @@
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+<?php include 'navigationbar.php' ?>
 
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 

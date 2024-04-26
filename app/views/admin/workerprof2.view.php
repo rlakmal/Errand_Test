@@ -5,14 +5,15 @@
     <title>Painter Profile</title>
 
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/admin/dashboard.css">-->
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style-bar.css">
+
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/workerprofile.css">
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/employer/jobpopup.css">-->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/admin/style-bar.css">
 
 
 
@@ -207,7 +208,7 @@ foreach ($data as $item) {
             </div>
 
             <div class="form-upload">
-                <a href="<?= ROOT ?>/admin/editworkerprof?id=<?=$data["newData"]["work_id"]?>"><button style="background: #00BFFF" class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
+                <a href="<?= ROOT ?>/admin/editworkerprof?id=<?=$data["newData"]["work_id"]?>"><button style="background:  #ff7f00" class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
             </div>
             <div class="row">
                 <div class="review_percent">
