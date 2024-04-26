@@ -15,9 +15,10 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBUSER', 'root');
     define('DBPASS', '');
     define('DBDRIVER', '');
-
     define('ROOT', 'http://localhost/Errand_Test/public');
     define('PUBROOT', dirname(dirname(dirname(__FILE__))) . '/public');
+    define('MAIL_PASS', 'qhsz vxxa snes dmzb');
+    define('MAIL_USER', 'rruchiralakmal@gmail.com');
 } else {
 
     // database configaration
@@ -26,6 +27,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBUSER', 'root');
     define('DBPASS', '');
     define('DBDRIVER', '');
+
 
     define('ROOT', 'https://www.websitename.com');
 }

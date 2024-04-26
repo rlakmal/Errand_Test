@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
     <title>Document</title>
-
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -56,9 +60,9 @@
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
-
-
+                            <div class="category hidden"><?php echo $item->category ?></div>
                         </div>
+
                         <div class="bottom-index">
                             <div class="location">
                                 <div class="location"><?php echo $item->city ?><i class="bx bxs-map icon"></i></div>
@@ -76,6 +80,47 @@
 
         ?>
     </div>
+    <script>
+        function searchTable() {
+            var category, location;
+            category = document.getElementById("category").value.toUpperCase();
+            location = document.getElementById("location").value.toUpperCase();
+
+            var matchingItems = document.getElementsByClassName("post-container");
+
+            for (var i = 0; i < matchingItems.length; i++) {
+                var txtValue = matchingItems[i].textContent || matchingItems[i].innerText;
+                var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
+                var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
+
+                if (categoryMatch && locationMatch) {
+                    matchingItems[i].style.display = "";
+                } else {
+                    matchingItems[i].style.display = "none";
+                }
+            }
+        }
+
+
+        function searchInput() {
+            var input, filter, data, items, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            data = document.getElementById("set-marginid");
+            items = data.getElementsByClassName("post-container");
+
+            for (i = 0; i < items.length; i++) {
+                txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 
 </body>
 
