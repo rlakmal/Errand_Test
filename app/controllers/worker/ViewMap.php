@@ -19,6 +19,7 @@ class ViewMap extends Controller
         $result = $worker_category->first($arr);
         $category = $result->category;
         $check['category'] = $category;
+        $check['job_status'] = 'not_completed';
         $post = new JobPost();
         $locations = $post->where($check);
         $coordinates = array();

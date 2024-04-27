@@ -22,6 +22,14 @@ class ReviewRequest extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $id = $_GET['id'];
+            $job_id = $_GET['job_id'];
+            if ($job_id != 0) {
+                $job = new JobPost();
+                $jobupdateData = [
+                    'job_status' => 'Completed',
+                ];
+                $job->update($job_id, $jobupdateData, 'id');
+            }
             $accepted_jobs = new AcceptedJobs;
             $updateData = [
                 'review_status' => 'Completed',
@@ -41,7 +49,7 @@ class ReviewRequest extends Controller
                 $worker_id = $_POST['worker_id'];
                 $id = $_POST['id'];
                 $updateData = [
-                    'review_status' => 'Rated',
+                    'review_status' => 'Job Completed',
                 ];
                 $accepted_jobs->update($id, $updateData, 'id');
                 $_POST['emp_id'] = $worker_id;
@@ -57,7 +65,7 @@ class ReviewRequest extends Controller
             if (isset($_POST["rating_data"])) {
                 $id = $_POST['id'];
                 $updateData = [
-                    'worker_review' => 'Rated',
+                    'worker_review' => 'Job Completed',
                 ];
                 $accepted_jobs->update($id, $updateData, 'id');
                 unset($_POST['id']);
