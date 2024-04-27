@@ -88,6 +88,9 @@ class AdReports extends Controller
             $rep4->last30empreqpays = [];
             $rep4->last30workreqpays = [];
 
+            $rep4->last30empsum = 0;
+            $rep4->last30worksum = 0;
+
             $currentTimestamp = time();
 
 // Timestamp 30 days ago
@@ -103,6 +106,7 @@ class AdReports extends Controller
                     if ($createdTimestamp >= $thirtyDaysAgoTimestamp && $createdTimestamp <= $currentTimestamp) {
                         // Add the ticket to the last 30 days work array
                         array_push($rep4->last30empreqpays, $pay);
+                        $rep4->last30empsum  += $pay->amount;
                     }
                 }
             }
@@ -116,13 +120,15 @@ class AdReports extends Controller
 
 
                     // Check if the 'created' date falls within the last 30 days
-                    var_dump($createdTimestamp);
-                    var_dump($thirtyDaysAgoTimestamp);
-                    var_dump($currentTimestamp);
+//                    var_dump($createdTimestamp);
+//                    var_dump($thirtyDaysAgoTimestamp);
+//                    var_dump($currentTimestamp);
 
                     if ($createdTimestamp >= $thirtyDaysAgoTimestamp && $createdTimestamp <= $currentTimestamp) {
                         // Add the ticket to the last 30 days work array
                         array_push($rep4->last30workreqpays, $pay);
+                        $rep4->last30worksum  += $pay->amount;
+
                     }
                 }
             }

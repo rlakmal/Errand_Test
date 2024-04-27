@@ -3,7 +3,8 @@
 }
 body {
     font-family: "Arial", sans-serif;
-    background-color: lightcyan;
+    background-color: aliceblue;
+    overflow-y: hidden;
 }
 
 .profile-container2 {

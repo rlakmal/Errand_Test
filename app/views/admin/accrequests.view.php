@@ -86,8 +86,8 @@
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
     <p>Are you sure you want to delete this item?</p>
     <form id="deleteForm" method="post">
-        <button type="submit" class="yes-button">Yes</button>
-        <button type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
+        <button type="submit" class="yes-button" name = "delete">Yes</button>
+        <button  type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
     </form>
 </div>
 
@@ -133,9 +133,8 @@
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');
         popup.style.display = 'block';
-        // Set the action URL for the form
         const form = document.getElementById('deleteForm');
-        form.action = `<?= ROOT ?>/admin/emprequests?id=${id}`;
+        form.action = `<?= ROOT ?>/admin/accrequests?id=${id}`;
     }
 
     function hideConfirmationPopup() {

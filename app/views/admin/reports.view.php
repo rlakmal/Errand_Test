@@ -33,10 +33,10 @@
 
 
 <!-- content  -->
-<section  id="main" class="main" style=" max-height: 90vh; margin-top: 15px">
-    <h2>Reports</h2>
+<section  id="main" class="main" style=" max-height: 90vh; margin-top: 15px; overflow-y: hidden; width: 95%; justify-content: left">
+    <h2 >Reports</h2>
 
-   <div style="">
+   <div style="overflow-y: scroll; height: 800px">
        <h2 class = "titles" style="text-align: center">User</h2>
 
        <div class="report-widgets">
@@ -76,7 +76,7 @@
 
            ?>
 
-           <div class="report-widget" onclick="openPopup('User Demographics', 'Employer\n\n<?=$empparsedString?>Worker\n\n<?=$workparsedString?>Date: <?= date("m-d-y")?>')">
+           <div  style="background: darkred" class="report-widget" onclick="openPopup('User Demographics', 'Employer\n\n<?=$empparsedString?>Worker\n\n<?=$workparsedString?>Date: <?= date("m-d-y")?>')">
                <i class="bx bxs-location-plus large-icon"></i>
                <a href="#">Demographics</a>
                <div class="widget-content">
@@ -98,7 +98,7 @@
 
            <!-- Include other report widgets as needed -->
 
-           <div class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
+           <div style="background: #f16a2d" class="report-widget" onclick="openPopup('Job Statistics', 'Employer Requests\n\nAccepted: <?= $rep2->empacc?>\n\nExpired: <?= $rep2->emplexp?>\n\nCancelled: <?= $rep2->empcanc?>\n\nRejected: <?= $rep2->emprej?>\n\nRequested: <?= $rep2->empreqs?>\n\nWorker Requests\n\nAccepted: NA\n\nExpired: NA\n\nPending: <?= $rep2->workpend?>\n\nDate: <?= date("m-d-y")?>')">
                <i class="bx bxs-flag-alt large-icon"></i>
                <a href="#">Requests</a>
                <div class="widget-content">
@@ -126,7 +126,7 @@
 
 
 
-           <div class="report-widget" onclick="openPopup2()">
+           <div style="background: darkgrey" class="report-widget" onclick="openPopup2()">
                <i class="bx bxs-hand large-icon"></i>
                <a href="#">Tickets</a>
                <div class="widget-content">
@@ -204,8 +204,8 @@
         <h3>Archived Worker Tickets: <?=$rep5->workarchived?></h3>
         <h3>Non-Archived Worker Tickets: <?=$rep5->worknonarchived?></h3>
 
-        <button onclick="downloadReport2()">Download Report</button>
-        <button onclick="closePopup2()">Close</button>
+        <button style="background: #f16a2d" onclick="downloadReport2()">Download Report</button>
+        <button style="background: #f16a2d" onclick="closePopup2()">Close</button>
     </div>
 </div>
 
@@ -261,13 +261,15 @@
         </table>
         <br>
         <h3>Employer Request Payments: <?=$rep4->empreqcount?></h3>
-        <h3>Employer Request Payments: <?=$rep4->workreqcount?></h3>
+        <h3>Worker Request Payments: <?=$rep4->workreqcount?></h3>
+        <h3>Employer Request Payments Sum: <?=$rep4->last30empsum?></h3>
+        <h3>Worker Request Payments Sum: <?=$rep4->last30worksum?></h3>
 <!--        <h3>Non-Archived Employer Tickets: --><?php //=$rep5->empnonarchived?><!--</h3>-->
 <!--        <h3>Archived Worker Tickets: --><?php //=$rep5->workarchived?><!--</h3>-->
 <!--        <h3>Non-Archived Worker Tickets: --><?php //=$rep5->worknonarchived?><!--</h3>-->
 
-        <button onclick="downloadReport3()">Download Report</button>
-        <button onclick="closePopup3()">Close</button>
+        <button style="background: #f16a2d" onclick="downloadReport3()">Download Report</button>
+        <button  style="background: #f16a2d" onclick="closePopup3()">Close</button>
     </div>
 </div>
 

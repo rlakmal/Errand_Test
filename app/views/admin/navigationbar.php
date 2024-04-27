@@ -53,7 +53,7 @@
         <div class ="logo-admin"><a href="<?= ROOT ?>/admin/home"><img src="<?=ROOT?>/assets/images/logoe3.png"></a></div>
         <div   class="nav-icons" style="right: -70%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
 
-            <a href="#" class="nav-link2">
+            <a href="<?= ROOT ?>/admin/admincrew" class="nav-link2">
                 <i class='bx bxs-chat icon'></i>
                 <!--                    <span class="chat-notification">8</span>-->
             </a>
