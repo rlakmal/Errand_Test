@@ -31,6 +31,9 @@ function dataBindtoForm(data) {
   // console.log(data);
 
   document.querySelector('.popup-view input[name="id"]').value = data.id;
+
+  document.querySelector('.popup-view input[name="emp_id"]').value = data.emp_id;
   document.querySelector('.popup-view input[name="email"]').value = data.email;
   document.querySelector('.popup-view input[name="name"]').value = data.name;
+  console.log(data)
 }

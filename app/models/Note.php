@@ -11,7 +11,9 @@ class Note
 
     protected $allowedCloumns = [
         'ticket_no',
-        'body'
+        'body',
+        "created",
+        "mem_id"
 
     ];
 }

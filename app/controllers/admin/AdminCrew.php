@@ -35,13 +35,23 @@ class AdminCrew extends Controller
                 unset($udata["id"]);
                 unset($udata["emp_id"]);
 
+
+                if(trim($udata["password"]) != ""){
+
+                    $udata["password"] = password_hash($udata["password"], PASSWORD_BCRYPT);
+
+                } else {
+                    unset($udata["password"]);
+                }
+
+
                 $user->update($id,$udata);
 
                 $this->handleMemberUpdate($member, $_POST);
             }
 
             if (isset($_POST['active'])) {
-                $this->handleMemberDeletion($member, $_POST);
+                $this->handleMemberDeletion($member,$user, $_POST);
             }
 
             $this->view('admin/admincrew', $data);
@@ -108,18 +118,31 @@ class AdminCrew extends Controller
         unset($postData['emp_id']);
         $id = $postData['id'];
         unset($postData['id']);
+        if(trim($postData["password"]) != ""){
+
+            $postData["password"] = password_hash($postData["password"], PASSWORD_BCRYPT);
+
+        } else {
+            unset($postData["password"]);
+        }
         $this->updateDetails($member, $id, $postData);
     }
 
-    private function handleMemberDeletion($member, $postData)
+    private function handleMemberDeletion($member,$user, $postData)
     {
         unset($postData['active']);
         $member->delete($postData['id'], 'id');
+        $user->delete($postData["emp_id"], 'id');
         redirect('admin/admincrew');
     }
 
     private function updateDetails($member, $user_id, $data)
     {
+//        $emp_id = $data["emp_id"];
+//        unset($data["emp_id"]);
+//
+//        $user->update($emp_id, $data);
+
         $member->update($user_id, $data, 'id');
         redirect('admin/admincrew');
     }
@@ -160,6 +183,7 @@ class AdminCrew extends Controller
                 $chatAllData['chatMsgs'] = $chatMsgs;
                 $chatAllData['log_user'] = $fromId;
                 $chatAllData['empImage'] = $empData->profile_image;
+                $chatAllData['name'] = $empData->name;
 
                 echo json_encode($chatAllData);
             } catch (\Throwable $th) {

@@ -197,12 +197,14 @@
             left: 40%;
             transform: translate(-50%, -50%);
             background-color: white;
-            padding: 40px; /* Increase padding for a bigger popup */
+            padding: 20px; /* Increase padding for a bigger popup */
             border-radius: 20px; /* Add curved edges */
             z-index: 1000;
             display: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
             animation: popup-animation 0.5s ease forwards; /* Add animation */
+            font-size: 16px;
+            width: 400px;
         }
 
         .popup-overlay {
@@ -235,11 +237,13 @@
 
         .archive-button {
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 14px;
             border: none;
+            margin-top: 100px;
+            margin-right: 15px;
+            width: 100px;
         }
 
         .archive-button.archive {
@@ -339,12 +343,16 @@
 
 <div class="popup" id="popup">
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Image" /> <!-- Add your image here -->
-    <h2>Are you sure you want to delete?</h2>
-    <form id="deleteForm" method="post" action="<?= ROOT ?>/admin/jobs?id=">
-        <input type="hidden" id="deleteId" name="deleteId" value="">
-        <input style="margin-top: 5px; border-radius: 20px" type="submit" class="archive-button archive" value="Yes, Delete" name="Delete">
-    </form>
-    <button style="background-color: #1eea07; border-radius: 20px" class="archive-button archive" id="cancel-delete">No, Cancel</button>
+    <h2 style="font-size: 16px">Are you sure you want to delete?</h2>
+    <div style="flex-direction: row; display: flex">
+
+        <form id="deleteForm" method="post" action="<?= ROOT ?>/admin/jobs?id=">
+            <input type="hidden" id="deleteId" name="deleteId" value="">
+            <input style="" type="submit" class="archive-button archive" value="Yes" name="Delete">
+        </form>
+        <button style="background-color: #f16a2d;" class="archive-button archive" id="cancel-delete">No</button>
+
+    </div>
 </div>
 
 
