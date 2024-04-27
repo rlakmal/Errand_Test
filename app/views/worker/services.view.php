@@ -27,7 +27,7 @@
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-type"><?php echo $item->category ?></div>
-                            <div class="profile-ratings">Ratings: 4.9</div>
+                            <div class="profile-ratings">Ratings <?php echo number_format($item->avg_rating, 1) ?></div>
                             <div class="job-count">Jobs Completed: 50+</div>
                         </div>
                         <div class="bottom-index">

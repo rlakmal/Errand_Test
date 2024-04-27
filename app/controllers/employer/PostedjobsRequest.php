@@ -8,6 +8,7 @@ class PostedjobsRequest extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $worker_req_jobs = new WorkeRrequestJobs;
             $accepted_jobs = new AcceptedJobs;
+  
             if (isset($_POST['Accept'])) {
                 //show($_POST);
                 $id = $_POST['id'];
@@ -21,8 +22,8 @@ class PostedjobsRequest extends Controller
                 unset($_POST['Accept']);
                 $_POST['budget'] = $budegt;
 
-//                $_POST['payment_stat'] = "unpaid";
-//                $_POST['type'] = "worker";
+                //                $_POST['payment_stat'] = "unpaid";
+                //                $_POST['type'] = "worker";
                 //show($_POST);
 
 
@@ -63,4 +64,3 @@ class PostedjobsRequest extends Controller
         $notification->insert($arr);
     }
 }
-
