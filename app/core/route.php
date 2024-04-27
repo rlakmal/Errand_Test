@@ -6,6 +6,8 @@ route('home', 'Home@index');
 route('home/payment', 'Payment@index');
 
 route('home/signin', 'SignIn@index');
+route('home/forgetpwd', 'ForgotPwd@index');
+route('home/resetpasswrd', 'ResetPwd@index');
 route('home/signin2', 'SignIn2@index');
 route('home/signout', 'SignOut@index');
 route('home/workerreg', 'worker/WorkerRegistration@index');
@@ -51,6 +53,10 @@ route('employer/reviewreq', 'employer/ReviewRequest@index');
 route('employer/view_request', 'employer/RequestByME@viewRequest');
 route('employer/count_request', 'employer/Myjob@countRequest');
 
+// AJAX
+route('employer/view_request', 'employer/RequestByME@viewRequest');
+route('employer/count_request', 'employer/Myjob@countRequest');
+
 route('employer/paymentgate', 'employer/AcceptedRequest@paymentConfig');
 route('employer/paidstatus', 'employer/AcceptedRequest@updatePayStatus');
 route('employer/markascompleted', 'employer/ReviewRequest@markAsCompleted');
@@ -58,12 +64,16 @@ route('employer/ratingsreviews', 'employer/ReviewRequest@handleRating');
 route('employer/fetchratingsreviews', 'employer/ReviewRequest@fetchRating');
 
 route('employer/fetchworkerratingsreviews', 'employer/Workerprofview@fetchWorkerRating');
+route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
+route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 
 
 route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 route('employer/chatbox', 'employer/ReviewRequest@chat_data');
 route('employer/saveMsg', 'employer/ReviewRequest@save_data');
+route('employer/fetchrating', 'employer/ViewJob@fetchEmpRating');
+
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
@@ -81,6 +91,7 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
+
 route('worker/ongoingjobs', 'worker/OngoingJobs@index');
 
 route('worker/viewjobmap', 'worker/ViewMap@index');
@@ -115,9 +126,13 @@ route('admin/editworkerprof', 'admin/EditWorkerProf@index');
 
 
 route('admin/fetchworkerratingsreviews', 'admin/WorkerProf@fetchWorkerRating');
-route('member/fetchratingsreviews', 'member/EmployerAcc@fetchRating');
+route('admin/fetchratingsreviews', 'admin/EmployerAcc@fetchRating');
 
+route('admin/workchatbox', 'admin/WorkersList2@chat_data');
+route('admin/worksaveMsg', 'admin/WorkersList2@save_data');
 
+route('admin/crewchatbox', 'admin/AdminCrew@chat_data');
+route('admin/crewsaveMsg', 'admin/AdminCrew@save_data');
 
 /*---------------------------------------------------------------------
     member routes

@@ -26,14 +26,34 @@
         margin-right: 0px;
         align-self: center;
     }
+    .home-section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /*padding: 15px;*/
+        background: #f16a2d;
+        /*position: fixed;*/
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+    /*.home-section .nav-icons {*/
+    /*    margin-left: auto;*/
+    /*}*/
+
+    .sidebar.expanded ~ nav {
+        left: 172px;
+        width: calc(100% - 172px);
+    }
 </style>
 
-<section class="home-section" id="navbar" style="height: fit-content; margin-bottom: 15px">
-    <nav style="background: #0c5fcd;  display: flex; height: fit-content;padding: 15px; margin-left: auto; position: fixed" >
+<section class="home-section" id="navbar" >
+    <nav style="background:#f16a2d;  display: flex; height: fit-content;padding: 15px; margin-left: auto; " >
         <div class ="logo-admin"><a href="<?= ROOT ?>/admin/home"><img src="<?=ROOT?>/assets/images/logoe3.png"></a></div>
         <div   class="nav-icons" style="right: -70%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
 
-            <a href="#" class="nav-link2">
+            <a href="<?= ROOT ?>/admin/admincrew" class="nav-link2">
                 <i class='bx bxs-chat icon'></i>
                 <!--                    <span class="chat-notification">8</span>-->
             </a>

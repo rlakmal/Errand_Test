@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: lightcyan;
+            background-color: aliceblue;
             align-content: center;
             justify-content: center;
         }
@@ -27,7 +27,7 @@
             margin-top: 12%;
             width: 80%;
             height: fit-content;
-            background: darkcyan;
+            background: lightgrey;
             flex-direction: column;
             align-content: center;
             justify-content: center;
@@ -136,7 +136,7 @@
 
         .close-button {
             font-size: 25px;
-            background: orange;
+            background: #f2762c;
             border: none;
             cursor: pointer;
             color: white;
@@ -163,7 +163,7 @@
             cursor: pointer;
             /* width: 110px; */
             height: 32px;
-            background-color: darkmagenta;
+            background-color: #f2762c;
             color: white;
             border-radius: 20px;
             font-size: 15px;
@@ -210,7 +210,7 @@
             <div class="container4">
                 <div class="container-left">
                     <div class="prof_img">
-                        <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data[0]->profile_image  ?>" alt="placeholder" id="profile_image_placeholder">
+                        <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/member/profileImages/<?php echo $data[0]->profile_image  ?>" alt="placeholder" id="profile_image_placeholder">
 
                     </div>
                     <div>
@@ -245,13 +245,13 @@
 
 
         <div id = "popup" style="display: none; z-index: 9999;flex-direction: row">
-            <div class="container6"  style="background: purple">
-                <form enctype="multipart/form-data" method="post" action="<?= ROOT ?>/member/account" class="container4" style="background: lightpink">
+            <div class="container6"  style="background: #ffece2">
+                <form enctype="multipart/form-data" method="POST" action="<?= ROOT ?>/member/account" class="container4" style="background: #ffece2">
 <!--                    <form >-->
-                        <div class="container-left" style="width: 150%; margin-right: 15px">
+                        <div class="container-left" style="width: 150%; margin-right: 15px; background: white">
 <!--                            <div class = "form-drag-area" >-->
                                 <div class="prof_img">
-                                    <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data[0]->profile_image  ?>" alt="placeholder" id="profile_image_placeholder">
+                                    <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/member/profileImages/<?php echo $data[0]->profile_image  ?>" alt="placeholder" id="profile_image_placeholder">
 
                                 </div>
 
@@ -263,7 +263,7 @@
 <!--                            </div>-->
 
                         </div>
-                        <div class="pro_container-right" style="background: lightpink; border: none">
+                        <div class="pro_container-right" style="background: #ffece2; border: none">
 
 
                             <div class="tag">
@@ -296,7 +296,7 @@
 
     </body>
 
-     <script src="<?= ROOT ?>/assets/js/member/imageUpload.js"></script>
+<!--     <script src="--><?php //= ROOT ?><!--/assets/js/member/imageUpload.js"></script>-->
 
 
     <script>
@@ -305,7 +305,7 @@
             var popup = document.getElementById("popup");
             var nopopup = document.getElementById("nopopup");
             nopopup.style.display = "none"
-            popup.style.display = "flex";
+            popup.style.display = "block";
         }
 
         function closeedit(){

@@ -219,6 +219,11 @@
         .one-bar {
             margin: 2%;
         }
+
+        .scrollable-table {
+            overflow: auto;
+            max-height: 700px;
+        }
     </style>
 </head>
 
@@ -227,98 +232,99 @@
     <?php include 'myjobsidebar.php' ?>
     <section id="main" class="main">
         <h2>Review your Jobs</h2>
-        <table class="my_table">
-            <thead>
-                <tr class="t_head">
-                    <th>No</th>
-                    <th class="th_one">Worker Name</th>
-                    <th>JOb Title</th>
-                    <th>Work Budget</th>
-                    <th>Status</th>
-                    <th>chat</th>
-                </tr>
-            </thead>
+        <div class="scrollable-table">
+            <table class="my_table">
+                <thead>
+                    <tr class="t_head">
+                        <th>No</th>
+                        <th class="th_one">Worker Name</th>
+                        <th>JOb Title</th>
+                        <th>Work Budget</th>
+                        <th>Status</th>
+                        <th>chat</th>
+                    </tr>
+                </thead>
 
-            <?php
-            $no = 0;
-            if (is_array($data)) {
-                foreach ($data as $item) {
-                    $no++;
-                    //show($item);
-            ?>
+                <?php
+                $no = 0;
+                if (is_array($data)) {
+                    foreach ($data as $item) {
+                        $no++;
+                        //show($item);
+                ?>
 
 
-                    <tbody>
-                        <tr>
-                            <td><?php echo $no ?></td>
-                            <td><?php echo $item->worker_name ?></td>
-                            <td><?php echo $item->title ?></td>
-                            <td>Rs <?php echo $item->budget ?>.00</td>
-                            <?php if ($item->review_status == "Mark As Completed") {
-                            ?>
-                                <td><button onclick="markAsCompleted(<?php echo $item->id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
-                                                                                                            echo "review_btn";
-                                                                                                        }
-                                                                                                        ?>"><?php echo $item->review_status ?></button></td>
-                                <td> <button class="chat-btn" id="toggle-chat-btn" onclick="toggleChat('<?php echo $item->worker_id ?>')">
-                                        <i class="bx bx-message-rounded-dots bx-flashing-hover chat-icon" id="chat-msg"></i>
-                                    </button></td>
-                            <?php
-                            } else if ($item->review_status == "Completed") {
-                            ?>
-                                <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>, <?php echo $item->id ?>)">Review</button>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $item->worker_name ?></td>
+                                <td><?php echo $item->title ?></td>
+                                <td>Rs <?php echo $item->budget ?>.00</td>
+                                <?php if ($item->review_status == "Mark As Completed") {
+                                ?>
+                                    <td><button onclick="markAsCompleted(<?php echo $item->id ?>,<?php echo $item->job_id ?>)" class="<?php if ($item->review_status == "Mark As Completed") {
+                                                                                                                                            echo "review_btn";
+                                                                                                                                        }
+                                                                                                                                        ?>"><?php echo $item->review_status ?></button></td>
+                                    <td> <button class="chat-btn" id="toggle-chat-btn" onclick="toggleChat('<?php echo $item->worker_id ?>')">
+                                            <i class="bx bx-message-rounded-dots bx-flashing-hover chat-icon" id="chat-msg"></i>
+                                        </button></td>
+                                <?php
+                                } else if ($item->review_status == "Completed") {
+                                ?>
+                                    <td><button type="button" name="add_review" id="add_review" class="btn-primary" onclick="openModal(<?php echo $item->worker_id ?>, <?php echo $item->id ?>)">Review</button>
+
+                                    <?php
+                                } else {
+                                    ?>
+                                    <td><button class="after_reiew"><?php echo $item->review_status ?></button></td>
+
 
                                 <?php
-                            } else {
+                                }
                                 ?>
-                                <td><button class="after_reiew"><?php echo $item->review_status ?></button></td>
+                            </tr>
 
 
-                            <?php
-                            }
-                            ?>
-                        </tr>
-
-
-                    </tbody>
+                        </tbody>
 
 
 
-            <?php
+                <?php
+                    }
                 }
-            }
 
-            ?>
-        </table>
+                ?>
+            </table>
 
-        <div id="review_modal">
-            <div class="rating-modal-content">
-                <div class="rating-modal-header">
-                    <h5 class="modal-title">Submit Review</h5>
-                    <span class="close" onclick="closeModal()">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <h4 class="text-center mt-2 mb-4">
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-                    </h4>
-                    <div class="rating-form-group">
-                        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+            <div id="review_modal">
+                <div class="rating-modal-content">
+                    <div class="rating-modal-header">
+                        <h5 class="modal-title">Submit Review</h5>
+                        <span class="close" onclick="closeModal()">&times;</span>
                     </div>
-                    <div class="rating-form-group">
-                        <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
-                    </div>
-                    <div class=" text-center mt-4">
-                        <button type="button" class="btn-primary" id="save_review">Submit</button>
+                    <div class="modal-body">
+                        <h4 class="text-center mt-2 mb-4">
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                            <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                        </h4>
+                        <div class="rating-form-group">
+                            <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+                        </div>
+                        <div class="rating-form-group">
+                            <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+                        </div>
+                        <div class=" text-center mt-4">
+                            <button type="button" class="btn-primary" id="save_review">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-
     </section>
     <div class="chat-popup" id="chat-popup">
         <div class="chat-container">
@@ -350,7 +356,7 @@
             </div>
         </div>
     </div>
-
+    <script src="<?= ROOT ?>/assets/js/jquery-3.7.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         let chatVisible = false;
@@ -700,13 +706,14 @@
         }
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 
     <script>
-        function markAsCompleted(id) {
+        function markAsCompleted(id, job_id) {
 
             var confirmAction = confirm("Are you sure you want to mark this job as completed?");
             console.log(id);
+            console.log(job_id);
             if (confirmAction) {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
@@ -715,7 +722,7 @@
                         location.reload();
                     }
                 };
-                xhttp.open("GET", "<?= ROOT ?>/employer/markascompleted?id=" + id, true);
+                xhttp.open("GET", "<?= ROOT ?>/employer/markascompleted?id=" + id + "&job_id=" + job_id, true);
                 xhttp.send();
             }
 

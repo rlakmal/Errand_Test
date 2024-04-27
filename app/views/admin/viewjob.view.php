@@ -52,7 +52,7 @@
             border: none;
             outline: none;
             border-radius: 20px;
-            background: lightcyan;
+            background: grey;
             margin: 15px;
 
         }
@@ -121,7 +121,7 @@ if ($data) {
                 </input>
             </div>
             <div class="index_bottom">
-                <a href="<?= ROOT ?>/admin/jobs"><button style="background-color: darkblue; color: white; height: 40px; width: 100px; border-radius: 20px; cursor: pointer" class="close-button">Back</button></a>
+                <a href="<?= ROOT ?>/admin/jobs"><button style="background-color: #ff904b; border-color: darkorange;color: white; height: 40px; width: 100px; border-radius: 20px; cursor: pointer" class="close-button">Back</button></a>
             </div>
         </div>
 

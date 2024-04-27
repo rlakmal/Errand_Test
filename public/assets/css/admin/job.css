@@ -1,6 +1,6 @@
 body {
   font-family: Tahoma, Verdana, sans-serif;
-  background-color: lightcyan;
+  background-color: white;
 }
 .homenavbar {
   width: 100%;
@@ -31,7 +31,7 @@ body {
   margin-left: 27%;
   width: 65%;
   padding: 41px;
-  background-color: lightblue;
+  background-color: #f4f4f4;
   flex-direction: column;
   align-content: center;
   justify-content: center;

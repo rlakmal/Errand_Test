@@ -5,14 +5,15 @@
     <title>Painter Profile</title>
 
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/admin/dashboard.css">-->
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style-bar.css">
+
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/workerprofile.css">
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/employer/jobpopup.css">-->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
 
 
 
@@ -82,16 +83,17 @@
             display: none;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
             animation: fadeIn 0.5s ease forwards;
+            width: 400px;
         }
 
         .popup button {
-            margin-top: 20px;
-            padding: 15px 30px;
+            padding: 10px 40px;
             cursor: pointer;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             transition: all 0.3s ease;
+            margin-top: 100px;
         }
 
         .popup button.yes-button {
@@ -101,7 +103,7 @@
         }
 
         .popup button.no-button {
-            background-color: #28a745;
+            background-color: #f16a2d;
             color: white;
             border: none;
         }
@@ -207,7 +209,7 @@ foreach ($data as $item) {
             </div>
 
             <div class="form-upload">
-                <a href="<?= ROOT ?>/admin/editworkerprof?id=<?=$data["newData"]["work_id"]?>"><button style="background: #00BFFF" class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
+                <a href="<?= ROOT ?>/admin/editworkerprof?id=<?=$data["newData"]["work_id"]?>"><button style="background:  #ff7f00" class="close-button"><i class="bx bxs-image-add icon"></i></button></a>
             </div>
             <div class="row">
                 <div class="review_percent">

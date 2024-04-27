@@ -75,7 +75,7 @@ trait Model
 
         $data[$id_column] = $id;
 
-        // echo $quary;
+        //echo $quary;
 
         // run the quary stage
         $this->quary($quary, $data);

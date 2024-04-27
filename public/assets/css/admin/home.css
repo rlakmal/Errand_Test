@@ -1,0 +1,91 @@
+.nue {
+    overflow-y: scroll;
+}
+
+.curve-bar {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.filling-bar-verified {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    animation: fillAnimationVerified 2s ease-in;
+}
+
+.filling-bar-completed {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    animation: fillAnimationCompleted 2s ease-in;
+}
+
+@keyframes fillAnimationVerified {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: <?= round($verifiedpercentage) ?>%;
+    }
+}
+
+@keyframes fillAnimationCompleted {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 60%; /* Adjust the completed jobs percentage accordingly */
+    }
+}
+
+.charts-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adjust as needed */
+    margin-top: 20px;
+    width: 100vw;
+}
+
+.chart-container {
+    width: 50%; /* Adjust the width as needed */
+    height: 600px; /* Adjust the height as needed */
+    position: relative;
+    margin-top: 50px;
+    box-shadow: 10px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background: #e6e6e6;
+    border-radius: 15px;
+    margin-right: 200px;
+
+}
+
+.chart-container h2{
+    border-radius: 40px;
+    background-color: lightpink;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+.chart-container :hover{
+    background: lightgrey;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .charts-row {
+        flex-direction: column;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+}

@@ -4,7 +4,7 @@
 <head>
     <title>Painter Profile</title>
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employer/workerprof.css"> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style-bar.css">
 <!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/admin/dashboard.css">-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -14,14 +14,15 @@
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+
+<?php include 'navigationbar.php' ?>
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <style>
     body {
         font-family: "Arial", sans-serif;
-        background-color: lightgoldenrodyellow;
+        background-color: white;
     }
 
     .main-container4 {
@@ -31,7 +32,7 @@
         margin-top: 2%;
         width: 80%;
         height: fit-content;
-        background: goldenrod;
+        background: #f4f4f4;
         flex-direction: column;
         align-content: center;
         justify-content: center;
@@ -43,7 +44,7 @@
         margin: 1%;
         position: relative;
         padding: 15px;
-        background-color: lightgoldenrodyellow;
+        background-color: #f4f4f4;
         width: 98%;
         height: fit-content;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -104,7 +105,7 @@
         justify-content: center;
         /* align-content: center; */
         align-items: center;
-        background: lightgoldenrodyellow;
+        background: #f4f4f4;
         border-radius: 28px;
     }
 
@@ -308,12 +309,14 @@
         left: 40%;
         transform: translate(-50%, -50%);
         background-color: white;
-        padding: 40px; /* Increase padding for a bigger popup */
+        padding: 20px; /* Increase padding for a bigger popup */
         border-radius: 20px; /* Add curved edges */
         z-index: 1000;
         display: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
         animation: popup-animation 0.5s ease forwards; /* Add animation */
+        font-size: 16px;
+        width: 400px;
     }
 
     .popup-overlay {
@@ -346,11 +349,13 @@
 
     .archive-button {
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 14px;
         border: none;
+        margin-top: 100px;
+        margin-right: 15px;
+        width: 100px;
     }
 
     .archive-button.archive {
@@ -499,11 +504,14 @@
 
 <div class="popup" id="popup">
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Image" /> <!-- Add your image here -->
-    <h2>Are you sure you want to delete?</h2>
-    <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>">
-        <input style="margin-top: 5px; border-radius: 20px" type="submit" class="archive-button archive" value="Yes, Delete" name="Delete">
-    </form>
-    <button style="background-color: #1eea07; border-radius: 20px" class="archive-button archive" id="cancel-delete">No, Cancel</button>
+    <h2 style="font-size: 16px">Are you sure you want to delete?</h2>
+    <div style="flex-direction: row; display: flex">
+        <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>">
+            <input  type="submit" class="archive-button archive" value="Yes" name="Delete">
+        </form>
+        <button style="background-color: #f16a2d; " class="archive-button archive" id="cancel-delete">No</button>
+    </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

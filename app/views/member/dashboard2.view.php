@@ -5,29 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- Custom CSS file -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/dashboard.css">
-    <!-- Custon CSS for Sidebar -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/sidebar.css">
-    <!-- Custom CSS for Header -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/header.css">
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style.css">
+    <style>
+        body{
+            overflow-y: hidden;
+        }
+    </style>
     
 </head>
 <body>
     <div class="container">
 
         <!-- Header -->
+        <?php include 'sidebar.php' ?>
+        
         <?php include 'navigationbar.php' ?>
 
         <!-- Sidebar -->
-        <?php include 'sidebar.php' ?>
-        
+
         <!-- Sidebar -->
         <!-- <aside class="sidebar">
             <button id="menu-btn">Button</button>
@@ -35,7 +36,7 @@
         <!-- End of Sidebar -->
 
         <!-- Main Content -->
-        <main class="main">
+        <main class="main" style="overflow-y: scroll; height: 800px">
 
             <div class="cardBox">
 

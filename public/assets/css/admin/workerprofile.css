@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: lightcyan;
+  background-color: #f4f4f4;
 }
 
 .main-container4 {
@@ -9,7 +9,7 @@ body {
   border-radius: 40px;
   width: 80%;
   height: 100%;
-  background: lightcyan;
+  background: f4f4f4;
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
   margin-top: 1%;
   position: relative;
   padding: 15px;
-  background-color: lightblue;
+  background-color: white;
   width: 75%;
   height: 50%;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   left: 0%;
   justify-content: center;
-  background: lightskyblue;
+  background: darkgray;
   padding: 36px;
   border: 1px solid #d8d0d0;
   border-radius: 20px;
@@ -61,7 +61,7 @@ body {
   border: none;
   outline: none;
   border-radius: 20px;
-  background: lightcyan;
+  background: whitesmoke;
 }
 
 .picture .image {
@@ -83,7 +83,7 @@ body {
   justify-content: center;
   /* align-content: center; */
   align-items: center;
-  background: #ffffff;
+  background: #f4f4f4;
   border-radius: 28px;
 }
 

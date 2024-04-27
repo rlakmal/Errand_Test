@@ -63,6 +63,7 @@
 
                                     <form method="POST">
                                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
+                                        <input type="hidden" name="job_id" value="<?php echo $item->job_id ?>">
                                         <input type="hidden" name="emp_id" value="<?php echo $item->emp_id ?>">
                                         <input type="hidden" name="worker_id" value="<?php echo $item->worker_id ?>">
                                         <input type="hidden" name="title" value="<?php echo $item->title ?>">

@@ -5,36 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/jobpost.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/worker/home.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+<!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/worker/jobpost.css">-->
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style-bar.css">
+<!--    <link rel="stylesheet" href="--><?php //= ROOT ?><!--/assets/css/admin/dashboard2.css">-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">-->
 
     <style>
         /* Custom CSS for post-container */
+
+        body{
+            overflow-y: hidden;
+        }
+
+        .index{
+            height: fit-content;
+        }
+
         .post-container {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 30px;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #f4f4f4;
             max-width: 1000px; /* Adjust as needed */
             margin: 0 auto; /* Center horizontally */
             padding-bottom: 10px;
             margin-bottom: 10px;
+            height: fit-content;
+            flex-direction: row;
+            transition: transform 0.3s;
+
+        }
+        .post-container :hover{
+            transform: scale(1.01);
+            cursor: pointer;
+        }
+
+        .profile-container2{
+            width: 100%;
+            flex-direction: row;
+            display: flex;
+            transition: transform 0.3s;
+
+        }
+        .profile-container2 :hover{
+            transform: scale(1.01);
+        }
+
+        .picture{
+            flex-direction: column;
+            height:;
+            width: fit-content;
+            margin-bottom: 0;
+            justify-content: center;
+
+        }
+
+        .searchbar{
+
+            width: 28%;
+            right: -20%;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+
         }
 
         .post-frame {
             padding: 20px; /* Add padding */
             margin-bottom: 20px; /* Add margin */
-            border-radius: 10px; /* Keep border-radius consistent */
+            border-radius: 20px; /* Keep border-radius consistent */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Keep box shadow consistent */
-            background-color: #f9f9f9; /* Lighter background color */
+            background-color: white; /* Lighter background color */
+            height: fit-content;
+            font-size: 20px;
         }
 
         .picture {
@@ -50,14 +100,14 @@
         }
 
         .image {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         .profile-name {
-            font-size: 24px; /* Increased font size */
+            font-size: 15px; /* Increased font size */
             font-weight: bold;
             color: #333; /* Darkened text color */
         }
@@ -70,7 +120,7 @@
         .profile-type {
             font-style: italic;
             color: #555; /* Slightly darkened text color */
-            font-size: 18px; /* Increased font size */
+            font-size: 14px; /* Increased font size */
         }
 
         .profile-id {
@@ -85,7 +135,7 @@
 
         .location {
             color: #666;
-            font-size: 16px; /* Increased font size */
+            font-size: 12px; /* Increased font size */
         }
 
         .icon {
@@ -94,21 +144,44 @@
             color: #777;
         }
 
-        .view-profile-button {
+        .right-container{
+
+        }
+
+        .right-container a, button{
+
+            margin-top: 50px;
+
+        }
+
+        .delete-button , .delete-button2{
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             border: none;
-            background-color: #3498db;
+            background-color: red;
             color: #fff;
             transition: background-color 0.3s ease;
+            height: 40px;
+            align-self: end;
+            justify-content: center;
+            width: 120px
         }
 
-        .view-profile-button:hover {
-            background-color: #2980b9;
+
+        .delete-button:hover {
+            background-color: darkred;
         }
 
+
+        .view-b{
+            background: #f16a2d;
+        }
+
+        .view-b :hover{
+            background: darkgoldenrod;
+        }
         /* Styles for search form */
         .search-form {
             margin-top: 20px;
@@ -119,26 +192,32 @@
         }
 
         .search-input {
-            width: 13%;
+            width: 100%;
             padding: 8px;
             border-radius: 20px;
             border: none;
             outline: none;
-            align-self: center;
+            /*align-self: center;*/
+            background: lightgrey;
+            margin-top: 25px;
+            box-shadow: none;
+            margin-left: 15px;
         }
 
         .popup {
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 40%;
+            left: 40%;
             transform: translate(-50%, -50%);
             background-color: white;
-            padding: 40px; /* Increase padding for a bigger popup */
+            padding: 20px; /* Increase padding for a bigger popup */
             border-radius: 20px; /* Add curved edges */
             z-index: 1000;
             display: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
             animation: popup-animation 0.5s ease forwards; /* Add animation */
+            font-size: 16px;
+            width: 400px;
         }
 
         .popup-overlay {
@@ -171,11 +250,13 @@
 
         .archive-button {
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 14px;
             border: none;
+            margin-top: 100px;
+            margin-right: 15px;
+            width: 100px;
         }
 
         .archive-button.archive {
@@ -187,27 +268,35 @@
             background-color: #2ecc71;
             color: #fff;
         }
+
+
+
     </style>
     <title>Document</title>
 </head>
 
 <body>
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+<?php include 'navigationbar.php' ?>
 
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
-<div style="text-align: center">
-    <h2 style="margin-top: 15px ">Posted Jobs</h2>
-</div>
+
 
 <!-- Search Form -->
-<div style="text-align: center" class="search-form" >
-    <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
-    <i class='bx bx-search icon'></i>
+<div style="text-align: center; margin-top:-2%; background: white; position: fixed; width: 100%" class="search-form" >
+    <div  style="text-align: center">
+        <h2 style="margin-top: 15px ">Posted Jobs</h2>
+    </div>
+    <div class = "searchbar">
+        <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
+        <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">
+<!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
+    </div>
+
 </div>
 
-<div class="set-margin" id="set-marginid">
+<div style="margin-top: 5%; position: relative; overflow-y: scroll; height: 750px;margin-bottom: 100px" class="set-margin" id="set-marginid">
     <?php
     if (is_array($data)) {
         foreach ($data as $item) {
@@ -237,23 +326,29 @@
             ?>
             <div class="post-frame">
                 <div class="post-container">
-                    <div class="profile-container2">
+                    <div class="profile-container2" style="padding: 15px; height: fit-content;">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                         </div>
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
-                            <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
-                            <div class="profile-id"><?php echo $item->id ?></div> <!-- Hidden profile ID -->
+                            <div class="profile-id">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
+                            <div class="profile-type">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
+
+                        </div>
+                        <div class = "right-container">
+                            <div class="profile-ratings"><?php echo $times_ago ?></div>
+
                             <div class="location">
                                 <?php echo $item->city ?>
                                 <i class="bx bxs-map icon"></i>
                             </div>
+                            <button class="delete-button" data-id="<?php echo $item->id ?>">Delete</button>
+                            <a style="margin-left: 10px; align-self: end" href="<?= ROOT ?>/admin/viewjob?id=<?= $item->id ?>"><button style="margin-right: 10px " class="delete-button2 view-b">View Job</button></a>
                         </div>
-                        <button class="view-profile-button delete-button" data-id="<?php echo $item->id ?>">Delete</button>
-                        <a style="margin-left: 10px" href="<?= ROOT ?>/admin/viewjob?id=<?= $item->id ?>"><button style="margin-right: 10px" class="view-profile-button">View Job</button></a>
+
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
                     </div>
                 </div>
@@ -267,38 +362,53 @@
 
 <div class="popup" id="popup">
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Image" /> <!-- Add your image here -->
-    <h2>Are you sure you want to delete?</h2>
-    <form id="deleteForm" method="post" action="<?= ROOT ?>/admin/jobs?id=">
-        <input type="hidden" id="deleteId" name="deleteId" value="">
-        <input style="margin-top: 5px; border-radius: 20px" type="submit" class="archive-button archive" value="Yes, Delete" name="Delete">
-    </form>
-    <button style="background-color: #1eea07; border-radius: 20px" class="archive-button archive" id="cancel-delete">No, Cancel</button>
+    <h2 style="font-size: 16px">Are you sure you want to delete?</h2>
+    <div style="flex-direction: row; display: flex">
+
+        <form id="deleteForm" method="post" action="<?= ROOT ?>/admin/jobs?id=">
+            <input type="hidden" id="deleteId" name="deleteId" value="">
+            <input style="" type="submit" class="archive-button archive" value="Yes" name="Delete">
+        </form>
+        <button style="background-color: #f16a2d;" class="archive-button archive" id="cancel-delete">No</button>
+
+    </div>
 </div>
 
 
 <script>
     // Get reference to the search input field
     const searchInput = document.getElementById('searchQuery');
+    const searchInput2 = document.getElementById('searchQuery2');
 
     // Add event listener for input change
     searchInput.addEventListener('input', function() {
-        const searchValue = this.value.trim().toLowerCase(); // Get the trimmed and lowercased search value
+        const searchValue = this.value.trim().toLowerCase();
 
-        // Get all post frames
         const postFrames = document.querySelectorAll('.post-frame');
 
-        // Loop through each post frame
         postFrames.forEach(frame => {
-            // Get the job title and ID
             const title = frame.querySelector('.profile-type').textContent.toLowerCase();
             const id = frame.querySelector('.profile-id').textContent.toLowerCase();
 
-            // Check if search value matches title or ID
             if (title.includes(searchValue) || id.includes(searchValue)) {
-                // Show the post frame if it matches
                 frame.style.display = 'block';
             } else {
-                // Hide the post frame if it doesn't match
+                frame.style.display = 'none';
+            }
+        });
+    });
+
+    searchInput2.addEventListener('input', function() {
+        const searchValue = this.value.trim().toLowerCase();
+
+        const postFrames = document.querySelectorAll('.post-frame');
+
+        postFrames.forEach(frame => {
+            const location = frame.querySelector('.location').textContent.toLowerCase();
+
+            if (location.includes(searchValue)) {
+                frame.style.display = 'block';
+            } else {
                 frame.style.display = 'none';
             }
         });

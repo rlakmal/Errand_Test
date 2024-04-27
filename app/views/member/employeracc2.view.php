@@ -21,7 +21,7 @@
 <style>
     body {
         font-family: "Arial", sans-serif;
-        background-color: lightgoldenrodyellow;
+        background-color: white;
     }
 
     .main-container4 {
@@ -31,7 +31,7 @@
         margin-top: 2%;
         width: 80%;
         height: fit-content;
-        background: goldenrod;
+        background: #f4f4f4;
         flex-direction: column;
         align-content: center;
         justify-content: center;
@@ -43,7 +43,7 @@
         margin: 1%;
         position: relative;
         padding: 15px;
-        background-color: lightgoldenrodyellow;
+        background-color: #f4f4f4;
         width: 98%;
         height: fit-content;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -104,7 +104,7 @@
         justify-content: center;
         /* align-content: center; */
         align-items: center;
-        background: lightgoldenrodyellow;
+        background: #f4f4f4;
         border-radius: 28px;
     }
 
@@ -378,9 +378,9 @@
                 <img class="image" style="margin-top: 15px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $data['newData']['profile_image']  ?>" alt="placeholder" id="profile_image_placeholder">
 
             </div>
-            <div class="form-upload">
-                <a href="<?= ROOT ?>/admin/editemployeracc?id=<?= $data['newData']['id'] ?>"><button class="close-button"><i class="bx bxs-edit-alt icon"></i></button></a>
-            </div>
+<!--            <div class="form-upload">-->
+<!--                <a href="--><?php //= ROOT ?><!--/admin/editemployeracc?id=--><?php //= $data['newData']['id'] ?><!--"><button class="close-button"><i class="bx bxs-edit-alt icon"></i></button></a>-->
+<!--            </div>-->
 
             <div class="row">
                 <div class="review_percent">

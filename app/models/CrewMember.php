@@ -13,6 +13,8 @@ class CrewMember
         'password',
         'status',
         'emp_id',
+        'id',
+        "profile_image"
 
     ];
 }

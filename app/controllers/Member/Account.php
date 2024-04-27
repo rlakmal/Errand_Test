@@ -23,7 +23,7 @@ class Account extends Controller
                     redirect("member/account");
                 }
 
-                if($_POST["password"] != ""){
+                if(trim($_POST["password"]) != ""){
 
                     $_POST["password"] = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
@@ -34,11 +34,14 @@ class Account extends Controller
                 $profile_image_name = $_FILES['profile_image']['name'];
                 if ($profile_image_name != null) {
                     $_POST['profile_image'] = $profile_image_name;
+                    $target = PUBROOT.'/assets/images/member/profileImages/'.$profile_image_name;
+                    move_uploaded_file($_FILES['profile_image']['tmp_name'], $target);
+
+                    $_SESSION["USER"]->profile_image = $profile_image_name;
                 }
 
                 //show($_POST);
-                $target = PUBROOT.'/assets/images/profileImages/'.$profile_image_name;
-                move_uploaded_file($_FILES['profile_image']['tmp_name'], $target);
+
 
 //                var_dump($_POST);
 

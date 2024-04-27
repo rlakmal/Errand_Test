@@ -22,6 +22,7 @@ class AdminCrew extends Controller
 
             $result = $member->findAll('id');
             $data['data'] = $result;
+
             if (!empty($data['data'])) {
                 $this->unsetFields($data['data']);
                 $this->showData($data);
@@ -34,13 +35,23 @@ class AdminCrew extends Controller
                 unset($udata["id"]);
                 unset($udata["emp_id"]);
 
+
+                if(trim($udata["password"]) != ""){
+
+                    $udata["password"] = password_hash($udata["password"], PASSWORD_BCRYPT);
+
+                } else {
+                    unset($udata["password"]);
+                }
+
+
                 $user->update($id,$udata);
 
                 $this->handleMemberUpdate($member, $_POST);
             }
 
             if (isset($_POST['active'])) {
-                $this->handleMemberDeletion($member, $_POST);
+                $this->handleMemberDeletion($member,$user, $_POST);
             }
 
             $this->view('admin/admincrew', $data);
@@ -92,7 +103,7 @@ class AdminCrew extends Controller
             unset($item->password);
             unset($item->created);
             unset($item->status);
-            unset($item->emp_id);
+//            unset($item->emp_id);
         }
     }
 
@@ -107,19 +118,140 @@ class AdminCrew extends Controller
         unset($postData['emp_id']);
         $id = $postData['id'];
         unset($postData['id']);
+        if(trim($postData["password"]) != ""){
+
+            $postData["password"] = password_hash($postData["password"], PASSWORD_BCRYPT);
+
+        } else {
+            unset($postData["password"]);
+        }
         $this->updateDetails($member, $id, $postData);
     }
 
-    private function handleMemberDeletion($member, $postData)
+    private function handleMemberDeletion($member,$user, $postData)
     {
         unset($postData['active']);
         $member->delete($postData['id'], 'id');
+        $user->delete($postData["emp_id"], 'id');
         redirect('admin/admincrew');
     }
 
     private function updateDetails($member, $user_id, $data)
     {
+//        $emp_id = $data["emp_id"];
+//        unset($data["emp_id"]);
+//
+//        $user->update($emp_id, $data);
+
         $member->update($user_id, $data, 'id');
         redirect('admin/admincrew');
+    }
+
+    public function chat_data($a = '', $b = '', $c = '')
+    {
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
+            try {
+                $member = new CrewMember();
+                $chatData = new ChatData();
+                $chat = new Chat();
+                $toId = $_POST['to_id'];
+                $fromId = $_SESSION['USER']->id;
+                $userarr['from_id'] = $fromId;
+                $userarr['to_id'] = $toId;
+                $chatId = $chat->where($userarr, 'chat_id');
+
+                $array['emp_id'] = $toId;
+                $empData = $member->first($array);
+
+
+                if ((empty($chatId))) {
+
+                    // insert the chat conversation
+                    $arr = [];
+                    $arr['from_id'] = $fromId;
+                    $arr['to_id'] = $toId;
+
+                    $chat->insert($arr);
+
+                    // Again check session user chat conversation & get the ID
+                    $chatId = $chat->where($arr);
+                }
+                $chatMsgs = $this->chatbox($chatId[0]->chat_id);
+
+                $chatAllData['chat'] = $chatId;
+                $chatAllData['chatMsgs'] = $chatMsgs;
+                $chatAllData['log_user'] = $fromId;
+                $chatAllData['empImage'] = $empData->profile_image;
+                $chatAllData['name'] = $empData->name;
+
+                echo json_encode($chatAllData);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        } else if (($username != 'User' && $_SESSION['USER']->status == 'member')) {
+            try {
+
+                $emp = new User();
+                $chatData = new ChatData();
+                $chat = new Chat();
+                $fromId = $_POST['to_id'];
+                $toId = $_SESSION['USER']->id;
+                $userarr['from_id'] = $fromId;
+                $userarr['to_id'] = $toId;
+                $chatId = $chat->where($userarr, 'chat_id');
+                $array['id'] = $fromId;
+                $empData = $emp->first($array);
+
+                if ((empty($chatId))) {
+
+                    // insert the chat conversation
+                    $arr = [];
+                    $arr['from_id'] = $fromId;
+                    $arr['to_id'] = $toId;
+
+                    $chat->insert($arr);
+
+                    // Again check session user chat conversation & get the ID
+                    $chatId = $chat->where($arr);
+                }
+                $chatMsgs = $this->chatbox($chatId[0]->chat_id);
+
+                $chatAllData['chat'] = $chatId;
+                $chatAllData['chatMsgs'] = $chatMsgs;
+                $chatAllData['log_user'] = $toId;
+//                $chatAllData['empImage'] = $empData->profile_image;
+
+                echo json_encode($chatAllData);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+    }
+    private function chatbox($chat_id)
+    {
+        $arr['chat_id'] = $chat_id;
+
+        $chatData = new ChatData();
+        $chatMsg = $chatData->where($arr, 'chat_id');
+
+        return $chatMsg;
+    }
+    public function save_data($a = '', $b = '', $c = '')
+    {
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'member' || $_SESSION['USER']->status == 'admin') {
+
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+                $chatData = new ChatData();
+                $chatData->insert($_POST);
+            } else {
+
+                redirect("404");
+            }
+        } else {
+            redirect("404");
+        }
     }
 }

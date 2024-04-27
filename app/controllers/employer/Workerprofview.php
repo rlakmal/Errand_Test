@@ -39,12 +39,35 @@ class Workerprofview extends Controller
                 $_POST['worker_name'] = $worker_name;
                 $_POST['status'] = "Pending";
                 $_POST['time_remain'] = time();
+                $job_image_name = $_FILES['job_image']['name'];
+                $job_image1_name = $_FILES['job_image1']['name'];
+                if ($job_image_name != null) {
+                    $_POST['job_image'] = $this->uploadImage($_FILES['job_image']['tmp_name'], $job_image_name, '/assets/images/jobimages/');
+                }
+                if ($job_image1_name != null) {
+                    $_POST['job_image1'] = $this->uploadImage($_FILES['job_image1']['tmp_name'], $job_image1_name, '/assets/images/jobimages/');
+                }
                 $request->insert($_POST);
                 //show($_POST);
                 $message = "You have a new request from " . $emp_name;
                 $this->sendNotification($wkr_id, $message, $emp_name);
             }
             $this->view('employer/workerprof', $viewData);
+        }
+    }
+    private function uploadImage($img, $img_name, $location)
+    {
+        $timestamp = time();
+        $file_info = pathinfo($img_name);
+        $file_extension = $file_info['extension'];
+        $file_name = $file_info['filename'];
+        $new_file_name = $file_name . '_' . $timestamp . '.' . $file_extension;
+
+        $target_file = PUBROOT . $location . $new_file_name;
+        if (move_uploaded_file($img, $target_file)) {
+            return $new_file_name;
+        } else {
+            return false;
         }
     }
     public function sendNotification($worker_id, $message, $emp_name)

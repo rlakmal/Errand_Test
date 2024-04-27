@@ -1,3 +1,4 @@
+
 <?php
 
 class ReviewRequest extends Controller
@@ -21,6 +22,14 @@ class ReviewRequest extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $id = $_GET['id'];
+            $job_id = $_GET['job_id'];
+            if ($job_id != 0) {
+                $job = new JobPost();
+                $jobupdateData = [
+                    'job_status' => 'Completed',
+                ];
+                $job->update($job_id, $jobupdateData, 'id');
+            }
             $accepted_jobs = new AcceptedJobs;
             $updateData = [
                 'review_status' => 'Completed',
@@ -32,21 +41,38 @@ class ReviewRequest extends Controller
 
     public function handleRating($a = '', $b = '', $c = '')
     {
-        $ratingnreview = new Ratings;
-        $accepted_jobs = new AcceptedJobs;
-        if (isset($_POST["rating_data"])) {
-            $worker_id = $_POST['worker_id'];
-            $id = $_POST['id'];
-            $updateData = [
-                'review_status' => 'Rated',
-            ];
-            $accepted_jobs->update($id, $updateData, 'id');
-            $_POST['emp_id'] = $worker_id;
-            unset($_POST['worker_id']);
-            unset($_POST['id']);
-            show($_POST);
-            $ratingnreview->insert($_POST);
-            echo "Your Review & Rating Successfully Submitted";
+        $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
+            $ratingnreview = new Ratings;
+            $accepted_jobs = new AcceptedJobs;
+            if (isset($_POST["rating_data"])) {
+                $worker_id = $_POST['worker_id'];
+                $id = $_POST['id'];
+                $updateData = [
+                    'review_status' => 'Job Completed',
+                ];
+                $accepted_jobs->update($id, $updateData, 'id');
+                $_POST['emp_id'] = $worker_id;
+                unset($_POST['worker_id']);
+                unset($_POST['id']);
+                show($_POST);
+                $ratingnreview->insert($_POST);
+                echo "Your Review & Rating Successfully Submitted";
+            }
+        } elseif ($username != 'User' && $_SESSION['USER']->status == 'worker') {
+            $ratingnreview = new Ratings;
+            $accepted_jobs = new AcceptedJobs;
+            if (isset($_POST["rating_data"])) {
+                $id = $_POST['id'];
+                $updateData = [
+                    'worker_review' => 'Job Completed',
+                ];
+                $accepted_jobs->update($id, $updateData, 'id');
+                unset($_POST['id']);
+                show($_POST);
+                $ratingnreview->insert($_POST);
+                echo "Your Review & Rating Successfully Submitted";
+            }
         }
     }
 
@@ -124,6 +150,7 @@ class ReviewRequest extends Controller
             echo json_encode($output);
         }
     }
+
 
     public function chat_data($a = '', $b = '', $c = '')
     {

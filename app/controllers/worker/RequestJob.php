@@ -12,6 +12,7 @@ class RequestJob extends Controller
             $arr['id'] = $id;
             $results = $job->where($arr, 'id');
             // show($results);
+
             $data['data'] = $results;;
 
             // $worker_name = $_SESSION['USER']->name;
@@ -49,6 +50,7 @@ class RequestJob extends Controller
     // }
     public function insertRequest($a = '', $b = '', $c = '')
     {
+
         $location = new JobPost();
         $job = new EmpPost;
         $newreq = new WorkeRrequestJobs;
@@ -61,6 +63,7 @@ class RequestJob extends Controller
                 if (empty($results)) {
                     throw new Exception("Job not found");
                 }
+
                 $data_location = $location->where($arr);
                 $datal = $data_location[0]->location;
 
@@ -85,6 +88,7 @@ class RequestJob extends Controller
                 $newdata['emp_name'] = $results[0]->name;
                 $newdata['status'] = "Pending";
                 $newdata['location'] = $datal;
+                $newdata['expire_date'] = date('Y-m-d', strtotime("+1 week"));
                 $message = "Job have new Job request from {$worker_name}";
                 $array['message'] = $message;
                 $array['emp_id'] = $results[0]->emp_id;

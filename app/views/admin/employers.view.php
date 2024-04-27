@@ -6,79 +6,12 @@
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/employers.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Custom Styles */
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        #main {
-            padding: 20px;
-        }
-
-        h2 {
-            color: #2c3e50; /* Dark blue */
-            font-size: 28px; /* Larger font size */
-            margin-bottom: 20px;
-            font-family: "Arial", sans-serif; /* Change font family */
-            text-transform: uppercase; /* Convert text to uppercase */
-            letter-spacing: 1px; /* Add letter spacing */
-        }
-
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow-x: auto; /* Make table horizontally scrollable */
-        }
-
-        .table th,
-        .table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .table th {
-            background-color: #ecf0f1; /* Light gray */
-            font-size: 16px; /* Font size */
-            color: #333; /* Dark gray */
-            font-weight: bold;
-            font-family: "Arial", sans-serif; /* Change font family */
-            text-transform: uppercase; /* Convert text to uppercase */
-        }
-
-        .table td {
-            font-size: 15px; /* Font size */
-            color: #666; /* Medium gray */
-        }
-
-        .table tr:hover {
-            background-color: #f2f2f2; /* Lighter gray on hover */
-        }
-
-        .edit-view-profile a {
-            color: #3498db; /* Dark blue */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .edit-view-profile a:hover {
-            text-decoration: underline;
-        }
-
-        .table-wrapper {
-            max-height: 750px; /* Set a max height for the table wrapper */
-            overflow-y: auto; /* Make table vertically scrollable */
-        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

@@ -2,85 +2,121 @@
 <html lang="en">
 
 <head>
-    <title>Sidebar</title>
+    <title>Registered Workers</title>
     <!-- Link Styles -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Custom Styles */
         body {
-            font-family: "Arial", sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
             margin: 0;
             padding: 0;
+            overflow-y: hidden; /* Make the body scrollable */
         }
 
-        #main {
+        .main {
             padding: 20px;
+            width: calc(100% - 260px); /* Adjust based on your sidebar width */
+            overflow-x: scroll;
         }
 
-        h2 {
-            color: #2c3e50; /* Dark blue */
-            font-size: 28px; /* Larger font size */
+        .form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
-            font-family: "Arial", sans-serif; /* Change font family */
-            text-transform: uppercase; /* Convert text to uppercase */
-            letter-spacing: 1px; /* Add letter spacing */
+            background: #f4f7fc;
         }
 
+        .form-group {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 20px; /* Making borders round */
+            border: 1px solid #ccc;
+            background-color: #fff; /* Adding background color */
+        }
+
+        .icon {
+            font-size: 24px;
+        }
 
         .table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow-x: auto; /* Make table horizontally scrollable */
+            margin-top: 20px;
         }
 
-        .table th,
-        .table td {
-            padding: 12px 15px;
+        .table th, .table td {
+            border-right: 1px #ddd;
+            padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            background: white;
+            height: fit-content;
         }
 
+        .table tr{
+            height: 70px;
+
+        }
         .table th {
-            background-color: #ecf0f1; /* Light gray */
-            font-size: 16px; /* Font size */
-            color: #333; /* Dark gray */
-            font-weight: bold;
-            font-family: "Arial", sans-serif; /* Change font family */
-            text-transform: uppercase; /* Convert text to uppercase */
+            background-color: #f4f7fc;
+            color: black;
         }
 
-        .table td {
-            font-size: 15px; /* Font size */
-            color: #666; /* Medium gray */
+        .table tr:nth-child(even) {
+            background-color: white;
+            transition: transform 0.3s;
         }
 
         .table tr:hover {
-            background-color: #f2f2f2; /* Lighter gray on hover */
+            background-color: #e5e5e5;
+            transform: scale(1.01);
         }
 
         .edit-view-profile a {
-            color: #3498db; /* Dark blue */
             text-decoration: none;
+            color: #ff904b;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .edit-view-profile a:hover {
-            text-decoration: underline;
+            color: darkgoldenrod;
         }
 
-        .table-wrapper {
-            max-height: 750px; /* Set a max height for the table wrapper */
-            overflow-y: auto; /* Make table vertically scrollable */
+        .verified-widget {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: white;
+        }
+
+        .verified-icon {
+            color: #2ecc71;
+            font-size: 16px;
+        }
+
+        .not-verified-icon {
+            color: #e74c3c;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form {
+                flex-direction: column;
+            }
+
+            .form-group {
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -93,79 +129,100 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2>REGISTERED EMPLOYERS</h2>
-    <form>
+    <h2 style="background: #f4f7fc">Registered Employers</h2>
+    <form style="background: #f4f7fc">
         <div class="form">
-            <input class="form-group" type="text" placeholder="Search...">
-            <i class='bx bx-search icon'></i>
+            <!-- Category Selector -->
+
+            <!-- Search bar -->
+            <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search by Name or ID">
         </div>
     </form>
-    <div class="table-wrapper">
-        <table class="table">
+    <div style="overflow-y: scroll; height: 700px">
+
+        <table class="table" >
             <thead>
             <tr>
-                <th></th>
+                <th class="ordId"></th>
+                <th class="ordId">ID</th>
+                <th class="ordId"></th>
                 <th class="ordId">Employer Name</th>
-                <th class="stth">Employer ID</th>
-                <th class="cost">Contact</th>
-                <th></th>
+                <th class="stth">Username</th>
+                <th class="verified">Profile</th>
             </tr>
             </thead>
-            <tbody>
 
+            <tbody >
             <?php $index = 0;
-            foreach ($data as $employer) : $index = $index + 1 ?>
+            foreach ($data as $employer) : $index = $index + 1?>
                 <tr>
-                    <td><?= $index + 1 ?></td>
-                    <td><?= $employer->name ?></td>
+                    <td><?= $index?></td>
                     <td><?= $employer->id ?></td>
+                    <td>
+                        <div style="position: relative">
+                            <!--                            --><?php //var_dump($worker)?>
+                            <img style="height: 50px; border-radius: 50%; width: 50px" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $employer->profile_image ?>">
+                        </div>
+                    </td>
+                    <td><a href="#" class="worker-link"><?= $employer->name ?></a></td>
                     <td><?= $employer->email ?></td>
 
-                    <td class="edit-view-profile">
-                        <a href="<?= ROOT ?>/member/employeracc&id=<?= $employer->id ?>">
-                            <i class="bx bxs-user-detail"></i>
-                        </a>
-                    </td>
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/member/employeracc&id=<?= $employer->id ?>">
+                            <span class="link_name"><i class="fas fa-user icon"></i></span>
+                        </a></td>
                 </tr>
             <?php endforeach; ?>
-            <!-- Add more rows with dummy data as needed -->
             </tbody>
         </table>
     </div>
+
 </section>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.querySelector(".form-group");
-        const tableRows = document.querySelectorAll(".table tbody tr");
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get select element
+        let tableRows = document.querySelectorAll('.table tbody tr');
 
-        searchInput.addEventListener("input", function (event) {
-            const searchText = event.target.value.trim().toLowerCase();
 
-            tableRows.forEach(function (row) {
-                const employerName = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
-                const employerId = row.querySelector("td:nth-child(3)").textContent;
+        // Get input elements
+        let searchInput = document.getElementById('searchInput');
 
-                if (!isNaN(searchText)) {
-                    if (employerId.includes(searchText)) {
-                        row.style.display = "";
+        // Add event listener for searchInput
+        searchInput.addEventListener('input', function() {
+            let searchText = searchInput.value.trim(); // Trimmed whitespace
+            let isNumeric = /^\d+$/.test(searchText); // Check if input is numeric
+
+            // Loop through all table rows
+            tableRows.forEach(function(row) {
+                let id = row.querySelector('td:nth-child(2)').textContent.toLowerCase(); // Adjusted index for ID cell
+                let name = row.querySelector('td:nth-child(4)').textContent.toLowerCase(); // Adjusted index for name cell
+
+                // Check if input is numeric
+                if (isNumeric) {
+                    // Check if search text matches ID
+                    if (id.includes(searchText)) {
+                        row.style.display = '';
                     } else {
-                        row.style.display = "none";
+                        row.style.display = 'none';
                     }
                 } else {
-                    if (employerName.includes(searchText)) {
-                        row.style.display = "";
+                    // Check if search text matches name
+                    if (name.includes(searchText)) {
+                        row.style.display = '';
                     } else {
-                        row.style.display = "none";
+                        row.style.display = 'none';
                     }
                 }
             });
         });
-    });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="<?= ROOT ?>/assets/js/customer/customer-orders.js"></script>
+        // Add event listener for searchInput2
+
+    });
+
+</script>
 </body>
 
 </html>
