@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home/new_home.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home/new_home_responsive.css">
+    <!-- font awesome style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home Page | Errand</title>
 </head>
 
@@ -62,7 +64,7 @@
 
                     <div class="col-md-6 col">
                         <div class="img-box">
-                        <img src="images/slider-img.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/home/slider-img.png" alt="">
                         </div>
                     </div>
 
@@ -76,7 +78,7 @@
             <div class="feature_container">
                 <div class="box">
                     <div class="img-box">
-                        <img src="./repair.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/home/repair.png" alt="">
                     </div>
                     <h5 class="name">
                         Repair
@@ -85,7 +87,7 @@
 
                 <div class="box active">
                     <div class="img-box">
-                        <img src="./improve.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/home/improve.png" alt="">
                     </div>
                     <h5 class="name">
                         Improve
@@ -94,7 +96,7 @@
 
                 <div class="box">
                     <div class="img-box">
-                        <img src="./maintain.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/home/maintain.png" alt="">
                     </div>
                     <h5 class="name">
                         Maintain
@@ -127,7 +129,7 @@
 
                     <div class="col-lg-7 col-md-6 col">
                         <div class="img-box">
-                            <img src="images/about-img.jpg" alt="">
+                            <img src="<?= ROOT ?>/assets/images/home/about-img.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -145,7 +147,7 @@
 
                   <div class="col-md-6 col">
                     <div class="img-box">
-                      <img src="images/professional-img.png" alt="">
+                      <img src="<?= ROOT ?>/assets/images/home/professional-img.png" alt="">
                     </div>
                   </div>
 
@@ -182,7 +184,7 @@
                   <div class="col-sm-6 col-md-4 m-auto col">
                     <div class="box">
                       <div class="img-box">
-                        <img src="images/s1.png" alt="" />
+                        <img src="<?= ROOT ?>/assets/images/home/s1.png" alt="" />
                       </div>
                       <div class="detail-box">
                         <h5>
@@ -198,7 +200,7 @@
                   <div class="col-sm-6 col-md-4 m-auto col">
                     <div class="box">
                       <div class="img-box">
-                        <img src="images/s2.png" alt="" />
+                        <img src="<?= ROOT ?>/assets/images/home/s2.png" alt="" />
                       </div>
                       <div class="detail-box">
                         <h5>
@@ -215,7 +217,7 @@
                   <div class="col-sm-6 col-md-4 mx-auto col">
                     <div class="box">
                       <div class="img-box">
-                        <img src="images/s3.png" alt="" />
+                        <img src="<?= ROOT ?>/assets/images/home/s3.png" alt="" />
                       </div>
                       <div class="detail-box">
                         <h5>
@@ -256,7 +258,7 @@
                       <div class="box">
                         <div class="client_id">
                           <div class="img-box">
-                            <img src="images/client-1.jpg" alt="">
+                            <img src="<?= ROOT ?>/assets/images/home/client-1.jpg" alt="">
                           </div>
                           <div class="client_detail">
                             <div class="client_info">
@@ -284,7 +286,7 @@
                       <div class="box">
                         <div class="client_id">
                           <div class="img-box">
-                            <img src="images/client-2.jpg" alt="">
+                            <img src="<?= ROOT ?>/assets/images/home/client-2.jpg" alt="">
                           </div>
                           <div class="client_detail">
                             <div class="client_info">
@@ -351,7 +353,7 @@
 
                   <div class="col-md-6 col">
                     <div class="img-box" style="background-color: aqua;">
-                        <img src="images/painters.jpeg" alt="">
+                        <img src="<?= ROOT ?>/assets/images/home/painters.jpeg" alt="">
                     </div>
                   </div>
 
