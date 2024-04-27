@@ -32,6 +32,6 @@ class Home extends Controller
 
 
 
-        $this->view('home/home');
+        $this->view('home/new_home');
     }
 }
