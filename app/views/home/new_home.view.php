@@ -13,7 +13,7 @@
 
 <body>
     <!-- NavBar -->
-    <div class="homenavbar">
+    <!-- <div class="homenavbar">
         <header>
             <div class="logo">Errand</div>
             <input type="checkbox" id="nav_check" hidden>
@@ -37,9 +37,9 @@
             <label for="nav_check" class="hamburger"></label>
         </header>
     </div>
-    <script src="assets/homenavbar.js"></script>
+    <script src="assets/homenavbar.js"></script> -->
     <!-- End of NavBar -->
-    <!-- <?php include 'homenavbar.php' ?> -->
+    <?php include 'homenavbar.php' ?>
     <div class="main-container">
         
         <!-- Hero Section -->
@@ -56,8 +56,8 @@
                                 Choose the right person for your needs based on detailed profiles, verified reviews, and transparent pricing. With Errand, 
                                 getting things done has never been easier !
                             <div class="button-container">
-                                <a href=""> Register as Customer </a>
-                                <a href=""> Register as Worker </a>
+                                <a href="<?= ROOT ?>/home/signin"> Register as Customer </a>
+                                <a href="<?= ROOT ?>/home/workerreg"> Register as Worker </a>
                             </div>
                         </div>
                     </div>
@@ -233,8 +233,8 @@
                 </div>
 
                 <div class="btn-box">
-                  <a href="">
-                    View More
+                  <a href="<?= ROOT ?>/home/signin">
+                    Sign In Now
                   </a>
                 </div>
 
@@ -291,7 +291,7 @@
                           <div class="client_detail">
                             <div class="client_info">
                               <h6>
-                                Ruwang Konara
+                                Ruwanga Konara
                               </h6>
                               <i class="fa fa-star" aria-hidden="true"></i>
                               <i class="fa fa-star" aria-hidden="true"></i>
