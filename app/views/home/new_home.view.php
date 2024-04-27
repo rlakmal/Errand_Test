@@ -13,7 +13,7 @@
 
 <body>
     <!-- NavBar -->
-    <div class="homenavbar">
+    <!-- <div class="homenavbar">
         <header>
             <div class="logo">Errand</div>
             <input type="checkbox" id="nav_check" hidden>
@@ -37,9 +37,9 @@
             <label for="nav_check" class="hamburger"></label>
         </header>
     </div>
-    <script src="assets/homenavbar.js"></script>
+    <script src="assets/homenavbar.js"></script> -->
     <!-- End of NavBar -->
-    <!-- <?php include 'homenavbar.php' ?> -->
+    <?php include 'homenavbar.php' ?>
     <div class="main-container">
         
         <!-- Hero Section -->

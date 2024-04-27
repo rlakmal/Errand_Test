@@ -214,38 +214,6 @@ a {
     background-color: var(--background-color);
 }
 
-/* .hero .container {
-    width: 100%;
-    height: 100%;
-    max-width: 1170px;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-/* .hero .row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px; 
-} */
-
-/* .hero .row .col {
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    max-width: 50%;
-    flex: 0 0 50%;
-} */
-
-/* .hero .row .col .detail-box {
-    margin-bottom: 90px;
-} */
-
 .hero .detail-box {
     padding-bottom: 90px;
 }
@@ -324,19 +292,6 @@ a {
     /* background: orange; */
 }
 
-/* .feature_container .box {
-    background: #ffffff;
-    height: 100%;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 45px 15px;
-    box-shadow: 0 0 20px 0 rgba(21, 19, 19, 0.2);
-    color: var(--primary-color);
-} */
-
 .feature .feature_container .box {
     flex: 1;
     display: flex;
@@ -361,12 +316,6 @@ a {
     background: var(--primary-color);
     color: #fff;
 }
-
-/* .feature_container .img-box {
-    width: 80%;
-    height: 80%;
-    text-align: center;
-} */
 
 .feature .feature_container .box .img-box {
     width: 90px;
@@ -448,44 +397,6 @@ a {
     background-color: transparent;
     color: var(--secondary-color);
 }
-
-
-/* .about .row .details-col {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
-}
-
-.about .row .image-col {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%;
-}
-
-.details a {
-    margin-top: 15px;
-    display: inline-block;
-    font-family: 'Merriweather Sans', sans-serif;
-    text-transform: uppercase;
-    padding: 10px 45px;
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-    border-radius: 2px;
-    color: #ffffff;
-}
-
-.details a:hover {
-    background-color: transparent;
-    color: var(--secondary-color);
-}
-
-.details h2 {
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-.details p {
-    margin-top: 10px;
-    font-size: 1rem;
-} */
 
 /* professional section */
 
