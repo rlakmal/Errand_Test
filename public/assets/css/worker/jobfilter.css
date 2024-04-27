@@ -87,7 +87,6 @@ label {
   .select-container {
     max-width: 78px;
   }
-
   .select-container.open {
     z-index: 1;
     min-width: 280px;
@@ -98,6 +97,14 @@ label {
   }
 
   .select-container.open .search-container {
+    opacity: 1;
+    display: flex;
+  }
+  .select-container .filter-container {
+    display: none;
+  }
+
+  .select-container.open .filter-container {
     opacity: 1;
     display: flex;
   }

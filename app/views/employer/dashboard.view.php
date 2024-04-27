@@ -28,9 +28,9 @@
             <input type="checkbox" id="nav_check" hidden>
             <nav>
                 <ul>
-                    <li>
+                    <!-- <li>
                         <a class="bttn" type="button" onclick="openReport()">Post Job</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?= ROOT ?>/employer/home">Jobs</a>
                     </li>
@@ -55,7 +55,9 @@
                     </a>
                     <div class="profile-menu" id="profile-menu">
                         <a href="<?= ROOT ?>/employer/home">Home</a>
+                        <a href="<?= ROOT ?>/employer/dashboard">Dashboard</a>
                         <a href="<?= ROOT ?>/employer/myjob">My Jobs</a>
+                        <a href="<?= ROOT ?>/employer/services">Services</a>
                         <a class="bttn" onclick="openReport()">Post Job</a>
                         <a href="<?= ROOT ?>/employer/message">Message</a>
                         <a href="<?= ROOT ?>/employer/profile">Profile</a>
@@ -69,9 +71,9 @@
 
         </header>
     </div>
-    
 
-    <div class="popup-report">
+
+    <!-- <div class="popup-report">
         <form method="POST">
             <h2>Post your Job</h2>
             <h4>Job Title : </h4>
@@ -90,9 +92,9 @@
             </div>
         </form>
     </div>
-    <div id="overlay" class="overlay"></div>
+    <div id="overlay" class="overlay"></div> -->
     <!-- End of Navigation Bar -->
-    
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -103,7 +105,7 @@
         <ul class="nav-list">
             <li>
                 <a href="<?= ROOT ?>/employer/dashboard">
-                    <i class='bx bxs-dashboard' ></i>
+                    <i class='bx bxs-dashboard'></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
@@ -128,6 +130,20 @@
                     <span class="link_name">My Requests</span>
                 </a>
                 <span class="tooltip">My Requests</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/employer/acceptedreq">
+                    <i class="bx bxs-user-detail"></i>
+                    <span class="link_name">Accepted Requests</span>
+                </a>
+                <span class="tooltip">Accepted Requests</span>
+            </li>
+            <li>
+                <a href="<?= ROOT ?>/employer/reviewreq">
+                    <i class="bx bxs-user-detail"></i>
+                    <span class="link_name">Review Requests</span>
+                </a>
+                <span class="tooltip">Review Requests</span>
             </li>
             <!-- 
             <li>
@@ -174,10 +190,10 @@
     <main class="main">
         <div class="main-container">
             <h1>Dashboard</h1>
-<!--             <div class="date">
+            <!--             <div class="date">
                 <input type="date">
             </div> -->
-            
+
             <div class="insights">
                 <div class="posted-jobs">
                     <span class="material-symbols-sharp">analytics</span>
@@ -196,7 +212,7 @@
                     <small class="text-muted">Last 24 hours</small>
                 </div>
                 <!-- END OF SALES -->
-                
+
                 <div class="completed-jobs">
                     <span class="material-symbols-sharp">bar_chart</span>
                     <div class="middle">
@@ -214,7 +230,7 @@
                     <small class="text-muted">Last 24 hours</small>
                 </div>
                 <!-- END OF Expenses -->
-                
+
                 <div class="income">
                     <span class="material-symbols-sharp">stacked_line_chart</span>
                     <div class="middle">
@@ -234,7 +250,7 @@
                 <!-- END OF Income -->
             </div>
             <!----------- END OF INSIGHTS ----------->
-            
+
             <div class="recent-orders">
                 <h2>Recent Jobs</h2>
                 <table>
@@ -269,7 +285,7 @@
                             <td class="warning">Pending</td>
                             <td class="primary">Details</td>
                         </tr>
-<!--                         <tr>
+                        <!--                         <tr>
                             <td>Foldable Mini Drone</td>
                             <td>85631</td>
                             <td>Due</td>
@@ -286,12 +302,12 @@
                     </tbody>
                 </table>
                 <a href="#">Show All</a>
-            </div>  
+            </div>
         </div>
         <!---------------- END OF MAIN ----------------->
 
         <div class="right">
-<!--             <div class="top">
+            <!--             <div class="top">
                 <button id="menu-btn">
                     <span class="material-symbols-sharp">menu</span>
                 </button>
@@ -357,7 +373,7 @@
                             <small class="text-muted">Last 24 hours</small>
                         </div>
                         <h5 class="success">+39%</h5>
-                        <h3>3849</h3>                        
+                        <h3>3849</h3>
                     </div>
                 </div>
                 <div class="item offline">
@@ -370,7 +386,7 @@
                             <small class="text-muted">Last 24 hours</small>
                         </div>
                         <h5 class="danger">-17%</h5>
-                        <h3>1100</h3>                        
+                        <h3>1100</h3>
                     </div>
                 </div>
                 <div class="item customers">
@@ -383,10 +399,10 @@
                             <small class="text-muted">Last 24 hours</small>
                         </div>
                         <h5 class="success">+25%</h5>
-                        <h3>849</h3>                        
+                        <h3>849</h3>
                     </div>
                 </div>
-<!--                 <div class="item add-product">
+                <!--                 <div class="item add-product">
                     <div>
                         <span class="material-symbols-sharp">add</span>
                         <h3>Add Product</h3>
