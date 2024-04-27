@@ -67,7 +67,7 @@
 
         .searchbar{
 
-            width: 13%;
+            width: 28%;
             right: -20%;
             position: relative;
             display: flex;
@@ -82,7 +82,7 @@
             margin-bottom: 20px; /* Add margin */
             border-radius: 20px; /* Keep border-radius consistent */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Keep box shadow consistent */
-            background-color: #f9f9f9; /* Lighter background color */
+            background-color: white; /* Lighter background color */
             height: fit-content;
             font-size: 20px;
         }
@@ -100,14 +100,14 @@
         }
 
         .image {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         .profile-name {
-            font-size: 24px; /* Increased font size */
+            font-size: 15px; /* Increased font size */
             font-weight: bold;
             color: #333; /* Darkened text color */
         }
@@ -120,7 +120,7 @@
         .profile-type {
             font-style: italic;
             color: #555; /* Slightly darkened text color */
-            font-size: 18px; /* Increased font size */
+            font-size: 14px; /* Increased font size */
         }
 
         .profile-id {
@@ -135,7 +135,7 @@
 
         .location {
             color: #666;
-            font-size: 16px; /* Increased font size */
+            font-size: 12px; /* Increased font size */
         }
 
         .icon {
@@ -144,11 +144,21 @@
             color: #777;
         }
 
-        .delete-button {
+        .right-container{
+
+        }
+
+        .right-container a, button{
+
+            margin-top: 50px;
+
+        }
+
+        .delete-button , .delete-button2{
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             border: none;
             background-color: red;
             color: #fff;
@@ -159,17 +169,18 @@
             width: 120px
         }
 
+
         .delete-button:hover {
             background-color: darkred;
         }
 
 
         .view-b{
-            background: #1E90FF;
+            background: #f16a2d;
         }
 
         .view-b :hover{
-            background: darkblue;
+            background: darkgoldenrod;
         }
         /* Styles for search form */
         .search-form {
@@ -189,6 +200,8 @@
             /*align-self: center;*/
             background: lightgrey;
             margin-top: 25px;
+            box-shadow: none;
+            margin-left: 15px;
         }
 
         .popup {
@@ -271,18 +284,19 @@
 
 
 <!-- Search Form -->
-<div style="text-align: center; margin-top: 3%;background: white; position: fixed; width: 100%" class="search-form" >
+<div style="text-align: center; margin-top:-2%; background: white; position: fixed; width: 100%" class="search-form" >
     <div  style="text-align: center">
         <h2 style="margin-top: 15px ">Posted Jobs</h2>
     </div>
     <div class = "searchbar">
         <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
+        <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">
 <!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
     </div>
 
 </div>
 
-<div style="margin-top: 10%; position: relative; overflow-y: scroll; height: 750px;" class="set-margin" id="set-marginid">
+<div style="margin-top: 5%; position: relative; overflow-y: scroll; height: 750px;margin-bottom: 100px" class="set-margin" id="set-marginid">
     <?php
     if (is_array($data)) {
         foreach ($data as $item) {
@@ -318,18 +332,23 @@
                         </div>
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
-                            <div class="profile-ratings"><?php echo $times_ago ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
                             <div class="profile-id">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
                             <div class="profile-type">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
+
+                        </div>
+                        <div class = "right-container">
+                            <div class="profile-ratings"><?php echo $times_ago ?></div>
+
                             <div class="location">
                                 <?php echo $item->city ?>
                                 <i class="bx bxs-map icon"></i>
                             </div>
+                            <button class="delete-button" data-id="<?php echo $item->id ?>">Delete</button>
+                            <a style="margin-left: 10px; align-self: end" href="<?= ROOT ?>/admin/viewjob?id=<?= $item->id ?>"><button style="margin-right: 10px " class="delete-button2 view-b">View Job</button></a>
                         </div>
-                        <button class="delete-button" data-id="<?php echo $item->id ?>">Delete</button>
-                        <a style="margin-left: 10px; align-self: end" href="<?= ROOT ?>/admin/viewjob?id=<?= $item->id ?>"><button style="margin-right: 10px " class="delete-button view-b">View Job</button></a>
+
                         <!-- <a></a><button class="edit-profile-button">Edit</button></a> -->
                     </div>
                 </div>
@@ -359,26 +378,37 @@
 <script>
     // Get reference to the search input field
     const searchInput = document.getElementById('searchQuery');
+    const searchInput2 = document.getElementById('searchQuery2');
 
     // Add event listener for input change
     searchInput.addEventListener('input', function() {
-        const searchValue = this.value.trim().toLowerCase(); // Get the trimmed and lowercased search value
+        const searchValue = this.value.trim().toLowerCase();
 
-        // Get all post frames
         const postFrames = document.querySelectorAll('.post-frame');
 
-        // Loop through each post frame
         postFrames.forEach(frame => {
-            // Get the job title and ID
             const title = frame.querySelector('.profile-type').textContent.toLowerCase();
             const id = frame.querySelector('.profile-id').textContent.toLowerCase();
 
-            // Check if search value matches title or ID
             if (title.includes(searchValue) || id.includes(searchValue)) {
-                // Show the post frame if it matches
                 frame.style.display = 'block';
             } else {
-                // Hide the post frame if it doesn't match
+                frame.style.display = 'none';
+            }
+        });
+    });
+
+    searchInput2.addEventListener('input', function() {
+        const searchValue = this.value.trim().toLowerCase();
+
+        const postFrames = document.querySelectorAll('.post-frame');
+
+        postFrames.forEach(frame => {
+            const location = frame.querySelector('.location').textContent.toLowerCase();
+
+            if (location.includes(searchValue)) {
+                frame.style.display = 'block';
+            } else {
                 frame.style.display = 'none';
             }
         });
