@@ -20,6 +20,23 @@
         if (is_array($data)) {
             foreach ($data as $item) {
                 //show($item);
+                $expire = $item->expire_date; // Assuming $item->expire_date contains the expiration date/time
+                $current = time();
+                $expire_timestamp = strtotime($expire);
+                $remaining = $expire_timestamp - $current;
+                $remaining_days = floor($remaining / (60 * 60 * 24));
+                $remaining_hours = floor(($remaining % (60 * 60 * 24)) / (60 * 60));
+                $remaining_minutes = floor(($remaining % (60 * 60)) / 60);
+                //show("Remaining time: $remaining_days days, $remaining_hours hours, $remaining_minutes minutes");
+                if ($remaining_days <= 0 && $remaining_hours <= 0 && $remaining_minutes <= 0) {
+                    $expire_in = "Expired";
+                } elseif ($remaining_days <= 0 && $remaining_hours <= 0) {
+                    $expire_in = "Expire In $remaining_minutes minutes";
+                } elseif ($remaining_days <= 0) {
+                    $expire_in = "Expire In $remaining_hours hours, $remaining_minutes minutes";
+                } else {
+                    $expire_in = "Expire In $remaining_days days, $remaining_hours hours, $remaining_minutes minutes";
+                }
 
 
         ?>
@@ -38,6 +55,9 @@
                             <div class="profile-ratings">Date Time</div>
                             <div class="profile-type">WORKER </div>
                             <div class="budget">WORKER's Budget</div>
+
+
+
                         </div>
                         <div class="<?php if ($item->status == 'Pending') {
                                         echo 'b_index_info';
@@ -48,6 +68,12 @@
                             <div>- <?php echo $item->created ?></div>
                             <div>- <?php echo $item->worker_name ?></div>
                             <div>- <?php echo $item->newbudget ?></div>
+                            <?php if ($item->status == 'Pending') { ?>
+                                <div class="expire_msg">- <?php echo $expire_in ?></div>
+                            <?php } else
+                            ?>
+
+
                         </div>
                         <div class="index-right">
                             <div class="location">
@@ -82,6 +108,8 @@
                                                         echo "greenbutton";
                                                     } elseif ($item->status == 'Rejected') {
                                                         echo "redbutton";
+                                                    } elseif ($item->status == 'Expired') {
+                                                        echo "redbutton";
                                                     }
                                                     ?>"><?php echo $item->status ?></button>
                                 <?php
@@ -98,7 +126,11 @@
         }
         ?>
     </div>
-
+    <script>
+        setTimeout(function() {
+            location.reload();
+        }, 60000);
+    </script>
 </body>
 
 </html>

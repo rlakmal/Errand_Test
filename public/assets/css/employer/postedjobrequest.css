@@ -153,6 +153,9 @@ body {
 .mobile_index {
   display: flex;
 }
+.expire_msg {
+  color: #ff2626;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .homenavbar header {

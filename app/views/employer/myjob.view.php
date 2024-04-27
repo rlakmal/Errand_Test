@@ -100,7 +100,7 @@
                             <div class="buton_bar">
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $item->id ?>">
-                                    <button type="submit" name="jobDelete" value="Delete" class="view-profile-button">Delete</button>
+                                    <button type="submit" name="jobDelete" value="Delete" class="view-profile-button" onclick="return confirm('Are you sure you want to Delete this job?');">Delete</button>
                                 </form>
                                 <button type="submit" class="edit-profile-button" id="editButton" data-order='<?= json_encode($item) ?>' onclick="openEdit(this)">Edit</button>
                             </div>
