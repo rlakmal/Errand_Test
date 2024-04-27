@@ -376,7 +376,124 @@
         </div>
         <!-- end of client section -->
 
+        <!-- contact section -->
+        <div class="contact sections layout_padding">
+            <div class="container">
 
+                <div class="heading_container">
+                  <h2>
+                    Contact Us
+                  </h2>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6 col">
+                    <form action="">
+                      <div>
+                        <input type="text" placeholder="Name" />
+                      </div>
+                      <div>
+                        <input type="text" placeholder="Phone Number" />
+                      </div>
+                      <div>
+                        <input type="email" placeholder="Email" />
+                      </div>
+                      <div>
+                        <input type="text" class="message-box" placeholder="Message" />
+                      </div>
+                      <div class="d-flex ">
+                        <button>
+                          SEND
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="col-md-6 col">
+                    <div class="img-box" style="background-color: aqua;">
+                        <img src="images/painters.jpeg" alt="">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+        </div>
+        <!-- end of contact section -->
+
+        <!-- info section -->
+        <div class="info sections">
+            <div class="container">
+              <h4>
+                Get In Touch
+              </h4>
+              <div class="row">
+                <div class="col-lg-10 m-auto col">
+                  <div class="info_items">
+                    <div class="row">
+                      <div class="col-md-4 col">
+                        <a href="">
+                          <div class="item ">
+                            <div class="img-box ">
+                              <i class="fa fa-solid fa-location-dot" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                              Errand Head Office, Colombo 7.
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-md-4 col">
+                        <a href="">
+                          <div class="item ">
+                            <div class="img-box ">
+                              <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                              +94 112936820
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-md-4 col">
+                        <a href="">
+                          <div class="item ">
+                            <div class="img-box">
+                              <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <p>
+                              Errand@gmail.com
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="social-box">
+              <h4>
+                Follow Us
+              </h4>
+              <div class="box">
+                <a href="">
+                  <i class="fa fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+        </div>
 
         <!-- footer -->
         <!-- <div class="footer sections" style="background-color: black">
