@@ -11,6 +11,7 @@ CREATE VIEW emp_post AS
     job.job_image as job_image,
     job.job_image1 as job_image1,
     job.category as category,
+    job.job_status as job_status,
     employer.name as name,
     employer.profile_image as profile_image
     FROM job INNER JOIN employer

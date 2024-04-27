@@ -9,7 +9,7 @@ class CompletedJobs extends Controller
             $accepted_jobs = new AcceptedJobs;
             $emp_id = $_SESSION['USER']->id;
             $arr['worker_id'] = $emp_id;
-            $arr['review_status'] = 'Completed';
+            $arr['review_status'] = 'Job Completed';
             $results = $accepted_jobs->where($arr);
             $data['data'] = $results;
             //show($data);

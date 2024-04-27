@@ -18,5 +18,6 @@ class JobPost
 		'job_image',
 		'job_image1',
 		'category',
+		'job_status'
 	];
 }

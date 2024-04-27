@@ -27,6 +27,14 @@
             color: red;
         }
 
+        .review-container {
+            width: 88%;
+        }
+
+        .profile-container3 {
+            width: 88%;
+        }
+
         @media only screen and (max-width: 600px) {
             .main-container4 {
                 margin-top: 19%;
@@ -135,6 +143,7 @@
                 <h3>
                     Full Name
                 </h3>
+                <input type="hidden" id="emp_id" name="id" value="<?php echo $data['newData']['emp_id']; ?>">
                 <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['name']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
 
 
@@ -219,11 +228,14 @@
         load_rating_data();
 
         function load_rating_data() {
+            var id = $('#emp_id').val();
+            console.log(id);
             $.ajax({
-                url: "<?= ROOT ?>/employer/fetchratingsreviews",
+                url: "<?= ROOT ?>/employer/fetchrating",
                 method: "POST",
                 data: {
-                    action: 'load_data'
+                    id: id,
+
                 },
                 dataType: "JSON",
                 success: function(data) {
