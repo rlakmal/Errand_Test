@@ -33,7 +33,7 @@
 
 
 <!-- content  -->
-<section  id="main" class="main" style=" max-height: 90vh; margin-top: 15px; overflow-y: hidden; width: 95%; justify-content: left">
+<section  id="main" class="main" style=" max-height: 90vh; overflow-y: hidden; width: 95%; justify-content: left">
     <h2 >Reports</h2>
 
    <div style="overflow-y: scroll; height: 800px">

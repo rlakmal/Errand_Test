@@ -133,7 +133,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #f4f4f4">Registered Workers</h2>
+    <h2 style="background: #f4f4f4; font-family: 'Arial', sans-serif">Registered Workers</h2>
     <form style="background: #f4f4f4">
         <div class="form">
             <!-- Category Selector -->

@@ -129,7 +129,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #f4f4f4">Registered Employers</h2>
+    <h2 style="background: #f4f4f4; font-weight: bold; font-family: 'Arial', sans-serif">Registered Employers</h2>
     <form style="background: #f4f4f4">
         <div class="form">
             <!-- Category Selector -->
