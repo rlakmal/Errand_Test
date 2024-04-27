@@ -35,7 +35,7 @@
 <!-- content  -->
 <section id="main" class="main" style="margin-top: 15px">
 
-    <h2 style="background: white">Crew Members details</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Crew Members details</h2>
 
     <form style="background: white">
         <div class="form" >

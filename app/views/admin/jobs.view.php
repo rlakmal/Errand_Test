@@ -286,7 +286,7 @@
 <!-- Search Form -->
 <div style="text-align: center; margin-top:-2%; background: white; position: fixed; width: 100%" class="search-form" >
     <div  style="text-align: center">
-        <h2 style="margin-top: 15px ">Posted Jobs</h2>
+        <h2 style="margin-top: 20px; font-family: 'Arial', sans-serif">Posted Jobs</h2>
     </div>
     <div class = "searchbar">
         <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">

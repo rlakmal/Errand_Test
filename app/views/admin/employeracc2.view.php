@@ -362,6 +362,45 @@
         background-color: #e74c3c;
         color: #fff;
     }
+
+    .review-container {
+        display: flex;
+        margin: 1%;
+        position: relative;
+        padding: 15px;
+        background-color: #ffffff;
+        width: 98%;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        flex-direction: column;
+        transition: transform 0.3s;
+    }
+
+    .review-container :hover{
+        transform: scale(1.02);
+    }
+
+    .review_info {
+        border: 1px solid #e8e8e8;
+        margin: 15px;
+        margin-left: 115px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .review_info h2 {
+        font-size: 16px;
+    }
+    .text-warning {
+        margin-top: 20px;
+        color: #ffc107;
+    }
+
+    .star-light {
+        margin-top: 20px;
+        color: #e9ecef;
+    }
+
 </style>
 
 <div class="main-container4">
@@ -498,6 +537,39 @@
             </h3>
             <input type="text" name="birthday" value="<?php echo $data['newData']['created']; ?>" class="edit-gen" placeholder="Empty Date of Birth" readonly>
         </div>
+    </div>
+
+    <div class="review-container">
+        <div class="tags">
+            <h2 class="info">Reviews</h2>
+        </div>
+        <?php
+        if (is_array($data["reviews"])) {
+            foreach ($data["reviews"] as $item) {
+                ?>
+                <div class="review_info">
+                    <h2><?php echo $item->user_name ?></h2>
+                    <div class="review_star">
+                        <?php
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($item->rating_data >= $i) {
+                                ?>
+                                <i class="fas fa-star text-warning"></i>
+                                <?php
+                            } else {
+                                ?>
+                                <i class="fas fa-star star-light"></i>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <p><?php echo $item->user_review ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 
 </div>

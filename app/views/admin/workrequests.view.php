@@ -24,7 +24,7 @@
 
 <!-- content -->
 <section id="main" class="main" style="margin-top: 15px">
-    <h2 style="background: white">Worker Requests</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Worker Requests</h2>
     <div class="form">
         <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by Request ID or Title">
         <i class='bx bx-search icon'></i>

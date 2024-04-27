@@ -10,6 +10,8 @@ class WorkerProf extends Controller
             $workeremp = new WorkerEmployer();
             $user = new User;
             $worker = new Worker();
+            $review = new Ratings;
+
             $id = $_GET['id'];
             // show($id);
             $arr['work_id'] = $id;
@@ -17,6 +19,11 @@ class WorkerProf extends Controller
             $result2 = $this->create($workeremp, $id);
             $result = $worker->first($arr2);
             $data = $result2;
+
+
+            $qdata["emp_id"] = $data["newData"]["emp_id"];
+            $reviews = $review->where($qdata, "id");
+            $data["reviews"] = $reviews;
 
 //            if (!empty($data['data'])) {
 //                $worker_name = $data['data'][0]->name;
