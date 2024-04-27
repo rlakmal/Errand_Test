@@ -289,16 +289,16 @@
             <form method="POST" enctype="multipart/form-data">
                 <h2>Send Job Request</h2>
                 <h4>Job Title : </h4>
-                <input name="title" type="text" placeholder="Enter Tiltle of the Job">
+                <input name="title" type="text" placeholder="Enter Tiltle of the Job" required>
                 <h4>Budget : </h4>
                 <input name="budget" type="text" placeholder="Enter your Budget">
-                <h4>City : </h4>
-                <input name="city" type="text" placeholder="Select Location">
+                <h4>District : </h4>
+                <input name="city" type="text" placeholder="Select Location" required>
                 <h4>Select Your Location : </h4>
                 <div id="map"></div>
-                <input type="hidden" id="location" name="location">
+                <input type="hidden" id="location" name="location" required>
                 <h4>Description : </h4>
-                <input name="description" type="text" placeholder="Enter your problem">
+                <input name="description" type="text" placeholder="Enter your problem" required>
                 <div class="postjobimages">
                     <div class="form-drag-area">
 

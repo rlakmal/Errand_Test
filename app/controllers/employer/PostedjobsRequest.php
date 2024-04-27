@@ -8,7 +8,7 @@ class PostedjobsRequest extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'employer') {
             $worker_req_jobs = new WorkeRrequestJobs;
             $accepted_jobs = new AcceptedJobs;
-  
+
             if (isset($_POST['Accept'])) {
                 //show($_POST);
                 $id = $_POST['id'];
@@ -46,6 +46,16 @@ class PostedjobsRequest extends Controller
             $emp_id = $_SESSION['USER']->id;
             $arr['emp_id'] = $emp_id;
             $results = $worker_req_jobs->where($arr);
+            foreach ($results as $item) {
+                $expire = strtotime($item->expire_date);
+                $remain = $expire - time();
+                if ($remain <= 60 && $item->status == 'Pending') {
+                    $id = $item->id;
+                    $updateData = ['status' => 'Expired'];
+                    $worker_req_jobs->update($id, $updateData, 'id');
+                    redirect('employer/postedjobsrequest');
+                }
+            }
             //show($results);
             $data['data'] = $results;
             $this->view('employer/postedjobsrequest', $data);
@@ -62,5 +72,13 @@ class PostedjobsRequest extends Controller
         $arr['active'] = 1;
         //show($arr);
         $notification->insert($arr);
+    }
+
+    public function fetchTime($a = '', $b = '', $c = '')
+    {
+        $id = $_GET['id'];
+        $time = time();
+
+        echo json_encode($id);
     }
 }

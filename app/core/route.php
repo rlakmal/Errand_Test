@@ -73,7 +73,7 @@ route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 route('employer/chatbox', 'employer/ReviewRequest@chat_data');
 route('employer/saveMsg', 'employer/ReviewRequest@save_data');
 route('employer/fetchrating', 'employer/ViewJob@fetchEmpRating');
-
+route('employer/timestatus', 'employer/PostedjobsRequest@fetchTime');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
