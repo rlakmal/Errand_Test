@@ -5,7 +5,7 @@
     --primary-color: #f16a2d;
     --secondary-color: #ff8a1d;
     --background-color: #f9ede8;
-    /* --dark-color: #2a3441; */
+    --button-color: #0355cc;
     --dark-color: #0a0f43;
 }
 
@@ -383,8 +383,8 @@ a {
     font-family: 'Merriweather Sans', sans-serif;
     text-transform: uppercase;
     padding: 10px 45px;
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
     border-radius: 2px;
     color: #ffffff;
 }
@@ -395,7 +395,7 @@ a {
 
 .about a:hover {
     background-color: transparent;
-    color: var(--secondary-color);
+    color: var(--button-color);
 }
 
 /* professional section */
@@ -536,15 +536,15 @@ a {
     font-family: 'Merriweather Sans', sans-serif;
     text-transform: uppercase;
     padding: 10px 45px;
-    background-color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
     border-radius: 0;
     color: #ffffff;
 }
 
 .service .btn-box a:hover {
     background-color: transparent;
-    color: var(--secondary-color);
+    color: var(--button-color);
 }
 
 .service .col .box:hover {
