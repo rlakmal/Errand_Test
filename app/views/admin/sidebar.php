@@ -1,6 +1,6 @@
     <div class="sidebar">
         <div class="logo_details">
-            <div class="logo_icon">Errand</div>
+            <div class="logo_icon"></div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
         <ul class="nav-list">
@@ -54,6 +54,13 @@
                 <span class="tooltip">Accepted Requests</span>
             </li>
             <li>
+                <a href="<?=ROOT?>/admin/bargains">
+                    <i class='bx bx-money-withdraw'></i>
+                    <span class="link_name">Bargains</span>
+                </a>
+                <span class="tooltip">bargains</span>
+            </li>
+            <li>
                 <a href="<?= ROOT ?>/admin/admincrew">
                     <i class="bx bxs-group"></i>
                     <span class="link_name">Admin Crew</span>
@@ -74,13 +81,7 @@
                 </a>
                 <span class="tooltip">Reports</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bx bxs-user-circle"></i>
-                    <span class="link_name">Profile</span>
-                </a>
-                <span class="tooltip">Profile</span>
-            </li>
+
 
             <li class="profile" style="margin-bottom: 3%">
 <!--                <div class="profile_details">-->

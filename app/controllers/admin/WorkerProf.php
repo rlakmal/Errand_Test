@@ -46,7 +46,7 @@ class WorkerProf extends Controller
     private function create($user, $use_id)
     {
 
-        $arr['work_id'] = $use_id;
+        $arr['emp_id'] = $use_id;
 
         $result = $user->first($arr);
 
