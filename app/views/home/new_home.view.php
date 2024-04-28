@@ -12,33 +12,6 @@
 </head>
 
 <body>
-    <!-- NavBar -->
-    <!-- <div class="homenavbar">
-        <header>
-            <div class="logo">Errand</div>
-            <input type="checkbox" id="nav_check" hidden>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#" class="active">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="active">Login</a>
-                    </li>
-                    <li>
-                        <a href="#" class="active">Register As Worker</a>
-                    </li>
-
-                </ul>
-            </nav>
-            <label for="nav_check" class="hamburger"></label>
-        </header>
-    </div>
-    <script src="assets/homenavbar.js"></script> -->
-    <!-- End of NavBar -->
     <?php include 'homenavbar.php' ?>
     <div class="main-container">
         
@@ -121,7 +94,7 @@
                             <p>
                                 At Errand, we bridge the gap between you and the dependable help you need to complete any task, no matter how big or small. Founded with the vision to streamline the process of finding and hiring local workers, we provide a secure, user-friendly platform where every job can be handled with precision and professionalism.
                             </p>
-                            <a href="">
+                            <a href="<?= ROOT ?>/about">
                             Read More
                             </a>
                         </div>
@@ -160,7 +133,7 @@
                       <p>
                         Errand offers a comprehensive range of services to meet all your household needs. Whether you need someone to fix a leaky faucet or help with a install a new security system, our platform connects you with skilled professionals ready to assist. Each task is completed with efficiency and reliability, ensuring satisfaction every time. Dive deeper into our full spectrum of services and see how we can help you tackle your next project.
                       </p>
-                      <a href="">
+                      <a href="<?= ROOT ?>/about">
                         Read More
                       </a>
                     </div>
@@ -234,7 +207,7 @@
 
                 <div class="btn-box">
                   <a href="<?= ROOT ?>/home/signin">
-                    Sign In Now
+                    Sign Up Now
                   </a>
                 </div>
 
@@ -435,83 +408,6 @@
               </div>
             </div>
         </div>
-
-        <!-- footer -->
-        <!-- <div class="footer sections" style="background-color: black">
-            <div class="container">
-                <p>
-                    <h4>
-                        Get In Touch
-                      </h4>
-                      <div class="row">
-                        <div class="col-lg-10 m-auto col">
-                          <div class="info_items">
-                            <div class="row">
-                              <div class="col-md-4 col">
-                                <a href="">
-                                  <div class="item ">
-                                    <div class="img-box ">
-                                      <i class="fa fa-solid fa-location-dot" aria-hidden="true"></i>
-                                    </div>
-                                    <p>
-                                      Errand Head Office, Colombo 7.
-                                    </p>
-                                  </div>
-                                </a>
-                              </div>
-                              <div class="col-md-4 col">
-                                <a href="">
-                                  <div class="item ">
-                                    <div class="img-box ">
-                                      <i class="fa fa-phone" aria-hidden="true"></i>
-                                    </div>
-                                    <p>
-                                      +94 112936820
-                                    </p>
-                                  </div>
-                                </a>
-                              </div>
-                              <div class="col-md-4 col">
-                                <a href="">
-                                  <div class="item ">
-                                    <div class="img-box">
-                                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    </div>
-                                    <p>
-                                      Errand@gmail.com
-                                    </p>
-                                  </div>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="social-box">
-                      <h4>
-                        Follow Us
-                      </h4>
-                      <div class="box">
-                        <a href="">
-                          <i class="fa fa-brands fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a href="">
-                            <i class="fa fa-brands fa-x-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="">
-                          <i class="fa fa-brands fa-youtube" aria-hidden="true"></i>
-                        </a>
-                        <a href="">
-                          <i class="fa fa-brands fa-instagram" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-                </p>
-            </div>
-        </div> -->
-        <!-- end of footer section -->
 
     </div>
 </body>
