@@ -11,6 +11,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .modal-content {
+            min-width: 50%;
+            max-height: 80%;
+            object-fit: contain;
+        }
 
 
     </style>
@@ -49,6 +67,7 @@
                 <th>Budget</th>
                 <th>City</th>
                 <th>Description</th>
+                <th>Images</th>
                 <th>Status</th>
                 <th>Created</th>
                 <th></th>
@@ -67,6 +86,12 @@
                     <td><?= $request->budget ?></td>
                     <td><?= $request->city ?></td>
                     <td><?= $request->description ?></td>
+                    <td>
+                        <img style="height: 45px;" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder">
+                        <img style="height: 45px;margin-left: 15px" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image1  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder1">
+
+                    </td>
+
                     <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
                     <td><?= $request->created ?></td>
                     <td>
@@ -110,6 +135,11 @@
         </div>
     </form>
 </div>
+
+<div id="myModal" class="modal">
+    <img class="modal-content" id="modalImage">
+</div>
+
 
 
 <script>
@@ -197,6 +227,28 @@
         // Hide the edit popup
         document.querySelector('#edit').style.display = 'none';
     }
+
+    const modalImage = document.getElementById('modalImage');
+
+    function openModal(src) {
+        modalImage.src = src;
+        document.getElementById('myModal').style.display = 'flex';
+
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+
+    }
+
+
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal')) {
+            closeModal();
+        }
+    };
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>

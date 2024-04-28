@@ -78,10 +78,10 @@
 <?php include 'sidebar.php' ?>
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
-<div style="margin-top: 5%; position: relative; flex-direction: column">
+<div style="margin-top: -2%; position: relative; flex-direction: column">
 
     <div style="position: fixed; width: 100%; height: fit-content">
-        <h2 style="margin-top: 50px; text-align: center;">Tickets</h2>
+        <h2 style="margin-top: 55px; text-align: center;">Tickets</h2>
 
         <!-- Search Bar -->
         <div class="search-container">

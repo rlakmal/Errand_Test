@@ -205,7 +205,7 @@
                             <span>Not Verified</span>
                         <?php endif; ?>
                     </td>
-                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->work_id ?>">
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->emp_id ?>">
                             <span class="link_name"><i class="fas fa-user icon"></i></span>
                         </a></td>
                 </tr>

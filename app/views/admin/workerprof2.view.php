@@ -182,16 +182,19 @@
             border-radius: 20px;
         }
 
+        .review_info h2{
+            margin-bottom: 20px;
+
+        }
+
         .review-container :hover{
             transform: scale(1.02);
         }
         .text-warning {
-            margin-top: 20px;
             color: #ffc107;
         }
 
         .star-light {
-            margin-top: 20px;
             color: #e9ecef;
         }
     </style>

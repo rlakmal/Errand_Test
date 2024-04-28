@@ -269,10 +269,16 @@
             color: #fff;
         }
 
+        .not_com{
+            color: #f16a2d;
+        }
 
+        .com{
+            color: red;
+        }
 
     </style>
-    <title>Document</title>
+    <title>Jobs</title>
 </head>
 
 <body>
@@ -288,11 +294,17 @@
     <div  style="text-align: center">
         <h2 style="margin-top: 20px; font-family: 'Arial', sans-serif">Posted Jobs</h2>
     </div>
-    <div class = "searchbar">
-        <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
-        <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">
-<!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
+    <div style="flex-direction: row;  position: relative">
+        <div class = "searchbar">
+            <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
+            <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">
+
+            <!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
+        </div>
+        <button  id = "complete" >Complete</button>
+        <button  id = "notcomplete" >Not Complete</button>
     </div>
+
 
 </div>
 
@@ -339,6 +351,8 @@
 
                         </div>
                         <div class = "right-container">
+                            <div class="profile-ratings <?php echo ($item->job_status == "not_completed")?  "com": "not_com"?>"><?php echo ($item->job_status == "not_completed")?  "Not Complete": "Complete"?></div>
+
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
 
                             <div class="location">

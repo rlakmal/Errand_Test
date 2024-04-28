@@ -5,14 +5,14 @@
 }
 
 table {
-    width: 150%;
+    width: 200%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 th, td {
     padding: 12px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 

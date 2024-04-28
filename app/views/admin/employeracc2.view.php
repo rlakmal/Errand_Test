@@ -389,15 +389,14 @@
     }
 
     .review_info h2 {
+        margin-bottom: 20px;
         font-size: 16px;
     }
     .text-warning {
-        margin-top: 20px;
         color: #ffc107;
     }
 
     .star-light {
-        margin-top: 20px;
         color: #e9ecef;
     }
 
