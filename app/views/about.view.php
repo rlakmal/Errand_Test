@@ -45,31 +45,6 @@
     <!-- end of about section -->
 
     <!-- mission section -->
-    <!-- <div class="mission layout_padding-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-6 col">
-                    <div class="detail-box">
-                        <h2>
-                        About us
-                        </h2>
-                        <p>
-                            At Errand, we bridge the gap between you and the dependable help you need to complete any task, no matter how big or small. Founded with the vision to streamline the process of finding and hiring local workers, we provide a secure, user-friendly platform where every job can be handled with precision and professionalism.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-md-6 col">
-                    <div class="img-box">
-                        <img src="images/about-img.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- end of mission section -->
-
-    <!-- mission section -->
     <div class="mission layout_padding">
         <div class="container">
             <div class="row">
@@ -190,58 +165,5 @@
             </div>
         </div>
     </div>
-
-
-    <!-- mission section -->
-    <!-- <div class="mission layout_padding-bottom" style="background-color: green;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-6 col">
-                    <div class="detail-box">
-                        <h2>
-                        About us
-                        </h2>
-                        <p>
-                            At Errand, we bridge the gap between you and the dependable help you need to complete any task, no matter how big or small. Founded with the vision to streamline the process of finding and hiring local workers, we provide a secure, user-friendly platform where every job can be handled with precision and professionalism.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-md-6 col">
-                    <div class="img-box">
-                        <img src="images/about-img.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- end of mission section -->
-
-    <!-- story section -->
-    <!-- <div class="story layout_padding-bottom" style="background-color: yellow;">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-7 col-md-6 col">
-                    <div class="img-box">
-                        <img src="images/about-img.jpg" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-6 col">
-                    <div class="detail-box">
-                        <h2>
-                        About us
-                        </h2>
-                        <p>
-                            At Errand, we bridge the gap between you and the dependable help you need to complete any task, no matter how big or small. Founded with the vision to streamline the process of finding and hiring local workers, we provide a secure, user-friendly platform where every job can be handled with precision and professionalism.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
-    <!-- end of story section -->
 </body>
 </html>
