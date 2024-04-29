@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Reset Password</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifyWorker</title>
     <style>
-        /* CSS Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f3f8ff;
-            color: white;
+            color: black;
         }
 
+        .otp_form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
 
         h1 {
             margin: 5%;
@@ -37,7 +43,7 @@
             color: #f16a2d;
         }
 
-        input[type="password"] {
+        input[type="otp"] {
             width: calc(100% - 20px);
             padding: 10px;
             margin-bottom: 20px;
@@ -64,21 +70,17 @@
 </head>
 
 <body>
+    <?php include 'homenavbar.php' ?>
+    <div class="otp_form">
+        <form method="POST">
+            <label for="password">OTP has already sent to your email</label>
+            <label for="password">Enter OTP</label>
+            <input type="otp" id="otp" name="otp">
 
-    <h1>Reset Password</h1>
+            <button type="submit" name="submit_otp">Submit</button>
+        </form>
+    </div>
 
-    <form method="POST">
-
-        <!-- <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>"> -->
-
-        <label for="password">New password</label>
-        <input type="password" id="password" name="password">
-
-        <label for="password_confirmation">Repeat password</label>
-        <input type="password" id="password_confirmation" name="password_confirmation">
-
-        <button type="submit" name="reset">Send</button>
-    </form>
 
 </body>
 

@@ -123,6 +123,9 @@ body {
     justify-content: center;
     flex-direction: column;
   }
+  .container-left {
+    width: 105%;
+  }
 
   .profile-container3 {
     height: 80%;
