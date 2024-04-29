@@ -35,7 +35,7 @@
 <!-- content  -->
 <section id="main" class="main" style="margin-top: 15px">
 
-    <h2 style="background: white">Crew Members details</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Crew Members details</h2>
 
     <form style="background: white">
         <div class="form" >
@@ -54,6 +54,8 @@
             <tr>
                 <th></th>
                 <th></th>
+                <th class="ordId"> ID</th>
+
                 <th class="ordId">Member ID</th>
                 <th class="stth">Name</th>
                 <th class="desc">Username</th>
@@ -72,9 +74,10 @@
                         <td><?php echo $i++; ?></td>
                         <td>
                             <div style="position: relative">
-                                <img style="height: 50px; border-radius: 50%" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image ?>">
+                                <img style="height: 50px; border-radius: 50%" src="<?= ROOT ?>/assets/images/member/profileImages/<?php echo $item->profile_image ?>">
                             </div>
                         </td>
+                        <td><?php echo $item->emp_id; ?></td>
                         <td><?php echo $item->id; ?></td>
                         <td><?php echo $item->name; ?></td>
                         <td><?php echo $item->email; ?></td>
@@ -151,6 +154,7 @@
         <h4>Password : </h4>
         <input name="password" type="text" placeholder="Enter Member email">
         <input type="hidden" name="id">
+        <input type="hidden" name="emp_id">
         <div class="btns">
             <button type="button" class="cancelR-btn" onclick="closeView()">Cancel</button>
             <button type="submit" name="member" value="Update" class="close-btn" onclick="closeView()">Update</button>
@@ -213,6 +217,7 @@
     var chatInput = document.querySelector(".chat-input");
     var userStatus = document.querySelector(".user-status");
     var userImge = document.querySelector(".userImg");
+    var memName = document.querySelector("#header-user");
     //console.log(chatInput);
 
     let selectChatId = 0;
@@ -298,8 +303,10 @@
                     Jsondata = JSON.parse(res)
                     console.log(Jsondata);
                     // Add employee image
-                    var imageUrl = "<?= ROOT ?>/assets/images/profileImages/" + Jsondata.empImage;
+                    var imageUrl = "<?= ROOT ?>/assets/images/member/profileImages/" + Jsondata.empImage;
+                    var mem_name = Jsondata.name
                     userImge.setAttribute("src", imageUrl);
+                    memName.innerHTML = mem_name;
 
                     // User is first time chat with Company then display msg
                     if ((Jsondata == null || Jsondata.chatMsgs == false)) {
@@ -556,7 +563,7 @@
         var searchValue = this.value.toLowerCase();
         var rows = document.getElementById('tableBody').getElementsByTagName('tr');
         for (var i = 0; i < rows.length; i++) {
-            var nameColumn = rows[i].getElementsByTagName('td')[2]; // Assuming name is in the third column
+            var nameColumn = rows[i].getElementsByTagName('td')[4]; // Assuming name is in the third column
             var idColumn = rows[i].getElementsByTagName('td')[1]; // Assuming id is in the second column
             if (nameColumn.innerText.toLowerCase().includes(searchValue) || idColumn.innerText.includes(searchValue)) {
                 rows[i].style.display = '';

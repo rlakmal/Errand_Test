@@ -5,17 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- Custom CSS file -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/dashboard.css">
-    <!-- Custon CSS for Sidebar -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/sidebar.css">
-    <!-- Custom CSS for Header -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/header.css">
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css">
-    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/style.css">
     <style>
         body{
@@ -41,7 +36,8 @@
         <!-- End of Sidebar -->
 
         <!-- Main Content -->
-        <main class="main" style="overflow-y: scroll; height: 800px">
+        <main class="main" style="overflow-y: scroll; height: 800px; margin-top: -3%">
+            <h2 style="  margin-top: ; font-size: 25px; position: fixed; z-index: 9999; background: white; width: 100%; padding: 13px">Hello, <?= $_SESSION["USER"]->name?>!</h2>
 
             <div class="cardBox">
 

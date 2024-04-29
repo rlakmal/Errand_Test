@@ -309,12 +309,14 @@
         left: 40%;
         transform: translate(-50%, -50%);
         background-color: white;
-        padding: 40px; /* Increase padding for a bigger popup */
+        padding: 20px; /* Increase padding for a bigger popup */
         border-radius: 20px; /* Add curved edges */
         z-index: 1000;
         display: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
         animation: popup-animation 0.5s ease forwards; /* Add animation */
+        font-size: 16px;
+        width: 400px;
     }
 
     .popup-overlay {
@@ -347,17 +349,57 @@
 
     .archive-button {
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 14px;
         border: none;
+        margin-top: 100px;
+        margin-right: 15px;
+        width: 100px;
     }
 
     .archive-button.archive {
         background-color: #e74c3c;
         color: #fff;
     }
+
+    .review-container {
+        display: flex;
+        margin: 1%;
+        position: relative;
+        padding: 15px;
+        background-color: #ffffff;
+        width: 98%;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        flex-direction: column;
+        transition: transform 0.3s;
+    }
+
+    .review-container :hover{
+        transform: scale(1.02);
+    }
+
+    .review_info {
+        border: 1px solid #e8e8e8;
+        margin: 15px;
+        margin-left: 115px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .review_info h2 {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .text-warning {
+        color: #ffc107;
+    }
+
+    .star-light {
+        color: #e9ecef;
+    }
+
 </style>
 
 <div class="main-container4">
@@ -496,15 +538,51 @@
         </div>
     </div>
 
+    <div class="review-container">
+        <div class="tags">
+            <h2 class="info">Reviews</h2>
+        </div>
+        <?php
+        if (is_array($data["reviews"])) {
+            foreach ($data["reviews"] as $item) {
+                ?>
+                <div class="review_info">
+                    <h2><?php echo $item->user_name ?></h2>
+                    <div class="review_star">
+                        <?php
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($item->rating_data >= $i) {
+                                ?>
+                                <i class="fas fa-star text-warning"></i>
+                                <?php
+                            } else {
+                                ?>
+                                <i class="fas fa-star star-light"></i>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <p><?php echo $item->user_review ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+
 </div>
 
 <div class="popup" id="popup">
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Image" /> <!-- Add your image here -->
-    <h2>Are you sure you want to delete?</h2>
-    <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>">
-        <input style="margin-top: 5px; border-radius: 20px" type="submit" class="archive-button archive" value="Yes, Delete" name="Delete">
-    </form>
-    <button style="background-color: #1eea07; border-radius: 20px" class="archive-button archive" id="cancel-delete">No, Cancel</button>
+    <h2 style="font-size: 16px">Are you sure you want to delete?</h2>
+    <div style="flex-direction: row; display: flex">
+        <form method="post" action="<?= ROOT ?>/admin/employeracc?id=<?= $data['newData']['id'] ?>">
+            <input  type="submit" class="archive-button archive" value="Yes" name="Delete">
+        </form>
+        <button style="background-color: #f16a2d; " class="archive-button archive" id="cancel-delete">No</button>
+    </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -4,7 +4,7 @@
     .logo-admin{
         width: 20%;
         font-size: 30px;
-        margin-left: 5%;
+        /*margin-left: 80px;*/
     }
 
     .logo-admin img{
@@ -15,7 +15,7 @@
     }
 
     .nav-link2{
-        margin-right: 35px;
+        /*margin-right: 35px;*/
         font-size: 20px;
         color: #191919;
         position: relative;
@@ -26,7 +26,7 @@
         margin-right: 0px;
         align-self: center;
     }
-    .home-section {
+    nav {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -42,18 +42,18 @@
     /*    margin-left: auto;*/
     /*}*/
 
-    .sidebar.expanded ~ nav {
-        left: 172px;
+    .sidebar.open ~ nav {
+        margin-left: -80px;
         width: calc(100% - 172px);
     }
 </style>
 
 <section class="home-section" id="navbar" >
-    <nav style="background:#f16a2d;  display: flex; height: fit-content;padding: 15px; margin-left: auto; " >
+    <nav style="background:#f16a2d;  display: flex; height: fit-content;padding: 15px; margin-left:0px; " >
         <div class ="logo-admin"><a href="<?= ROOT ?>/admin/home"><img src="<?=ROOT?>/assets/images/logoe3.png"></a></div>
-        <div   class="nav-icons" style="right: -70%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
+        <div   class="nav-icons" style="right: -75%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
 
-            <a href="#" class="nav-link2">
+            <a href="<?= ROOT ?>/admin/admincrew" class="nav-link2">
                 <i class='bx bxs-chat icon'></i>
                 <!--                    <span class="chat-notification">8</span>-->
             </a>

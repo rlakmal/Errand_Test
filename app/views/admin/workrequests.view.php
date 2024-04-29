@@ -24,7 +24,7 @@
 
 <!-- content -->
 <section id="main" class="main" style="margin-top: 15px">
-    <h2 style="background: white">Worker Requests</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Worker Requests</h2>
     <div class="form">
         <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by Request ID or Title">
         <i class='bx bx-search icon'></i>
@@ -51,6 +51,7 @@
                 <th>Status</th>
                 <th>Created</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -69,6 +70,11 @@
                     <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
                     <td><?= $request->created ?></td>
                     <td>
+                        <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->newbudget; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
+                            <i style="font-size: 25px" class="bx bxs-edit"></i>
+                        </a>
+                    </td>
+                    <td>
                         <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
                     </td>
                 </tr>
@@ -82,8 +88,27 @@
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
     <p>Are you sure you want to delete this item?</p>
     <form id="deleteForm" method="post">
-        <button type="submit" class="yes-button">Yes</button>
+        <button type="submit" name = "delete" class="yes-button">Yes</button>
         <button type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
+    </form>
+</div>
+
+<div class="popup-v" id="edit">
+    <h2>Update Budget</h2>
+    <form action="<?= ROOT ?>/admin/workrequests" method="POST">
+        <h4>Title : </h4>
+        <input style="margin-top: 10px" name="title" type="text" placeholder="Enter Ticket Title" disabled>
+        <h4>Description : </h4>
+        <input style="margin-top: 10px" name="description" type="text" placeholder="Enter Ticket Body" disabled>
+        <h4>Budget : </h4>
+        <input style="margin-top: 10px" name="budget" type="text" placeholder="budget" disabled>
+        <h4>New Budget : </h4>
+        <input style="margin-top: 10px" name="newbudget" type="text" placeholder="budget" >
+        <input type="hidden" name="id">
+        <div class="btns">
+            <button style="border-radius: 20px" type="button" onclick="closee()">Cancel</button>
+            <button style="border-radius: 20px" type="submit" value="Update" name="update" onclick="closee()">Update</button>
+        </div>
     </form>
 </div>
 
@@ -181,6 +206,23 @@
     function hideConfirmationPopup() {
         const popup = document.getElementById('deleteConfirmationPopup');
         popup.style.display = 'none';
+    }
+
+    function opene(title, description,newbudget, budget, id) {
+        // Populate title and description input fields in the edit popup
+        document.querySelector('#edit input[name="title"]').value = title;
+        document.querySelector('#edit input[name="description"]').value = description;
+        document.querySelector('#edit input[name="budget"]').value = budget;
+        document.querySelector('#edit input[name="newbudget"]').value = newbudget;
+        document.querySelector('#edit input[name="id"]').value = id;
+
+        // Show the edit popup
+        document.querySelector('#edit').style.display = 'block';
+    }
+
+    function closee() {
+        // Hide the edit popup
+        document.querySelector('#edit').style.display = 'none';
     }
 </script>
 

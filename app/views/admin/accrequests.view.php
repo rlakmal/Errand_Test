@@ -27,12 +27,21 @@
 
 <!-- content -->
 <section id="main" class="main" style="margin-top: 15px">
-    <h2 style="background: white">Accepted Requests</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Accepted Requests</h2>
     <div class="form">
         <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search Request ID or Title">
         <i class='bx bx-search icon'></i>
 
         <input id="searchInput2" style="width: 13%;" class="form-group" type="text" placeholder="Search Type">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput3" style="width: 13%;" class="form-group" type="text" placeholder="Search Pay Status">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput4" style="width: 16%;" class="form-group" type="text" placeholder="Search Employer Review Status">
+        <i class='bx bx-search icon'></i>
+
+        <input id="searchInput5" style="width: 16%;" class="form-group" type="text" placeholder="Search Worker Review Status">
         <i class='bx bx-search icon'></i>
     </div>
     <div class="table-container">
@@ -40,6 +49,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Job ID</th>
                 <th>Employer ID</th>
                 <th>Worker ID</th>
                 <th>Employer</th>
@@ -49,9 +59,11 @@
                 <th>Payment</th>
                 <th>Type</th>
                 <th>Payment Status</th>
+                <th>Pay Date</th>
                 <th>Review Status</th>
+                <th>Worker Review Status</th>
 
-                <th>Created</th>
+                <th>Accepted</th>
                 <th></th>
             </tr>
             </thead>
@@ -59,16 +71,19 @@
             <?php foreach ($requests as $request): ?>
                 <tr>
                     <td><?= $request->id ?></td>
+                    <td><?= $request->job_id ?></td>
                     <td><?= $request->emp_id ?></td>
                     <td><?= $request->worker_id ?></td>
                     <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
-                    <td><a ><?= $request->worker_name ?></a></td>
+                    <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
                     <td><?= $request->title ?></td>
                     <td><?= $request->budget?></td>
                     <td><?= $request->budget*.1 ?></td>
                     <td class="type-<?php echo ($request->type == "worker") ? "worker" : "employer"?>"><?= $request->type ?></td>
-                    <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= $request->payment_stat ?></td>
-                    <td ><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= $request->review_status ?></div></td>
+                    <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= ($request->payment_stat == "Pay Now") ? "Not Paid" : "Done" ?></td>
+                    <td><?= date($request->pay_date) ?></td>
+                    <td style=""><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= ($request->review_status == "Mark As Completed") ? "Not Marked as Complete" : ( ($request->review_status == "Rated") ? "Rated": "Complete") ?></div></td>
+                    <td ><div class="review-<?php echo ($request->worker_review == "Not_Rated") ? "markas" : ( ($request->review_status == "Job_Completed") ? "rated": "completed")?>"><?= ($request->worker_review == "Not_Rated") ? "Not Rated" : ( ($request->review_status == "Job_Completed") ? "Job Complete": "Rated") ?></div></td>
 
                     <td><?= $request->created ?></td>
 
@@ -86,8 +101,8 @@
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
     <p>Are you sure you want to delete this item?</p>
     <form id="deleteForm" method="post">
-        <button type="submit" class="yes-button">Yes</button>
-        <button type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
+        <button type="submit" class="yes-button" name = "delete">Yes</button>
+        <button  type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
     </form>
 </div>
 
@@ -97,6 +112,9 @@
 <script>
     const searchInput = document.getElementById('searchInput');
     const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
+    const searchInput4 = document.getElementById('searchInput4');
+    const searchInput5 = document.getElementById('searchInput5');
     const dataTable = document.getElementById('dataTable');
     const rows = dataTable.getElementsByTagName('tr');
 
@@ -106,7 +124,7 @@
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[5].innerText.toLowerCase();
+            const title = row.cells[6].innerText.toLowerCase();
 
             if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
                 row.style.display = '';
@@ -121,9 +139,54 @@
 
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const type = row.cells[7].innerText.toLowerCase();
+            const type = row.cells[8].innerText.toLowerCase();
 
             if (type.indexOf(searchString) > -1 ) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput3.addEventListener('input', function() {
+        const searchString = searchInput3.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const status = row.cells[10].innerText.toLowerCase();
+
+            if (status.indexOf(searchString) > -1 ) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput4.addEventListener('input', function() {
+        const searchString = searchInput4.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const status = row.cells[12].innerText.toLowerCase();
+
+            if (status.indexOf(searchString) > -1 ) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
+    searchInput5.addEventListener('input', function() {
+        const searchString = searchInput5.value.toLowerCase().trim();
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const status = row.cells[13].innerText.toLowerCase();
+
+            if (status.indexOf(searchString) > -1 ) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
@@ -133,9 +196,8 @@
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');
         popup.style.display = 'block';
-        // Set the action URL for the form
         const form = document.getElementById('deleteForm');
-        form.action = `<?= ROOT ?>/admin/emprequests?id=${id}`;
+        form.action = `<?= ROOT ?>/admin/accrequests?id=${id}`;
     }
 
     function hideConfirmationPopup() {

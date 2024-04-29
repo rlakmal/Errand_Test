@@ -5,7 +5,7 @@
         .logo-admin{
             width: 20%;
             font-size: 30px;
-            margin-left: 5%;
+            /*margin-left: 5%;*/
         }
 
         .logo-admin img{
@@ -27,7 +27,7 @@
             margin-right: 0px;
             align-self: center;
         }
-        .home-section {
+        nav {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -44,8 +44,14 @@
         /*}*/
 
         .sidebar.expanded ~ nav {
-            left: 172px;
+            left: -80px;
             width: calc(100% - 172px);
+        }
+
+        nav .pro_img{
+            height: 50px;
+            border-radius: 50%;
+            width: 50px;
         }
 
 
@@ -53,12 +59,12 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/chat.css">
 
     <section class="home-section" id="navbar" >
-        <nav style="background: #f16a2d;  display: flex; height: fit-content;padding: 15px; margin-left: auto" >
+        <nav style="background: #f16a2d;  display: flex; height: fit-content;padding: 15px; margin-left: 0px" >
             <div class ="logo-admin"><a href="<?= ROOT ?>/member/home"><img src="<?=ROOT?>/assets/images/logoe3.png"></a></div>
-            <div style="position: relative; right: -65%">
-                <img style="height: 50px; border-radius: 50%" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $_SESSION["USER"]->profile_image  ?>">
+            <div style="position: relative; right: -70%">
+                <img class="pro_img" style="" src="<?= ROOT ?>/assets/images/member/profileImages/<?php echo $_SESSION["USER"]->profile_image  ?>">
             </div>
-            <div   class="nav-icons" style="right: -67%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
+            <div   class="nav-icons" style="right: -72%; display: flex; position: relative; justify-content: center ;align-content: center; align-items: center">
 
 
 

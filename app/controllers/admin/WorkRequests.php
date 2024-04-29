@@ -11,10 +11,20 @@ class WorkRequests extends Controller
 
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["delete"])) {
                 $arr["id"] = $_GET["id"];
                 $request->delete($arr["id"]);
                 redirect("admin/workrequests");
+            }
+
+            if(isset($_POST["update"])){
+
+                $id = $_POST["id"];
+                unset($_POST["id"]);
+                unset($_POST["update"]);
+                $request->update($id, $_POST);
+                redirect("admin/workrequests");
+
             }
 
             $this->view('admin/workrequests', $data);

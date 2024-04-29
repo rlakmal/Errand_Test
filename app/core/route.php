@@ -68,11 +68,12 @@ route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 
 
-
 route('employer/notifycount', 'employer/EmpNotification@wJobNotify');
 route('employer/notifyupdate', 'employer/EmpNotification@wJobNotifyUpdate');
 route('employer/chatbox', 'employer/ReviewRequest@chat_data');
 route('employer/saveMsg', 'employer/ReviewRequest@save_data');
+route('employer/fetchrating', 'employer/ViewJob@fetchEmpRating');
+route('employer/timestatus', 'employer/PostedjobsRequest@fetchTime');
 /*---------------------------------------------------------------------
     worker routes
 --------------------------------------------------------------------- */
@@ -119,6 +120,7 @@ route('admin/message', 'admin/Message@index');
 route('admin/emprequests', 'admin/EmpRequests@index');
 route('admin/workrequests', 'admin/WorkRequests@index');
 route('admin/accrequests', 'admin/AccRequests@index');
+route('admin/bargains', 'admin/Bargains@index');
 route('admin/viewjob', 'admin/ViewJob@index');
 route('admin/editemployeracc', 'admin/EditEmployerAcc@index');
 route('admin/editworkerprof', 'admin/EditWorkerProf@index');

@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: lightgrey;
+            background-color: #f4f7fc;
             margin: 0;
             padding: 0;
             overflow-y: hidden; /* Make the body scrollable */
@@ -28,7 +28,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            background: lightgrey;
+            background: #f4f7fc;
         }
 
         .form-group {
@@ -62,7 +62,7 @@
 
         }
         .table th {
-            background-color: lightgrey;
+            background-color: #f4f7fc;
             color: black;
         }
 
@@ -78,7 +78,7 @@
 
         .edit-view-profile a {
             text-decoration: none;
-            color: #3498db;
+            color: #ff904b;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -86,7 +86,7 @@
         }
 
         .edit-view-profile a:hover {
-            color: #2980b9;
+            color: darkgoldenrod;
         }
 
         .verified-widget {
@@ -129,8 +129,8 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: lightgrey">Registered Employers</h2>
-    <form style="background: lightgrey">
+    <h2 style="background: #f4f7fc">Registered Employers</h2>
+    <form style="background: #f4f7fc">
         <div class="form">
             <!-- Category Selector -->
 

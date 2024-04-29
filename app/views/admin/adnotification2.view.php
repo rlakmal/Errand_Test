@@ -23,7 +23,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background:white">Announcements</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif">Announcements</h2>
 
     <!-- Filter Buttons -->
     <div class="filter-btns">
@@ -64,8 +64,8 @@
                     <td><?php echo $item->id; ?></td>
                     <td><?php echo $item->title; ?></td>
                     <td><?php echo $item->body; ?></td>
-                    <td><?php echo $item->worker; ?></td>
-                    <td><?php echo $item->employer; ?></td>
+                    <td><?php echo $item->worker ? "Yes": "No"; ?></td>
+                    <td><?php echo $item->employer ? "Yes": "No"; ?></td>
                     <td><?php echo $item->created;  unset($item->created); ?></td>
                     <td class="edit-icon">
                         <a href="#" style="color: #3b414d" class="edit-btn" data-order="<?= htmlspecialchars(json_encode($item)); ?>">
@@ -173,7 +173,7 @@
         Array.from(tableBody.children).forEach(function(row) {
             let dataAttr = row.getAttribute('data-' + filterType);
             if (isActive) {
-                if (dataAttr === "1") {
+                if (dataAttr.toLowerCase() === "1") {
                     row.style.display = '';
                 } else {
                     row.style.display = 'none';

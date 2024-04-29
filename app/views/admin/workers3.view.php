@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #ccc;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             overflow-y: hidden; /* Make the body scrollable */
@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            background: #ccc;
+            background: #f4f4f4;
         }
 
         .form-group {
@@ -66,7 +66,7 @@
 
         }
         .table th {
-            background-color: #ccc;
+            background-color: #f4f4f4;
             color: black;
         }
 
@@ -133,8 +133,8 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #ccc">Registered Workers</h2>
-    <form style="background: #ccc">
+    <h2 style="background: #f4f4f4; font-family: 'Arial', sans-serif">Registered Workers</h2>
+    <form style="background: #f4f4f4">
         <div class="form">
             <!-- Category Selector -->
             <select class="form-group" name="category">
@@ -205,7 +205,7 @@
                             <span>Not Verified</span>
                         <?php endif; ?>
                     </td>
-                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->work_id ?>">
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->emp_id ?>">
                             <span class="link_name"><i class="fas fa-user icon"></i></span>
                         </a></td>
                 </tr>

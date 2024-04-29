@@ -215,7 +215,7 @@ table tbody tr.active-row {
   visibility: hidden;
   transition: transform 0.5s, top 0.5s;
   justify-content: center;
-  background: lightgrey;
+  background: white;
 
 
 }
@@ -252,7 +252,7 @@ textarea {
   position: relative;
   left: 9%;
   width: 80%;
-  background: white;
+  background: lightgrey;
   border-radius: 20px;
   border-style: solid;
   border: #000;

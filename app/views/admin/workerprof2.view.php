@@ -83,16 +83,17 @@
             display: none;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
             animation: fadeIn 0.5s ease forwards;
+            width: 400px;
         }
 
         .popup button {
-            margin-top: 20px;
-            padding: 15px 30px;
+            padding: 10px 40px;
             cursor: pointer;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             transition: all 0.3s ease;
+            margin-top: 100px;
         }
 
         .popup button.yes-button {
@@ -102,7 +103,7 @@
         }
 
         .popup button.no-button {
-            background-color: #28a745;
+            background-color: #f16a2d;
             color: white;
             border: none;
         }
@@ -155,6 +156,47 @@
             cursor: pointer;
             height: 50px;
         }
+
+        .review-container {
+            display: flex;
+            margin-top: 1%;
+            position: relative;
+            padding: 15px;
+            background-color: #ffffff;
+            width: 75%;
+            height: 50%;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            flex-direction: column;
+            top: 75px;
+            left: 6%;
+            transition: transform 0.3s;
+
+        }
+
+        .review_info {
+            border: 1px solid #e8e8e8;
+            margin: 15px;
+            margin-left: 115px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .review_info h2{
+            margin-bottom: 20px;
+
+        }
+
+        .review-container :hover{
+            transform: scale(1.02);
+        }
+        .text-warning {
+            color: #ffc107;
+        }
+
+        .star-light {
+            color: #e9ecef;
+        }
     </style>
 
     <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
@@ -170,7 +212,7 @@
 <?php
 if (is_array($data)) {
 //show($data);
-foreach ($data as $item) {
+
 
 ?>
 <div class="main-container4">
@@ -362,9 +404,42 @@ foreach ($data as $item) {
         <!--        </div>-->
     </div>
 
+    <div class="review-container">
+        <div class="tags">
+            <h2 class="info">Employer Reviews</h2>
+        </div>
+        <?php
+        if (is_array($data["reviews"])) {
+            foreach ($data["reviews"] as $item) {
+                ?>
+                <div class="review_info">
+                    <h2 style="font-size: 16px"><?php echo $item->user_name ?></h2>
+                    <div class="review_star">
+                        <?php
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($item->rating_data >= $i) {
+                                ?>
+                                <i class="fas fa-star text-warning"></i>
+                                <?php
+                            } else {
+                                ?>
+                                <i class="fas fa-star star-light"></i>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <p><?php echo $item->user_review ?></p>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+
+
     <?php
 
-    }
     }
     ?>
     <!--    <div class="popup-view">-->
@@ -389,6 +464,8 @@ foreach ($data as $item) {
     <div id="myModal" class="modal">
         <img class="modal-content" id="modalImage">
     </div>
+
+</div>
 
 
     <div class="popup" id="deleteConfirmationPopup">

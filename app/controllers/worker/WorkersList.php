@@ -16,7 +16,7 @@ class WorkersList extends Controller
 
     public function getAllWorkers($workers)
     {
-        $result = $workers->findall('created');
+        $result = $workers->findall('avg_rating');
         $data['data'] = $result;
         return $data;
     }

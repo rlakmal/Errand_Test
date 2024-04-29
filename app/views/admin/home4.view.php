@@ -28,7 +28,7 @@
 
 <!-- Content -->
 <section id="main" class="main" style="margin-top: 15px; height: fit-content;">
-    <h2 class="topic">Administrator Home</h2>
+    <h2 class="topic" style="font-size: 24px; font-family: 'Arial', sans-serif; margin-top: 7px">Administrator Home</h2>
     <div class="insights">
         <div class="income">
             <div class="middle">

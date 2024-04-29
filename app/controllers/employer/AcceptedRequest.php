@@ -51,6 +51,7 @@ class AcceptedRequest extends Controller
         $updateData = [
             'payment_stat' => 'paid',
         ];
+        $updateData["pay_date"] = date("Y-m-d H:i:s");
         $accepted_jobs->update($id, $updateData, 'id');
         echo "Payment Successfull";
     }

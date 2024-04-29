@@ -88,6 +88,14 @@
             margin-left: 6%;
         }
 
+        .text-warning {
+            color: #ffc107;
+        }
+
+        .star-light {
+            color: #e9ecef;
+        }
+
         @media only screen and (max-width: 600px) {
             .review-container {
                 height: 80%;
@@ -128,11 +136,11 @@
                                     <b><span id="average_rating">0.0</span> / 5</b>
                                 </h1>
                                 <div>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
-                                    <i class="fas fa-star star-light mr-1 main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
+                                    <i class="fas fa-star star-light main_star"></i>
                                 </div>
                                 <h3><span id="total_review">0</span> Review</h3>
                             </div>
@@ -281,16 +289,16 @@
             <form method="POST" enctype="multipart/form-data">
                 <h2>Send Job Request</h2>
                 <h4>Job Title : </h4>
-                <input name="title" type="text" placeholder="Enter Tiltle of the Job">
+                <input name="title" type="text" placeholder="Enter Tiltle of the Job" required>
                 <h4>Budget : </h4>
                 <input name="budget" type="text" placeholder="Enter your Budget">
-                <h4>City : </h4>
-                <input name="city" type="text" placeholder="Select Location">
+                <h4>District : </h4>
+                <input name="city" type="text" placeholder="Select Location" required>
                 <h4>Select Your Location : </h4>
                 <div id="map"></div>
-                <input type="hidden" id="location" name="location">
+                <input type="hidden" id="location" name="location" required>
                 <h4>Description : </h4>
-                <input name="description" type="text" placeholder="Enter your problem">
+                <input name="description" type="text" placeholder="Enter your problem" required>
                 <div class="postjobimages">
                     <div class="form-drag-area">
 
@@ -390,7 +398,9 @@
             }
         };
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="<?= ROOT ?>/assets/js/jquery-3.7.1.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $(".rating-bar").each(function() {
@@ -435,9 +445,12 @@
                         count_star++;
                         if (Math.ceil(data.average_rating) >= count_star) {
                             $(this).addClass('text-warning');
-                            $(this).addClass('star-light');
+                            $(this).removeClass('star-light');
                         }
                     });
+                    console.log(count_star);
+                    console.log(Math.ceil(data.average_rating));
+
 
                     $('#total_five_star_review').text(data.five_star_review);
 
