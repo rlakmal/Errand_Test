@@ -197,6 +197,17 @@
         .star-light {
             color: #e9ecef;
         }
+
+        .deleter{
+            width: 100px;
+            background-color: red;
+            height: 40px;
+            cursor: pointer;
+            color: white;
+            border-radius: 20px;
+            border-color: darkred;
+            margin-top: 15px
+        }
     </style>
 
     <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
@@ -236,7 +247,7 @@ if (is_array($data)) {
 
         <div class="container-left">
 
-            <a style="top:0; position: relative; margin: 20px" href="<?= ROOT ?>/admin/workers2"><button style="top:0; position: relative; margin: 20px" class="close-button">Close</button></a><br>
+            <a style="top:0; position: relative; margin: 20px" href="<?= ROOT ?>/admin/employers"><button style="top:0; position: relative; margin: 20px" class="close-button">Close</button></a><br>
             <button class="ground-unarchive" onclick="showConfirmationPopup(<?= $data['newData']['work_id'] ?>)">Delete</button>
 
             <?php if ($data['newData']['verified']) : ?>
@@ -430,6 +441,11 @@ if (is_array($data)) {
                         ?>
                     </div>
                     <p><?php echo $item->user_review ?></p>
+
+                    <form action = "<?=ROOT?>/admin/workerprof?id=<?= $item->id?>" method="post">
+                        <input type="hidden" name = "employerid" value="<?=$data["newData"]["emp_id"]?>">
+                        <button type="submit" class="deleter" name = "deletereview">Delete</button>
+                    </form>
                 </div>
                 <?php
             }
@@ -472,7 +488,7 @@ if (is_array($data)) {
         <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
         <p>Are you sure you want to Delete?</p>
         <form id="deleteForm" method="post">
-            <button type="submit" class="yes-button">Yes</button>
+            <button type="submit" class="yes-button" name = "delete">Yes</button>
             <button type="button" class="no-button" onclick="hideConfirmationPopup()">No</button>
         </form>
     </div>

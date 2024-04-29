@@ -60,7 +60,8 @@
                 <th class="stth">Name</th>
                 <th class="desc">Username</th>
                 <th></th>
-                <th>Edit</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody id="tableBody">
@@ -93,7 +94,7 @@
                                 <span class="link_name"></span>
                             </a></td>
                         <td>
-                            <form method="POST">
+                            <form method="POST" style="background: white;justify-content: center; align-content: center; margin-top:17px; margin-bottom: -20px">
                                 <input type="hidden" name="id" value="<?php echo $item->id; ?>">
                                 <button name="active" value="valid" class="
                                 <?php if ($item->active) {

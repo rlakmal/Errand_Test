@@ -70,13 +70,20 @@
                 <th>Images</th>
                 <th>Status</th>
                 <th>Created</th>
+                <th>Time Remaining</th>
                 <th></th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($requests as $request): ?>
-                <tr>
+            <?php foreach ($requests as $request):
+
+                $expirationDate = $request->time_remain + (3 * 24 * 60 * 60);
+//            var_dump($request->time_remain);// 3 days in seconds
+                $timeRemaining = max(0, $expirationDate - time());
+
+                ?>
+                <tr class="data">
                     <td><?= $request->id ?></td>
                     <td><?= $request->emp_id ?></td>
                     <td><?= $request->worker_id ?></td>
@@ -94,6 +101,7 @@
 
                     <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
                     <td><?= $request->created ?></td>
+                    <td class="status-<?= strtolower($request->status) ?>"><?php echo remain_Time($timeRemaining, $request->status) ?></td>
                     <td>
                         <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
                             <i style="font-size: 25px" class="bx bxs-edit"></i>
@@ -109,6 +117,25 @@
     </div>
 </section>
 
+
+<?php
+
+function remain_Time($seconds, $status)
+{
+    if ($seconds >= 60 && $status == 'Pending') {
+        $days = floor($seconds / (24 * 60 * 60));
+        $hours = floor(($seconds % (24 * 60 * 60)) / (60 * 60));
+        $minutes = floor(($seconds % (60 * 60)) / 60);
+        $str =  "$days days $hours hrs $minutes min";
+        return $str;
+    } elseif ($status == 'Expired' || $status == "Rejected"|| $status == "Accepted") {
+        return $status;
+    } elseif ($status == "Canceled"){
+        return "Cancelled";
+    }
+}
+
+?>
 <div class="popup" id="deleteConfirmationPopup">
     <img src="<?=ROOT?>/assets/images/logoe.png" alt="Close" >
     <p>Are you sure you want to delete this item?</p>
@@ -120,7 +147,7 @@
 
 
 <div class="popup-v" id="edit">
-    <h2>Update Ticket</h2>
+    <h2>Update Request</h2>
     <form action="<?= ROOT ?>/admin/emprequests" method="POST">
         <h4>Title : </h4>
         <input style="margin-top: 10px" name="title" type="text" placeholder="Enter Ticket Title" required>
@@ -147,55 +174,50 @@
     const searchInput2 = document.getElementById('searchInput2');
     const searchInput3 = document.getElementById('searchInput3');
     const dataTable = document.getElementById('dataTable');
-    const rows = dataTable.getElementsByTagName('tr');
+    const rows = dataTable.querySelectorAll('.data');
 
-    searchInput.addEventListener('input', function() {
+
+
+    function matchFilters(row) {
+
         const searchString = searchInput.value.toLowerCase().trim();
+        const searchString2 = searchInput2.value.toLowerCase().trim();
+        const searchString3 = searchInput3.value.toLowerCase().trim();
 
+
+        const id = row.cells[0].innerText.toLowerCase();
+        const title = row.cells[5].innerText.toLowerCase();
+        const city = row.cells[7].innerText.toLowerCase();
+        const emp_id = row.cells[1].innerText.toLowerCase();
+        const name = row.cells[3].innerText.toLowerCase();
+
+
+        const match = (searchString === "" || id.includes(searchString) || title.includes(searchString)) &&
+            (searchString2 === "" || city.includes(searchString2)) &&
+            (searchString3 === "" || emp_id.includes(searchString3) || name.includes(searchString3))
+
+
+
+        return match;
+    }
+
+
+    // Function to filter rows based on all filter criteria
+    function filterRows() {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[5].innerText.toLowerCase();
-
-            if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
+            if (matchFilters(row)) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
             }
         }
-    });
+    }
 
-    searchInput2.addEventListener('input', function() {
-        const searchString = searchInput2.value.toLowerCase().trim();
-        console.log("hoo ah")
-
-        for (let j = 0; j < rows.length; j++) {
-            const row1 = rows[j];
-            const city = row1.cells[7].innerText.toLowerCase();
-
-            if ( city.indexOf(searchString) > -1) {
-                row1.style.display = '';
-            } else {
-                row1.style.display = 'none';
-            }
-        }
-    });
-
-    searchInput3.addEventListener('input', function() {
-        const searchString = searchInput3.value.toLowerCase().trim();
-
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const id = row.cells[1].innerText.toLowerCase();
-            const name = row.cells[3].innerText.toLowerCase();
-
-            if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
+    // Add event listeners to all filter inputs
+    searchInput.addEventListener('input', filterRows);
+    searchInput2.addEventListener('input', filterRows);
+    searchInput3.addEventListener('input', filterRows);
 
 
     function showConfirmationPopup(id) {

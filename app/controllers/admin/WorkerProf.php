@@ -30,13 +30,25 @@ class WorkerProf extends Controller
 //            }
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                unset($arr["work_id"]);
-                $arr["id"] = $_GET["id"];
-                $worker->delete($arr["id"]);
-                unset($arr["id"]);
+                if(isset($_POST["Delete"])) {
+                    unset($arr["work_id"]);
+                    $arr["id"] = $_GET["id"];
+                    $worker->delete($arr["id"]);
+                    unset($arr["id"]);
 //                $arr["username"]= $result["email"];
-                $user->delete($result2['newData']["emp_id"]);
-                redirect("admin/workers2");
+                    $user->delete($result2['newData']["emp_id"]);
+                    redirect("admin/workers2");
+                }
+
+                if(isset($_POST["deletereview"])){
+                    $arr3["id"] = $_GET["id"];
+                    $review->delete($arr3["id"]);
+
+                    $emp_id = $_POST["employerid"];
+
+                    redirect("admin/workerprof&id=".$emp_id);
+                }
+
             }
 
             $this->view('admin/workerprof2', $data);
