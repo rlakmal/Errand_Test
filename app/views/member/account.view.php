@@ -40,7 +40,7 @@
             margin: 1%;
             position: relative;
             padding: 15px;
-            background-color: lightgoldenrodyellow;
+            background-color: lightgrey;
             width: 98%;
             height: fit-content;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
@@ -116,7 +116,7 @@
             justify-content: center;
             /* align-content: center; */
             align-items: center;
-            background: lightgoldenrodyellow;
+            background: lightgrey;
             border-radius: 28px;
         }
 

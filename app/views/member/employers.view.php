@@ -155,7 +155,7 @@
             <tbody >
             <?php $index = 0;
             foreach ($data as $employer) : $index = $index + 1?>
-                <tr>
+                <tr class="datax">
                     <td><?= $index?></td>
                     <td><?= $employer->id ?></td>
                     <td>

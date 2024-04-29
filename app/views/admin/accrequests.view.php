@@ -69,7 +69,7 @@
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
-                <tr>
+                <tr class="data">
                     <td><?= $request->id ?></td>
                     <td><?= $request->job_id ?></td>
                     <td><?= $request->emp_id ?></td>
@@ -116,83 +116,61 @@
     const searchInput4 = document.getElementById('searchInput4');
     const searchInput5 = document.getElementById('searchInput5');
     const dataTable = document.getElementById('dataTable');
-    const rows = dataTable.getElementsByTagName('tr');
+    const rows = dataTable.querySelectorAll('.data');
 
-    searchInput.addEventListener('input', function() {
+    // Function to check if a row matches all filter criteria
+    // Function to check if a row matches all filter criteria
+    function matchFilters(row) {
+        console.log("Matching row:", row);
+
         const searchString = searchInput.value.toLowerCase().trim();
+        const searchString2 = searchInput2.value.toLowerCase().trim();
+        const searchString3 = searchInput3.value.toLowerCase().trim();
+        const searchString4 = searchInput4.value.toLowerCase().trim();
+        const searchString5 = searchInput5.value.toLowerCase().trim();
 
+        console.log("Search strings:", searchString, searchString2, searchString3, searchString4, searchString5);
+
+        const id = row.cells[0].innerText.toLowerCase();
+        const title = row.cells[6].innerText.toLowerCase();
+        const type = row.cells[9].innerText.toLowerCase();
+        const paymentStatus = row.cells[10].innerText.toLowerCase();
+        const employerReviewStatus = row.cells[12].innerText.toLowerCase();
+        const workerReviewStatus = row.cells[13].innerText.toLowerCase();
+
+        console.log("Row data:", id, title, type, paymentStatus, employerReviewStatus, workerReviewStatus);
+
+        const match = (searchString === "" || id.includes(searchString) || title.includes(searchString)) &&
+            (searchString2 === "" || type.includes(searchString2)) &&
+            (searchString3 === "" || paymentStatus.includes(searchString3)) &&
+            (searchString4 === "" || employerReviewStatus.includes(searchString4)) &&
+            (searchString5 === "" || workerReviewStatus.includes(searchString5));
+
+        console.log("Match:", match);
+
+        return match;
+    }
+
+
+    // Function to filter rows based on all filter criteria
+    function filterRows() {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[6].innerText.toLowerCase();
-
-            if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
+            if (matchFilters(row)) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
             }
         }
-    });
+    }
 
-    searchInput2.addEventListener('input', function() {
-        const searchString = searchInput2.value.toLowerCase().trim();
+    // Add event listeners to all filter inputs
+    searchInput.addEventListener('input', filterRows);
+    searchInput2.addEventListener('input', filterRows);
+    searchInput3.addEventListener('input', filterRows);
+    searchInput4.addEventListener('input', filterRows);
+    searchInput5.addEventListener('input', filterRows);
 
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const type = row.cells[8].innerText.toLowerCase();
-
-            if (type.indexOf(searchString) > -1 ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
-
-    searchInput3.addEventListener('input', function() {
-        const searchString = searchInput3.value.toLowerCase().trim();
-
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const status = row.cells[10].innerText.toLowerCase();
-
-            if (status.indexOf(searchString) > -1 ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
-
-    searchInput4.addEventListener('input', function() {
-        const searchString = searchInput4.value.toLowerCase().trim();
-
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const status = row.cells[12].innerText.toLowerCase();
-
-            if (status.indexOf(searchString) > -1 ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
-
-    searchInput5.addEventListener('input', function() {
-        const searchString = searchInput5.value.toLowerCase().trim();
-
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const status = row.cells[13].innerText.toLowerCase();
-
-            if (status.indexOf(searchString) > -1 ) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
     function showConfirmationPopup(id) {
         const popup = document.getElementById('deleteConfirmationPopup');
         popup.style.display = 'block';

@@ -10,6 +10,8 @@ class Verification2 extends Controller
             $workeremp = new WorkerEmployer();
             $user = new User;
             $worker = new Worker();
+            $review = new Ratings;
+
             $id = $_GET['id'];
             // show($id);
             $arr['work_id'] = $id;
@@ -21,15 +23,34 @@ class Verification2 extends Controller
 //            if (!empty($data['data'])) {
 //                $worker_name = $data['data'][0]->name;
 //            }
+
+            $qdata["emp_id"] = $data["newData"]["emp_id"];
+            $reviews = $review->where($qdata, "id");
+            $data["reviews"] = $reviews;
+
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if($result->verified){
-                    $update_q["verified"] = false;
-                } else {
-                    $update_q["verified"] = true;
+
+                if(isset($_POST["deletereview"])){
+                    $arr3["id"] = $_GET["id"];
+                    $review->delete($arr3["id"]);
+
+                    $work_id = $_POST["workerid"];
+
+                    redirect("member/verification2&id=".$work_id);
+                } else{
+
+                    if($result->verified){
+                        $update_q["verified"] = false;
+                    } else {
+                        $update_q["verified"] = true;
+
+                    }
+                    $worker->update($_GET["id"], $update_q);
+                    $data["newData"]["verified"] = $update_q["verified"];
+                    redirect("member/verification2&id=".$_GET["id"]);
 
                 }
-                $worker->update($_GET["id"], $update_q);
-                $data["newData"]["verified"] = $update_q["verified"];
+
             }
             $this->view('member/verification5', $data);
         }
