@@ -70,7 +70,7 @@
 
         .scrollable-table {
             overflow: auto;
-            max-height: 700px;
+            max-height: 720px;
         }
     </style>
 </head>
