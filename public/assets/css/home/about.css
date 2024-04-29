@@ -109,6 +109,7 @@ h5 {
     color: #f16a2d;
     text-transform: uppercase;
     font-weight: bold;
+    display: none;
 }
 
 .about .detail-box p {
@@ -159,6 +160,7 @@ h5 {
 }
 
 /* mission */
+
 .mission .detail-box h2 {
     text-transform: uppercase;
     font-weight: bold;

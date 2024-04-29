@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Errand</title>
-    <link rel="stylesheet" href="about.css">
-    <link rel="stylesheet" href="about_responsive.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home/about.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home/about_responsive.css">
     <!-- font awesome style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <?php include 'home/homenavbar.php' ?>
     <!-- about section -->
     <div class="about">
         <div class="container">
@@ -33,7 +34,7 @@
 
                 <div class="col-lg-7 col-md-6 col">
                     <div class="img-box">
-                        <img src="images/about-head.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/about/about-head.png" alt="">
                     </div>
                 </div>
             </div>
@@ -75,7 +76,7 @@
                 
                 <div class="col-md-6 col">
                     <div class="img-box">
-                        <img src="images/hands.png" alt="">
+                        <img src="<?= ROOT ?>/assets/images/about/hands.png" alt="">
                     </div>
                 </div>
 
@@ -110,7 +111,7 @@
 
                 <div class="col-md-6 col">
                     <div class="img-box">
-                        <img src="images/story.jpg" alt="">
+                        <img src="<?= ROOT ?>/assets/images/about/story.jpg" alt="">
                     </div>
                 </div>
             </div>
