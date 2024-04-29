@@ -53,7 +53,7 @@
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
-                <tr>
+                <tr class="data">
                     <td><?= $request->id ?></td>
                     <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_id ?></a></td>
                     <td><?= $request->worker_id ?></td>
@@ -134,55 +134,49 @@
     const searchInput2 = document.getElementById('searchInput2');
     const searchInput3 = document.getElementById('searchInput3');
     const dataTable = document.getElementById('dataTable');
-    const rows = dataTable.getElementsByTagName('tr');
+    const rows = dataTable.querySelectorAll('.data');
 
-    searchInput.addEventListener('input', function() {
+
+    function matchFilters(row) {
+
         const searchString = searchInput.value.toLowerCase().trim();
+        const searchString2 = searchInput2.value.toLowerCase().trim();
+        const searchString3 = searchInput3.value.toLowerCase().trim();
 
+
+        const id = row.cells[0].innerText.toLowerCase();
+        const title = row.cells[4].innerText.toLowerCase();
+        const emp = row.cells[1].innerText.toLowerCase();
+        const worker_id = row.cells[2].innerText.toLowerCase();
+        const name = row.cells[3].innerText.toLowerCase();
+
+
+        const match = (searchString === "" || id.includes(searchString) || title.includes(searchString)) &&
+            (searchString2 === "" || emp.includes(searchString2)) &&
+            (searchString3 === "" || worker_id.includes(searchString3) || name.includes(searchString3))
+
+
+
+        return match;
+    }
+
+
+    // Function to filter rows based on all filter criteria
+    function filterRows() {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[4].innerText.toLowerCase();
-
-            if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
+            if (matchFilters(row)) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
             }
         }
-    });
+    }
 
-    searchInput2.addEventListener('input', function() {
-        const searchString = searchInput2.value.toLowerCase().trim();
-        console.log("hoo ah")
-
-        for (let j = 0; j < rows.length; j++) {
-            const row1 = rows[j];
-            const city = row1.cells[1].innerText.toLowerCase();
-
-            if ( city.indexOf(searchString) > -1) {
-                row1.style.display = '';
-            } else {
-                row1.style.display = 'none';
-            }
-        }
-    });
-
-    searchInput3.addEventListener('input', function() {
-        const searchString = searchInput3.value.toLowerCase().trim();
-
-        for (let i = 0; i < rows.length; i++) {
-            const row = rows[i];
-            const id = row.cells[2].innerText.toLowerCase();
-            const name = row.cells[3].innerText.toLowerCase();
-
-            if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
+    // Add event listeners to all filter inputs
+    searchInput.addEventListener('input', filterRows);
+    searchInput2.addEventListener('input', filterRows);
+    searchInput3.addEventListener('input', filterRows);
 
 
     function showConfirmationPopup(id) {

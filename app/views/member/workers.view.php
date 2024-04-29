@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admin/chat.css">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fc;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             overflow-y: hidden; /* Make the body scrollable */
@@ -28,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            background: #f4f7fc;
+            background: #f4f4f4;
         }
 
         .form-group {
@@ -62,9 +66,8 @@
 
         }
         .table th {
-            background-color: #f4f7fc;
+            background-color: #f4f4f4;
             color: black;
-            border-radius: 10px; /* Adding curve to table headers */
         }
 
         .table tr:nth-child(even) {
@@ -130,12 +133,12 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #f4f7fc">Registered Workers</h2>
-    <form style="background: #f4f7fc">
+    <h2 style="background: #f4f4f4; font-family: 'Arial', sans-serif">Registered Workers</h2>
+    <form style="background: #f4f4f4">
         <div class="form">
             <!-- Category Selector -->
-            <select class="form-group" name="category">
-                <option value="all">All Categories</option>
+            <select class="form-group" name="category" id = "searchInput">
+                <option value="All">All</option>
                 <option value="Technicians">Technicians</option>
                 <option value="AC Repairs">AC Repairs</option>
                 <option value="CCTV">CCTV</option>
@@ -149,11 +152,15 @@
                 <option value="Pest Controllers">Pest Controllers</option>
                 <option value="Plumbing">Plumbing</option>
                 <option value="Wood Works">Wood Works</option>
+                <option value="Garden">Garden</option>
+                <option value="Painting">Painting</option>
+                <option value="Roofing">Roofing</option>
                 <!-- Add more categories as needed -->
             </select>
             <!-- Search bar -->
             <input id="searchInput2" class="form-group" type="text" placeholder="Search Location...">
-            <input style="margin-right: 10%" id="searchInput" class="form-group" type="text" placeholder="Search by Name or ID">
+            <input id="searchInput3" class="form-group" type="text" placeholder="Search Worker ID">
+            <input style="margin-right: 10%" id="searchInput4" class="form-group" type="text" placeholder="Search by Name or ID">
         </div>
     </form>
     <div style="overflow-y: scroll; height: 700px">
@@ -161,21 +168,27 @@
         <table class="table" >
             <thead>
             <tr>
+                <th class="ordId"></th>
                 <th class="ordId">ID</th>
+                <th class="ordId">Worker ID</th>
                 <th class="ordId"></th>
                 <th class="ordId">Worker Name</th>
                 <th class="desc">Category</th>
                 <th class="stth">Username</th>
                 <th class="stth">Location</th>
                 <th class="cost">Verified</th>
+                <!--                <th class="cost">message</th>-->
                 <th class="verified">Profile</th>
             </tr>
             </thead>
 
             <tbody >
-            <?php foreach ($data as $worker) : ?>
-                <tr>
-                    <td><?= $worker->id ?></td>
+            <?php $index = 0;
+            foreach ($data as $worker) : $index = $index + 1?>
+                <tr class="datax">
+                    <td><?= $index ?></td>
+                    <td><?= $worker->emp_id ?></td>
+                    <td><?= $worker->work_id ?></td>
                     <td>
                         <div style="position: relative">
                             <!--                            --><?php //var_dump($worker)?>
@@ -195,7 +208,7 @@
                             <span>Not Verified</span>
                         <?php endif; ?>
                     </td>
-                    <td class="edit-view-profile"><a href="<?= ROOT ?>/member/verification2&id=<?= $worker->id ?>">
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/member/verification2&id=<?= $worker->work_id ?>">
                             <span class="link_name"><i class="fas fa-user icon"></i></span>
                         </a></td>
                 </tr>
@@ -205,85 +218,73 @@
     </div>
 
 </section>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+
+
+<!--<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>-->
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
+
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get select element
-        let categorySelect = document.querySelector('select[name="category"]');
-        let tableRows = document.querySelectorAll('.table tbody tr');
-
-        // Add event listener to category select
-        categorySelect.addEventListener('change', function() {
-            let selectedCategory = categorySelect.value;
-
-            // Loop through all table rows
-            tableRows.forEach(function(row) {
-                let categoryCell = row.querySelector('td:nth-child(4)').textContent; // Adjusted index for category cell
-
-                // Check if selected category is "All Categories" or matches row's category
-                if (selectedCategory === 'all' || categoryCell === selectedCategory) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        // Get input elements
-        let searchInput = document.getElementById('searchInput');
-        let searchInput2 = document.getElementById('searchInput2');
-
-        // Add event listener for searchInput
-        searchInput.addEventListener('input', function() {
-            let searchText = searchInput.value.trim(); // Trimmed whitespace
-            let isNumeric = /^\d+$/.test(searchText); // Check if input is numeric
-
-            // Loop through all table rows
-            tableRows.forEach(function(row) {
-                let id = row.querySelector('td:nth-child(1)').textContent.toLowerCase(); // Adjusted index for ID cell
-                let name = row.querySelector('td:nth-child(3)').textContent.toLowerCase(); // Adjusted index for name cell
-
-                // Check if input is numeric
-                if (isNumeric) {
-                    // Check if search text matches ID
-                    if (id.includes(searchText)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                } else {
-                    // Check if search text matches name
-                    if (name.includes(searchText)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                }
-            });
-        });
-
-        // Add event listener for searchInput2
-        searchInput2.addEventListener('input', function() {
-            let searchText2 = searchInput2.value.trim().toLowerCase(); // Trimmed whitespace
-
-            // Loop through all table rows
-            tableRows.forEach(function(row) {
-                let location = row.querySelector('td:nth-child(6)').textContent.toLowerCase(); // Adjusted index for location cell
-
-                // Check if search text matches location
-                if (location.includes(searchText2)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-    });
 
 
+    const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
+    const searchInput4 = document.getElementById('searchInput4');
+    const rows = document.querySelectorAll('.datax');
+
+    // Function to check if a row matches all filter criteria
+    // Function to check if a row matches all filter criteria
+    function matchFilters(row) {
+
+        const searchString = searchInput.value.toLowerCase().trim();
+        const searchString2 = searchInput2.value.toLowerCase().trim();
+        const searchString3 = searchInput3.value.toLowerCase().trim();
+        const searchString4 = searchInput4.value.toLowerCase().trim();
+
+
+        const category = row.cells[5].innerText.toLowerCase();
+        const city = row.cells[7].innerText.toLowerCase();
+        const worker_id = row.cells[2].innerText.toLowerCase();
+        const id = row.cells[1].innerText.toLowerCase();
+        const name = row.cells[4].innerText.toLowerCase();
+
+
+        const match = (searchString4 === "" || id.includes(searchString4) || name.includes(searchString4)) &&
+            (searchString2 === "" || city.includes(searchString2)) &&
+            (searchString3 === "" || worker_id.includes(searchString3)) &&
+            (searchString === "all" || category.includes(searchString))
+
+        console.log("Match:", match);
+
+        return match;
+    }
+
+
+    // Function to filter rows based on all filter criteria
+    function filterRows() {
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            if (matchFilters(row)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    }
+
+    // Add event listeners to all filter inputs
+    searchInput.addEventListener('change', filterRows);
+    searchInput2.addEventListener('input', filterRows);
+    searchInput3.addEventListener('input', filterRows);
+    searchInput4.addEventListener('input', filterRows);
 </script>
+
+
 </body>
 
 </html>

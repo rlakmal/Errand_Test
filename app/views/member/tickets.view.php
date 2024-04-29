@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/crewmember/tickets.css">
-    <title>Job Posts</title>
+    <title>Tickets</title>
     <style>
 
         /*body{*/
@@ -74,8 +74,9 @@
 
 <body>
 
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+<?php include 'navigationbar.php' ?>
+
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <div style="margin-top: -2%; position: relative; flex-direction: column">
@@ -85,7 +86,7 @@
 
         <!-- Search Bar -->
         <div class="search-container">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search ID or Title">
         </div>
 
         <!-- Add Filter Buttons -->
@@ -97,7 +98,7 @@
     <!-- Title -->
 
 
-    <div class="set-margin" id="set-marginid" style="position: fixed; height: 60%; margin-top: 10%; justify-content: center; overflow-y: scroll; width: 100%">
+    <div class="set-margin" id="set-marginid" style="position: fixed; height: 60%; margin-top: 230px; justify-content: center; overflow-y: scroll; width: 100%">
         <?php
         if (is_array($data)) {
             foreach ($data as $item) {

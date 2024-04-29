@@ -13,9 +13,21 @@ class EmployerAcc extends Controller
 
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $arr["id"] = $_GET["id"];
-                $user->delete($arr["id"]);
-                redirect("admin/employers");
+                if(isset($_POST["Delete"])){
+                    $arr["id"] = $_GET["id"];
+                    $user->delete($arr["id"]);
+                    redirect("admin/employers");
+                }
+
+                if(isset($_POST["deletereview"])){
+                    $arr["id"] = $_GET["id"];
+                    $review->delete($arr["id"]);
+
+                    $emp_id = $_POST["employerid"];
+
+                    redirect("admin/employeracc&id=".$emp_id);
+                }
+
             }
 
 

@@ -16,7 +16,7 @@
 
         /* Style for the "Powered by Google Translator" */
         .google-translate-element {
-            position: fixed;
+            position: relative;
             bottom: 10px;
             right: 10px;
             z-index: 9999;
@@ -26,6 +26,16 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Adjust the position of the Google Translate element */
+        #google_translate_element_sinhala {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            /* Ensure it's above other elements */
+        }
+
     </style>
 
 </head>
@@ -104,7 +114,7 @@
 
 </body>
 
-<!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script> -->
+ <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyAGNQQ9JIyk-p8Ta2FB2WtYqPaOn4nb3wQ&cb=googleTranslateElementInit"></script>
 
 
 <script>
@@ -135,6 +145,22 @@
     //     }
     //     select.dispatchEvent(new Event('change'));
     // }
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,si,ta' // Include Tamil (ta)
+        }, 'google_translate_element_sinhala');
+    }
+
+    function toggleLanguageTamil() {
+        var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+        if (select.value === 'en') {
+            select.value = 'ta'; // Switch to Tamil
+        } else {
+            select.value = 'en'; // Switch back to English
+        }
+        select.dispatchEvent(new Event('change'));
+    }
 </script>
 
 </html>
