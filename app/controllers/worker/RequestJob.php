@@ -89,7 +89,7 @@ class RequestJob extends Controller
                 $newdata['status'] = "Pending";
                 $newdata['location'] = $datal;
                 $newdata['expire_date'] = date('Y-m-d', strtotime("+1 week"));
-                $message = "Job have new Job request from {$worker_name}";
+                $message = "You have new Job request from {$worker_name}";
                 $array['message'] = $message;
                 $array['emp_id'] = $results[0]->emp_id;
                 $array['notification_name'] = $worker_name;

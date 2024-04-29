@@ -4,6 +4,14 @@ class Home extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
+        if (isset($_POST['send_btn'])) {
+            $contact = new ContactUs;
+            //show($_POST);
+            unset($_POST['send_btn']);
+            //show($_POST);
+            $contact->insert($_POST);
+            redirect('home');
+        }
         // require_once 'Model.php';
         // echo "this is a home controller";
 

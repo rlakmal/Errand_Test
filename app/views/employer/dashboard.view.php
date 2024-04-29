@@ -206,7 +206,7 @@
                             <svg>
                                 <circle cx='38' cy="38" r="36"></circle>
                             </svg>
-                            <div class="number">81%</div>
+                            <div class="number"> <?php echo $job_post; ?></div>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 hours</small>
@@ -221,10 +221,10 @@
                             <h1>Jobs</h1>
                         </div>
                         <div class="progress">
-                            <svg>
+                            <svg class="posted-jobs-circle">
                                 <circle cx='38' cy="38" r="36"></circle>
                             </svg>
-                            <div class="number">62%</div>
+                            <div class="number"><?php echo $job_completed; ?></div>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 hours</small>
@@ -235,14 +235,14 @@
                     <span class="material-symbols-sharp">stacked_line_chart</span>
                     <div class="middle">
                         <div class="left">
-                            <h3>Total Income</h3>
-                            <h1>$10,864</h1>
+                            <h3>Total Payments</h3>
+                            <h1>LKR <?php echo $payment * 1000; ?></h1>
                         </div>
                         <div class="progress">
-                            <svg>
+                            <svg class="paid-jobs-circle">
                                 <circle cx='38' cy="38" r="36"></circle>
                             </svg>
-                            <div class="number">44%</div>
+                            <div class="number"><?php echo $payment; ?></div>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 hours</small>
@@ -256,34 +256,37 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Payment</th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Worker</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Budget</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
+                            <td><?php echo $recent_req[0]->id ?></td>
+                            <td><?php echo $recent_req[0]->title ?></td>
+                            <td><?php echo $recent_req[0]->worker_name ?></td>
+                            <td><?php echo $recent_req[0]->status ?></td>
+                            <td>Rs <?php echo $recent_req[0]->budget ?></td>
+
                         </tr>
                         <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
+                            <td><?php echo $recent_req[1]->id ?></td>
+                            <td><?php echo $recent_req[1]->title ?></td>
+                            <td><?php echo $recent_req[1]->worker_name ?></td>
+                            <td><?php echo $recent_req[1]->status ?></td>
+                            <td>Rs <?php echo $recent_req[1]->budget ?></td>
+
                         </tr>
                         <tr>
-                            <td>Foldable Mini Drone</td>
-                            <td>85631</td>
-                            <td>Due</td>
-                            <td class="warning">Pending</td>
-                            <td class="primary">Details</td>
+                            <td><?php echo $recent_req[2]->id ?></td>
+                            <td><?php echo $recent_req[2]->title ?></td>
+                            <td><?php echo $recent_req[2]->worker_name ?></td>
+                            <td><?php echo $recent_req[2]->status ?></td>
+                            <td>Rs <?php echo $recent_req[2]->budget ?></td>
+
                         </tr>
                         <!--                         <tr>
                             <td>Foldable Mini Drone</td>
@@ -332,28 +335,28 @@
                 <div class="updates">
                     <div class="update">
                         <div class="profile-photo">
-                            <img src="./images/profile-2.jpg">
+
                         </div>
                         <div class="message">
-                            <p><b>Mike Tyson</b> recieved his order of Night lion tech GPS drone.</p>
+                            <p><b><?php echo $notify[0]->notification_name ?></b> <?php echo $notify[0]->message ?></p>
                             <small class="text-muted">2 minutes ago</small>
                         </div>
                     </div>
                     <div class="update">
                         <div class="profile-photo">
-                            <img src="./images/profile-3.jpg">
+
                         </div>
                         <div class="message">
-                            <p><b>Diana Ayi</b> declined her order of 2 DJI Air 2S.</p>
+                            <p><b><?php echo $notify[1]->notification_name ?></b> <?php echo $notify[1]->message ?></p>
                             <small class="text-muted">5 minutes ago</small>
                         </div>
                     </div>
                     <div class="update">
                         <div class="profile-photo">
-                            <img src="./images/profile-4.jpg">
+
                         </div>
                         <div class="message">
-                            <p><b>Mandy Roy</b> recieved his order of LAVENDER KF102 Drone.</p>
+                            <p><b><?php echo $notify[2]->notification_name ?></b> <?php echo $notify[2]->message ?></p>
                             <small class="text-muted">6 minutes ago</small>
                         </div>
                     </div>
@@ -421,6 +424,36 @@
     <script src="<?= ROOT ?>/assets/js/employer/addpost.js"></script>
     <!-- Custom JS for Sidebar -->
     <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
+    <script>
+        // Get the elements representing the SVG circles and the numbers
+        const postedJobsCircle = document.querySelector('.posted-jobs-circle circle');
+        const paidJobsCircle = document.querySelector('.paid-jobs-circle circle');
+        const jobPostNumber = <?php echo $job_post; ?>;
+        const jobCompletedNumber = <?php echo $job_completed; ?>;
+        const payment = <?php echo $payment; ?>;
+
+        // Calculate the percentage of completed jobs
+        const completionPercentage = (jobCompletedNumber / jobPostNumber) * 100;
+        const paidPercentage = (payment / jobPostNumber) * 100;
+
+        // Calculate the stroke-dasharray and stroke-dashoffset to fill the circle accordingly
+        const circumference = Math.PI * postedJobsCircle.r.baseVal.value * 2;
+        const strokeDashArray = circumference;
+        const strokeDashOffset = circumference * (1 - (completionPercentage / 100));
+
+        const paidcircumference = Math.PI * paidJobsCircle.r.baseVal.value * 2;
+        const paidstrokeDashArray = paidcircumference;
+        const paidstrokeDashOffset = paidcircumference * (1 - (paidPercentage / 100));
+
+        console.log(strokeDashOffset);
+        console.log(strokeDashArray);
+
+        // Set the stroke-dasharray and stroke-dashoffset attributes to fill the circle
+        postedJobsCircle.setAttribute('stroke-dasharray', strokeDashArray);
+        postedJobsCircle.setAttribute('stroke-dashoffset', strokeDashOffset);
+        paidJobsCircle.setAttribute('stroke-dasharray', paidstrokeDashArray);
+        paidJobsCircle.setAttribute('stroke-dashoffset', paidstrokeDashOffset);
+    </script>
 </body>
 
 </html>

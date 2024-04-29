@@ -4,8 +4,10 @@
 --------------------------------------------------------------------- */
 route('home', 'Home@index');
 route('home/payment', 'Payment@index');
+route('home/verifyloginuser', 'VerifyLogin@index');
 
 route('home/signin', 'SignIn@index');
+route('home/signinverify', 'SignVerify@index');
 route('home/forgetpwd', 'ForgotPwd@index');
 route('home/resetpasswrd', 'ResetPwd@index');
 route('home/signin2', 'SignIn2@index');
@@ -47,6 +49,7 @@ route('employer/tickets', 'employer/Tickets@index');
 route('employer/acceptedreq', 'employer/AcceptedRequest@index');
 route('employer/viewjob', 'employer/ViewJob@index');
 route('employer/reviewreq', 'employer/ReviewRequest@index');
+route('employer/verifyemp', 'employer/VerifyEmployer@index');
 
 
 // AJAX
@@ -91,6 +94,7 @@ route('worker/completedjobs', 'worker/CompletedJobs@index');
 route('worker/workerprofile', 'worker/WorkerProfile@index');
 route('worker/notifications', 'worker/WorkerNotification@index');
 route('worker/editprofile', 'worker/EditProfile@index');
+route('worker/verifyworker', 'worker/VerifyWorker@index');
 
 route('worker/ongoingjobs', 'worker/OngoingJobs@index');
 
