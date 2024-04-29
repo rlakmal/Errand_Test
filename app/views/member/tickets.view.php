@@ -74,8 +74,9 @@
 
 <body>
 
-<?php include 'navigationbar.php' ?>
 <?php include 'sidebar.php' ?>
+<?php include 'navigationbar.php' ?>
+
 <script src="<?= ROOT ?>/assets/js/script-bar.js"></script>
 
 <div style="margin-top: -2%; position: relative; flex-direction: column">
