@@ -25,52 +25,46 @@ class User
 	{
 		$this->errors = [];
 
-		// is empty name 
+		// Check if name is empty
 		if (empty($data['name'])) {
-			// flag mean erros include
-			$this->errors['flag'] = true;
+			echo "<script>alert('Full Name is Required');</script>";
 			$this->errors['fullname'] = "Full Name is Required";
-		}
-		// name validation
-		if (!preg_match("/^[a-zA-Z ]*$/", $data['name'])) {
-			$this->errors['flag'] = true;
-			$this->errors['fullname'] = array('nameError' => "Use only letters and spaces", "name" => "Full Name is not valid");
-			// $this->errors[] = ;
+		} else {
+			// Name validation
+			if (!preg_match("/^[a-zA-Z ]*$/", $data['name'])) {
+				echo "<script>alert('Use only letters and spaces');</script>";
+				$this->errors['fullname'] = "Use only letters and spaces";
+			}
 		}
 
-		// is empty email 
+		// Check if email is empty
 		if (empty($data['email'])) {
-			$this->errors['flag'] = true;
+			echo "<script>alert('Email is Required');</script>";
 			$this->errors['email'] = "Email is Required";
-		}
-		// email validation
-		if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-			$this->errors['flag'] = true;
-			$this->errors['email'] = "Email is not Valid";
+		} else {
+			// Email validation
+			if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+				echo "<script>alert('Email is not Valid');</script>";
+				$this->errors['email'] = "Email is not Valid";
+			}
 		}
 
-		// is empty password 
+		// Check if password is empty
 		if (empty($data['password'])) {
-			// $this->errors['flag'] = true;
-			$this->errors['password'] = array("err" => "password is Required", "flag" => true);
+			echo "<script>alert('Password is Required');</script>";
+			$this->errors['password'] = "Password is Required";
+		} else {
+			// Check if passwords match
+			if ($data['password'] !== $data['re-password']) {
+				echo "<script>alert('Passwords do not match');</script>";
+				$this->errors['password'] = "Passwords do not match";
+			}
 		}
-		// password validation
-		if (!$data['password'] === $data['re-password']) {
-			$this->errors['flag'] = true;
-			$this->errors['password'] = "password is not same";
-		}
-		// else if (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$/", $data['password'])) {
-		// 	$this->errors['flag'] = true;
-		// 	$this->errors['password'] = "password is not Valid";
-		// 	$this->errors['passwordError'] = "Contain [a-z/A-Z/0-9/!@#\$&*~]";
-		// }
 
-
-		// show($this->errors);
+		// If there are no errors
 		if (empty($this->errors)) {
-
-			// password hashing 
-			$password = $_POST['password'];
+			// Password hashing 
+			$password = $data['password'];
 			$hash = password_hash($password, PASSWORD_BCRYPT);
 			$_POST['password'] = $hash;
 			return true;
@@ -82,34 +76,34 @@ class User
 
 	public function formData($data)
 	{
-        $this->errors2 = [];
+		$this->errors = [];
 
 
-        // show($data);
+		// show($data);
 		// is empty email 
 		if (empty($data['email'])) {
 
-			$this->errors2['flag'] = true;
-            $this->errors2['email'] = "Email is Required";
+			$this->errors['flag'] = true;
+			$this->errors['email'] = "Email is Required";
 		}
 
 		// email validation
 		if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            $this->errors2['flag'] = true;
-            $this->errors2['email'] = "Email is not Valid";
+			$this->errors['flag'] = true;
+			$this->errors['email'] = "Email is not Valid";
 		}
 
 		// is empty password 
 		if (empty($data['password'])) {
-            $this->errors2['flag'] = true;
-            $this->errors2['password'] = "password is Required";
+			$this->errors['flag'] = true;
+			$this->errors['password'] = "password is Required";
 		}
 
-		if (empty($this->errors2)) {
+		if (empty($this->errors)) {
 			return true;
 		} else {
-            $this->errors2['password1'] = $data['password'];
-            $this->errors2['email1'] = $data['email'];
+			$this->errors['password1'] = $data['password'];
+			$this->errors['email1'] = $data['email'];
 
 			return false;
 		}

@@ -15,6 +15,10 @@
         padding-top: 45px;
     }
 
+    .hero .row .col .img-box img {
+        height: 586px;
+    }
+
     .feature .feature_container .box {
         padding: 30px 15px;
     }
@@ -48,6 +52,10 @@
 
     .hero .detail-box {
         padding-bottom: 45px;
+    }
+
+    .hero .row .col .img-box img {
+        height: 100%;
     }
 
     .feature .feature_container {
