@@ -13,6 +13,11 @@
         flex: 0 0 50%;
         max-width: 50%;
     }
+
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
 }
 
 @media (min-width: 992px) {
@@ -30,6 +35,11 @@
         max-width: 58.333333%;
     }
 
+    .col-lg-10 {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    } 
+
     .about img {
         scale: 0.8;
     }
@@ -37,6 +47,7 @@
     .about .detail-box h2 {
         display: block;
     }
+
 }
 
 @media (min-width: 1200px) {
