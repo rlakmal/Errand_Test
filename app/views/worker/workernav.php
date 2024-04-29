@@ -9,7 +9,7 @@
     <style>
         /* Style for the "Powered by Google Translator" */
         .google-translate-element {
-            position: fixed;
+            position: relative;
             bottom: 10px;
             right: 10px;
             z-index: 9999;
@@ -20,6 +20,14 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Adjust the position of the Google Translate element */
+        #google_translate_element_sinhala {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            /* Ensure it's above other elements */
+        }
         .round {
             width: 27px;
             /* height: 20px; */
@@ -119,7 +127,7 @@
     </div>
     <script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
 
-    <!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script> -->
+     <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -174,6 +182,23 @@
         //     }
         //     select.dispatchEvent(new Event('change'));
         // }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,si,ta' // Include Tamil (ta)
+            }, 'google_translate_element_sinhala');
+        }
+
+        function toggleLanguageTamil() {
+            var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+            if (select.value === 'en') {
+                select.value = 'ta'; // Switch to Tamil
+            } else {
+                select.value = 'en'; // Switch back to English
+            }
+            select.dispatchEvent(new Event('change'));
+        }
     </script>
 </body>
 

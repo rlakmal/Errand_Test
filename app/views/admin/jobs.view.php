@@ -67,7 +67,7 @@
 
         .searchbar{
 
-            width: 28%;
+            width: 55%;
             right: -20%;
             position: relative;
             display: flex;
@@ -117,7 +117,7 @@
             font-size: 14px; /* Decreased font size */
         }
 
-        .profile-type {
+        .profile-type, .category {
             font-style: italic;
             color: #555; /* Slightly darkened text color */
             font-size: 14px; /* Increased font size */
@@ -128,8 +128,8 @@
         }
 
         .budget {
-            font-weight: bold;
-            color: #009688; /* Custom color for budget */
+            /*font-weight: bold;*/
+            /*color: #f16a2d; !* Custom color for budget *!*/
             font-size: 17px; /* Increased font size */
         }
 
@@ -277,6 +277,23 @@
             color: red;
         }
 
+        .filter{
+            width:500px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .notcomplete{
+            background: red;
+        }
+
+        .complete{
+            background: #f16a2d;
+        }
+
+
+
+
     </style>
     <title>Jobs</title>
 </head>
@@ -294,16 +311,44 @@
     <div  style="text-align: center">
         <h2 style="margin-top: 20px; font-family: 'Arial', sans-serif">Posted Jobs</h2>
     </div>
-    <div style="flex-direction: row;  position: relative">
+    <div style="flex-direction: column;  position: relative">
         <div class = "searchbar">
-            <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">
-            <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">
+            <input class="search-input" type="text" name="query" id="searchInput" placeholder="Search by title or ID">
+            <input class="search-input" type="text" name="query" id="searchInput2" placeholder="Location">
+            <select class="search-input" id = "searchInput3">
+                <option value="All">All</option>
+                <option value="Technicians">Technicians</option>
+                <option value="AC Repairs">AC Repairs</option>
+                <option value="CCTV">CCTV</option>
+                <option value="Constructions">Constructions</option>
+                <option value="Electricians">Electricians</option>
+                <option value="Electronic Repairs">Electronic Repairs</option>
+                <option value="Glass & Aluminium">Glass & Aluminium</option>
+                <option value="Iron Works">Iron Works</option>
+                <option value="Masonry">Masonry</option>
+                <option value="Odd Jobs">Odd Jobs</option>
+                <option value="Pest Controllers">Pest Controllers</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Wood Works">Wood Works</option>
+                <option value="Garden">Garden</option>
+                <option value="Painting">Painting</option>
+                <option value="Roofing">Roofing</option>
+                <option value="Cleaning">Cleaning</option>
+
+            </select>
+            <button class="search-input filter" id="complete" onclick="com()">Complete</button>
+            <button class="search-input filter" id="notcomplete" onclick="notcom()">Not Complete</button>
 
             <!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
         </div>
-        <button  id = "complete" >Complete</button>
-        <button  id = "notcomplete" >Not Complete</button>
+
     </div>
+<!--    <div class = "searchbar">-->
+<!--        <input class="search-input" type="text" name="query" id="searchQuery" placeholder="Search by title or ID">-->
+<!--        <input class="search-input" type="text" name="query" id="searchQuery2" placeholder="Location">-->
+<!---->
+<!--        <!--        <i style="margin-right: 55%; position: fixed" class='bx bx-search icon'></i>-->
+<!--    </div>-->
 
 
 </div>
@@ -345,13 +390,14 @@
                         <div class="index">
                             <div class="profile-name"><?php echo $item->name ?></div>
                             <div class="profile-type"><?php echo $item->title ?></div>
+                            <div class="category" style="color: #f16a2d"><?php echo $item->category ?></div>
                             <div class="profile-id">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
                             <div class="profile-type">job no: <?php echo $item->id ?></div> <!-- Hidden profile ID -->
                             <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
 
                         </div>
                         <div class = "right-container">
-                            <div class="profile-ratings <?php echo ($item->job_status == "not_completed")?  "com": "not_com"?>"><?php echo ($item->job_status == "not_completed")?  "Not Complete": "Complete"?></div>
+                            <div class="profile-ratings <?php echo ($item->job_status == "not_completed")?  "com": "not_com"?>  datax"><?php echo ($item->job_status == "not_completed")?  "Not Complete": "Complete"?></div>
 
                             <div class="profile-ratings"><?php echo $times_ago ?></div>
 
@@ -390,43 +436,62 @@
 
 
 <script>
-    // Get reference to the search input field
-    const searchInput = document.getElementById('searchQuery');
-    const searchInput2 = document.getElementById('searchQuery2');
-
-    // Add event listener for input change
-    searchInput.addEventListener('input', function() {
-        const searchValue = this.value.trim().toLowerCase();
-
-        const postFrames = document.querySelectorAll('.post-frame');
-
-        postFrames.forEach(frame => {
-            const title = frame.querySelector('.profile-type').textContent.toLowerCase();
-            const id = frame.querySelector('.profile-id').textContent.toLowerCase();
-
-            if (title.includes(searchValue) || id.includes(searchValue)) {
-                frame.style.display = 'block';
-            } else {
-                frame.style.display = 'none';
-            }
-        });
-    });
-
-    searchInput2.addEventListener('input', function() {
-        const searchValue = this.value.trim().toLowerCase();
-
-        const postFrames = document.querySelectorAll('.post-frame');
-
-        postFrames.forEach(frame => {
-            const location = frame.querySelector('.location').textContent.toLowerCase();
-
-            if (location.includes(searchValue)) {
-                frame.style.display = 'block';
-            } else {
-                frame.style.display = 'none';
-            }
-        });
-    });
+    // // Get reference to the search input field
+    // const searchInput = document.getElementById('searchQuery');
+    // const searchInput2 = document.getElementById('searchQuery2');
+    //
+    // // Add event listener for input change
+    // searchInput.addEventListener('input', function() {
+    //     const searchValue = this.value.trim().toLowerCase();
+    //
+    //     const postFrames = document.querySelectorAll('.post-frame');
+    //
+    //     postFrames.forEach(frame => {
+    //         const title = frame.querySelector('.profile-type').textContent.toLowerCase();
+    //         const id = frame.querySelector('.profile-id').textContent.toLowerCase();
+    //
+    //         if (title.includes(searchValue) || id.includes(searchValue)) {
+    //             frame.style.display = 'block';
+    //         } else {
+    //             frame.style.display = 'none';
+    //         }
+    //     });
+    // });
+    //
+    // searchInput2.addEventListener('input', function() {
+    //     const searchValue = this.value.trim().toLowerCase();
+    //
+    //     const postFrames = document.querySelectorAll('.post-frame');
+    //
+    //     postFrames.forEach(frame => {
+    //         const location = frame.querySelector('.location').textContent.toLowerCase();
+    //
+    //         if (location.includes(searchValue)) {
+    //             frame.style.display = 'block';
+    //         } else {
+    //             frame.style.display = 'none';
+    //         }
+    //     });
+    // });
+    //
+    // let categorySelect = document.querySelector('select');
+    // const postFrames = document.querySelectorAll('.post-frame');
+    //
+    //
+    // // Add event listener to category select
+    // categorySelect.addEventListener('change', function() {
+    //     let selectedCategory = categorySelect.value.trim().toLowerCase();
+    //
+    //     postFrames.forEach(function(frame) {
+    //         let categoryCell = frame.querySelector('.category').textContent.toLowerCase(); // Adjusted index for category cell
+    //
+    //         if (selectedCategory === 'all' || categoryCell.includes(selectedCategory)) {
+    //             frame.style.display = '';
+    //         } else {
+    //             frame.style.display = 'none';
+    //         }
+    //     });
+    // });
 
         // Add event listener to delete buttons
         const deleteButtons = document.querySelectorAll('.delete-button');
@@ -449,6 +514,123 @@
         document.getElementById('popup').style.display = 'none';
         document.querySelector('.popup-overlay').style.display = 'none';
     });
+
+</script>
+
+<script>
+
+    const searchInput = document.getElementById('searchInput');
+    const searchInput2 = document.getElementById('searchInput2');
+    const searchInput3 = document.getElementById('searchInput3');
+    let complete = false
+    let notcomplete = false;
+    const postFrames = document.querySelectorAll('.post-frame');
+
+    function matchFilters(frame) {
+
+        const searchString = searchInput.value.toLowerCase().trim();
+        const searchString2 = searchInput2.value.toLowerCase().trim();
+        const searchString3 = searchInput3.value.toLowerCase().trim();
+
+
+        const title = frame.querySelector('.profile-type').textContent.toLowerCase();
+        const id = frame.querySelector('.profile-id').textContent.toLowerCase();
+        const location =  frame.querySelector('.location').textContent.toLowerCase()
+
+        const category =  frame.querySelector('.category').textContent.toLowerCase()
+        const status =  frame.querySelector('.datax').textContent
+        console.log(status)
+
+
+        const match = (searchString === "" || id.includes(searchString) || title.includes(searchString)) &&
+            (searchString2 === "" || location.includes(searchString2)) &&
+            (searchString3 === "all" || category.includes(searchString3)) &&
+            (((!complete && !notcomplete) || (status === "Complete" && complete)) || ( (!complete && !notcomplete) || (status === "Not Complete" && notcomplete)))
+
+        // console.log("Match:", match);
+
+        return match;
+    }
+
+
+    // Function to filter rows based on all filter criteria
+    function filterRows() {
+        for (let i = 0; i < postFrames.length; i++) {
+            const frame = postFrames[i];
+            if (matchFilters(frame)) {
+                frame.style.display = 'block';
+            } else {
+                frame.style.display = 'none';
+            }
+        }
+    }
+
+    // Add event listeners to all filter inputs
+    searchInput.addEventListener('input', filterRows);
+    searchInput2.addEventListener('input', filterRows);
+    searchInput3.addEventListener('input', filterRows);
+
+    function com (){
+        // const postFrames = document.querySelectorAll('.post-frame');
+
+        if(!complete){
+            document.getElementById("complete").classList.add("complete")
+        //
+        //     postFrames.forEach(frame => {
+        //         const status = frame.querySelector('.datax').textContent;
+        //
+        //
+        //         if (status === "Complete") {
+        //             frame.style.display = 'block';
+        //         } else {
+        //             frame.style.display = 'none';
+        //         }
+        //     });
+        //
+        } else {
+
+            document.getElementById("complete").classList.remove("complete")
+        //     postFrames.forEach(frame => {
+        //         frame.style.display = "block";
+        //     });
+        }
+        complete = !complete;
+
+        console.log(complete)
+
+        filterRows()
+
+    }
+
+    function notcom (){
+
+        // const postFrames = document.querySelectorAll('.post-frame');
+        //
+        if(!notcomplete){
+            document.getElementById("notcomplete").classList.add("notcomplete")
+        //     postFrames.forEach(frame => {
+        //         const status = frame.querySelector('.datax').textContent;
+        //
+        //
+        //         if (status === "Not Complete") {
+        //             frame.style.display = 'block';
+        //         } else {
+        //             frame.style.display = 'none';
+        //         }
+        //     });
+        } else {
+            document.getElementById("notcomplete").classList.remove("notcomplete")
+        //     postFrames.forEach(frame => {
+        //         frame.style.display = "block";
+        //     });
+        //
+        }
+        notcomplete = !notcomplete;
+
+        console.log(notcomplete)
+        filterRows()
+
+    }
 
 </script>
 
