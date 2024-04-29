@@ -133,7 +133,7 @@
 
 <!-- content  -->
 <section id="main" class="main">
-    <h2 style="background: #f4f4f4">Registered Workers</h2>
+    <h2 style="background: #f4f4f4; font-family: 'Arial', sans-serif">Registered Workers</h2>
     <form style="background: #f4f4f4">
         <div class="form">
             <!-- Category Selector -->
@@ -205,7 +205,7 @@
                             <span>Not Verified</span>
                         <?php endif; ?>
                     </td>
-                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->work_id ?>">
+                    <td class="edit-view-profile"><a href="<?= ROOT ?>/admin/workerprof&id=<?= $worker->emp_id ?>">
                             <span class="link_name"><i class="fas fa-user icon"></i></span>
                         </a></td>
                 </tr>

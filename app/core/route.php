@@ -124,6 +124,7 @@ route('admin/message', 'admin/Message@index');
 route('admin/emprequests', 'admin/EmpRequests@index');
 route('admin/workrequests', 'admin/WorkRequests@index');
 route('admin/accrequests', 'admin/AccRequests@index');
+route('admin/bargains', 'admin/Bargains@index');
 route('admin/viewjob', 'admin/ViewJob@index');
 route('admin/editemployeracc', 'admin/EditEmployerAcc@index');
 route('admin/editworkerprof', 'admin/EditWorkerProf@index');

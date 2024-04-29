@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
   <!-- NavBar -->
   <!-- <div class="homenavbar">
         <header>
@@ -137,7 +138,25 @@
           </div>
         </div>
 
-      </div>
+
+        <!-- about section -->
+        <div class="about sections layout_padding-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col">
+
+                        <div class="detail-box">
+                            <h2>
+                            About us
+                            </h2>
+                            <p>
+                                At Errand, we bridge the gap between you and the dependable help you need to complete any task, no matter how big or small. Founded with the vision to streamline the process of finding and hiring local workers, we provide a secure, user-friendly platform where every job can be handled with precision and professionalism.
+                            </p>
+                            <a href="<?= ROOT ?>/about">
+                            Read More
+                            </a>
+                        </div>
+                    </div>
 
     </div>
     <!-- end of about section -->
@@ -184,21 +203,21 @@
 
         <div class="row">
 
-          <div class="col-sm-6 col-md-4 m-auto col">
-            <div class="box">
-              <div class="img-box">
-                <img src="<?= ROOT ?>/assets/images/home/s1.png" alt="" />
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Maintenance
-                </h5>
-                <p>
-                  Ensure your property stays in top condition with our Errand comprehensive maintenance services.
-                </p>
-              </div>
-            </div>
-          </div>
+                  <div class="col-md-6 col">
+                    <div class="detail-box">
+                      <h2>
+                        We Provide Professional <br>
+                        Home Services.
+                      </h2>
+                      <p>
+                        Errand offers a comprehensive range of services to meet all your household needs. Whether you need someone to fix a leaky faucet or help with a install a new security system, our platform connects you with skilled professionals ready to assist. Each task is completed with efficiency and reliability, ensuring satisfaction every time. Dive deeper into our full spectrum of services and see how we can help you tackle your next project.
+                      </p>
+                      <a href="<?= ROOT ?>/about">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+
 
           <div class="col-sm-6 col-md-4 m-auto col">
             <div class="box">
@@ -277,10 +296,18 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </div>
                 </div>
+
                 <div class="client_text">
                   <p>
                     "Errand made my kitchen renovation a breeze! I posted my project, quickly received multiple bids, and chose a contractor with excellent reviews. The work was top-notch and completed ahead of schedule. Errand is a game-changer for any home project!"
                   </p>
+
+
+                <div class="btn-box">
+                  <a href="<?= ROOT ?>/home/signin">
+                    Sign Up Now
+                  </a>
+\
                 </div>
               </div>
             </div>
@@ -439,6 +466,7 @@
       </div>
     </div>
 
+
     <!-- footer -->
     <!-- <div class="footer sections" style="background-color: black">
             <div class="container">
@@ -535,6 +563,7 @@
       }
     }
   </script>
+
 </body>
 
 </html>

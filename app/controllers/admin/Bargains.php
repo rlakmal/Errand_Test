@@ -1,11 +1,12 @@
 <?php
 
-class WorkRequests extends Controller
+class Bargains extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
-        $request = new WorkeRrequestJobs();
+        $request = new Bargainbgt();
+        $emp_request = new EmployerReqWorker();
 
         $data["requests"] = $request->findAll();
 
@@ -14,7 +15,7 @@ class WorkRequests extends Controller
             if (isset($_POST["delete"])) {
                 $arr["id"] = $_GET["id"];
                 $request->delete($arr["id"]);
-                redirect("admin/workrequests");
+                redirect("admin/bargains");
             }
 
             if(isset($_POST["update"])){
@@ -23,11 +24,11 @@ class WorkRequests extends Controller
                 unset($_POST["id"]);
                 unset($_POST["update"]);
                 $request->update($id, $_POST);
-                redirect("admin/workrequests");
+                redirect("admin/bargains");
 
             }
 
-            $this->view('admin/workrequests', $data);
+            $this->view('admin/bargains', $data);
 
         }
     }

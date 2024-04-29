@@ -9,6 +9,8 @@ class EmployerAcc extends Controller
         if ($username != 'User' && $_SESSION['USER']->status == 'admin') {
 
             $user = new User;
+            $review = new Ratings();
+
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $arr["id"] = $_GET["id"];
@@ -20,6 +22,10 @@ class EmployerAcc extends Controller
             $use_id = $_GET["id"];
 
             $data = $this->create($user, $use_id);
+
+            $qdata["emp_id"] = $use_id;
+            $reviews = $review->where($qdata, "id");
+            $data["reviews"] = $reviews;
             //show($data);
 
 

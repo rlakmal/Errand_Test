@@ -36,7 +36,8 @@
         <!-- End of Sidebar -->
 
         <!-- Main Content -->
-        <main class="main" style="overflow-y: scroll; height: 800px">
+        <main class="main" style="overflow-y: scroll; height: 800px; margin-top: -3%">
+            <h2 style="  margin-top: ; font-size: 25px; position: fixed; z-index: 9999; background: white; width: 100%; padding: 13px">Hello, <?= $_SESSION["USER"]->name?>!</h2>
 
             <div class="cardBox">
 

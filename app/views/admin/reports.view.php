@@ -33,8 +33,8 @@
 
 
 <!-- content  -->
-<section  id="main" class="main" style=" max-height: 90vh; margin-top: 15px; overflow-y: hidden; width: 95%; justify-content: left">
-    <h2 >Reports</h2>
+<section  id="main" class="main" style=" max-height: 90vh; overflow-y: hidden; width: 95%; justify-content: left">
+    <h2 style="font-family: 'Arial', sans-serif">Reports</h2>
 
    <div style="overflow-y: scroll; height: 800px">
        <h2 class = "titles" style="text-align: center">User</h2>

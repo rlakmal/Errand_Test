@@ -1,0 +1,78 @@
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 767px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .col-lg-5 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+
+    .col-lg-7 {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+    }
+
+    .about img {
+        scale: 0.8;
+    }
+
+    .about .detail-box h2 {
+        display: block;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+@media (max-width: 767px) {
+    .layout_padding {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .layout_padding-top {
+        padding-top: 90px;
+    }
+
+    .layout_padding-bottom {
+        padding-bottom: 90px;
+    }
+
+    .about .detail-box {
+        margin-bottom: 45px;
+    }
+    .mission .detail-box {
+        margin-bottom: 45px;
+    }
+    .story .detail-box {
+        margin-bottom: 45px;
+    }
+
+    .info .info_items::before {
+        width: 1px;
+        height: 90%;
+        top: 25px;
+    }
+
+}

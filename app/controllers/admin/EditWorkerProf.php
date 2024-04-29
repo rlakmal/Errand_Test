@@ -55,7 +55,7 @@ class EditWorkerProf extends Controller
 
                 $user->update($user_id, $udata);
 
-                redirect("admin/workerprof?id=".$id);
+                redirect("admin/workerprof?id=".$data["newData"]["emp_id"]);
             }
 
             $this->view('admin/editworkerprof', $data);

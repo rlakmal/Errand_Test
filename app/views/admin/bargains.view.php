@@ -24,12 +24,12 @@
 
 <!-- content -->
 <section id="main" class="main" style="margin-top: 15px">
-    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Worker Requests</h2>
+    <h2 style="background: white; font-family: 'Arial', sans-serif; margin-top: 6px">Current Bargains</h2>
     <div class="form">
-        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by Request ID or Title">
+        <input id="searchInput" style="width: 16%" class="form-group" type="text" placeholder="Search by ID or Title">
         <i class='bx bx-search icon'></i>
 
-        <input id="searchInput2" style="width: 13%" class="form-group" type="text" placeholder="Search by Location">
+        <input id="searchInput2" style="width: 13%" class="form-group" type="text" placeholder="Search by Employer ID">
         <i class='bx bx-search icon'></i>
         <input id="searchInput3" style="width: 17%" class="form-group" type="text" placeholder="Search by Worker ID or Name">
         <i class='bx bx-search icon'></i>
@@ -41,36 +41,29 @@
                 <th>ID</th>
                 <th>Employer ID</th>
                 <th>Worker ID</th>
-                <th>Employer</th>
                 <th>Worker</th>
                 <th>Title</th>
                 <th>New Budget</th>
                 <th>Budget</th>
-                <th>City</th>
-                <th>Description</th>
-                <th>Status</th>
                 <th>Created</th>
                 <th></th>
                 <th></th>
+
             </tr>
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
                 <tr>
                     <td><?= $request->id ?></td>
-                    <td><?= $request->emp_id ?></td>
+                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_id ?></a></td>
                     <td><?= $request->worker_id ?></td>
-                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
                     <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
                     <td><?= $request->title ?></td>
                     <td><?= $request->newbudget ?></td>
                     <td><?= $request->budget ?></td>
-                    <td><?= $request->city ?></td>
-                    <td><?= $request->description ?></td>
-                    <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
                     <td><?= $request->created ?></td>
                     <td>
-                        <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->newbudget; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
+                        <a onclick="opene('<?php echo $request->title; ?>','<?php echo $request->newbudget; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
                             <i style="font-size: 25px" class="bx bxs-edit"></i>
                         </a>
                     </td>
@@ -95,11 +88,10 @@
 
 <div class="popup-v" id="edit">
     <h2>Update Budget</h2>
-    <form action="<?= ROOT ?>/admin/workrequests" method="POST">
+    <form action="<?= ROOT ?>/admin/bargains" method="POST">
         <h4>Title : </h4>
         <input style="margin-top: 10px" name="title" type="text" placeholder="Enter Ticket Title" disabled>
-        <h4>Description : </h4>
-        <input style="margin-top: 10px" name="description" type="text" placeholder="Enter Ticket Body" disabled>
+
         <h4>Budget : </h4>
         <input style="margin-top: 10px" name="budget" type="text" placeholder="budget" disabled>
         <h4>New Budget : </h4>
@@ -150,7 +142,7 @@
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const id = row.cells[0].innerText.toLowerCase();
-            const title = row.cells[5].innerText.toLowerCase();
+            const title = row.cells[4].innerText.toLowerCase();
 
             if (id.indexOf(searchString) > -1 || title.indexOf(searchString) > -1) {
                 row.style.display = '';
@@ -166,7 +158,7 @@
 
         for (let j = 0; j < rows.length; j++) {
             const row1 = rows[j];
-            const city = row1.cells[8].innerText.toLowerCase();
+            const city = row1.cells[1].innerText.toLowerCase();
 
             if ( city.indexOf(searchString) > -1) {
                 row1.style.display = '';
@@ -182,7 +174,7 @@
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const id = row.cells[2].innerText.toLowerCase();
-            const name = row.cells[4].innerText.toLowerCase();
+            const name = row.cells[3].innerText.toLowerCase();
 
             if (id.indexOf(searchString) > -1 || name.indexOf(searchString) > -1) {
                 row.style.display = '';
@@ -198,7 +190,7 @@
         popup.style.display = 'block';
         // Set the action URL for the form
         const form = document.getElementById('deleteForm');
-        form.action = `<?= ROOT ?>/admin/workrequests?id=${id}`;
+        form.action = `<?= ROOT ?>/admin/bargains?id=${id}`;
 
         console.log(form.action)
     }
@@ -208,10 +200,9 @@
         popup.style.display = 'none';
     }
 
-    function opene(title, description,newbudget, budget, id) {
+    function opene(title,newbudget, budget, id) {
         // Populate title and description input fields in the edit popup
         document.querySelector('#edit input[name="title"]').value = title;
-        document.querySelector('#edit input[name="description"]').value = description;
         document.querySelector('#edit input[name="budget"]').value = budget;
         document.querySelector('#edit input[name="newbudget"]').value = newbudget;
         document.querySelector('#edit input[name="id"]').value = id;
