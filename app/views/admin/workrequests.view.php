@@ -55,30 +55,32 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($requests as $request): ?>
-                <tr class="data">
-                    <td><?= $request->id ?></td>
-                    <td><?= $request->emp_id ?></td>
-                    <td><?= $request->worker_id ?></td>
-                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
-                    <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
-                    <td><?= $request->title ?></td>
-                    <td><?= $request->newbudget ?></td>
-                    <td><?= $request->budget ?></td>
-                    <td><?= $request->city ?></td>
-                    <td><?= $request->description ?></td>
-                    <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
-                    <td><?= $request->created ?></td>
-                    <td>
-                        <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->newbudget; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
-                            <i style="font-size: 25px" class="bx bxs-edit"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+            <?php if(is_array($requests)){
+                foreach ($requests as $request): ?>
+                    <tr class="data">
+                        <td><?= $request->id ?></td>
+                        <td><?= $request->emp_id ?></td>
+                        <td><?= $request->worker_id ?></td>
+                        <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
+                        <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
+                        <td><?= $request->title ?></td>
+                        <td><?= $request->newbudget ?></td>
+                        <td><?= $request->budget ?></td>
+                        <td><?= $request->city ?></td>
+                        <td><?= $request->description ?></td>
+                        <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
+                        <td><?= $request->created ?></td>
+                        <td>
+                            <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->newbudget; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
+                                <i style="font-size: 25px" class="bx bxs-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            } ?>
             </tbody>
         </table>
     </div>

@@ -522,7 +522,7 @@
             <h3>
                 User Name
             </h3>
-            <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['email']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
+            <input type="text" name="fullname" value="<?php echo $data['newData']['email']; ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
 
             <h3>
                 NIC Number
