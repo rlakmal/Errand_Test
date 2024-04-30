@@ -41,6 +41,14 @@
             align-items: center;
             line-height: 2;
         }
+
+        #newbudget {
+            width: 30%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+        }
     </style>
 </head>
 
@@ -52,6 +60,7 @@
 
     <?php
     if ($data) {
+
         foreach ($data as $item) {
             //show($data);
     ?>
@@ -103,7 +112,7 @@
                             Request Other Budget
                         </h3>
 
-                        <input name="newbudget" type="text" value='' class="newbudget edit-gen">
+                        <input name="newbudget" type="text" value='' id="newbudget" placeholder="Rs:">
 
                         <input type="hidden" name="id" value="<?php echo $item->id ?>">
 
@@ -114,7 +123,17 @@
                     </div>
                 </div>
                 <div class="index_bottom">
-                    <button type="button" name="Rquest" value="Request" class="close-button" onclick="markAsCompleted(<?php echo $item->id ?>)">Request</button>
+                    <?php if ($is_verified == 1) {
+                    ?>
+                        <button type="button" name="Rquest" value="Request" class="close-button" onclick="markAsCompleted(<?php echo $item->id ?>)">Request</button>
+                    <?php
+                    } else {
+                    ?>
+                        <button type="button" name="Rquest" value="Request" class="close-button" onclick="return alert('You are not a verified Worker');">Request</button>
+
+                    <?php
+                    }
+                    ?>
 
                     <a href="<?= ROOT ?>/worker/home"><button class="close-button">Back</button></a>
                 </div>

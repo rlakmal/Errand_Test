@@ -153,7 +153,8 @@ route('member/verification2', 'member/Verification2@index');
 route('member/employers', 'member/EmployersList@index');
 route('member/employeracc', 'member/EmployerAcc@index');
 route('member/account', 'member/Account@index');
-route('member/contactus', 'member/ContactUs@index');
+route('member/contactus', 'member/ContactQuery@index');
+route('member/mailsent', 'member/ContactQuery@sendingMail');
 
 
 

@@ -53,7 +53,8 @@ CREATE VIEW workers_from_emp AS
     worker.city as city,
     worker.id as worker_id,
     worker.profile_image as profile_image,
-    worker.created as created
+    worker.created as created,
+    worker.avg_rating as avg_rating
     FROM worker INNER JOIN employer
     ON worker.email = employer.email
     WHERE employer.status = worker.status

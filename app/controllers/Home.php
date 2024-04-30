@@ -15,6 +15,10 @@ class Home extends Controller
         // require_once 'Model.php';
         // echo "this is a home controller";
 
+
+
+
+
         // $user = new User;
 
         // $arr['first_name'] = 'dilum';

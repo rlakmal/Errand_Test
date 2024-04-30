@@ -374,7 +374,7 @@
                           <input name="message" type="text" class="message-box" placeholder="Message" />
                         </div>
                         <div class="d-flex ">
-                          <button name="send_btn" type="button" onclick="validateForm()">
+                          <button name="send_btn" type="submit" onclick="validateForm()">
                             SEND
                           </button>
                         </div>

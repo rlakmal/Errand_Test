@@ -76,7 +76,7 @@
     </div>
     <script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
 
-    <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script>
+    <!-- <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script> -->
 
     <script>
         function googleTranslateElementInit() {

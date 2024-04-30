@@ -117,6 +117,7 @@
         @media only screen and (max-width: 768px) {
             .profile-container2 {
                 max-width: 99%;
+                height: 200px;
             }
 
             .index {

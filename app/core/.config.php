@@ -10,7 +10,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
 
 
-    define('DBNAME', 'project_db9');
+    define('DBNAME', 'my_project_db');
 
 
 
