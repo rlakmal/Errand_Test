@@ -76,8 +76,10 @@
             function searchInput() {
                 var input, filter, data, items, i, txtValue;
                 input = document.getElementById("search");
+                console.log(input);
                 filter = input.value.toUpperCase();
                 data = document.getElementById("set-marginid");
+                console.log(data);
                 items = data.getElementsByClassName("main-container2");
 
                 for (i = 0; i < items.length; i++) {

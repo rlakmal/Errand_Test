@@ -20,6 +20,7 @@ class WorkerProfile extends Controller
                 'results' => $findreviews,
                 'data' => $data
             ];
+            //show($viewData);
             $this->view('worker/workerprofile', $viewData);
         }
     }
@@ -38,6 +39,7 @@ class WorkerProfile extends Controller
         $newData['expierience'] = $result->expierience;
         $newData['profile_image'] = $result->profile_image;
         $newData['certificate_image'] = $result->certificate_image;
+        $newData['verified'] = $result->verified;
         $data['newData'] = $newData;
 
         return $data;

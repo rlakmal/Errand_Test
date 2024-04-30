@@ -12,3 +12,12 @@
 .select-container {
   margin-top: -12px;
 }
+
+@media (max-width: 650px) {
+  .popup-report {
+    width: 80%;
+  }
+  .open-popup-report {
+    width: 80%;
+  }
+}

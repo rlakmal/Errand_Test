@@ -44,7 +44,7 @@
             border: 1px solid #f16a2d;
             border-radius: 4px;
             background-color: #f9f9f9;
-            color: white;
+            color: black;
         }
 
 

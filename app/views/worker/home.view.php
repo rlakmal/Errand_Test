@@ -84,7 +84,7 @@
         }
         ?>
     </div>
-    <div class="set-margin" id="set-marginid">
+    <div class="set-margin" id="set-margin">
         <h3 class="titile_tag">All Jobs</h3>
         <?php
         if (is_array($data)) {
@@ -122,10 +122,12 @@
                                 <img class="image" src="<?= ROOT ?>/assets/images/profileImages/<?php echo $item->profile_image  ?>" alt="placeholder">
                             </div>
                             <div class="index">
+
                                 <div class="profile-name"><?php echo $item->name ?></div>
                                 <div class="profile-ratings"><?php echo $times_ago ?></div>
                                 <div class="profile-type"><?php echo $item->title ?></div>
                                 <div class="budget">Rs <?php echo $item->budget ?>/= per day</div>
+                                <div type="hidden"> <?php echo $item->category ?></div>
 
                             </div>
                             <div class="bottom-index">
@@ -143,47 +145,53 @@
             }
         }
         ?>
-    </div>
-    <script>
-        function searchTable() {
-            var category, location;
-            category = document.getElementById("category").value.toUpperCase();
-            location = document.getElementById("location").value.toUpperCase();
 
-            var matchingItems = document.getElementsByClassName("post-container");
+        <script>
+            function searchTable() {
+                var input, filter, data, items, i, txtValue, category, location;
+                data = document.getElementById("set-margin");
+                items = data.getElementsByClassName("profile-container2");
+                category = document.getElementById("category").value.toUpperCase();
+                console.log(category);
+                location = document.getElementById("locationdata").value.toUpperCase();
+                console.log(location);
 
-            for (var i = 0; i < matchingItems.length; i++) {
-                var txtValue = matchingItems[i].textContent || matchingItems[i].innerText;
-                var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
-                var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
+                for (i = 0; i < items.length; i++) {
+                    txtValue = items[i].textContent || items[i].innerText;
+                    var categoryMatch = txtValue.toUpperCase().indexOf(category) > -1 || category === 'ALL';
+                    var locationMatch = txtValue.toUpperCase().indexOf(location) > -1 || location === 'ALL';
+                    console.log(categoryMatch);
+                    console.log(locationMatch);
 
-                if (categoryMatch && locationMatch) {
-                    matchingItems[i].style.display = "";
-                } else {
-                    matchingItems[i].style.display = "none";
+                    if (categoryMatch && locationMatch) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
                 }
             }
-        }
 
 
-        function searchInput() {
-            var input, filter, data, items, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            data = document.getElementById("set-marginid");
-            items = data.getElementsByClassName("post-container");
+            function searchInput() {
+                var input, filter, data, items, i, txtValue;
+                input = document.getElementById("search");
+                console.log(input);
+                filter = input.value.toUpperCase();
+                data = document.getElementById("set-margin");
+                console.log(data);
+                items = data.getElementsByClassName("profile-container2");
 
-            for (i = 0; i < items.length; i++) {
-                txtValue = items[i].textContent || items[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    items[i].style.display = "";
+                for (i = 0; i < items.length; i++) {
+                    txtValue = items[i].textContent || items[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        items[i].style.display = "";
 
-                } else {
-                    items[i].style.display = "none";
+                    } else {
+                        items[i].style.display = "none";
+                    }
                 }
             }
-        }
-    </script>
+        </script>
 
 
 </body>

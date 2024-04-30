@@ -222,7 +222,22 @@
 
         .scrollable-table {
             overflow: auto;
-            max-height: 700px;
+            max-height: 720px;
+        }
+
+        @media (max-width: 650px) {
+            /* td {
+                display: block;
+            }
+
+            th {
+                display: none;
+            } */
+
+            .rating-modal-content {
+                margin: 54% 0% 0% 23%;
+                width: 283px;
+            }
         }
     </style>
 </head>

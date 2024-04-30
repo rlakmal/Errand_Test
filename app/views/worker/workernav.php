@@ -9,7 +9,7 @@
     <style>
         /* Style for the "Powered by Google Translator" */
         .google-translate-element {
-            position: fixed;
+            position: relative;
             bottom: 10px;
             right: 10px;
             z-index: 9999;
@@ -18,6 +18,15 @@
             padding: 5px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjust the position of the Google Translate element */
+        #google_translate_element_sinhala {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            /* Ensure it's above other elements */
         }
 
         .round {
@@ -174,6 +183,23 @@
         //     }
         //     select.dispatchEvent(new Event('change'));
         // }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,si,ta' // Include Tamil (ta)
+            }, 'google_translate_element_sinhala');
+        }
+
+        function toggleLanguageTamil() {
+            var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+            if (select.value === 'en') {
+                select.value = 'ta'; // Switch to Tamil
+            } else {
+                select.value = 'en'; // Switch back to English
+            }
+            select.dispatchEvent(new Event('change'));
+        }
     </script>
 </body>
 

@@ -400,6 +400,16 @@
         color: #e9ecef;
     }
 
+    .deleter{
+        width: 100px;
+        background-color: red;
+        height: 40px;
+        cursor: pointer;
+        color: white;
+        border-radius: 20px;
+        border-color: darkred;
+        margin-top: 15px
+    }
 </style>
 
 <div class="main-container4">
@@ -408,7 +418,7 @@
         <div style="flex-direction: column">
             <a href="<?= ROOT ?>/admin/employers"><button style="width: 100px; cursor: pointer; background-color: orange;height: 40px; color: white; border-radius: 20px; border-color: bisque">Close</button></a>
             <div>
-                <button style="width: 100px; background-color: red;height: 40px; cursor: pointer; color: white; border-radius: 20px; border-color: darkred; margin-top: 15px" id="delete-button">Delete</button>
+                <button class="deleter" id="delete-button">Delete</button>
 
             </div>
         </div>
@@ -512,7 +522,7 @@
             <h3>
                 User Name
             </h3>
-            <input type="text" name="fullname" value="<?php echo ucfirst($data['newData']['email']); ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
+            <input type="text" name="fullname" value="<?php echo $data['newData']['email']; ?> " placeholder="Empty Full Name" class="edit-gen" readonly>
 
             <h3>
                 NIC Number
@@ -540,7 +550,7 @@
 
     <div class="review-container">
         <div class="tags">
-            <h2 class="info">Reviews</h2>
+            <h2 class="info">Worker Reviews</h2>
         </div>
         <?php
         if (is_array($data["reviews"])) {
@@ -564,6 +574,10 @@
                         ?>
                     </div>
                     <p><?php echo $item->user_review ?></p>
+                    <form action = "<?=ROOT?>/admin/employeracc?id=<?= $item->id?>" method="post">
+                        <input type="hidden" name = "employerid" value="<?=$data["newData"]["id"]?>">
+                        <button type="submit" class="deleter" name = "deletereview">Delete</button>
+                    </form>
                 </div>
                 <?php
             }

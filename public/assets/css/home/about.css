@@ -1,3 +1,277 @@
-h1 {
-  color: aqua;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather+Sans:wght@400;700&display=swap");
+
+:root {
+    --primary-color: #f16a2d;
+    --secondary-color: #ff8a1d;
+    --background-color: #f9ede8;
+    --dark-color: #0a0f43;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+h1, h2 {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.layout_padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.layout_padding-bottom {
+    padding-bottom: 120px;
+}
+
+.img-box img {
+    width: 100%;
+}
+
+.m-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* mission section */
+/* .mission .row {
+    align-items: center;
+} */
+
+/* story section */
+/* .story .row {
+    align-items: center;
+} */
+
+.about .detail-box h2 {
+    color: #f16a2d;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: none;
+}
+
+.about .detail-box p {
+    margin-top: 10px;
+}
+
+.about .detail-box a {
+    margin-top: 15px;
+    display: inline-block;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 45px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.about .img-box img {
+    width: 100%;
+}
+
+.about a:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.about .row {
+    align-items: center;
+}
+
+/* story */
+.story .detail-box h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.story .detail-box p {
+    margin-top: 10px;
+}
+
+.story .img-box img {
+    width: 100%;
+}
+
+.story .row {
+    align-items: center;
+}
+
+/* mission */
+
+.mission .detail-box h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mission .detail-box p {
+    margin-top: 10px;
+}
+
+.mission .img-box img {
+    width: 100%;
+}
+
+.mission .row {
+    align-items: center;
+}
+
+/* info section */
+.info{
+    padding: 75px 0;
+    background-color: var(--dark-color);
+    text-align: center;
+    color: #fff;
+}
+
+.info h4 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.info a {
+    margin: 0 5px;
+    color: var(--dark-color);
+}
+
+.info_items {
+    position: relative;
+}
+
+.info_items a {
+    position: relative;
+}
+
+.info_items .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.info_items .item .img-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 80px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.info_items .item p {
+    margin-top: 25px;
+    color: #fff;
+    margin-bottom: 0;
+    background-color: var(--dark-color);
+}
+
+.info a i {
+    font-size: 18px;
+}
+
+.info_items .item .img-box i {
+    font-size: 24px;
+}
+
+.info .social-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.info h4 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.info .social-box .box {
+    background-color: #ffffff;
+    padding: 5px 15px;
+}
+
+.info_items::before {
+    content: "";
+    position: absolute;
+    top: 65px;
+    width: 75%;
+    height: 1px;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
 }

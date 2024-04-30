@@ -223,7 +223,7 @@
 
     <div id="overlay" class="overlay"></div>
 
-    <!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script> -->
+    <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
     <!-- Google Translate Script -->
     <!-- <script src="https://translate.google.com/translate_a/element.js?key=YOUR_API_KEY&cb=googleTranslateElementInit"></script> -->
     <script src="<?= ROOT ?>/assets/js/jquery-3.7.1.min.js"></script>
@@ -254,23 +254,24 @@
         });
     </script>
     <script>
-        // function googleTranslateElementInit() {
-        //     new google.translate.TranslateElement({
-        //         pageLanguage: 'en',
-        //         includedLanguages: 'en,si'
-        //     }, 'google_translate_element_sinhala');
-        // }
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,si,ta' // Include Tamil (ta)
+            }, 'google_translate_element_sinhala');
+        }
 
-        // function toggleLanguageSinhala() {
-        //     var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
-        //     if (select.value === 'en') {
-        //         select.value = 'si';
-        //     } else {
-        //         select.value = 'en';
-        //     }
-        //     select.dispatchEvent(new Event('change'));
-        // }
+        function toggleLanguageTamil() {
+            var select = document.querySelector('#google_translate_element_sinhala .goog-te-combo');
+            if (select.value === 'en') {
+                select.value = 'ta'; // Switch to Tamil
+            } else {
+                select.value = 'en'; // Switch back to English
+            }
+            select.dispatchEvent(new Event('change'));
+        }
     </script>
+
 
     <!-- Google Maps API Script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6GOvTVdWC3aNfI8Jg4gOkyk74hiOB0RE&libraries=places&callback=initMap"></script>

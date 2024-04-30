@@ -7,21 +7,43 @@ class RequestJob extends Controller
         $username  = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         if ($username != 'User' && $_SESSION['USER']->status == 'worker') {
             $job = new EmpPost;
+            $worker_verify = new Worker();
             $newreq = new WorkeRrequestJobs;
+            $worker = new WorkerServices();
             $id = $_GET['id'];
             $arr['id'] = $id;
-            $results = $job->where($arr, 'id');
+            $data = $job->where($arr, 'id');
             // show($results);
 
-            $data['data'] = $results;;
+
+
+
+            $emp_id = $_SESSION['USER']->id;
+            $array['emp_id'] = $emp_id;
+            $results = $worker->where($array, 'emp_id');
+            // show($results);
+            $worker_id = $results[0]->worker_id;
+            unset($array['emp_id']);
+            $array['id'] = $worker_id;
+            $verify_result = $worker_verify->where($array, 'id');
+            // show($verify_result); 
+            $is_verified = $verify_result[0]->verified;
+            // show($is_verified);
+
+
+            $viewData = [
+                'data' => $data,
+                'is_verified' => $is_verified
+            ];
+            //show($viewData);
 
             // $worker_name = $_SESSION['USER']->name;
-            // $worker_id = $_SESSION['USER']->id;
+
             // if (isset($_POST['Rquest'])) {
             //     // show($_POST);
             //     $this->requestInsert($results, $_POST, $newreq, $worker_name, $worker_id);
             // }
-            $this->view('worker/requestjob', $data);
+            $this->view('worker/requestjob', $viewData);
         }
     }
     // private function requestInsert($results, $data, $newreq, $worker_name, $worker_id)
@@ -89,7 +111,7 @@ class RequestJob extends Controller
                 $newdata['status'] = "Pending";
                 $newdata['location'] = $datal;
                 $newdata['expire_date'] = date('Y-m-d', strtotime("+1 week"));
-                $message = "Job have new Job request from {$worker_name}";
+                $message = "You have new Job request from {$worker_name}";
                 $array['message'] = $message;
                 $array['emp_id'] = $results[0]->emp_id;
                 $array['notification_name'] = $worker_name;

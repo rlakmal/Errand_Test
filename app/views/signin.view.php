@@ -23,7 +23,7 @@
                             <h3>
                                 Errand
                             </h3>
-                            <!-- <h4>Amoral</h4> -->
+
                             <span>
                                 <a href="<?= ROOT ?>/home">
                                     <ion-icon name="chevron-back-outline"></ion-icon>
@@ -40,9 +40,10 @@
                         </div>
                         <?php
 
-                        if (!empty($data['errors'])) {
-                            echo $data['errors'];
-                        } ?>
+                        // if (!empty($data['errors'])) {
+                        //     echo $data['errors'];
+                        // } 
+                        ?>
 
                         <div class="actual-form">
                             <div class="input-wrap">
@@ -63,7 +64,7 @@
                             <input type="submit" value="Sign In" class="sign-btn" name="signIn">
                             <p class="text">
                                 Forget your password or your login details?
-                                <a href="<?= ROOT ?>/home/forgetpwd"> class="toggle-1">Get Help</a> Signing in
+                                <a href="<?= ROOT ?>/home/forgetpwd" class="toggle-1">Get Help</a> Signing in
                             </p>
 
                         </div>

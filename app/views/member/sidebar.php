@@ -27,14 +27,16 @@
             <span class="tooltip">Employers</span>
         </li>
         <!--            <li>-->
-        <!--                <a href="--><?php //= ROOT ?><!--/admin/admincrew">-->
+        <!--                <a href="--><?php //= ROOT 
+                                        ?><!--/admin/admincrew">-->
         <!--                    <i class="bx bxs-group"></i>-->
         <!--                    <span class="link_name">Admin Crew</span>-->
         <!--                </a>-->
         <!--                <span class="tooltip">Admin Crew</span>-->
         <!--            </li>-->
         <!--            <li>-->
-        <!--                <a href="--><?php //= ROOT ?><!--/admin/adnotification2">-->
+        <!--                <a href="--><?php //= ROOT 
+                                        ?><!--/admin/adnotification2">-->
         <!--                    <i class="bx bxs-bell-plus"></i>-->
         <!--                    <span class="link_name">Notifications</span>-->
         <!--                </a>-->
@@ -47,12 +49,13 @@
             </a>
             <span class="tooltip">Tickets</span>
         </li>
+
         <li>
-            <a href="#">
+            <a href="<?= ROOT ?>/member/contactus">
                 <i class="bx bxs-user-circle"></i>
-                <span class="link_name">Profile</span>
+                <span class="link_name">Contact_Us</span>
             </a>
-            <span class="tooltip">Profile</span>
+            <span class="tooltip">Contact_Us</span>
         </li>
         <!--            <li>-->
         <!--                <a href="#">-->
@@ -64,14 +67,15 @@
 
 
         <li class="profile" style="margin-bottom: 3%">
-<!--            <div class="profile_details">-->
-<!--                <img src="--><?php //= ROOT ?><!--/assets/images/manager/elon_musk.jpg" alt="profile image">-->
-<!--                <div class="profile_content">-->
-<!--                    <div class="name">Admin 1</div>-->
-<!---->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <div class="profile_details">-->
+            <!--                <img src="--><?php //= ROOT 
+                                                ?><!--/assets/images/manager/elon_musk.jpg" alt="profile image">-->
+            <!--                <div class="profile_content">-->
+            <!--                    <div class="name">Admin 1</div>-->
+            <!---->
+            <!---->
+            <!--                </div>-->
+            <!--            </div>-->
             <a href="<?= ROOT ?>/home/signout">
                 <i class="bx bx-log-out" id="log_out"></i>
                 <span class="link_name" style="margin-left: 10px">Logout</span>

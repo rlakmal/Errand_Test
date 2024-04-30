@@ -210,6 +210,11 @@
             th {
                 display: none;
             }
+
+            .rating-modal-content {
+                margin: 54% 0% 0% 23%;
+                width: 283px;
+            }
         }
     </style>
 </head>
