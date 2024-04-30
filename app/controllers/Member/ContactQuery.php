@@ -72,10 +72,10 @@ class ContactQuery extends Controller
             $contact->update($id, $updateData, 'id');
 
 
-            echo json_encode('Message sent, please check your inbox ' + $id);
+            echo json_encode('Message sent, please check your inbox ');
         } catch (Exception $e) {
             // Display error message if sending fails
-            echo json_encode('Message could not be sent. Mailer error: ' . $mail->ErrorInfo);
+            echo json_encode('Message could not be sent. Mailer error: ');
         }
     }
 }
