@@ -68,30 +68,32 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($requests as $request): ?>
-                <tr class="data">
-                    <td><?= $request->id ?></td>
-                    <td><?= $request->job_id ?></td>
-                    <td><?= $request->emp_id ?></td>
-                    <td><?= $request->worker_id ?></td>
-                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
-                    <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
-                    <td><?= $request->title ?></td>
-                    <td><?= $request->budget?></td>
-                    <td><?= $request->budget*.1 ?></td>
-                    <td class="type-<?php echo ($request->type == "worker") ? "worker" : "employer"?>"><?= $request->type ?></td>
-                    <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= ($request->payment_stat == "Pay Now") ? "Not Paid" : "Done" ?></td>
-                    <td><?= date($request->pay_date) ?></td>
-                    <td style=""><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= ($request->review_status == "Mark As Completed") ? "Not Marked as Complete" : ( ($request->review_status == "Rated") ? "Rated": "Complete") ?></div></td>
-                    <td ><div class="review-<?php echo ($request->worker_review == "Not_Rated") ? "markas" : ( ($request->review_status == "Job_Completed") ? "rated": "completed")?>"><?= ($request->worker_review == "Not_Rated") ? "Not Rated" : ( ($request->review_status == "Job_Completed") ? "Job Complete": "Rating Done") ?></div></td>
+            <?php if(is_array($requests)){
+                foreach ($requests as $request): ?>
+                    <tr class="data">
+                        <td><?= $request->id ?></td>
+                        <td><?= $request->job_id ?></td>
+                        <td><?= $request->emp_id ?></td>
+                        <td><?= $request->worker_id ?></td>
+                        <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
+                        <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
+                        <td><?= $request->title ?></td>
+                        <td><?= $request->budget?></td>
+                        <td><?= $request->budget*.1 ?></td>
+                        <td class="type-<?php echo ($request->type == "worker") ? "worker" : "employer"?>"><?= $request->type ?></td>
+                        <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= ($request->payment_stat == "Pay Now") ? "Not Paid" : "Done" ?></td>
+                        <td><?= date($request->pay_date) ?></td>
+                        <td style=""><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= ($request->review_status == "Mark As Completed") ? "Not Marked as Complete" : ( ($request->review_status == "Rated") ? "Rated": "Complete") ?></div></td>
+                        <td ><div class="review-<?php echo ($request->worker_review == "Not_Rated") ? "markas" : ( ($request->review_status == "Job_Completed") ? "rated": "completed")?>"><?= ($request->worker_review == "Not_Rated") ? "Not Rated" : ( ($request->review_status == "Job_Completed") ? "Job Complete": "Rating Done") ?></div></td>
 
-                    <td><?= $request->created ?></td>
+                        <td><?= $request->created ?></td>
 
-                    <td>
-                        <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+                        <td>
+                            <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            } ?>
             </tbody>
         </table>
     </div>

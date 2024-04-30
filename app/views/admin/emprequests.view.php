@@ -76,42 +76,44 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($requests as $request):
+            <?php if(is_array($requests)){
+                foreach ($requests as $request):
 
-                $expirationDate = $request->time_remain + (3 * 24 * 60 * 60);
+                    $expirationDate = $request->time_remain + (3 * 24 * 60 * 60);
 //            var_dump($request->time_remain);// 3 days in seconds
-                $timeRemaining = max(0, $expirationDate - time());
+                    $timeRemaining = max(0, $expirationDate - time());
 
-                ?>
-                <tr class="data">
-                    <td><?= $request->id ?></td>
-                    <td><?= $request->emp_id ?></td>
-                    <td><?= $request->worker_id ?></td>
-                    <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
-                    <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
-                    <td><?= $request->title ?></td>
-                    <td><?= $request->budget ?></td>
-                    <td><?= $request->city ?></td>
-                    <td><?= $request->description ?></td>
-                    <td>
-                        <img style="height: 45px;" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder">
-                        <img style="height: 45px;margin-left: 15px" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image1  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder1">
+                    ?>
+                    <tr class="data">
+                        <td><?= $request->id ?></td>
+                        <td><?= $request->emp_id ?></td>
+                        <td><?= $request->worker_id ?></td>
+                        <td><a href="<?=ROOT?>/admin/employeracc&id=<?= $request->emp_id ?>"><?= $request->emp_name ?></a></td>
+                        <td><a href="<?=ROOT?>/admin/workerprof&id=<?= $request->worker_id ?>"><?= $request->worker_name ?></a></td>
+                        <td><?= $request->title ?></td>
+                        <td><?= $request->budget ?></td>
+                        <td><?= $request->city ?></td>
+                        <td><?= $request->description ?></td>
+                        <td>
+                            <img style="height: 45px;" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder">
+                            <img style="height: 45px;margin-left: 15px" src="<?= ROOT ?>/assets/images/jobimages/<?php echo $request->job_image1  ?>" onclick="openModal(this.src)" alt="placeholder" id="workergs_image_placeholder1">
 
-                    </td>
+                        </td>
 
-                    <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
-                    <td><?= $request->created ?></td>
-                    <td class="status-<?= strtolower($request->status) ?>"><?php echo remain_Time($timeRemaining, $request->status) ?></td>
-                    <td>
-                        <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
-                            <i style="font-size: 25px" class="bx bxs-edit"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+                        <td class="status-<?= strtolower($request->status) ?>"><?= $request->status ?></td>
+                        <td><?= $request->created ?></td>
+                        <td class="status-<?= strtolower($request->status) ?>"><?php echo remain_Time($timeRemaining, $request->status) ?></td>
+                        <td>
+                            <a onclick="opene('<?php echo $request->title; ?>', '<?php echo $request->description; ?>','<?php echo $request->budget; ?>', '<?php echo $request->id; ?>')">
+                                <i style="font-size: 25px" class="bx bxs-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <button class="delete-button" onclick="showConfirmationPopup(<?= $request->id ?>)">Delete</button>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            } ?>
             </tbody>
         </table>
     </div>
