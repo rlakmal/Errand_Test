@@ -83,7 +83,7 @@
                     <td class="status-<?php echo ($request->payment_stat == "Pay Now") ? "unpaid" : "paid"?>"><?= ($request->payment_stat == "Pay Now") ? "Not Paid" : "Done" ?></td>
                     <td><?= date($request->pay_date) ?></td>
                     <td style=""><div class="review-<?php echo ($request->review_status == "Mark As Completed") ? "markas" : ( ($request->review_status == "Rated") ? "rated": "completed")?>"><?= ($request->review_status == "Mark As Completed") ? "Not Marked as Complete" : ( ($request->review_status == "Rated") ? "Rated": "Complete") ?></div></td>
-                    <td ><div class="review-<?php echo ($request->worker_review == "Not_Rated") ? "markas" : ( ($request->review_status == "Job_Completed") ? "rated": "completed")?>"><?= ($request->worker_review == "Not_Rated") ? "Not Rated" : ( ($request->review_status == "Job_Completed") ? "Job Complete": "Rated") ?></div></td>
+                    <td ><div class="review-<?php echo ($request->worker_review == "Not_Rated") ? "markas" : ( ($request->review_status == "Job_Completed") ? "rated": "completed")?>"><?= ($request->worker_review == "Not_Rated") ? "Not Rated" : ( ($request->review_status == "Job_Completed") ? "Job Complete": "Rating Done") ?></div></td>
 
                     <td><?= $request->created ?></td>
 
