@@ -28,6 +28,7 @@
             z-index: 9999;
             /* Ensure it's above other elements */
         }
+
         .round {
             width: 27px;
             /* height: 20px; */
@@ -127,7 +128,7 @@
     </div>
     <script src="<?= ROOT ?>/assets/js/employer/navlist.js"></script>
 
-     <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script>
+    <!-- <script src="https://translate.google.com/translate_a/element.js?key=AIzaSyD2dD6OZ4tXBs4f6FYMocZmVsSEN_3Tj50&cb=googleTranslateElementInit"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {

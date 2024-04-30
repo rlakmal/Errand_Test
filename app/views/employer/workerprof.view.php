@@ -96,6 +96,24 @@
             color: #e9ecef;
         }
 
+        .badge {
+            background-color: #40a048;
+            color: white;
+            padding: 4px 10px;
+            font-size: 16px;
+            border-radius: 16px;
+            margin-left: -72px;
+        }
+
+        .notbadge {
+            background-color: red;
+            color: white;
+            padding: 4px 10px;
+            font-size: 16px;
+            border-radius: 16px;
+            margin-left: -72px;
+        }
+
         @media only screen and (max-width: 600px) {
             .review-container {
                 height: 80%;
@@ -127,6 +145,16 @@
                     <div class="container-left">
                         <div class="picture">
                             <img class="image" src="<?= ROOT ?>/assets/images/worker/profileImages/<?php echo $item->profile_image ?>" alt="placeholder" id="workerprofile_image_placeholder">
+                            <?php if ($item->verified == 1) {
+                            ?>
+                                <button class="badge">Verified</button>
+                            <?php
+                            } else {
+                            ?>
+                                <button class="notbadge">Not Verified</button>
+                            <?php
+                            }
+                            ?>
                         </div>
 
 
@@ -198,7 +226,18 @@
                             View GS Certificate
                         </div>
 
-                        <button onclick="openRequest()" class="close-button">Request Worker</button>
+
+                        <?php if ($item->verified == 1) {
+                        ?>
+                            <button onclick="openRequest()" class="close-button">Request Worker</button> <?php
+                                                                                                        } else {
+                                                                                                            ?>
+                            <button type="button" class="close-button" onclick="return alert('This worker is not a verified worer');">Request</button>
+
+                        <?php
+                                                                                                        }
+                        ?>
+
 
                     </div>
 

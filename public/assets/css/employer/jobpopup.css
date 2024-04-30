@@ -298,4 +298,9 @@ table tbody tr.active-row {
   th {
     display: none;
   }
+  .popup-view,
+  .popup-report,
+  .popup-edit {
+    width: 80%;
+  }
 }

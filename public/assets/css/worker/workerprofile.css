@@ -217,6 +217,25 @@ body {
   margin-left: 115px;
   padding: 10px;
 }
+
+.badge {
+  background-color: #40a048;
+  color: white;
+  padding: 4px 10px;
+  font-size: 16px;
+  border-radius: 16px;
+  margin-left: -72px;
+}
+
+.notbadge {
+  background-color: red;
+  color: white;
+  padding: 4px 10px;
+  font-size: 16px;
+  border-radius: 16px;
+  margin-left: -72px;
+  border: none;
+}
 @media only screen and (max-width: 600px) {
   .main-container4 {
     height: 100%;
