@@ -304,27 +304,29 @@
 
                 <div class="row">
 
-                  <div class="col-md-6 col">
-                    <form action="">
-                      <div>
-                        <input type="text" placeholder="Name" />
-                      </div>
-                      <div>
-                        <input type="text" placeholder="Phone Number" />
-                      </div>
-                      <div>
-                        <input type="email" placeholder="Email" />
-                      </div>
-                      <div>
-                        <input type="text" class="message-box" placeholder="Message" />
-                      </div>
-                      <div class="d-flex ">
-                        <button>
-                          SEND
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+
+                    <div class="col-md-6 col">
+                      <form id="myform" method="POST">
+                        <div>
+                          <input name="name" type="text" placeholder="Name" />
+                        </div>
+                        <div>
+                          <input name="phone_number" type="text" placeholder="Phone Number" />
+                        </div>
+                        <div>
+                          <input id="email" name="email" type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                          <input name="message" type="text" class="message-box" placeholder="Message" />
+                        </div>
+                        <div class="d-flex ">
+                          <button name="send_btn" type="submit" onclick="validateForm()">
+                            SEND
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
 
                   <div class="col-md-6 col">
                     <div class="img-box" style="background-color: aqua;">

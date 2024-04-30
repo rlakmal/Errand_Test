@@ -30,7 +30,7 @@ body {
   margin: 5%;
   margin-left: 27%;
   width: 65%;
-  padding: 41px;
+  padding: 80px;
   background-color: #ffffff;
   flex-direction: column;
   align-content: center;
@@ -124,7 +124,7 @@ body {
     flex-direction: column;
   }
   .container-left {
-    width: 105%;
+    width: 212%;
   }
 
   .profile-container3 {
@@ -144,6 +144,6 @@ body {
     max-width: 250px;
   }
   .container-right {
-    width: 141%;
+    width: 235%;
   }
 }
