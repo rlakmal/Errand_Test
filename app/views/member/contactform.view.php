@@ -278,10 +278,10 @@
     <script>
         let popupRequest = document.querySelector(".popup-view");
         let overlay2 = document.getElementById("overlay2");
-        let currentId; 
+        let currentId;
 
         function openRequest(id) {
-            currentId = id; 
+            currentId = id;
             console.log(location);
             popupRequest.classList.add("open-popup-view");
             overlay2.classList.add("overlay-active");
@@ -300,10 +300,11 @@
                 return;
             }
 
-            console.log("on func" + currentId); // Use the current ID
+            console.log("on func" + currentId);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    console.log(xhttp.responseText);
                     alert(xhttp.responseText);
                 }
             };
